@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:metamodel="http://www.example.org/metamodel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_4Jl1sO9vEeWg8pS7XMo_4Q" selectedViews="_oK3yYO9zEeWg8pS7XMo_4Q" version="10.1.0.201509162000">
+  <semanticResources>simqri.metamodel</semanticResources>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_oK3yYO9zEeWg8pS7XMo_4Q">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_a7aSAO90EeWg8pS7XMo_4Q" name="sampleDiagram">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_a7a5EO90EeWg8pS7XMo_4Q" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_a7a5Ee90EeWg8pS7XMo_4Q"/>
+      </ownedAnnotationEntries>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_a7g_sO90EeWg8pS7XMo_4Q" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_a7g_se90EeWg8pS7XMo_4Q" type="Sirius" element="_a7aSAO90EeWg8pS7XMo_4Q" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_2m5k0O94EeWg8pS7XMo_4Q" type="2001" element="_2mvz0O94EeWg8pS7XMo_4Q">
+            <children xmi:type="notation:Node" xmi:id="_2m_rcO94EeWg8pS7XMo_4Q" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_2m_rce94EeWg8pS7XMo_4Q" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_2nmIYO94EeWg8pS7XMo_4Q" type="3005" element="_2mxB8O94EeWg8pS7XMo_4Q">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_2nmIYe94EeWg8pS7XMo_4Q" fontName=".SF NS Text"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2nmIYu94EeWg8pS7XMo_4Q"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_2m5k0e94EeWg8pS7XMo_4Q" fontName=".SF NS Text" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2m5k0u94EeWg8pS7XMo_4Q" x="204" y="188" width="82" height="60"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_a7g_su90EeWg8pS7XMo_4Q"/>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_2mvz0O94EeWg8pS7XMo_4Q" name="yo" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="metamodel:Supplier" href="simqri.metamodel#//@component.0"/>
+        <semanticElements xmi:type="metamodel:Supplier" href="simqri.metamodel#//@component.0"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_2mxB8O94EeWg8pS7XMo_4Q" labelSize="10" workspacePath="/be.cetic.simqri.sample/images/supplier.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/resource/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/resource/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/resource/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_a7a5Eu90EeWg8pS7XMo_4Q"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/resource/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer"/>
+      <target xmi:type="metamodel:Model" href="simqri.metamodel#/"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/resource/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>

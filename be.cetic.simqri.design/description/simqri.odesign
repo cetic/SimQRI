@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="simqri" version="10.1.3.201511131800">
+  <ownedViewpoints name="SimQRi Design" modelFileExtension="">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SimQRi Diagram" domainClass="metamodel.Model" enablePopupBars="true">
+      <metamodel href="http://www.example.org/metamodel#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="SD_supplier" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.supplierDelay)" domainClass="metamodel.Supplier">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.sample/images/supplier.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <toolSections name="Tools"/>
+        <customization/>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>
