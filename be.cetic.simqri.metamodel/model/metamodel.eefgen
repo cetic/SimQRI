@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<eef-gen:EEFGenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:eef-gen="http://www.eclipse.org/emf/eef/generation/1.0.0" genDirectory="/be.cetic.simqri.metamodel.edit/src-gen">
+  <editionContexts basePackage="be.cetic.simqri" descriptorsContributorID=" org.eclipse.sirius.diagram.ui" descriptorsGenericPropertiesViews="true" leafComponentsSuperClass="org.eclipse.sirius.eef.components.SiriusAwarePropertiesEditingComponent">
+    <PropertiesEditionContext href="metamodel.components#_A4uCoO9oEeWQ_6g8yTZsSw"/>
+  </editionContexts>
+  <viewsRepositories basePackage="be.cetic.simqri.metamodel" swtViews="true" formViews="true">
+    <viewsRepository href="metamodel.components#_A4uC--9oEeWQ_6g8yTZsSw"/>
+  </viewsRepositories>
+</eef-gen:EEFGenModel>

@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eef-components="http://www.eclipse.org/emf/eef/components/1.0.0" xmlns:eef-views="http://www.eclipse.org/emf/eef/views/1.0.0">
+  <eef-components:PropertiesEditionContext xmi:id="_A4uCoO9oEeWQ_6g8yTZsSw" documentation="Edition Context for metamodel GenPackage">
+    <categories xmi:id="_A4uCoe9oEeWQ_6g8yTZsSw" name="metamodel">
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uCou9oEeWQ_6g8yTZsSw" name="Model" views="_A4uC_e9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCo-9oEeWQ_6g8yTZsSw" name="name" views="_A4uC_-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Model/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCpO9oEeWQ_6g8yTZsSw" name="valid" views="_A4uDAO9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Model/valid"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCpe9oEeWQ_6g8yTZsSw" name="query" views="_A4uDAe9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Model/query"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCpu9oEeWQ_6g8yTZsSw" name="component" views="_A4uDAu9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Model/component"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCp-9oEeWQ_6g8yTZsSw" name="flow" views="_A4uDA-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Model/flow"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Model"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uCqO9oEeWQ_6g8yTZsSw" name="Query" views="_A4uDBO9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCqe9oEeWQ_6g8yTZsSw" name="name" views="_A4uDBu9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Query/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCqu9oEeWQ_6g8yTZsSw" name="value" views="_A4uDB-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Query/value"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Query"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uCq-9oEeWQ_6g8yTZsSw" name="Storage" views="_A4uDCO9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCrO9oEeWQ_6g8yTZsSw" name="name" views="_A4uDCu9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Component/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCre9oEeWQ_6g8yTZsSw" name="size" views="_A4uDC-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Storage/size"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCru9oEeWQ_6g8yTZsSw" name="initialContent" views="_A4uDDO9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Storage/initialContent"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCr-9oEeWQ_6g8yTZsSw" name="overflow" views="_A4uDDe9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Storage/overflow"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCsO9oEeWQ_6g8yTZsSw" name="storageOutputFlow" views="_A4uDDu9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Storage/storageOutputFlow"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Storage"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uCse9oEeWQ_6g8yTZsSw" name="Supplier" views="_A4upsO9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCsu9oEeWQ_6g8yTZsSw" name="name" views="_A4upsu9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Component/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCs-9oEeWQ_6g8yTZsSw" name="deliveredPercentage" views="_A4ups-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Supplier/deliveredPercentage"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCtO9oEeWQ_6g8yTZsSw" name="refillPolicy" views="_A4uptO9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Supplier/refillPolicy"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_aueNwO9qEeWQ_6g8yTZsSw" name="delay" views="_VWKsUO9qEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Supplier/supplierDelay"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Supplier"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uCte9oEeWQ_6g8yTZsSw" name="ConveyorBelt" views="_A4upte9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCtu9oEeWQ_6g8yTZsSw" name="name" views="_A4upt-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Component/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCt-9oEeWQ_6g8yTZsSw" name="duration" views="_A4upuO9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Process/duration"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCuO9oEeWQ_6g8yTZsSw" name="minimalSeparationBetweenBatches" views="_A4upue9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ConveyorBelt/minimalSeparationBetweenBatches"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_0nUbEO9qEeWQ_6g8yTZsSw" name="output" views="_hhL3sO9qEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ConveyorBelt/output"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ConveyorBelt"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uCue9oEeWQ_6g8yTZsSw" name="BatchProcess" views="_A4upuu9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCuu9oEeWQ_6g8yTZsSw" name="name" views="_A4upvO9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Component/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCu-9oEeWQ_6g8yTZsSw" name="duration" views="_A4upve9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Process/duration"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCvO9oEeWQ_6g8yTZsSw" name="percentageOfSuccess" views="_A4upvu9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//BatchProcess/percentageOfSuccess"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCve9oEeWQ_6g8yTZsSw" name="numberOfLines" views="_A4upv-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//BatchProcess/numberOfLines"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_EidCEO9rEeWQ_6g8yTZsSw" name="outputs" views="_9iwsEO9qEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//BatchProcess/outputs"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//BatchProcess"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uCvu9oEeWQ_6g8yTZsSw" name="Output" views="_A4upwO9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCv-9oEeWQ_6g8yTZsSw" name="type" views="_A4upwu9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Output/type"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCwO9oEeWQ_6g8yTZsSw" name="processOutputFlow" views="_A4upw-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Output/processOutputFlow"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCwe9oEeWQ_6g8yTZsSw" name="description" views="_A4upxO9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Output/description"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Output"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uCwu9oEeWQ_6g8yTZsSw" name="StorageOutputFlow" views="_A4upxe9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCw-9oEeWQ_6g8yTZsSw" name="destination" views="_A4upx-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//StorageOutputFlow/destination"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCxO9oEeWQ_6g8yTZsSw" name="source" views="_A4upyO9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//StorageOutputFlow/source"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_b-9IwO9rEeWQ_6g8yTZsSw" name="quantity" views="_Pup0wO9rEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Flow/quantity"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//StorageOutputFlow"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uCxe9oEeWQ_6g8yTZsSw" name="ProcessOutputFlow" views="_A4upye9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCxu9oEeWQ_6g8yTZsSw" name="destination" views="_A4upy-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ProcessOutputFlow/destination"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCx-9oEeWQ_6g8yTZsSw" name="source" views="_A4upzO9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ProcessOutputFlow/source"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_faBhcO9rEeWQ_6g8yTZsSw" name="quantity" views="_Td0OIO9rEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Flow/quantity"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_j0hW0O9rEeWQ_6g8yTZsSw" name="delay" views="_ZcM4IO9rEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ProcessOutputFlow/processOutputFlowDelay"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ProcessOutputFlow"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uCyO9oEeWQ_6g8yTZsSw" name="OrderOnStockThreshold" views="_A4upze9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCye9oEeWQ_6g8yTZsSw" name="period" views="_A4upz-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//OrderOnStockThreshold/period"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCyu9oEeWQ_6g8yTZsSw" name="threshold" views="_A4up0O9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//OrderOnStockThreshold/threshold"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCy-9oEeWQ_6g8yTZsSw" name="name" views="_A4up0e9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//OrderOnStockThreshold/name"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCzO9oEeWQ_6g8yTZsSw" name="orderQuantity" views="_A4up0u9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//OrderOnStockThreshold/orderQuantity"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCze9oEeWQ_6g8yTZsSw" name="orderType" views="_A4up0-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//OrderOnStockThreshold/orderType"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCzu9oEeWQ_6g8yTZsSw" name="storage" views="_A4up1O9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//OrderOnStockThreshold/storage"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uCz-9oEeWQ_6g8yTZsSw" name="supplier" views="_A4up1e9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//OrderOnStockThreshold/supplier"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//OrderOnStockThreshold"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC0O9oEeWQ_6g8yTZsSw" name="Cauchy" views="_A4up1u9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC0e9oEeWQ_6g8yTZsSw" name="location" views="_A4up2O9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Cauchy/location"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC0u9oEeWQ_6g8yTZsSw" name="scale" views="_A4up2e9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Cauchy/scale"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Cauchy"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC0-9oEeWQ_6g8yTZsSw" name="Binomial" views="_A4up2u9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC1O9oEeWQ_6g8yTZsSw" name="nbrOfTrial" views="_A4up3O9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Binomial/nbrOfTrial"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC1e9oEeWQ_6g8yTZsSw" name="probaOfSuccess" views="_A4up3e9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Binomial/probaOfSuccess"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Binomial"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC1u9oEeWQ_6g8yTZsSw" name="Beta" views="_A4up3u9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC1-9oEeWQ_6g8yTZsSw" name="freedomDegreeA" views="_A4up4O9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Beta/freedomDegreeA"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC2O9oEeWQ_6g8yTZsSw" name="freedomDegreeB" views="_A4up4e9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Beta/freedomDegreeB"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Beta"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC2e9oEeWQ_6g8yTZsSw" name="Scalar" views="_A4up4u9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC2u9oEeWQ_6g8yTZsSw" name="value" views="_A4up5O9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Scalar/value"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Scalar"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC2-9oEeWQ_6g8yTZsSw" name="ChiSquare" views="_A4up5e9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC3O9oEeWQ_6g8yTZsSw" name="degreeOfFreedom" views="_A4up5-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ChiSquare/degreeOfFreedom"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ChiSquare"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC3e9oEeWQ_6g8yTZsSw" name="DiracDelta" views="_A4up6O9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC3u9oEeWQ_6g8yTZsSw" name="mean" views="_A4up6u9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//DiracDelta/mean"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//DiracDelta"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC3-9oEeWQ_6g8yTZsSw" name="Exponential" views="_A4up6-9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC4O9oEeWQ_6g8yTZsSw" name="scale" views="_A4up7e9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Exponential/scale"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Exponential"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC4e9oEeWQ_6g8yTZsSw" name="FDistribution" views="_A4up7u9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC4u9oEeWQ_6g8yTZsSw" name="freedomDegreeA" views="_A4up8O9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//FDistribution/freedomDegreeA"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC4-9oEeWQ_6g8yTZsSw" name="freedomDegreeB" views="_A4up8e9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//FDistribution/freedomDegreeB"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//FDistribution"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC5O9oEeWQ_6g8yTZsSw" name="Gamma" views="_A4up8u9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC5e9oEeWQ_6g8yTZsSw" name="shape" views="_A4up9O9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Gamma/shape"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Gamma"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC5u9oEeWQ_6g8yTZsSw" name="Geometric" views="_A4up9e9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC5-9oEeWQ_6g8yTZsSw" name="probaOfSuccess" views="_A4up9-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Geometric/probaOfSuccess"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Geometric"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC6O9oEeWQ_6g8yTZsSw" name="LogNormal" views="_A4up-O9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC6e9oEeWQ_6g8yTZsSw" name="location" views="_A4up-u9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//LogNormal/location"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC6u9oEeWQ_6g8yTZsSw" name="scale" views="_A4up--9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//LogNormal/scale"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//LogNormal"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC6-9oEeWQ_6g8yTZsSw" name="Gaussian" views="_A4up_O9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC7O9oEeWQ_6g8yTZsSw" name="location" views="_A4up_u9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Gaussian/location"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC7e9oEeWQ_6g8yTZsSw" name="scale" views="_A4up_-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Gaussian/scale"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Gaussian"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC7u9oEeWQ_6g8yTZsSw" name="Pareto" views="_A4uqAO9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC7-9oEeWQ_6g8yTZsSw" name="shape" views="_A4uqAu9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Pareto/shape"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC8O9oEeWQ_6g8yTZsSw" name="scale" views="_A4uqA-9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Pareto/scale"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Pareto"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC8e9oEeWQ_6g8yTZsSw" name="Poisson" views="_A4uqBO9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC8u9oEeWQ_6g8yTZsSw" name="interval" views="_A4uqBu9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Poisson/interval"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Poisson"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC8-9oEeWQ_6g8yTZsSw" name="StudentsT" views="_A4uqB-9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC9O9oEeWQ_6g8yTZsSw" name="degreeOfFreedom" views="_A4uqCe9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//StudentsT/degreeOfFreedom"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//StudentsT"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC9e9oEeWQ_6g8yTZsSw" name="Uniform" views="_A4uqCu9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC9u9oEeWQ_6g8yTZsSw" name="minimum" views="_A4uqDO9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Uniform/minimum"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC9-9oEeWQ_6g8yTZsSw" name="maximum" views="_A4uqDe9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Uniform/maximum"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Uniform"/>
+      </bindings>
+      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_A4uC-O9oEeWQ_6g8yTZsSw" name="Weibull" views="_A4uqDu9oEeWQ_6g8yTZsSw">
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC-e9oEeWQ_6g8yTZsSw" name="shape" views="_A4uqEO9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Weibull/shape"/>
+        </properties>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_A4uC-u9oEeWQ_6g8yTZsSw" name="scale" views="_A4uqEe9oEeWQ_6g8yTZsSw">
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Weibull/scale"/>
+        </properties>
+        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Weibull"/>
+      </bindings>
+    </categories>
+    <model href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.genmodel#//metamodel"/>
+  </eef-components:PropertiesEditionContext>
+  <eef-views:ViewsRepository xmi:id="_A4uC--9oEeWQ_6g8yTZsSw" documentation="Views repository for metamodel GenPackage" name="metamodel">
+    <RepositoryKind>SWT</RepositoryKind>
+    <RepositoryKind>Form</RepositoryKind>
+    <categories xmi:id="_A4uC_O9oEeWQ_6g8yTZsSw" name="metamodel">
+      <views xmi:id="_A4uC_e9oEeWQ_6g8yTZsSw" name="Model">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4uC_u9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uC_-9oEeWQ_6g8yTZsSw" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDAO9oEeWQ_6g8yTZsSw" name="valid">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDAe9oEeWQ_6g8yTZsSw" name="query">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDAu9oEeWQ_6g8yTZsSw" name="component">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDA-9oEeWQ_6g8yTZsSw" name="flow">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4uDBO9oEeWQ_6g8yTZsSw" name="Query">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4uDBe9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDBu9oEeWQ_6g8yTZsSw" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDB-9oEeWQ_6g8yTZsSw" name="value">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.2"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4uDCO9oEeWQ_6g8yTZsSw" name="Storage">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4uDCe9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDCu9oEeWQ_6g8yTZsSw" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDC-9oEeWQ_6g8yTZsSw" name="size">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDDO9oEeWQ_6g8yTZsSw" name="initialContent">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDDe9oEeWQ_6g8yTZsSw" name="overflow">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uDDu9oEeWQ_6g8yTZsSw" name="storageOutputFlow">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4upsO9oEeWQ_6g8yTZsSw" name="Supplier">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4upse9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upsu9oEeWQ_6g8yTZsSw" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4ups-9oEeWQ_6g8yTZsSw" name="deliveredPercentage">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uptO9oEeWQ_6g8yTZsSw" name="refillPolicy">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_VWKsUO9qEeWQ_6g8yTZsSw" name="delay">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.14"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4upte9oEeWQ_6g8yTZsSw" name="ConveyorBelt">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4uptu9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upt-9oEeWQ_6g8yTZsSw" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upuO9oEeWQ_6g8yTZsSw" name="duration">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upue9oEeWQ_6g8yTZsSw" name="minimalSeparationBetweenBatches">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_hhL3sO9qEeWQ_6g8yTZsSw" name="output">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.14"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4upuu9oEeWQ_6g8yTZsSw" name="BatchProcess">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4upu-9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upvO9oEeWQ_6g8yTZsSw" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upve9oEeWQ_6g8yTZsSw" name="duration">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upvu9oEeWQ_6g8yTZsSw" name="percentageOfSuccess">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upv-9oEeWQ_6g8yTZsSw" name="numberOfLines">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_9iwsEO9qEeWQ_6g8yTZsSw" name="outputs">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4upwO9oEeWQ_6g8yTZsSw" name="Output">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4upwe9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upwu9oEeWQ_6g8yTZsSw" name="type">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upw-9oEeWQ_6g8yTZsSw" name="processOutputFlow">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upxO9oEeWQ_6g8yTZsSw" name="description">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4upxe9oEeWQ_6g8yTZsSw" name="StorageOutputFlow">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4upxu9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upx-9oEeWQ_6g8yTZsSw" name="destination">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upyO9oEeWQ_6g8yTZsSw" name="source">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_Pup0wO9rEeWQ_6g8yTZsSw" name="quantity">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.14"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4upye9oEeWQ_6g8yTZsSw" name="ProcessOutputFlow">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4upyu9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upy-9oEeWQ_6g8yTZsSw" name="destination">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upzO9oEeWQ_6g8yTZsSw" name="source">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_Td0OIO9rEeWQ_6g8yTZsSw" name="quantity">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.14"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_ZcM4IO9rEeWQ_6g8yTZsSw" name="delay">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.14"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4upze9oEeWQ_6g8yTZsSw" name="OrderOnStockThreshold">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4upzu9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4upz-9oEeWQ_6g8yTZsSw" name="period">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up0O9oEeWQ_6g8yTZsSw" name="threshold">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up0e9oEeWQ_6g8yTZsSw" name="name">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up0u9oEeWQ_6g8yTZsSw" name="orderQuantity">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up0-9oEeWQ_6g8yTZsSw" name="orderType">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.2"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up1O9oEeWQ_6g8yTZsSw" name="storage">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up1e9oEeWQ_6g8yTZsSw" name="supplier">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up1u9oEeWQ_6g8yTZsSw" name="Cauchy">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up1-9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up2O9oEeWQ_6g8yTZsSw" name="location">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up2e9oEeWQ_6g8yTZsSw" name="scale">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up2u9oEeWQ_6g8yTZsSw" name="Binomial">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up2-9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up3O9oEeWQ_6g8yTZsSw" name="nbrOfTrial">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up3e9oEeWQ_6g8yTZsSw" name="probaOfSuccess">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up3u9oEeWQ_6g8yTZsSw" name="Beta">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up3-9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up4O9oEeWQ_6g8yTZsSw" name="freedomDegreeA">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up4e9oEeWQ_6g8yTZsSw" name="freedomDegreeB">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up4u9oEeWQ_6g8yTZsSw" name="Scalar">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up4-9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up5O9oEeWQ_6g8yTZsSw" name="value">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up5e9oEeWQ_6g8yTZsSw" name="ChiSquare">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up5u9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up5-9oEeWQ_6g8yTZsSw" name="degreeOfFreedom">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up6O9oEeWQ_6g8yTZsSw" name="DiracDelta">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up6e9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up6u9oEeWQ_6g8yTZsSw" name="mean">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up6-9oEeWQ_6g8yTZsSw" name="Exponential">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up7O9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up7e9oEeWQ_6g8yTZsSw" name="scale">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up7u9oEeWQ_6g8yTZsSw" name="FDistribution">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up7-9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up8O9oEeWQ_6g8yTZsSw" name="freedomDegreeA">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up8e9oEeWQ_6g8yTZsSw" name="freedomDegreeB">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up8u9oEeWQ_6g8yTZsSw" name="Gamma">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up8-9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up9O9oEeWQ_6g8yTZsSw" name="shape">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up9e9oEeWQ_6g8yTZsSw" name="Geometric">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up9u9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up9-9oEeWQ_6g8yTZsSw" name="probaOfSuccess">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up-O9oEeWQ_6g8yTZsSw" name="LogNormal">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up-e9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up-u9oEeWQ_6g8yTZsSw" name="location">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up--9oEeWQ_6g8yTZsSw" name="scale">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4up_O9oEeWQ_6g8yTZsSw" name="Gaussian">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4up_e9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up_u9oEeWQ_6g8yTZsSw" name="location">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4up_-9oEeWQ_6g8yTZsSw" name="scale">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4uqAO9oEeWQ_6g8yTZsSw" name="Pareto">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4uqAe9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uqAu9oEeWQ_6g8yTZsSw" name="shape">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uqA-9oEeWQ_6g8yTZsSw" name="scale">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4uqBO9oEeWQ_6g8yTZsSw" name="Poisson">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4uqBe9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uqBu9oEeWQ_6g8yTZsSw" name="interval">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4uqB-9oEeWQ_6g8yTZsSw" name="StudentsT">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4uqCO9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uqCe9oEeWQ_6g8yTZsSw" name="degreeOfFreedom">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4uqCu9oEeWQ_6g8yTZsSw" name="Uniform">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4uqC-9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uqDO9oEeWQ_6g8yTZsSw" name="minimum">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uqDe9oEeWQ_6g8yTZsSw" name="maximum">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+      <views xmi:id="_A4uqDu9oEeWQ_6g8yTZsSw" name="Weibull">
+        <elements xsi:type="eef-views:Container" xmi:id="_A4uqD-9oEeWQ_6g8yTZsSw" name="properties">
+          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uqEO9oEeWQ_6g8yTZsSw" name="shape">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+          <elements xsi:type="eef-views:ElementEditor" xmi:id="_A4uqEe9oEeWQ_6g8yTZsSw" name="scale">
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+          </elements>
+        </elements>
+      </views>
+    </categories>
+  </eef-views:ViewsRepository>
+</xmi:XMI>
