@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metamodel:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metamodel="http://www.example.org/metamodel">
-  <component xsi:type="metamodel:Supplier" name="yo" deliveredPercentage="19.0"/>
-  <component xsi:type="metamodel:Storage" name="new_storage 1" storageOutputFlow="//@flow.1"/>
-  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 1" numberOfLines="1"/>
-  <flow xsi:type="metamodel:StorageOutputFlow"/>
-  <flow xsi:type="metamodel:StorageOutputFlow" destination="//@component.2" source="//@component.1">
-    <quantity xsi:type="metamodel:FDistribution"/>
-  </flow>
+  <orderOnStockThreshold name="oost 0" storage="//@component.1" supplier="//@component.0"/>
+  <component xsi:type="metamodel:Supplier" name="yo" deliveredPercentage="19.0" refillPolicy="//@orderOnStockThreshold.0"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 1" storageOutputFlow="//@flow.0"/>
+  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 1" numberOfLines="1">
+    <outputs processOutputFlow="//@flow.1"/>
+  </component>
+  <component xsi:type="metamodel:Storage" name="new_storage 2" overflow="true"/>
+  <flow xsi:type="metamodel:StorageOutputFlow" destination="//@component.2" source="//@component.1"/>
+  <flow xsi:type="metamodel:ProcessOutputFlow" destination="//@component.3" source="//@component.2/@outputs.0"/>
 </metamodel:Model>

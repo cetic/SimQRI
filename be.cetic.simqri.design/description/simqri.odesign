@@ -203,15 +203,15 @@
         <edgeMappings name="SD_storageoutputflow" semanticElements="aql:self->including(self.quantity)" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']" targetFinderExpression="feature:destination" sourceFinderExpression="feature:source" domainClass="metamodel.StorageOutputFlow" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription labelSize="10">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="SD_processoutputflow" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']/@borderedNodeMappings[name='SD_output_cb']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetFinderExpression="feature:destination" sourceFinderExpression="feature:source" targetExpression="aql:self->including(self.quantity and self.processOutputFlowDelay)" domainClass="metamodel.ProcessOutputFlow" useDomainElement="true">
+        <edgeMappings name="SD_processoutputflow" semanticElements="aql:self->including(self.quantity and self.processOutputFlowDelay)" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']/@borderedNodeMappings[name='SD_output_cb']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetFinderExpression="feature:destination" sourceFinderExpression="feature:source" domainClass="metamodel.ProcessOutputFlow" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription labelSize="10">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -219,7 +219,7 @@
         <edgeMappings name="SD_oost" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetFinderExpression="feature:storage" sourceFinderExpression="feature:supplier" domainClass="metamodel.OrderOnStockThreshold" useDomainElement="true">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription labelSize="10" labelExpression="aql:self.name+' '+self.orderType">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
@@ -235,6 +235,35 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.StorageOutputFlow" referenceName="flow">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="destination" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="SD_processoutputflow" label="New Process output flow" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer().eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.ProcessOutputFlow" referenceName="flow">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="destination" valueExpression="var:target"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="SD_oost" label="New Order on stock threshold" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.OrderOnStockThreshold" referenceName="orderOnStockThreshold">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="supplier" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="storage" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'oost '+self.eContainer().flow->filter(metamodel::OrderOnStockThreshold)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
