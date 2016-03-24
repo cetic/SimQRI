@@ -101,53 +101,6 @@ public interface OrderOnStockThresholdPropertiesEditionPart {
 
 
 	/**
-	 * @return the storage
-	 * 
-	 */
-	public EObject getStorage();
-
-	/**
-	 * Init the storage
-	 * @param settings the combo setting
-	 */
-	public void initStorage(EObjectFlatComboSettings settings);
-
-	/**
-	 * Defines a new storage
-	 * @param newValue the new storage to set
-	 * 
-	 */
-	public void setStorage(EObject newValue);
-
-	/**
-	 * Defines the button mode
-	 * @param newValue the new mode to set
-	 * 
-	 */
-	public void setStorageButtonMode(ButtonsModeEnum newValue);
-
-	/**
-	 * Adds the given filter to the storage edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addFilterToStorage(ViewerFilter filter);
-
-	/**
-	 * Adds the given filter to the storage edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addBusinessFilterToStorage(ViewerFilter filter);
-
-
-	/**
 	 * @return the supplier
 	 * 
 	 */
@@ -192,6 +145,53 @@ public interface OrderOnStockThresholdPropertiesEditionPart {
 	 * 
 	 */
 	public void addBusinessFilterToSupplier(ViewerFilter filter);
+
+
+	/**
+	 * @return the storage
+	 * 
+	 */
+	public EObject getStorage();
+
+	/**
+	 * Init the storage
+	 * @param settings the combo setting
+	 */
+	public void initStorage(EObjectFlatComboSettings settings);
+
+	/**
+	 * Defines a new storage
+	 * @param newValue the new storage to set
+	 * 
+	 */
+	public void setStorage(EObject newValue);
+
+	/**
+	 * Defines the button mode
+	 * @param newValue the new mode to set
+	 * 
+	 */
+	public void setStorageButtonMode(ButtonsModeEnum newValue);
+
+	/**
+	 * Adds the given filter to the storage edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addFilterToStorage(ViewerFilter filter);
+
+	/**
+	 * Adds the given filter to the storage edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addBusinessFilterToStorage(ViewerFilter filter);
 
 
 

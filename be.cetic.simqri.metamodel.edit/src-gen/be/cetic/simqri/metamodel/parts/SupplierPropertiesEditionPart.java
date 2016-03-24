@@ -92,23 +92,23 @@ public interface SupplierPropertiesEditionPart {
 
 
 	/**
-	 * @return the delay
+	 * @return the supplierDelay
 	 * 
 	 */
-	public EObject getDelay();
+	public EObject getSupplierDelay();
 
 	/**
-	 * Init the delay
+	 * Init the supplierDelay
 	 * @param settings the combo setting
 	 */
-	public void initDelay(EObjectFlatComboSettings settings);
+	public void initSupplierDelay(EObjectFlatComboSettings settings);
 
 	/**
-	 * Defines a new delay
-	 * @param newValue the new delay to set
+	 * Defines a new supplierDelay
+	 * @param newValue the new supplierDelay to set
 	 * 
 	 */
-	public void setDelay(EObject newValue);
+	public void setSupplierDelay(EObject newValue);
 
 
 

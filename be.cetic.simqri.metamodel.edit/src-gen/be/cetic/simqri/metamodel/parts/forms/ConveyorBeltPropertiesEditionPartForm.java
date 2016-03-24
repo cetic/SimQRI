@@ -5,22 +5,29 @@ package be.cetic.simqri.metamodel.parts.forms;
 
 // Start of user code for imports
 import be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart;
+
 import be.cetic.simqri.metamodel.parts.MetamodelViewsRepository;
 
 import be.cetic.simqri.metamodel.providers.MetamodelMessages;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
 
 import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 
 import org.eclipse.emf.eef.runtime.api.parts.IFormPropertiesEditionPart;
-
+import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 
 import org.eclipse.emf.eef.runtime.part.impl.SectionPropertiesEditingPart;
-
+import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
+import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
 
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
@@ -30,19 +37,24 @@ import org.eclipse.emf.eef.runtime.ui.parts.sequence.CompositionStep;
 import org.eclipse.emf.eef.runtime.ui.utils.EditingUtils;
 
 import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
+import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
 import org.eclipse.emf.eef.runtime.ui.widgets.SingleCompositionEditor;
 
 import org.eclipse.emf.eef.runtime.ui.widgets.SingleCompositionEditor.SingleCompositionListener;
-
+import org.eclipse.emf.eef.runtime.ui.widgets.TabElementTreeSelectionDialog;
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
-
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 
@@ -64,6 +76,9 @@ public class ConveyorBeltPropertiesEditionPartForm extends SectionPropertiesEdit
 
 	protected Text name;
 	protected Text duration;
+	protected ReferencesTable storageOutputFlow;
+	protected List<ViewerFilter> storageOutputFlowBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> storageOutputFlowFilters = new ArrayList<ViewerFilter>();
 	protected Text minimalSeparationBetweenBatches;
 	protected SingleCompositionEditor output;
 
@@ -113,6 +128,7 @@ public class ConveyorBeltPropertiesEditionPartForm extends SectionPropertiesEdit
 		CompositionStep propertiesStep = conveyorBeltStep.addStep(MetamodelViewsRepository.ConveyorBelt.Properties.class);
 		propertiesStep.addStep(MetamodelViewsRepository.ConveyorBelt.Properties.name);
 		propertiesStep.addStep(MetamodelViewsRepository.ConveyorBelt.Properties.duration);
+		propertiesStep.addStep(MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow);
 		propertiesStep.addStep(MetamodelViewsRepository.ConveyorBelt.Properties.minimalSeparationBetweenBatches);
 		propertiesStep.addStep(MetamodelViewsRepository.ConveyorBelt.Properties.output);
 		
@@ -129,6 +145,9 @@ public class ConveyorBeltPropertiesEditionPartForm extends SectionPropertiesEdit
 				}
 				if (key == MetamodelViewsRepository.ConveyorBelt.Properties.duration) {
 					return createDurationText(widgetFactory, parent);
+				}
+				if (key == MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow) {
+					return createStorageOutputFlowReferencesTable(widgetFactory, parent);
 				}
 				if (key == MetamodelViewsRepository.ConveyorBelt.Properties.minimalSeparationBetweenBatches) {
 					return createMinimalSeparationBetweenBatchesText(widgetFactory, parent);
@@ -292,6 +311,90 @@ public class ConveyorBeltPropertiesEditionPartForm extends SectionPropertiesEdit
 
 		// End of user code
 		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected Composite createStorageOutputFlowReferencesTable(FormToolkit widgetFactory, Composite parent) {
+		this.storageOutputFlow = new ReferencesTable(getDescription(MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow, MetamodelMessages.ConveyorBeltPropertiesEditionPart_StorageOutputFlowLabel), new ReferencesTableListener	() {
+			public void handleAdd() { addStorageOutputFlow(); }
+			public void handleEdit(EObject element) { editStorageOutputFlow(element); }
+			public void handleMove(EObject element, int oldIndex, int newIndex) { moveStorageOutputFlow(element, oldIndex, newIndex); }
+			public void handleRemove(EObject element) { removeFromStorageOutputFlow(element); }
+			public void navigateTo(EObject element) { }
+		});
+		this.storageOutputFlow.setHelpText(propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow, MetamodelViewsRepository.FORM_KIND));
+		this.storageOutputFlow.createControls(parent, widgetFactory);
+		this.storageOutputFlow.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item != null && e.item.getData() instanceof EObject) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ConveyorBeltPropertiesEditionPartForm.this, MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+				}
+			}
+			
+		});
+		GridData storageOutputFlowData = new GridData(GridData.FILL_HORIZONTAL);
+		storageOutputFlowData.horizontalSpan = 3;
+		this.storageOutputFlow.setLayoutData(storageOutputFlowData);
+		this.storageOutputFlow.disableMove();
+		storageOutputFlow.setID(MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow);
+		storageOutputFlow.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		// Start of user code for createStorageOutputFlowReferencesTable
+
+		// End of user code
+		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected void addStorageOutputFlow() {
+		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(storageOutputFlow.getInput(), storageOutputFlowFilters, storageOutputFlowBusinessFilters,
+		"storageOutputFlow", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
+			@Override
+			public void process(IStructuredSelection selection) {
+				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
+					EObject elem = (EObject) iter.next();
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ConveyorBeltPropertiesEditionPartForm.this, MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow,
+						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
+				}
+				storageOutputFlow.refresh();
+			}
+		};
+		dialog.open();
+	}
+
+	/**
+	 * 
+	 */
+	protected void moveStorageOutputFlow(EObject element, int oldIndex, int newIndex) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ConveyorBeltPropertiesEditionPartForm.this, MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		storageOutputFlow.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void removeFromStorageOutputFlow(EObject element) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ConveyorBeltPropertiesEditionPartForm.this, MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		storageOutputFlow.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void editStorageOutputFlow(EObject element) {
+		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
+		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
+		if (provider != null) {
+			PropertiesEditingPolicy policy = provider.getPolicy(context);
+			if (policy != null) {
+				policy.execute();
+				storageOutputFlow.refresh();
+			}
+		}
 	}
 
 	
@@ -469,6 +572,71 @@ public class ConveyorBeltPropertiesEditionPartForm extends SectionPropertiesEdit
 			duration.setEnabled(true);
 		}	
 		
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart#initStorageOutputFlow(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
+	 */
+	public void initStorageOutputFlow(ReferencesTableSettings settings) {
+		if (current.eResource() != null && current.eResource().getResourceSet() != null)
+			this.resourceSet = current.eResource().getResourceSet();
+		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
+		storageOutputFlow.setContentProvider(contentProvider);
+		storageOutputFlow.setInput(settings);
+		storageOutputFlowBusinessFilters.clear();
+		storageOutputFlowFilters.clear();
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow);
+		if (eefElementEditorReadOnlyState && storageOutputFlow.getTable().isEnabled()) {
+			storageOutputFlow.setEnabled(false);
+			storageOutputFlow.setToolTipText(MetamodelMessages.ConveyorBelt_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !storageOutputFlow.getTable().isEnabled()) {
+			storageOutputFlow.setEnabled(true);
+		}
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart#updateStorageOutputFlow()
+	 * 
+	 */
+	public void updateStorageOutputFlow() {
+	storageOutputFlow.refresh();
+}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart#addFilterStorageOutputFlow(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToStorageOutputFlow(ViewerFilter filter) {
+		storageOutputFlowFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart#addBusinessFilterStorageOutputFlow(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToStorageOutputFlow(ViewerFilter filter) {
+		storageOutputFlowBusinessFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart#isContainedInStorageOutputFlowTable(EObject element)
+	 * 
+	 */
+	public boolean isContainedInStorageOutputFlowTable(EObject element) {
+		return ((ReferencesTableSettings)storageOutputFlow.getInput()).contains(element);
 	}
 
 	/**

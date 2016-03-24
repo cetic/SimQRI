@@ -66,14 +66,14 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 
 	
 	/**
-	 * Settings for destination EObjectFlatComboViewer
-	 */
-	private EObjectFlatComboSettings destinationSettings;
-	
-	/**
 	 * Settings for source EObjectFlatComboViewer
 	 */
 	private EObjectFlatComboSettings sourceSettings;
+	
+	/**
+	 * Settings for destination EObjectFlatComboViewer
+	 */
+	private EObjectFlatComboSettings destinationSettings;
 	
 	/**
 	 * Settings for quantity SingleCompositionEditor
@@ -81,9 +81,9 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 	private EObjectFlatComboSettings quantitySettings;
 	
 	/**
-	 * Settings for delay SingleCompositionEditor
+	 * Settings for processOutputFlowDelay SingleCompositionEditor
 	 */
-	private EObjectFlatComboSettings delaySettings;
+	private EObjectFlatComboSettings processOutputFlowDelaySettings;
 	
 	
 	/**
@@ -112,13 +112,6 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 			final ProcessOutputFlow processOutputFlow = (ProcessOutputFlow)elt;
 			final ProcessOutputFlowPropertiesEditionPart basePart = (ProcessOutputFlowPropertiesEditionPart)editingPart;
 			// init values
-			if (isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination)) {
-				// init part
-				destinationSettings = new EObjectFlatComboSettings(processOutputFlow, MetamodelPackage.eINSTANCE.getProcessOutputFlow_Destination());
-				basePart.initDestination(destinationSettings);
-				// set the button mode
-				basePart.setDestinationButtonMode(ButtonsModeEnum.BROWSE);
-			}
 			if (isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.source)) {
 				// init part
 				sourceSettings = new EObjectFlatComboSettings(processOutputFlow, MetamodelPackage.eINSTANCE.getProcessOutputFlow_Source());
@@ -126,33 +119,24 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 				// set the button mode
 				basePart.setSourceButtonMode(ButtonsModeEnum.BROWSE);
 			}
+			if (isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination)) {
+				// init part
+				destinationSettings = new EObjectFlatComboSettings(processOutputFlow, MetamodelPackage.eINSTANCE.getProcessOutputFlow_Destination());
+				basePart.initDestination(destinationSettings);
+				// set the button mode
+				basePart.setDestinationButtonMode(ButtonsModeEnum.BROWSE);
+			}
 			if (isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.quantity)) {
 				// init part
 				quantitySettings = new EObjectFlatComboSettings(processOutputFlow, MetamodelPackage.eINSTANCE.getFlow_Quantity());
 				basePart.initQuantity(quantitySettings);
 			}
-			if (isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.delay)) {
+			if (isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay)) {
 				// init part
-				delaySettings = new EObjectFlatComboSettings(processOutputFlow, MetamodelPackage.eINSTANCE.getProcessOutputFlow_ProcessOutputFlowDelay());
-				basePart.initDelay(delaySettings);
+				processOutputFlowDelaySettings = new EObjectFlatComboSettings(processOutputFlow, MetamodelPackage.eINSTANCE.getProcessOutputFlow_ProcessOutputFlowDelay());
+				basePart.initProcessOutputFlowDelay(processOutputFlowDelaySettings);
 			}
 			// init filters
-			if (isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination)) {
-				basePart.addFilterToDestination(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						return (element instanceof Storage);
-					}
-					
-				});
-				// Start of user code for additional businessfilters for destination
-				// End of user code
-			}
 			if (isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.source)) {
 				basePart.addFilterToSource(new ViewerFilter() {
 				
@@ -167,6 +151,22 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 					
 				});
 				// Start of user code for additional businessfilters for source
+				// End of user code
+			}
+			if (isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination)) {
+				basePart.addFilterToDestination(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof Storage);
+					}
+					
+				});
+				// Start of user code for additional businessfilters for destination
 				// End of user code
 			}
 			
@@ -190,16 +190,16 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
 	 */
 	public EStructuralFeature associatedFeature(Object editorKey) {
-		if (editorKey == MetamodelViewsRepository.ProcessOutputFlow.Properties.destination) {
-			return MetamodelPackage.eINSTANCE.getProcessOutputFlow_Destination();
-		}
 		if (editorKey == MetamodelViewsRepository.ProcessOutputFlow.Properties.source) {
 			return MetamodelPackage.eINSTANCE.getProcessOutputFlow_Source();
+		}
+		if (editorKey == MetamodelViewsRepository.ProcessOutputFlow.Properties.destination) {
+			return MetamodelPackage.eINSTANCE.getProcessOutputFlow_Destination();
 		}
 		if (editorKey == MetamodelViewsRepository.ProcessOutputFlow.Properties.quantity) {
 			return MetamodelPackage.eINSTANCE.getFlow_Quantity();
 		}
-		if (editorKey == MetamodelViewsRepository.ProcessOutputFlow.Properties.delay) {
+		if (editorKey == MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay) {
 			return MetamodelPackage.eINSTANCE.getProcessOutputFlow_ProcessOutputFlowDelay();
 		}
 		return super.associatedFeature(editorKey);
@@ -210,25 +210,9 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updateSemanticModel(org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent)
 	 * 
 	 */
+	@SuppressWarnings("unused")
 	public void updateSemanticModel(final IPropertiesEditionEvent event) {
-		@SuppressWarnings("unused")
 		ProcessOutputFlow processOutputFlow = (ProcessOutputFlow)semanticObject;
-		if (MetamodelViewsRepository.ProcessOutputFlow.Properties.destination == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.SET) {
-				destinationSettings.setToReference((Storage)event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
-				Storage eObject = MetamodelFactory.eINSTANCE.createStorage();
-				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, eObject, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(eObject, PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy != null) {
-						policy.execute();
-					}
-				}
-				destinationSettings.setToReference(eObject);
-			}
-		}
 		if (MetamodelViewsRepository.ProcessOutputFlow.Properties.source == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.SET) {
 				sourceSettings.setToReference((Output)event.getNewValue());
@@ -243,6 +227,22 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 					}
 				}
 				sourceSettings.setToReference(eObject);
+			}
+		}
+		if (MetamodelViewsRepository.ProcessOutputFlow.Properties.destination == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.SET) {
+				destinationSettings.setToReference((Storage)event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
+				Storage eObject = MetamodelFactory.eINSTANCE.createStorage();
+				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, eObject, editingContext.getAdapterFactory());
+				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(eObject, PropertiesEditingProvider.class);
+				if (provider != null) {
+					PropertiesEditingPolicy policy = provider.getPolicy(context);
+					if (policy != null) {
+						policy.execute();
+					}
+				}
+				destinationSettings.setToReference(eObject);
 			}
 		}
 		if (MetamodelViewsRepository.ProcessOutputFlow.Properties.quantity == event.getAffectedEditor()) {
@@ -276,10 +276,10 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 			}
 			
 		}
-		if (MetamodelViewsRepository.ProcessOutputFlow.Properties.delay == event.getAffectedEditor()) {
+		if (MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.EDIT) {
-				if (delaySettings.getValue() == "") {
-					EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, delaySettings, editingContext.getAdapterFactory());
+				if (processOutputFlowDelaySettings.getValue() == "") {
+					EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, processOutputFlowDelaySettings, editingContext.getAdapterFactory());
 					PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(editingContext.getEObject(), PropertiesEditingProvider.class);
 					Object result = null;
 					if (provider != null) {
@@ -290,11 +290,11 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 						}
 					}
 					if (result != null) {
-						delaySettings.setToReference(result);
+						processOutputFlowDelaySettings.setToReference(result);
 					}
 				} else {
-					EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, (EObject) delaySettings.getValue(), editingContext.getAdapterFactory());
-					PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(delaySettings.getValue(), PropertiesEditingProvider.class);
+					EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, (EObject) processOutputFlowDelaySettings.getValue(), editingContext.getAdapterFactory());
+					PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(processOutputFlowDelaySettings.getValue(), PropertiesEditingProvider.class);
 					if (provider != null) {
 						PropertiesEditingPolicy policy = provider.getPolicy(context);
 						if (policy != null) {
@@ -303,7 +303,7 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 					}
 				}
 			} else if (event.getKind() == PropertiesEditionEvent.UNSET) {
-				delaySettings.setToReference(null);
+				processOutputFlowDelaySettings.setToReference(null);
 			}
 			
 		}
@@ -317,14 +317,14 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			ProcessOutputFlowPropertiesEditionPart basePart = (ProcessOutputFlowPropertiesEditionPart)editingPart;
-			if (MetamodelPackage.eINSTANCE.getProcessOutputFlow_Destination().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination))
-				basePart.setDestination((EObject)msg.getNewValue());
 			if (MetamodelPackage.eINSTANCE.getProcessOutputFlow_Source().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.source))
 				basePart.setSource((EObject)msg.getNewValue());
+			if (MetamodelPackage.eINSTANCE.getProcessOutputFlow_Destination().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination))
+				basePart.setDestination((EObject)msg.getNewValue());
 			if (MetamodelPackage.eINSTANCE.getFlow_Quantity().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.quantity))
 				basePart.setQuantity((EObject)msg.getNewValue());
-			if (MetamodelPackage.eINSTANCE.getProcessOutputFlow_ProcessOutputFlowDelay().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.delay))
-				basePart.setDelay((EObject)msg.getNewValue());
+			if (MetamodelPackage.eINSTANCE.getProcessOutputFlow_ProcessOutputFlowDelay().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay))
+				basePart.setProcessOutputFlowDelay((EObject)msg.getNewValue());
 			
 		}
 	}
@@ -337,8 +337,8 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 	@Override
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
-			MetamodelPackage.eINSTANCE.getProcessOutputFlow_Destination(),
 			MetamodelPackage.eINSTANCE.getProcessOutputFlow_Source(),
+			MetamodelPackage.eINSTANCE.getProcessOutputFlow_Destination(),
 			MetamodelPackage.eINSTANCE.getFlow_Quantity(),
 			MetamodelPackage.eINSTANCE.getProcessOutputFlow_ProcessOutputFlowDelay()		);
 		return new NotificationFilter[] {filter,};
@@ -352,7 +352,7 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 	 * 
 	 */
 	public boolean isRequired(Object key, int kind) {
-		return key == MetamodelViewsRepository.ProcessOutputFlow.Properties.destination || key == MetamodelViewsRepository.ProcessOutputFlow.Properties.source || key == MetamodelViewsRepository.ProcessOutputFlow.Properties.quantity || key == MetamodelViewsRepository.ProcessOutputFlow.Properties.delay;
+		return key == MetamodelViewsRepository.ProcessOutputFlow.Properties.source || key == MetamodelViewsRepository.ProcessOutputFlow.Properties.destination || key == MetamodelViewsRepository.ProcessOutputFlow.Properties.quantity || key == MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay;
 	}
 
 	/**

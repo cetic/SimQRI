@@ -42,8 +42,8 @@ public class StorageOutputFlowItemProvider extends FlowItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDestinationPropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
+			addDestinationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

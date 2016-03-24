@@ -10,6 +10,7 @@ import be.cetic.simqri.metamodel.parts.MetamodelViewsRepository;
 import be.cetic.simqri.metamodel.providers.MetamodelMessages;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -19,11 +20,12 @@ import org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent;
 import org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent;
 
 import org.eclipse.emf.eef.runtime.api.parts.ISWTPropertiesEditionPart;
-
+import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 
 import org.eclipse.emf.eef.runtime.impl.parts.CompositePropertiesEditionPart;
-
+import org.eclipse.emf.eef.runtime.policies.PropertiesEditingPolicy;
+import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 import org.eclipse.emf.eef.runtime.ui.parts.PartComposer;
 
 import org.eclipse.emf.eef.runtime.ui.parts.sequence.BindingCompositionSequence;
@@ -37,10 +39,10 @@ import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
 
 import org.eclipse.emf.eef.runtime.ui.widgets.SWTUtils;
-
+import org.eclipse.emf.eef.runtime.ui.widgets.TabElementTreeSelectionDialog;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
-
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 import org.eclipse.swt.SWT;
@@ -69,6 +71,9 @@ public class BatchProcessPropertiesEditionPartImpl extends CompositePropertiesEd
 
 	protected Text name;
 	protected Text duration;
+	protected ReferencesTable storageOutputFlow;
+	protected List<ViewerFilter> storageOutputFlowBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> storageOutputFlowFilters = new ArrayList<ViewerFilter>();
 	protected Text percentageOfSuccess;
 	protected Text numberOfLines;
 	protected ReferencesTable outputs;
@@ -114,6 +119,7 @@ public class BatchProcessPropertiesEditionPartImpl extends CompositePropertiesEd
 		CompositionStep propertiesStep = batchProcessStep.addStep(MetamodelViewsRepository.BatchProcess.Properties.class);
 		propertiesStep.addStep(MetamodelViewsRepository.BatchProcess.Properties.name);
 		propertiesStep.addStep(MetamodelViewsRepository.BatchProcess.Properties.duration);
+		propertiesStep.addStep(MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow);
 		propertiesStep.addStep(MetamodelViewsRepository.BatchProcess.Properties.percentageOfSuccess);
 		propertiesStep.addStep(MetamodelViewsRepository.BatchProcess.Properties.numberOfLines);
 		propertiesStep.addStep(MetamodelViewsRepository.BatchProcess.Properties.outputs);
@@ -131,6 +137,9 @@ public class BatchProcessPropertiesEditionPartImpl extends CompositePropertiesEd
 				}
 				if (key == MetamodelViewsRepository.BatchProcess.Properties.duration) {
 					return createDurationText(parent);
+				}
+				if (key == MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow) {
+					return createStorageOutputFlowAdvancedReferencesTable(parent);
 				}
 				if (key == MetamodelViewsRepository.BatchProcess.Properties.percentageOfSuccess) {
 					return createPercentageOfSuccessText(parent);
@@ -258,6 +267,88 @@ public class BatchProcessPropertiesEditionPartImpl extends CompositePropertiesEd
 
 		// End of user code
 		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected Composite createStorageOutputFlowAdvancedReferencesTable(Composite parent) {
+		String label = getDescription(MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow, MetamodelMessages.BatchProcessPropertiesEditionPart_StorageOutputFlowLabel);		 
+		this.storageOutputFlow = new ReferencesTable(label, new ReferencesTableListener() {
+			public void handleAdd() { addStorageOutputFlow(); }
+			public void handleEdit(EObject element) { editStorageOutputFlow(element); }
+			public void handleMove(EObject element, int oldIndex, int newIndex) { moveStorageOutputFlow(element, oldIndex, newIndex); }
+			public void handleRemove(EObject element) { removeFromStorageOutputFlow(element); }
+			public void navigateTo(EObject element) { }
+		});
+		this.storageOutputFlow.setHelpText(propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow, MetamodelViewsRepository.SWT_KIND));
+		this.storageOutputFlow.createControls(parent);
+		this.storageOutputFlow.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item != null && e.item.getData() instanceof EObject) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(BatchProcessPropertiesEditionPartImpl.this, MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+				}
+			}
+			
+		});
+		GridData storageOutputFlowData = new GridData(GridData.FILL_HORIZONTAL);
+		storageOutputFlowData.horizontalSpan = 3;
+		this.storageOutputFlow.setLayoutData(storageOutputFlowData);
+		this.storageOutputFlow.disableMove();
+		storageOutputFlow.setID(MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow);
+		storageOutputFlow.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected void addStorageOutputFlow() {
+		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(storageOutputFlow.getInput(), storageOutputFlowFilters, storageOutputFlowBusinessFilters,
+		"storageOutputFlow", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
+			@Override
+			public void process(IStructuredSelection selection) {
+				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
+					EObject elem = (EObject) iter.next();
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(BatchProcessPropertiesEditionPartImpl.this, MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow,
+						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
+				}
+				storageOutputFlow.refresh();
+			}
+		};
+		dialog.open();
+	}
+
+	/**
+	 * 
+	 */
+	protected void moveStorageOutputFlow(EObject element, int oldIndex, int newIndex) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(BatchProcessPropertiesEditionPartImpl.this, MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		storageOutputFlow.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void removeFromStorageOutputFlow(EObject element) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(BatchProcessPropertiesEditionPartImpl.this, MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		storageOutputFlow.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void editStorageOutputFlow(EObject element) {
+		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
+		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
+		if (provider != null) {
+			PropertiesEditingPolicy policy = provider.getPolicy(context);
+			if (policy != null) {
+				policy.execute();
+				storageOutputFlow.refresh();
+			}
+		}
 	}
 
 	
@@ -484,6 +575,71 @@ public class BatchProcessPropertiesEditionPartImpl extends CompositePropertiesEd
 			duration.setEnabled(true);
 		}	
 		
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.BatchProcessPropertiesEditionPart#initStorageOutputFlow(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
+	 */
+	public void initStorageOutputFlow(ReferencesTableSettings settings) {
+		if (current.eResource() != null && current.eResource().getResourceSet() != null)
+			this.resourceSet = current.eResource().getResourceSet();
+		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
+		storageOutputFlow.setContentProvider(contentProvider);
+		storageOutputFlow.setInput(settings);
+		storageOutputFlowBusinessFilters.clear();
+		storageOutputFlowFilters.clear();
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow);
+		if (eefElementEditorReadOnlyState && storageOutputFlow.getTable().isEnabled()) {
+			storageOutputFlow.setEnabled(false);
+			storageOutputFlow.setToolTipText(MetamodelMessages.BatchProcess_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !storageOutputFlow.getTable().isEnabled()) {
+			storageOutputFlow.setEnabled(true);
+		}
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.BatchProcessPropertiesEditionPart#updateStorageOutputFlow()
+	 * 
+	 */
+	public void updateStorageOutputFlow() {
+	storageOutputFlow.refresh();
+}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.BatchProcessPropertiesEditionPart#addFilterStorageOutputFlow(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToStorageOutputFlow(ViewerFilter filter) {
+		storageOutputFlowFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.BatchProcessPropertiesEditionPart#addBusinessFilterStorageOutputFlow(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToStorageOutputFlow(ViewerFilter filter) {
+		storageOutputFlowBusinessFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.BatchProcessPropertiesEditionPart#isContainedInStorageOutputFlowTable(EObject element)
+	 * 
+	 */
+	public boolean isContainedInStorageOutputFlowTable(EObject element) {
+		return ((ReferencesTableSettings)storageOutputFlow.getInput()).contains(element);
 	}
 
 	/**

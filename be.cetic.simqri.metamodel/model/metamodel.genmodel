@@ -41,20 +41,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Storage/initialContent"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Storage/overflow"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Storage/storageOutputFlow"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Storage/orderOnStockThreshold"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Storage/processOutputFlow"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Supplier">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Supplier/deliveredPercentage"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Supplier/refillPolicy"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Supplier/supplierDelay"/>
     </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//ConveyorBelt">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ConveyorBelt/minimalSeparationBetweenBatches"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ConveyorBelt/output"/>
-    </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//BatchProcess">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BatchProcess/percentageOfSuccess"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//BatchProcess/numberOfLines"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//BatchProcess/outputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//BatchProcess/outputs"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Output">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Output/type"/>
@@ -62,16 +60,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Output/description"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//StorageOutputFlow">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//StorageOutputFlow/destination"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//StorageOutputFlow/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//StorageOutputFlow/destination"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//ProcessOutputFlow">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ProcessOutputFlow/destination"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ProcessOutputFlow/source"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ProcessOutputFlow/processOutputFlowDelay"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ProcessOutputFlow/destination"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Process">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Process/duration"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Process/storageOutputFlow"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//OrderOnStockThreshold">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//OrderOnStockThreshold/period"/>
@@ -79,8 +78,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//OrderOnStockThreshold/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//OrderOnStockThreshold/orderQuantity"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//OrderOnStockThreshold/orderType"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//OrderOnStockThreshold/storage"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//OrderOnStockThreshold/supplier"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//OrderOnStockThreshold/storage"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Component">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Component/name"/>
@@ -149,6 +148,10 @@
     <genClasses ecoreClass="metamodel.ecore#//Weibull">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Weibull/shape"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Weibull/scale"/>
+    </genClasses>
+    <genClasses ecoreClass="metamodel.ecore#//ConveyorBelt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ConveyorBelt/minimalSeparationBetweenBatches"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//ConveyorBelt/output"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -12,9 +12,9 @@ package be.cetic.simqri.metamodel;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link be.cetic.simqri.metamodel.ProcessOutputFlow#getDestination <em>Destination</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.ProcessOutputFlow#getSource <em>Source</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.ProcessOutputFlow#getProcessOutputFlowDelay <em>Process Output Flow Delay</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.ProcessOutputFlow#getDestination <em>Destination</em>}</li>
  * </ul>
  *
  * @see be.cetic.simqri.metamodel.MetamodelPackage#getProcessOutputFlow()
@@ -24,6 +24,7 @@ package be.cetic.simqri.metamodel;
 public interface ProcessOutputFlow extends Flow {
 	/**
 	 * Returns the value of the '<em><b>Destination</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link be.cetic.simqri.metamodel.Storage#getProcessOutputFlow <em>Process Output Flow</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Destination</em>' reference isn't clear,
@@ -33,7 +34,8 @@ public interface ProcessOutputFlow extends Flow {
 	 * @return the value of the '<em>Destination</em>' reference.
 	 * @see #setDestination(Storage)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getProcessOutputFlow_Destination()
-	 * @model required="true"
+	 * @see be.cetic.simqri.metamodel.Storage#getProcessOutputFlow
+	 * @model opposite="processOutputFlow" required="true"
 	 * @generated
 	 */
 	Storage getDestination();

@@ -126,8 +126,6 @@ public class MetamodelValidator extends EObjectValidator {
 				return validateStorage((Storage)value, diagnostics, context);
 			case MetamodelPackage.SUPPLIER:
 				return validateSupplier((Supplier)value, diagnostics, context);
-			case MetamodelPackage.CONVEYOR_BELT:
-				return validateConveyorBelt((ConveyorBelt)value, diagnostics, context);
 			case MetamodelPackage.BATCH_PROCESS:
 				return validateBatchProcess((BatchProcess)value, diagnostics, context);
 			case MetamodelPackage.OUTPUT:
@@ -182,6 +180,8 @@ public class MetamodelValidator extends EObjectValidator {
 				return validateUniform((Uniform)value, diagnostics, context);
 			case MetamodelPackage.WEIBULL:
 				return validateWeibull((Weibull)value, diagnostics, context);
+			case MetamodelPackage.CONVEYOR_BELT:
+				return validateConveyorBelt((ConveyorBelt)value, diagnostics, context);
 			case MetamodelPackage.ORDER_TYPE:
 				return validateOrderType((OrderType)value, diagnostics, context);
 			case MetamodelPackage.OUTPUT_TYPE:

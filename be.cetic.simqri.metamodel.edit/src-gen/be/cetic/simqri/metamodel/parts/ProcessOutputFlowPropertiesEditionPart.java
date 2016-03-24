@@ -22,53 +22,6 @@ import org.eclipse.jface.viewers.ViewerFilter;
 public interface ProcessOutputFlowPropertiesEditionPart {
 
 	/**
-	 * @return the destination
-	 * 
-	 */
-	public EObject getDestination();
-
-	/**
-	 * Init the destination
-	 * @param settings the combo setting
-	 */
-	public void initDestination(EObjectFlatComboSettings settings);
-
-	/**
-	 * Defines a new destination
-	 * @param newValue the new destination to set
-	 * 
-	 */
-	public void setDestination(EObject newValue);
-
-	/**
-	 * Defines the button mode
-	 * @param newValue the new mode to set
-	 * 
-	 */
-	public void setDestinationButtonMode(ButtonsModeEnum newValue);
-
-	/**
-	 * Adds the given filter to the destination edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addFilterToDestination(ViewerFilter filter);
-
-	/**
-	 * Adds the given filter to the destination edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addBusinessFilterToDestination(ViewerFilter filter);
-
-
-	/**
 	 * @return the source
 	 * 
 	 */
@@ -116,6 +69,53 @@ public interface ProcessOutputFlowPropertiesEditionPart {
 
 
 	/**
+	 * @return the destination
+	 * 
+	 */
+	public EObject getDestination();
+
+	/**
+	 * Init the destination
+	 * @param settings the combo setting
+	 */
+	public void initDestination(EObjectFlatComboSettings settings);
+
+	/**
+	 * Defines a new destination
+	 * @param newValue the new destination to set
+	 * 
+	 */
+	public void setDestination(EObject newValue);
+
+	/**
+	 * Defines the button mode
+	 * @param newValue the new mode to set
+	 * 
+	 */
+	public void setDestinationButtonMode(ButtonsModeEnum newValue);
+
+	/**
+	 * Adds the given filter to the destination edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addFilterToDestination(ViewerFilter filter);
+
+	/**
+	 * Adds the given filter to the destination edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addBusinessFilterToDestination(ViewerFilter filter);
+
+
+	/**
 	 * @return the quantity
 	 * 
 	 */
@@ -136,23 +136,23 @@ public interface ProcessOutputFlowPropertiesEditionPart {
 
 
 	/**
-	 * @return the delay
+	 * @return the processOutputFlowDelay
 	 * 
 	 */
-	public EObject getDelay();
+	public EObject getProcessOutputFlowDelay();
 
 	/**
-	 * Init the delay
+	 * Init the processOutputFlowDelay
 	 * @param settings the combo setting
 	 */
-	public void initDelay(EObjectFlatComboSettings settings);
+	public void initProcessOutputFlowDelay(EObjectFlatComboSettings settings);
 
 	/**
-	 * Defines a new delay
-	 * @param newValue the new delay to set
+	 * Defines a new processOutputFlowDelay
+	 * @param newValue the new processOutputFlowDelay to set
 	 * 
 	 */
-	public void setDelay(EObject newValue);
+	public void setProcessOutputFlowDelay(EObject newValue);
 
 
 

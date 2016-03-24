@@ -45,6 +45,7 @@ public class ProcessItemProvider extends ComponentItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addDurationPropertyDescriptor(object);
+			addStorageOutputFlowPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,6 +68,28 @@ public class ProcessItemProvider extends ComponentItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Storage Output Flow feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addStorageOutputFlowPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Process_storageOutputFlow_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Process_storageOutputFlow_feature", "_UI_Process_type"),
+				 MetamodelPackage.Literals.PROCESS__STORAGE_OUTPUT_FLOW,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

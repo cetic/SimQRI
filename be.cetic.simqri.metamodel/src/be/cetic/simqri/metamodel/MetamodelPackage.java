@@ -194,7 +194,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getComponent()
 	 * @generated
 	 */
-	int COMPONENT = 11;
+	int COMPONENT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -279,13 +279,31 @@ public interface MetamodelPackage extends EPackage {
 	int STORAGE__STORAGE_OUTPUT_FLOW = COMPONENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Order On Stock Threshold</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORAGE__ORDER_ON_STOCK_THRESHOLD = COMPONENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Process Output Flow</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORAGE__PROCESS_OUTPUT_FLOW = COMPONENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Storage</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 4;
+	int STORAGE_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Storage</em>' class.
@@ -368,7 +386,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getProcess()
 	 * @generated
 	 */
-	int PROCESS = 9;
+	int PROCESS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -389,13 +407,22 @@ public interface MetamodelPackage extends EPackage {
 	int PROCESS__DURATION = COMPONENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Storage Output Flow</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS__STORAGE_OUTPUT_FLOW = COMPONENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Process</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 1;
+	int PROCESS_FEATURE_COUNT = COMPONENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Process</em>' class.
@@ -414,61 +441,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getConveyorBelt()
 	 * @generated
 	 */
-	int CONVEYOR_BELT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONVEYOR_BELT__NAME = PROCESS__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Duration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONVEYOR_BELT__DURATION = PROCESS__DURATION;
-
-	/**
-	 * The feature id for the '<em><b>Minimal Separation Between Batches</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONVEYOR_BELT__MINIMAL_SEPARATION_BETWEEN_BATCHES = PROCESS_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Output</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONVEYOR_BELT__OUTPUT = PROCESS_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Conveyor Belt</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONVEYOR_BELT_FEATURE_COUNT = PROCESS_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Conveyor Belt</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONVEYOR_BELT_OPERATION_COUNT = PROCESS_OPERATION_COUNT + 0;
+	int CONVEYOR_BELT = 31;
 
 	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.BatchProcessImpl <em>Batch Process</em>}' class.
@@ -478,7 +451,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getBatchProcess()
 	 * @generated
 	 */
-	int BATCH_PROCESS = 5;
+	int BATCH_PROCESS = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -497,6 +470,15 @@ public interface MetamodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BATCH_PROCESS__DURATION = PROCESS__DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Storage Output Flow</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BATCH_PROCESS__STORAGE_OUTPUT_FLOW = PROCESS__STORAGE_OUTPUT_FLOW;
 
 	/**
 	 * The feature id for the '<em><b>Percentage Of Success</b></em>' attribute.
@@ -551,7 +533,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getOutput()
 	 * @generated
 	 */
-	int OUTPUT = 6;
+	int OUTPUT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -606,7 +588,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getFlow()
 	 * @generated
 	 */
-	int FLOW = 12;
+	int FLOW = 11;
 
 	/**
 	 * The feature id for the '<em><b>Quantity</b></em>' containment reference.
@@ -643,7 +625,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getStorageOutputFlow()
 	 * @generated
 	 */
-	int STORAGE_OUTPUT_FLOW = 7;
+	int STORAGE_OUTPUT_FLOW = 6;
 
 	/**
 	 * The feature id for the '<em><b>Quantity</b></em>' containment reference.
@@ -655,22 +637,22 @@ public interface MetamodelPackage extends EPackage {
 	int STORAGE_OUTPUT_FLOW__QUANTITY = FLOW__QUANTITY;
 
 	/**
-	 * The feature id for the '<em><b>Destination</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STORAGE_OUTPUT_FLOW__DESTINATION = FLOW_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STORAGE_OUTPUT_FLOW__SOURCE = FLOW_FEATURE_COUNT + 1;
+	int STORAGE_OUTPUT_FLOW__SOURCE = FLOW_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Destination</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STORAGE_OUTPUT_FLOW__DESTINATION = FLOW_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Storage Output Flow</em>' class.
@@ -698,7 +680,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getProcessOutputFlow()
 	 * @generated
 	 */
-	int PROCESS_OUTPUT_FLOW = 8;
+	int PROCESS_OUTPUT_FLOW = 7;
 
 	/**
 	 * The feature id for the '<em><b>Quantity</b></em>' containment reference.
@@ -710,22 +692,13 @@ public interface MetamodelPackage extends EPackage {
 	int PROCESS_OUTPUT_FLOW__QUANTITY = FLOW__QUANTITY;
 
 	/**
-	 * The feature id for the '<em><b>Destination</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROCESS_OUTPUT_FLOW__DESTINATION = FLOW_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_OUTPUT_FLOW__SOURCE = FLOW_FEATURE_COUNT + 1;
+	int PROCESS_OUTPUT_FLOW__SOURCE = FLOW_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Process Output Flow Delay</b></em>' containment reference.
@@ -734,7 +707,16 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY = FLOW_FEATURE_COUNT + 2;
+	int PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY = FLOW_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Destination</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESS_OUTPUT_FLOW__DESTINATION = FLOW_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Process Output Flow</em>' class.
@@ -762,7 +744,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getOrderOnStockThreshold()
 	 * @generated
 	 */
-	int ORDER_ON_STOCK_THRESHOLD = 10;
+	int ORDER_ON_STOCK_THRESHOLD = 9;
 
 	/**
 	 * The feature id for the '<em><b>Period</b></em>' attribute.
@@ -810,22 +792,22 @@ public interface MetamodelPackage extends EPackage {
 	int ORDER_ON_STOCK_THRESHOLD__ORDER_TYPE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Storage</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORDER_ON_STOCK_THRESHOLD__STORAGE = 5;
-
-	/**
 	 * The feature id for the '<em><b>Supplier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORDER_ON_STOCK_THRESHOLD__SUPPLIER = 6;
+	int ORDER_ON_STOCK_THRESHOLD__SUPPLIER = 5;
+
+	/**
+	 * The feature id for the '<em><b>Storage</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORDER_ON_STOCK_THRESHOLD__STORAGE = 6;
 
 	/**
 	 * The number of structural features of the '<em>Order On Stock Threshold</em>' class.
@@ -853,7 +835,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getProbability()
 	 * @generated
 	 */
-	int PROBABILITY = 13;
+	int PROBABILITY = 12;
 
 	/**
 	 * The number of structural features of the '<em>Probability</em>' class.
@@ -881,7 +863,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getDistribution()
 	 * @generated
 	 */
-	int DISTRIBUTION = 14;
+	int DISTRIBUTION = 13;
 
 	/**
 	 * The number of structural features of the '<em>Distribution</em>' class.
@@ -909,7 +891,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getCauchy()
 	 * @generated
 	 */
-	int CAUCHY = 15;
+	int CAUCHY = 14;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -955,7 +937,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getBinomial()
 	 * @generated
 	 */
-	int BINOMIAL = 16;
+	int BINOMIAL = 15;
 
 	/**
 	 * The feature id for the '<em><b>Nbr Of Trial</b></em>' attribute.
@@ -1001,7 +983,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getBeta()
 	 * @generated
 	 */
-	int BETA = 17;
+	int BETA = 16;
 
 	/**
 	 * The feature id for the '<em><b>Freedom Degree A</b></em>' attribute.
@@ -1047,7 +1029,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getScalar()
 	 * @generated
 	 */
-	int SCALAR = 18;
+	int SCALAR = 17;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1084,7 +1066,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getChiSquare()
 	 * @generated
 	 */
-	int CHI_SQUARE = 19;
+	int CHI_SQUARE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Degree Of Freedom</b></em>' attribute.
@@ -1121,7 +1103,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getDiracDelta()
 	 * @generated
 	 */
-	int DIRAC_DELTA = 20;
+	int DIRAC_DELTA = 19;
 
 	/**
 	 * The feature id for the '<em><b>Mean</b></em>' attribute.
@@ -1158,7 +1140,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getExponential()
 	 * @generated
 	 */
-	int EXPONENTIAL = 21;
+	int EXPONENTIAL = 20;
 
 	/**
 	 * The feature id for the '<em><b>Scale</b></em>' attribute.
@@ -1195,7 +1177,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getFDistribution()
 	 * @generated
 	 */
-	int FDISTRIBUTION = 22;
+	int FDISTRIBUTION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Freedom Degree A</b></em>' attribute.
@@ -1241,7 +1223,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGamma()
 	 * @generated
 	 */
-	int GAMMA = 23;
+	int GAMMA = 22;
 
 	/**
 	 * The feature id for the '<em><b>Shape</b></em>' attribute.
@@ -1278,7 +1260,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGeometric()
 	 * @generated
 	 */
-	int GEOMETRIC = 24;
+	int GEOMETRIC = 23;
 
 	/**
 	 * The feature id for the '<em><b>Proba Of Success</b></em>' attribute.
@@ -1315,7 +1297,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getLogNormal()
 	 * @generated
 	 */
-	int LOG_NORMAL = 25;
+	int LOG_NORMAL = 24;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -1361,7 +1343,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGaussian()
 	 * @generated
 	 */
-	int GAUSSIAN = 26;
+	int GAUSSIAN = 25;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -1407,7 +1389,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPareto()
 	 * @generated
 	 */
-	int PARETO = 27;
+	int PARETO = 26;
 
 	/**
 	 * The feature id for the '<em><b>Shape</b></em>' attribute.
@@ -1453,7 +1435,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPoisson()
 	 * @generated
 	 */
-	int POISSON = 28;
+	int POISSON = 27;
 
 	/**
 	 * The feature id for the '<em><b>Interval</b></em>' attribute.
@@ -1490,7 +1472,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getStudentsT()
 	 * @generated
 	 */
-	int STUDENTS_T = 29;
+	int STUDENTS_T = 28;
 
 	/**
 	 * The feature id for the '<em><b>Degree Of Freedom</b></em>' attribute.
@@ -1527,7 +1509,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getUniform()
 	 * @generated
 	 */
-	int UNIFORM = 30;
+	int UNIFORM = 29;
 
 	/**
 	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
@@ -1573,7 +1555,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getWeibull()
 	 * @generated
 	 */
-	int WEIBULL = 31;
+	int WEIBULL = 30;
 
 	/**
 	 * The feature id for the '<em><b>Shape</b></em>' attribute.
@@ -1610,6 +1592,69 @@ public interface MetamodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int WEIBULL_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVEYOR_BELT__NAME = PROCESS__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Duration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVEYOR_BELT__DURATION = PROCESS__DURATION;
+
+	/**
+	 * The feature id for the '<em><b>Storage Output Flow</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVEYOR_BELT__STORAGE_OUTPUT_FLOW = PROCESS__STORAGE_OUTPUT_FLOW;
+
+	/**
+	 * The feature id for the '<em><b>Minimal Separation Between Batches</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVEYOR_BELT__MINIMAL_SEPARATION_BETWEEN_BATCHES = PROCESS_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Output</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVEYOR_BELT__OUTPUT = PROCESS_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Conveyor Belt</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVEYOR_BELT_FEATURE_COUNT = PROCESS_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Conveyor Belt</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONVEYOR_BELT_OPERATION_COUNT = PROCESS_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.OrderType <em>Order Type</em>}' enum.
@@ -1863,6 +1908,28 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getStorage_StorageOutputFlow();
+
+	/**
+	 * Returns the meta object for the reference list '{@link be.cetic.simqri.metamodel.Storage#getOrderOnStockThreshold <em>Order On Stock Threshold</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Order On Stock Threshold</em>'.
+	 * @see be.cetic.simqri.metamodel.Storage#getOrderOnStockThreshold()
+	 * @see #getStorage()
+	 * @generated
+	 */
+	EReference getStorage_OrderOnStockThreshold();
+
+	/**
+	 * Returns the meta object for the reference list '{@link be.cetic.simqri.metamodel.Storage#getProcessOutputFlow <em>Process Output Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Process Output Flow</em>'.
+	 * @see be.cetic.simqri.metamodel.Storage#getProcessOutputFlow()
+	 * @see #getStorage()
+	 * @generated
+	 */
+	EReference getStorage_ProcessOutputFlow();
 
 	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Supplier <em>Supplier</em>}'.
@@ -2120,6 +2187,17 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProcess_Duration();
+
+	/**
+	 * Returns the meta object for the reference list '{@link be.cetic.simqri.metamodel.Process#getStorageOutputFlow <em>Storage Output Flow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Storage Output Flow</em>'.
+	 * @see be.cetic.simqri.metamodel.Process#getStorageOutputFlow()
+	 * @see #getProcess()
+	 * @generated
+	 */
+	EReference getProcess_StorageOutputFlow();
 
 	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.OrderOnStockThreshold <em>Order On Stock Threshold</em>}'.
@@ -2980,6 +3058,22 @@ public interface MetamodelPackage extends EPackage {
 		EReference STORAGE__STORAGE_OUTPUT_FLOW = eINSTANCE.getStorage_StorageOutputFlow();
 
 		/**
+		 * The meta object literal for the '<em><b>Order On Stock Threshold</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STORAGE__ORDER_ON_STOCK_THRESHOLD = eINSTANCE.getStorage_OrderOnStockThreshold();
+
+		/**
+		 * The meta object literal for the '<em><b>Process Output Flow</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STORAGE__PROCESS_OUTPUT_FLOW = eINSTANCE.getStorage_ProcessOutputFlow();
+
+		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.SupplierImpl <em>Supplier</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3184,6 +3278,14 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROCESS__DURATION = eINSTANCE.getProcess_Duration();
+
+		/**
+		 * The meta object literal for the '<em><b>Storage Output Flow</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROCESS__STORAGE_OUTPUT_FLOW = eINSTANCE.getProcess_StorageOutputFlow();
 
 		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.OrderOnStockThresholdImpl <em>Order On Stock Threshold</em>}' class.

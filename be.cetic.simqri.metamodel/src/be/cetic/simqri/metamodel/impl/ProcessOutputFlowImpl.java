@@ -24,24 +24,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link be.cetic.simqri.metamodel.impl.ProcessOutputFlowImpl#getDestination <em>Destination</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.ProcessOutputFlowImpl#getSource <em>Source</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.ProcessOutputFlowImpl#getProcessOutputFlowDelay <em>Process Output Flow Delay</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.ProcessOutputFlowImpl#getDestination <em>Destination</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ProcessOutputFlowImpl extends FlowImpl implements ProcessOutputFlow {
-	/**
-	 * The cached value of the '{@link #getDestination() <em>Destination</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDestination()
-	 * @generated
-	 * @ordered
-	 */
-	protected Storage destination;
-
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -61,6 +51,16 @@ public class ProcessOutputFlowImpl extends FlowImpl implements ProcessOutputFlow
 	 * @ordered
 	 */
 	protected Probability processOutputFlowDelay;
+
+	/**
+	 * The cached value of the '{@link #getDestination() <em>Destination</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDestination()
+	 * @generated
+	 * @ordered
+	 */
+	protected Storage destination;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,11 +112,33 @@ public class ProcessOutputFlowImpl extends FlowImpl implements ProcessOutputFlow
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDestination(Storage newDestination) {
+	public NotificationChain basicSetDestination(Storage newDestination, NotificationChain msgs) {
 		Storage oldDestination = destination;
 		destination = newDestination;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION, oldDestination, destination));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION, oldDestination, newDestination);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDestination(Storage newDestination) {
+		if (newDestination != destination) {
+			NotificationChain msgs = null;
+			if (destination != null)
+				msgs = ((InternalEObject)destination).eInverseRemove(this, MetamodelPackage.STORAGE__PROCESS_OUTPUT_FLOW, Storage.class, msgs);
+			if (newDestination != null)
+				msgs = ((InternalEObject)newDestination).eInverseAdd(this, MetamodelPackage.STORAGE__PROCESS_OUTPUT_FLOW, Storage.class, msgs);
+			msgs = basicSetDestination(newDestination, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION, newDestination, newDestination));
 	}
 
 	/**
@@ -234,6 +256,10 @@ public class ProcessOutputFlowImpl extends FlowImpl implements ProcessOutputFlow
 				if (source != null)
 					msgs = ((InternalEObject)source).eInverseRemove(this, MetamodelPackage.OUTPUT__PROCESS_OUTPUT_FLOW, Output.class, msgs);
 				return basicSetSource((Output)otherEnd, msgs);
+			case MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION:
+				if (destination != null)
+					msgs = ((InternalEObject)destination).eInverseRemove(this, MetamodelPackage.STORAGE__PROCESS_OUTPUT_FLOW, Storage.class, msgs);
+				return basicSetDestination((Storage)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -250,6 +276,8 @@ public class ProcessOutputFlowImpl extends FlowImpl implements ProcessOutputFlow
 				return basicSetSource(null, msgs);
 			case MetamodelPackage.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY:
 				return basicSetProcessOutputFlowDelay(null, msgs);
+			case MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION:
+				return basicSetDestination(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -262,14 +290,14 @@ public class ProcessOutputFlowImpl extends FlowImpl implements ProcessOutputFlow
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION:
-				if (resolve) return getDestination();
-				return basicGetDestination();
 			case MetamodelPackage.PROCESS_OUTPUT_FLOW__SOURCE:
 				if (resolve) return getSource();
 				return basicGetSource();
 			case MetamodelPackage.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY:
 				return getProcessOutputFlowDelay();
+			case MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION:
+				if (resolve) return getDestination();
+				return basicGetDestination();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -282,14 +310,14 @@ public class ProcessOutputFlowImpl extends FlowImpl implements ProcessOutputFlow
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION:
-				setDestination((Storage)newValue);
-				return;
 			case MetamodelPackage.PROCESS_OUTPUT_FLOW__SOURCE:
 				setSource((Output)newValue);
 				return;
 			case MetamodelPackage.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY:
 				setProcessOutputFlowDelay((Probability)newValue);
+				return;
+			case MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION:
+				setDestination((Storage)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -303,14 +331,14 @@ public class ProcessOutputFlowImpl extends FlowImpl implements ProcessOutputFlow
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION:
-				setDestination((Storage)null);
-				return;
 			case MetamodelPackage.PROCESS_OUTPUT_FLOW__SOURCE:
 				setSource((Output)null);
 				return;
 			case MetamodelPackage.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY:
 				setProcessOutputFlowDelay((Probability)null);
+				return;
+			case MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION:
+				setDestination((Storage)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -324,12 +352,12 @@ public class ProcessOutputFlowImpl extends FlowImpl implements ProcessOutputFlow
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION:
-				return destination != null;
 			case MetamodelPackage.PROCESS_OUTPUT_FLOW__SOURCE:
 				return source != null;
 			case MetamodelPackage.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY:
 				return processOutputFlowDelay != null;
+			case MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION:
+				return destination != null;
 		}
 		return super.eIsSet(featureID);
 	}

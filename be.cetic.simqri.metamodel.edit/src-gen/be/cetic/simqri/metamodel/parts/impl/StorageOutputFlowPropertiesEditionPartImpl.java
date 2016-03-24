@@ -59,8 +59,8 @@ import org.eclipse.swt.widgets.Group;
  */
 public class StorageOutputFlowPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, StorageOutputFlowPropertiesEditionPart {
 
-	protected EObjectFlatComboViewer destination;
 	protected EObjectFlatComboViewer source;
+	protected EObjectFlatComboViewer destination;
 	private SingleCompositionEditor quantity;
 
 
@@ -100,8 +100,8 @@ public class StorageOutputFlowPropertiesEditionPartImpl extends CompositePropert
 	public void createControls(Composite view) { 
 		CompositionSequence storageOutputFlowStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = storageOutputFlowStep.addStep(MetamodelViewsRepository.StorageOutputFlow.Properties.class);
-		propertiesStep.addStep(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
 		propertiesStep.addStep(MetamodelViewsRepository.StorageOutputFlow.Properties.source);
+		propertiesStep.addStep(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
 		propertiesStep.addStep(MetamodelViewsRepository.StorageOutputFlow.Properties.quantity);
 		
 		
@@ -112,11 +112,11 @@ public class StorageOutputFlowPropertiesEditionPartImpl extends CompositePropert
 				if (key == MetamodelViewsRepository.StorageOutputFlow.Properties.class) {
 					return createPropertiesGroup(parent);
 				}
-				if (key == MetamodelViewsRepository.StorageOutputFlow.Properties.destination) {
-					return createDestinationFlatComboViewer(parent);
-				}
 				if (key == MetamodelViewsRepository.StorageOutputFlow.Properties.source) {
 					return createSourceFlatComboViewer(parent);
+				}
+				if (key == MetamodelViewsRepository.StorageOutputFlow.Properties.destination) {
+					return createDestinationFlatComboViewer(parent);
 				}
 				if (key == MetamodelViewsRepository.StorageOutputFlow.Properties.quantity) {
 					return createQuantitySingleCompositionEditor(parent);
@@ -146,32 +146,6 @@ public class StorageOutputFlowPropertiesEditionPartImpl extends CompositePropert
 	 * @param parent the parent composite
 	 * 
 	 */
-	protected Composite createDestinationFlatComboViewer(Composite parent) {
-		createDescription(parent, MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelMessages.StorageOutputFlowPropertiesEditionPart_DestinationLabel);
-		destination = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelViewsRepository.SWT_KIND));
-		destination.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
-		destination.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			public void selectionChanged(SelectionChangedEvent event) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StorageOutputFlowPropertiesEditionPartImpl.this, MetamodelViewsRepository.StorageOutputFlow.Properties.destination, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getDestination()));
-			}
-
-		});
-		GridData destinationData = new GridData(GridData.FILL_HORIZONTAL);
-		destination.setLayoutData(destinationData);
-		destination.setID(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDestinationFlatComboViewer
-
-		// End of user code
-		return parent;
-	}
-
-	/**
-	 * @param parent the parent composite
-	 * 
-	 */
 	protected Composite createSourceFlatComboViewer(Composite parent) {
 		createDescription(parent, MetamodelViewsRepository.StorageOutputFlow.Properties.source, MetamodelMessages.StorageOutputFlowPropertiesEditionPart_SourceLabel);
 		source = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.StorageOutputFlow.Properties.source, MetamodelViewsRepository.SWT_KIND));
@@ -189,6 +163,32 @@ public class StorageOutputFlowPropertiesEditionPartImpl extends CompositePropert
 		source.setID(MetamodelViewsRepository.StorageOutputFlow.Properties.source);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.StorageOutputFlow.Properties.source, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
 		// Start of user code for createSourceFlatComboViewer
+
+		// End of user code
+		return parent;
+	}
+
+	/**
+	 * @param parent the parent composite
+	 * 
+	 */
+	protected Composite createDestinationFlatComboViewer(Composite parent) {
+		createDescription(parent, MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelMessages.StorageOutputFlowPropertiesEditionPart_DestinationLabel);
+		destination = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelViewsRepository.SWT_KIND));
+		destination.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+
+		destination.addSelectionChangedListener(new ISelectionChangedListener() {
+
+			public void selectionChanged(SelectionChangedEvent event) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StorageOutputFlowPropertiesEditionPartImpl.this, MetamodelViewsRepository.StorageOutputFlow.Properties.destination, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getDestination()));
+			}
+
+		});
+		GridData destinationData = new GridData(GridData.FILL_HORIZONTAL);
+		destination.setLayoutData(destinationData);
+		destination.setID(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDestinationFlatComboViewer
 
 		// End of user code
 		return parent;
@@ -235,92 +235,6 @@ public class StorageOutputFlowPropertiesEditionPartImpl extends CompositePropert
 		// Start of user code for tab synchronization
 		
 		// End of user code
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#getDestination()
-	 * 
-	 */
-	public EObject getDestination() {
-		if (destination.getSelection() instanceof StructuredSelection) {
-			Object firstElement = ((StructuredSelection) destination.getSelection()).getFirstElement();
-			if (firstElement instanceof EObject)
-				return (EObject) firstElement;
-		}
-		return null;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#initDestination(EObjectFlatComboSettings)
-	 */
-	public void initDestination(EObjectFlatComboSettings settings) {
-		destination.setInput(settings);
-		if (current != null) {
-			destination.setSelection(new StructuredSelection(settings.getValue()));
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
-		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
-			destination.setEnabled(false);
-			destination.setToolTipText(MetamodelMessages.StorageOutputFlow_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
-			destination.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#setDestination(EObject newValue)
-	 * 
-	 */
-	public void setDestination(EObject newValue) {
-		if (newValue != null) {
-			destination.setSelection(new StructuredSelection(newValue));
-		} else {
-			destination.setSelection(new StructuredSelection()); //$NON-NLS-1$
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
-		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
-			destination.setEnabled(false);
-			destination.setToolTipText(MetamodelMessages.StorageOutputFlow_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
-			destination.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#setDestinationButtonMode(ButtonsModeEnum newValue)
-	 */
-	public void setDestinationButtonMode(ButtonsModeEnum newValue) {
-		destination.setButtonMode(newValue);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#addFilterDestination(ViewerFilter filter)
-	 * 
-	 */
-	public void addFilterToDestination(ViewerFilter filter) {
-		destination.addFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#addBusinessFilterDestination(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToDestination(ViewerFilter filter) {
-		destination.addBusinessRuleFilter(filter);
 	}
 
 	/**
@@ -407,6 +321,92 @@ public class StorageOutputFlowPropertiesEditionPartImpl extends CompositePropert
 	 */
 	public void addBusinessFilterToSource(ViewerFilter filter) {
 		source.addBusinessRuleFilter(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#getDestination()
+	 * 
+	 */
+	public EObject getDestination() {
+		if (destination.getSelection() instanceof StructuredSelection) {
+			Object firstElement = ((StructuredSelection) destination.getSelection()).getFirstElement();
+			if (firstElement instanceof EObject)
+				return (EObject) firstElement;
+		}
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#initDestination(EObjectFlatComboSettings)
+	 */
+	public void initDestination(EObjectFlatComboSettings settings) {
+		destination.setInput(settings);
+		if (current != null) {
+			destination.setSelection(new StructuredSelection(settings.getValue()));
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
+		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
+			destination.setEnabled(false);
+			destination.setToolTipText(MetamodelMessages.StorageOutputFlow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
+			destination.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#setDestination(EObject newValue)
+	 * 
+	 */
+	public void setDestination(EObject newValue) {
+		if (newValue != null) {
+			destination.setSelection(new StructuredSelection(newValue));
+		} else {
+			destination.setSelection(new StructuredSelection()); //$NON-NLS-1$
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
+		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
+			destination.setEnabled(false);
+			destination.setToolTipText(MetamodelMessages.StorageOutputFlow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
+			destination.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#setDestinationButtonMode(ButtonsModeEnum newValue)
+	 */
+	public void setDestinationButtonMode(ButtonsModeEnum newValue) {
+		destination.setButtonMode(newValue);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#addFilterDestination(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToDestination(ViewerFilter filter) {
+		destination.addFilter(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#addBusinessFilterDestination(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToDestination(ViewerFilter filter) {
+		destination.addBusinessRuleFilter(filter);
 	}
 
 	/**

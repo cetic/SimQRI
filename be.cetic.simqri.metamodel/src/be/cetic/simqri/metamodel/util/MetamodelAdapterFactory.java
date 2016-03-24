@@ -115,10 +115,6 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 				return createSupplierAdapter();
 			}
 			@Override
-			public Adapter caseConveyorBelt(ConveyorBelt object) {
-				return createConveyorBeltAdapter();
-			}
-			@Override
 			public Adapter caseBatchProcess(BatchProcess object) {
 				return createBatchProcessAdapter();
 			}
@@ -225,6 +221,10 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseWeibull(Weibull object) {
 				return createWeibullAdapter();
+			}
+			@Override
+			public Adapter caseConveyorBelt(ConveyorBelt object) {
+				return createConveyorBeltAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {

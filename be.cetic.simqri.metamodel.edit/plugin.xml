@@ -91,12 +91,6 @@
                tab="Base">
          </propertySection>
          <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.ConveyorBeltPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.ConveyorBeltPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.ConveyorBelt"
-               tab="Base">
-         </propertySection>
-         <propertySection
                class="be.cetic.simqri.metamodel.parts.forms.BatchProcessPropertiesEditionPartForm"
                filter="be.cetic.simqri.metamodel.providers.BatchProcessPropertiesEditionProvider$EditionFilter"
                id="be.cetic.simqri.metamodel.section.BatchProcess"
@@ -226,6 +220,12 @@
                class="be.cetic.simqri.metamodel.parts.forms.WeibullPropertiesEditionPartForm"
                filter="be.cetic.simqri.metamodel.providers.WeibullPropertiesEditionProvider$EditionFilter"
                id="be.cetic.simqri.metamodel.section.Weibull"
+               tab="Base">
+         </propertySection>
+         <propertySection
+               class="be.cetic.simqri.metamodel.parts.forms.ConveyorBeltPropertiesEditionPartForm"
+               filter="be.cetic.simqri.metamodel.providers.ConveyorBeltPropertiesEditionProvider$EditionFilter"
+               id="be.cetic.simqri.metamodel.section.ConveyorBelt"
                tab="Base">
          </propertySection>
       </propertySections>

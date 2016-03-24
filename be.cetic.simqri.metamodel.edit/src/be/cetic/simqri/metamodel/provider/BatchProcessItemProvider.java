@@ -50,7 +50,6 @@ public class BatchProcessItemProvider extends ProcessItemProvider {
 
 			addPercentageOfSuccessPropertyDescriptor(object);
 			addNumberOfLinesPropertyDescriptor(object);
-			addOutputsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -95,28 +94,6 @@ public class BatchProcessItemProvider extends ProcessItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Outputs feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOutputsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BatchProcess_outputs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BatchProcess_outputs_feature", "_UI_BatchProcess_type"),
-				 MetamodelPackage.Literals.BATCH_PROCESS__OUTPUTS,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

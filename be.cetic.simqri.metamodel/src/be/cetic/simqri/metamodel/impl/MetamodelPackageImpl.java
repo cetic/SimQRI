@@ -554,6 +554,24 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getStorage_OrderOnStockThreshold() {
+		return (EReference)storageEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStorage_ProcessOutputFlow() {
+		return (EReference)storageEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSupplier() {
 		return supplierEClass;
 	}
@@ -699,7 +717,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EReference getStorageOutputFlow_Destination() {
-		return (EReference)storageOutputFlowEClass.getEStructuralFeatures().get(0);
+		return (EReference)storageOutputFlowEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -708,7 +726,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EReference getStorageOutputFlow_Source() {
-		return (EReference)storageOutputFlowEClass.getEStructuralFeatures().get(1);
+		return (EReference)storageOutputFlowEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -726,7 +744,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EReference getProcessOutputFlow_Destination() {
-		return (EReference)processOutputFlowEClass.getEStructuralFeatures().get(0);
+		return (EReference)processOutputFlowEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -735,7 +753,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EReference getProcessOutputFlow_Source() {
-		return (EReference)processOutputFlowEClass.getEStructuralFeatures().get(1);
+		return (EReference)processOutputFlowEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -744,7 +762,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EReference getProcessOutputFlow_ProcessOutputFlowDelay() {
-		return (EReference)processOutputFlowEClass.getEStructuralFeatures().get(2);
+		return (EReference)processOutputFlowEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -763,6 +781,15 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 */
 	public EAttribute getProcess_Duration() {
 		return (EAttribute)processEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProcess_StorageOutputFlow() {
+		return (EReference)processEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -825,7 +852,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EReference getOrderOnStockThreshold_Storage() {
-		return (EReference)orderOnStockThresholdEClass.getEStructuralFeatures().get(5);
+		return (EReference)orderOnStockThresholdEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -834,7 +861,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EReference getOrderOnStockThreshold_Supplier() {
-		return (EReference)orderOnStockThresholdEClass.getEStructuralFeatures().get(6);
+		return (EReference)orderOnStockThresholdEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1404,15 +1431,13 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		createEAttribute(storageEClass, STORAGE__INITIAL_CONTENT);
 		createEAttribute(storageEClass, STORAGE__OVERFLOW);
 		createEReference(storageEClass, STORAGE__STORAGE_OUTPUT_FLOW);
+		createEReference(storageEClass, STORAGE__ORDER_ON_STOCK_THRESHOLD);
+		createEReference(storageEClass, STORAGE__PROCESS_OUTPUT_FLOW);
 
 		supplierEClass = createEClass(SUPPLIER);
 		createEAttribute(supplierEClass, SUPPLIER__DELIVERED_PERCENTAGE);
 		createEReference(supplierEClass, SUPPLIER__REFILL_POLICY);
 		createEReference(supplierEClass, SUPPLIER__SUPPLIER_DELAY);
-
-		conveyorBeltEClass = createEClass(CONVEYOR_BELT);
-		createEAttribute(conveyorBeltEClass, CONVEYOR_BELT__MINIMAL_SEPARATION_BETWEEN_BATCHES);
-		createEReference(conveyorBeltEClass, CONVEYOR_BELT__OUTPUT);
 
 		batchProcessEClass = createEClass(BATCH_PROCESS);
 		createEAttribute(batchProcessEClass, BATCH_PROCESS__PERCENTAGE_OF_SUCCESS);
@@ -1425,16 +1450,17 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		createEAttribute(outputEClass, OUTPUT__DESCRIPTION);
 
 		storageOutputFlowEClass = createEClass(STORAGE_OUTPUT_FLOW);
-		createEReference(storageOutputFlowEClass, STORAGE_OUTPUT_FLOW__DESTINATION);
 		createEReference(storageOutputFlowEClass, STORAGE_OUTPUT_FLOW__SOURCE);
+		createEReference(storageOutputFlowEClass, STORAGE_OUTPUT_FLOW__DESTINATION);
 
 		processOutputFlowEClass = createEClass(PROCESS_OUTPUT_FLOW);
-		createEReference(processOutputFlowEClass, PROCESS_OUTPUT_FLOW__DESTINATION);
 		createEReference(processOutputFlowEClass, PROCESS_OUTPUT_FLOW__SOURCE);
 		createEReference(processOutputFlowEClass, PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY);
+		createEReference(processOutputFlowEClass, PROCESS_OUTPUT_FLOW__DESTINATION);
 
 		processEClass = createEClass(PROCESS);
 		createEAttribute(processEClass, PROCESS__DURATION);
+		createEReference(processEClass, PROCESS__STORAGE_OUTPUT_FLOW);
 
 		orderOnStockThresholdEClass = createEClass(ORDER_ON_STOCK_THRESHOLD);
 		createEAttribute(orderOnStockThresholdEClass, ORDER_ON_STOCK_THRESHOLD__PERIOD);
@@ -1442,8 +1468,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		createEAttribute(orderOnStockThresholdEClass, ORDER_ON_STOCK_THRESHOLD__NAME);
 		createEAttribute(orderOnStockThresholdEClass, ORDER_ON_STOCK_THRESHOLD__ORDER_QUANTITY);
 		createEAttribute(orderOnStockThresholdEClass, ORDER_ON_STOCK_THRESHOLD__ORDER_TYPE);
-		createEReference(orderOnStockThresholdEClass, ORDER_ON_STOCK_THRESHOLD__STORAGE);
 		createEReference(orderOnStockThresholdEClass, ORDER_ON_STOCK_THRESHOLD__SUPPLIER);
+		createEReference(orderOnStockThresholdEClass, ORDER_ON_STOCK_THRESHOLD__STORAGE);
 
 		componentEClass = createEClass(COMPONENT);
 		createEAttribute(componentEClass, COMPONENT__NAME);
@@ -1515,6 +1541,10 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		createEAttribute(weibullEClass, WEIBULL__SHAPE);
 		createEAttribute(weibullEClass, WEIBULL__SCALE);
 
+		conveyorBeltEClass = createEClass(CONVEYOR_BELT);
+		createEAttribute(conveyorBeltEClass, CONVEYOR_BELT__MINIMAL_SEPARATION_BETWEEN_BATCHES);
+		createEReference(conveyorBeltEClass, CONVEYOR_BELT__OUTPUT);
+
 		// Create enums
 		orderTypeEEnum = createEEnum(ORDER_TYPE);
 		outputTypeEEnum = createEEnum(OUTPUT_TYPE);
@@ -1559,7 +1589,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		// Add supertypes to classes
 		storageEClass.getESuperTypes().add(this.getComponent());
 		supplierEClass.getESuperTypes().add(this.getComponent());
-		conveyorBeltEClass.getESuperTypes().add(this.getProcess());
 		batchProcessEClass.getESuperTypes().add(this.getProcess());
 		storageOutputFlowEClass.getESuperTypes().add(this.getFlow());
 		processOutputFlowEClass.getESuperTypes().add(this.getFlow());
@@ -1582,6 +1611,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		studentsTEClass.getESuperTypes().add(this.getDistribution());
 		uniformEClass.getESuperTypes().add(this.getDistribution());
 		weibullEClass.getESuperTypes().add(this.getDistribution());
+		conveyorBeltEClass.getESuperTypes().add(this.getProcess());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1601,15 +1631,13 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEAttribute(getStorage_InitialContent(), this.getPositiveInt(), "initialContent", null, 0, 1, Storage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStorage_Overflow(), ecorePackage.getEBoolean(), "overflow", null, 0, 1, Storage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStorage_StorageOutputFlow(), this.getStorageOutputFlow(), this.getStorageOutputFlow_Source(), "storageOutputFlow", null, 0, -1, Storage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStorage_OrderOnStockThreshold(), this.getOrderOnStockThreshold(), this.getOrderOnStockThreshold_Storage(), "orderOnStockThreshold", null, 0, -1, Storage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStorage_ProcessOutputFlow(), this.getProcessOutputFlow(), this.getProcessOutputFlow_Destination(), "processOutputFlow", null, 0, -1, Storage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(supplierEClass, Supplier.class, "Supplier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSupplier_DeliveredPercentage(), this.getPercent(), "deliveredPercentage", null, 0, 1, Supplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSupplier_RefillPolicy(), this.getOrderOnStockThreshold(), this.getOrderOnStockThreshold_Supplier(), "refillPolicy", null, 0, -1, Supplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSupplier_SupplierDelay(), this.getProbability(), null, "supplierDelay", null, 1, 1, Supplier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(conveyorBeltEClass, ConveyorBelt.class, "ConveyorBelt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConveyorBelt_MinimalSeparationBetweenBatches(), this.getPositiveDouble(), "minimalSeparationBetweenBatches", null, 0, 1, ConveyorBelt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getConveyorBelt_Output(), this.getOutput(), null, "output", null, 0, 1, ConveyorBelt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(batchProcessEClass, BatchProcess.class, "BatchProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBatchProcess_PercentageOfSuccess(), this.getPercent(), "percentageOfSuccess", null, 0, 1, BatchProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1622,16 +1650,17 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEAttribute(getOutput_Description(), ecorePackage.getEString(), "description", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(storageOutputFlowEClass, StorageOutputFlow.class, "StorageOutputFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStorageOutputFlow_Destination(), this.getProcess(), null, "destination", null, 1, 1, StorageOutputFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getStorageOutputFlow_Source(), this.getStorage(), this.getStorage_StorageOutputFlow(), "source", null, 1, 1, StorageOutputFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStorageOutputFlow_Destination(), this.getProcess(), this.getProcess_StorageOutputFlow(), "destination", null, 1, 1, StorageOutputFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(processOutputFlowEClass, ProcessOutputFlow.class, "ProcessOutputFlow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProcessOutputFlow_Destination(), this.getStorage(), null, "destination", null, 1, 1, ProcessOutputFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessOutputFlow_Source(), this.getOutput(), this.getOutput_ProcessOutputFlow(), "source", null, 1, 1, ProcessOutputFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcessOutputFlow_ProcessOutputFlowDelay(), this.getProbability(), null, "processOutputFlowDelay", null, 1, 1, ProcessOutputFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcessOutputFlow_Destination(), this.getStorage(), this.getStorage_ProcessOutputFlow(), "destination", null, 1, 1, ProcessOutputFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(processEClass, be.cetic.simqri.metamodel.Process.class, "Process", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProcess_Duration(), this.getPositiveDouble(), "duration", null, 0, 1, be.cetic.simqri.metamodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcess_StorageOutputFlow(), this.getStorageOutputFlow(), this.getStorageOutputFlow_Destination(), "storageOutputFlow", null, 0, -1, be.cetic.simqri.metamodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orderOnStockThresholdEClass, OrderOnStockThreshold.class, "OrderOnStockThreshold", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrderOnStockThreshold_Period(), this.getPositiveDouble(), "period", null, 0, 1, OrderOnStockThreshold.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1639,8 +1668,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEAttribute(getOrderOnStockThreshold_Name(), ecorePackage.getEString(), "name", null, 0, 1, OrderOnStockThreshold.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrderOnStockThreshold_OrderQuantity(), this.getPositiveInt(), "orderQuantity", null, 0, 1, OrderOnStockThreshold.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrderOnStockThreshold_OrderType(), this.getOrderType(), "orderType", null, 0, 1, OrderOnStockThreshold.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrderOnStockThreshold_Storage(), this.getStorage(), null, "storage", null, 1, 1, OrderOnStockThreshold.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOrderOnStockThreshold_Supplier(), this.getSupplier(), this.getSupplier_RefillPolicy(), "supplier", null, 1, 1, OrderOnStockThreshold.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrderOnStockThreshold_Storage(), this.getStorage(), this.getStorage_OrderOnStockThreshold(), "storage", null, 1, 1, OrderOnStockThreshold.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(componentEClass, Component.class, "Component", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getComponent_Name(), ecorePackage.getEString(), "name", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1712,6 +1741,10 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEAttribute(getWeibull_Shape(), this.getPositiveDouble(), "shape", null, 0, 1, Weibull.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getWeibull_Scale(), this.getPositiveDouble(), "scale", null, 0, 1, Weibull.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(conveyorBeltEClass, ConveyorBelt.class, "ConveyorBelt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConveyorBelt_MinimalSeparationBetweenBatches(), this.getPositiveDouble(), "minimalSeparationBetweenBatches", null, 0, 1, ConveyorBelt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConveyorBelt_Output(), this.getOutput(), null, "output", null, 0, 1, ConveyorBelt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(orderTypeEEnum, OrderType.class, "OrderType");
 		addEEnumLiteral(orderTypeEEnum, OrderType.FIXED);
@@ -1748,12 +1781,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 */
 	protected void createExtendedMetaDataAnnotations() {
 		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
-		addAnnotation
-		  (getBatchProcess_Outputs(), 
-		   source, 
-		   new String[] {
-			 "kind", "group"
-		   });	
 		addAnnotation
 		  (percentEDataType, 
 		   source, 

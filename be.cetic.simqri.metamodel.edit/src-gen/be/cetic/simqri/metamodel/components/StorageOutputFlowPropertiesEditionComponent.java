@@ -66,14 +66,14 @@ public class StorageOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 
 	
 	/**
-	 * Settings for destination EObjectFlatComboViewer
-	 */
-	private EObjectFlatComboSettings destinationSettings;
-	
-	/**
 	 * Settings for source EObjectFlatComboViewer
 	 */
 	private EObjectFlatComboSettings sourceSettings;
+	
+	/**
+	 * Settings for destination EObjectFlatComboViewer
+	 */
+	private EObjectFlatComboSettings destinationSettings;
 	
 	/**
 	 * Settings for quantity SingleCompositionEditor
@@ -107,13 +107,6 @@ public class StorageOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 			final StorageOutputFlow storageOutputFlow = (StorageOutputFlow)elt;
 			final StorageOutputFlowPropertiesEditionPart basePart = (StorageOutputFlowPropertiesEditionPart)editingPart;
 			// init values
-			if (isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.destination)) {
-				// init part
-				destinationSettings = new EObjectFlatComboSettings(storageOutputFlow, MetamodelPackage.eINSTANCE.getStorageOutputFlow_Destination());
-				basePart.initDestination(destinationSettings);
-				// set the button mode
-				basePart.setDestinationButtonMode(ButtonsModeEnum.BROWSE);
-			}
 			if (isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.source)) {
 				// init part
 				sourceSettings = new EObjectFlatComboSettings(storageOutputFlow, MetamodelPackage.eINSTANCE.getStorageOutputFlow_Source());
@@ -121,28 +114,19 @@ public class StorageOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 				// set the button mode
 				basePart.setSourceButtonMode(ButtonsModeEnum.BROWSE);
 			}
+			if (isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.destination)) {
+				// init part
+				destinationSettings = new EObjectFlatComboSettings(storageOutputFlow, MetamodelPackage.eINSTANCE.getStorageOutputFlow_Destination());
+				basePart.initDestination(destinationSettings);
+				// set the button mode
+				basePart.setDestinationButtonMode(ButtonsModeEnum.BROWSE);
+			}
 			if (isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.quantity)) {
 				// init part
 				quantitySettings = new EObjectFlatComboSettings(storageOutputFlow, MetamodelPackage.eINSTANCE.getFlow_Quantity());
 				basePart.initQuantity(quantitySettings);
 			}
 			// init filters
-			if (isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.destination)) {
-				basePart.addFilterToDestination(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						return (element instanceof Process);
-					}
-					
-				});
-				// Start of user code for additional businessfilters for destination
-				// End of user code
-			}
 			if (isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.source)) {
 				basePart.addFilterToSource(new ViewerFilter() {
 				
@@ -157,6 +141,22 @@ public class StorageOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 					
 				});
 				// Start of user code for additional businessfilters for source
+				// End of user code
+			}
+			if (isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.destination)) {
+				basePart.addFilterToDestination(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof Process);
+					}
+					
+				});
+				// Start of user code for additional businessfilters for destination
 				// End of user code
 			}
 			
@@ -178,11 +178,11 @@ public class StorageOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
 	 */
 	public EStructuralFeature associatedFeature(Object editorKey) {
-		if (editorKey == MetamodelViewsRepository.StorageOutputFlow.Properties.destination) {
-			return MetamodelPackage.eINSTANCE.getStorageOutputFlow_Destination();
-		}
 		if (editorKey == MetamodelViewsRepository.StorageOutputFlow.Properties.source) {
 			return MetamodelPackage.eINSTANCE.getStorageOutputFlow_Source();
+		}
+		if (editorKey == MetamodelViewsRepository.StorageOutputFlow.Properties.destination) {
+			return MetamodelPackage.eINSTANCE.getStorageOutputFlow_Destination();
 		}
 		if (editorKey == MetamodelViewsRepository.StorageOutputFlow.Properties.quantity) {
 			return MetamodelPackage.eINSTANCE.getFlow_Quantity();
@@ -195,23 +195,9 @@ public class StorageOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updateSemanticModel(org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent)
 	 * 
 	 */
+	@SuppressWarnings("unused")
 	public void updateSemanticModel(final IPropertiesEditionEvent event) {
-		@SuppressWarnings("unused")
 		StorageOutputFlow storageOutputFlow = (StorageOutputFlow)semanticObject;
-		if (MetamodelViewsRepository.StorageOutputFlow.Properties.destination == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.SET) {
-				destinationSettings.setToReference((Process)event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
-				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, destinationSettings, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(semanticObject, PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy instanceof CreateEditingPolicy) {
-						policy.execute();
-					}
-				}
-			}
-		}
 		if (MetamodelViewsRepository.StorageOutputFlow.Properties.source == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.SET) {
 				sourceSettings.setToReference((Storage)event.getNewValue());
@@ -226,6 +212,20 @@ public class StorageOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 					}
 				}
 				sourceSettings.setToReference(eObject);
+			}
+		}
+		if (MetamodelViewsRepository.StorageOutputFlow.Properties.destination == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.SET) {
+				destinationSettings.setToReference((Process)event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
+				EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, destinationSettings, editingContext.getAdapterFactory());
+				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(semanticObject, PropertiesEditingProvider.class);
+				if (provider != null) {
+					PropertiesEditingPolicy policy = provider.getPolicy(context);
+					if (policy instanceof CreateEditingPolicy) {
+						policy.execute();
+					}
+				}
 			}
 		}
 		if (MetamodelViewsRepository.StorageOutputFlow.Properties.quantity == event.getAffectedEditor()) {
@@ -269,10 +269,10 @@ public class StorageOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 		super.updatePart(msg);
 		if (editingPart.isVisible()) {
 			StorageOutputFlowPropertiesEditionPart basePart = (StorageOutputFlowPropertiesEditionPart)editingPart;
-			if (MetamodelPackage.eINSTANCE.getStorageOutputFlow_Destination().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.destination))
-				basePart.setDestination((EObject)msg.getNewValue());
 			if (MetamodelPackage.eINSTANCE.getStorageOutputFlow_Source().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.source))
 				basePart.setSource((EObject)msg.getNewValue());
+			if (MetamodelPackage.eINSTANCE.getStorageOutputFlow_Destination().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.destination))
+				basePart.setDestination((EObject)msg.getNewValue());
 			if (MetamodelPackage.eINSTANCE.getFlow_Quantity().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.StorageOutputFlow.Properties.quantity))
 				basePart.setQuantity((EObject)msg.getNewValue());
 			
@@ -287,8 +287,8 @@ public class StorageOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 	@Override
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
-			MetamodelPackage.eINSTANCE.getStorageOutputFlow_Destination(),
 			MetamodelPackage.eINSTANCE.getStorageOutputFlow_Source(),
+			MetamodelPackage.eINSTANCE.getStorageOutputFlow_Destination(),
 			MetamodelPackage.eINSTANCE.getFlow_Quantity()		);
 		return new NotificationFilter[] {filter,};
 	}
@@ -301,7 +301,7 @@ public class StorageOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 	 * 
 	 */
 	public boolean isRequired(Object key, int kind) {
-		return key == MetamodelViewsRepository.StorageOutputFlow.Properties.destination || key == MetamodelViewsRepository.StorageOutputFlow.Properties.source || key == MetamodelViewsRepository.StorageOutputFlow.Properties.quantity;
+		return key == MetamodelViewsRepository.StorageOutputFlow.Properties.source || key == MetamodelViewsRepository.StorageOutputFlow.Properties.destination || key == MetamodelViewsRepository.StorageOutputFlow.Properties.quantity;
 	}
 
 	/**

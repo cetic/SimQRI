@@ -2,6 +2,8 @@
  */
 package be.cetic.simqri.metamodel;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +15,7 @@ package be.cetic.simqri.metamodel;
  * </p>
  * <ul>
  *   <li>{@link be.cetic.simqri.metamodel.Process#getDuration <em>Duration</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.Process#getStorageOutputFlow <em>Storage Output Flow</em>}</li>
  * </ul>
  *
  * @see be.cetic.simqri.metamodel.MetamodelPackage#getProcess()
@@ -45,5 +48,23 @@ public interface Process extends Component {
 	 * @generated
 	 */
 	void setDuration(Double value);
+
+	/**
+	 * Returns the value of the '<em><b>Storage Output Flow</b></em>' reference list.
+	 * The list contents are of type {@link be.cetic.simqri.metamodel.StorageOutputFlow}.
+	 * It is bidirectional and its opposite is '{@link be.cetic.simqri.metamodel.StorageOutputFlow#getDestination <em>Destination</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Storage Output Flow</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Storage Output Flow</em>' reference list.
+	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getProcess_StorageOutputFlow()
+	 * @see be.cetic.simqri.metamodel.StorageOutputFlow#getDestination
+	 * @model opposite="destination"
+	 * @generated
+	 */
+	EList<StorageOutputFlow> getStorageOutputFlow();
 
 } // Process

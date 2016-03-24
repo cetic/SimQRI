@@ -123,14 +123,6 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MetamodelPackage.CONVEYOR_BELT: {
-				ConveyorBelt conveyorBelt = (ConveyorBelt)theEObject;
-				T result = caseConveyorBelt(conveyorBelt);
-				if (result == null) result = caseProcess(conveyorBelt);
-				if (result == null) result = caseComponent(conveyorBelt);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MetamodelPackage.BATCH_PROCESS: {
 				BatchProcess batchProcess = (BatchProcess)theEObject;
 				T result = caseBatchProcess(batchProcess);
@@ -329,6 +321,14 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				T result = caseWeibull(weibull);
 				if (result == null) result = caseDistribution(weibull);
 				if (result == null) result = caseProbability(weibull);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case MetamodelPackage.CONVEYOR_BELT: {
+				ConveyorBelt conveyorBelt = (ConveyorBelt)theEObject;
+				T result = caseConveyorBelt(conveyorBelt);
+				if (result == null) result = caseProcess(conveyorBelt);
+				if (result == null) result = caseComponent(conveyorBelt);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

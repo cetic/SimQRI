@@ -255,12 +255,12 @@ public class ModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.MODEL__COMPONENT,
-				 MetamodelFactory.eINSTANCE.createConveyorBelt()));
+				 MetamodelFactory.eINSTANCE.createBatchProcess()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.MODEL__COMPONENT,
-				 MetamodelFactory.eINSTANCE.createBatchProcess()));
+				 MetamodelFactory.eINSTANCE.createConveyorBelt()));
 
 		newChildDescriptors.add
 			(createChildParameter

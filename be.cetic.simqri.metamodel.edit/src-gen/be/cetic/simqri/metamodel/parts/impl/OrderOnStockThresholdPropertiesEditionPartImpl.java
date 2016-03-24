@@ -75,8 +75,8 @@ public class OrderOnStockThresholdPropertiesEditionPartImpl extends CompositePro
 	protected Text name;
 	protected Text orderQuantity;
 	protected EMFComboViewer orderType;
-	protected EObjectFlatComboViewer storage;
 	protected EObjectFlatComboViewer supplier;
+	protected EObjectFlatComboViewer storage;
 
 
 
@@ -120,8 +120,8 @@ public class OrderOnStockThresholdPropertiesEditionPartImpl extends CompositePro
 		propertiesStep.addStep(MetamodelViewsRepository.OrderOnStockThreshold.Properties.name);
 		propertiesStep.addStep(MetamodelViewsRepository.OrderOnStockThreshold.Properties.orderQuantity);
 		propertiesStep.addStep(MetamodelViewsRepository.OrderOnStockThreshold.Properties.orderType);
-		propertiesStep.addStep(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage);
 		propertiesStep.addStep(MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier);
+		propertiesStep.addStep(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage);
 		
 		
 		composer = new PartComposer(orderOnStockThresholdStep) {
@@ -146,11 +146,11 @@ public class OrderOnStockThresholdPropertiesEditionPartImpl extends CompositePro
 				if (key == MetamodelViewsRepository.OrderOnStockThreshold.Properties.orderType) {
 					return createOrderTypeEMFComboViewer(parent);
 				}
-				if (key == MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage) {
-					return createStorageFlatComboViewer(parent);
-				}
 				if (key == MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier) {
 					return createSupplierFlatComboViewer(parent);
+				}
+				if (key == MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage) {
+					return createStorageFlatComboViewer(parent);
 				}
 				return parent;
 			}
@@ -403,32 +403,6 @@ public class OrderOnStockThresholdPropertiesEditionPartImpl extends CompositePro
 	 * @param parent the parent composite
 	 * 
 	 */
-	protected Composite createStorageFlatComboViewer(Composite parent) {
-		createDescription(parent, MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage, MetamodelMessages.OrderOnStockThresholdPropertiesEditionPart_StorageLabel);
-		storage = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage, MetamodelViewsRepository.SWT_KIND));
-		storage.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
-		storage.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			public void selectionChanged(SelectionChangedEvent event) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(OrderOnStockThresholdPropertiesEditionPartImpl.this, MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getStorage()));
-			}
-
-		});
-		GridData storageData = new GridData(GridData.FILL_HORIZONTAL);
-		storage.setLayoutData(storageData);
-		storage.setID(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage);
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createStorageFlatComboViewer
-
-		// End of user code
-		return parent;
-	}
-
-	/**
-	 * @param parent the parent composite
-	 * 
-	 */
 	protected Composite createSupplierFlatComboViewer(Composite parent) {
 		createDescription(parent, MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier, MetamodelMessages.OrderOnStockThresholdPropertiesEditionPart_SupplierLabel);
 		supplier = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier, MetamodelViewsRepository.SWT_KIND));
@@ -446,6 +420,32 @@ public class OrderOnStockThresholdPropertiesEditionPartImpl extends CompositePro
 		supplier.setID(MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
 		// Start of user code for createSupplierFlatComboViewer
+
+		// End of user code
+		return parent;
+	}
+
+	/**
+	 * @param parent the parent composite
+	 * 
+	 */
+	protected Composite createStorageFlatComboViewer(Composite parent) {
+		createDescription(parent, MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage, MetamodelMessages.OrderOnStockThresholdPropertiesEditionPart_StorageLabel);
+		storage = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage, MetamodelViewsRepository.SWT_KIND));
+		storage.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+
+		storage.addSelectionChangedListener(new ISelectionChangedListener() {
+
+			public void selectionChanged(SelectionChangedEvent event) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(OrderOnStockThresholdPropertiesEditionPartImpl.this, MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getStorage()));
+			}
+
+		});
+		GridData storageData = new GridData(GridData.FILL_HORIZONTAL);
+		storage.setLayoutData(storageData);
+		storage.setID(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage);
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createStorageFlatComboViewer
 
 		// End of user code
 		return parent;
@@ -642,92 +642,6 @@ public class OrderOnStockThresholdPropertiesEditionPartImpl extends CompositePro
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#getStorage()
-	 * 
-	 */
-	public EObject getStorage() {
-		if (storage.getSelection() instanceof StructuredSelection) {
-			Object firstElement = ((StructuredSelection) storage.getSelection()).getFirstElement();
-			if (firstElement instanceof EObject)
-				return (EObject) firstElement;
-		}
-		return null;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#initStorage(EObjectFlatComboSettings)
-	 */
-	public void initStorage(EObjectFlatComboSettings settings) {
-		storage.setInput(settings);
-		if (current != null) {
-			storage.setSelection(new StructuredSelection(settings.getValue()));
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage);
-		if (eefElementEditorReadOnlyState && storage.isEnabled()) {
-			storage.setEnabled(false);
-			storage.setToolTipText(MetamodelMessages.OrderOnStockThreshold_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !storage.isEnabled()) {
-			storage.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#setStorage(EObject newValue)
-	 * 
-	 */
-	public void setStorage(EObject newValue) {
-		if (newValue != null) {
-			storage.setSelection(new StructuredSelection(newValue));
-		} else {
-			storage.setSelection(new StructuredSelection()); //$NON-NLS-1$
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage);
-		if (eefElementEditorReadOnlyState && storage.isEnabled()) {
-			storage.setEnabled(false);
-			storage.setToolTipText(MetamodelMessages.OrderOnStockThreshold_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !storage.isEnabled()) {
-			storage.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#setStorageButtonMode(ButtonsModeEnum newValue)
-	 */
-	public void setStorageButtonMode(ButtonsModeEnum newValue) {
-		storage.setButtonMode(newValue);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#addFilterStorage(ViewerFilter filter)
-	 * 
-	 */
-	public void addFilterToStorage(ViewerFilter filter) {
-		storage.addFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#addBusinessFilterStorage(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToStorage(ViewerFilter filter) {
-		storage.addBusinessRuleFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
 	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#getSupplier()
 	 * 
 	 */
@@ -809,6 +723,92 @@ public class OrderOnStockThresholdPropertiesEditionPartImpl extends CompositePro
 	 */
 	public void addBusinessFilterToSupplier(ViewerFilter filter) {
 		supplier.addBusinessRuleFilter(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#getStorage()
+	 * 
+	 */
+	public EObject getStorage() {
+		if (storage.getSelection() instanceof StructuredSelection) {
+			Object firstElement = ((StructuredSelection) storage.getSelection()).getFirstElement();
+			if (firstElement instanceof EObject)
+				return (EObject) firstElement;
+		}
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#initStorage(EObjectFlatComboSettings)
+	 */
+	public void initStorage(EObjectFlatComboSettings settings) {
+		storage.setInput(settings);
+		if (current != null) {
+			storage.setSelection(new StructuredSelection(settings.getValue()));
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage);
+		if (eefElementEditorReadOnlyState && storage.isEnabled()) {
+			storage.setEnabled(false);
+			storage.setToolTipText(MetamodelMessages.OrderOnStockThreshold_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !storage.isEnabled()) {
+			storage.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#setStorage(EObject newValue)
+	 * 
+	 */
+	public void setStorage(EObject newValue) {
+		if (newValue != null) {
+			storage.setSelection(new StructuredSelection(newValue));
+		} else {
+			storage.setSelection(new StructuredSelection()); //$NON-NLS-1$
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage);
+		if (eefElementEditorReadOnlyState && storage.isEnabled()) {
+			storage.setEnabled(false);
+			storage.setToolTipText(MetamodelMessages.OrderOnStockThreshold_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !storage.isEnabled()) {
+			storage.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#setStorageButtonMode(ButtonsModeEnum newValue)
+	 */
+	public void setStorageButtonMode(ButtonsModeEnum newValue) {
+		storage.setButtonMode(newValue);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#addFilterStorage(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToStorage(ViewerFilter filter) {
+		storage.addFilter(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.OrderOnStockThresholdPropertiesEditionPart#addBusinessFilterStorage(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToStorage(ViewerFilter filter) {
+		storage.addBusinessRuleFilter(filter);
 	}
 
 

@@ -59,10 +59,10 @@ import org.eclipse.swt.widgets.Group;
  */
 public class ProcessOutputFlowPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, ProcessOutputFlowPropertiesEditionPart {
 
-	protected EObjectFlatComboViewer destination;
 	protected EObjectFlatComboViewer source;
+	protected EObjectFlatComboViewer destination;
 	private SingleCompositionEditor quantity;
-	private SingleCompositionEditor delay;
+	private SingleCompositionEditor processOutputFlowDelay;
 
 
 
@@ -101,10 +101,10 @@ public class ProcessOutputFlowPropertiesEditionPartImpl extends CompositePropert
 	public void createControls(Composite view) { 
 		CompositionSequence processOutputFlowStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = processOutputFlowStep.addStep(MetamodelViewsRepository.ProcessOutputFlow.Properties.class);
-		propertiesStep.addStep(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination);
 		propertiesStep.addStep(MetamodelViewsRepository.ProcessOutputFlow.Properties.source);
+		propertiesStep.addStep(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination);
 		propertiesStep.addStep(MetamodelViewsRepository.ProcessOutputFlow.Properties.quantity);
-		propertiesStep.addStep(MetamodelViewsRepository.ProcessOutputFlow.Properties.delay);
+		propertiesStep.addStep(MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay);
 		
 		
 		composer = new PartComposer(processOutputFlowStep) {
@@ -114,17 +114,17 @@ public class ProcessOutputFlowPropertiesEditionPartImpl extends CompositePropert
 				if (key == MetamodelViewsRepository.ProcessOutputFlow.Properties.class) {
 					return createPropertiesGroup(parent);
 				}
-				if (key == MetamodelViewsRepository.ProcessOutputFlow.Properties.destination) {
-					return createDestinationFlatComboViewer(parent);
-				}
 				if (key == MetamodelViewsRepository.ProcessOutputFlow.Properties.source) {
 					return createSourceFlatComboViewer(parent);
+				}
+				if (key == MetamodelViewsRepository.ProcessOutputFlow.Properties.destination) {
+					return createDestinationFlatComboViewer(parent);
 				}
 				if (key == MetamodelViewsRepository.ProcessOutputFlow.Properties.quantity) {
 					return createQuantitySingleCompositionEditor(parent);
 				}
-				if (key == MetamodelViewsRepository.ProcessOutputFlow.Properties.delay) {
-					return createDelaySingleCompositionEditor(parent);
+				if (key == MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay) {
+					return createProcessOutputFlowDelaySingleCompositionEditor(parent);
 				}
 				return parent;
 			}
@@ -151,32 +151,6 @@ public class ProcessOutputFlowPropertiesEditionPartImpl extends CompositePropert
 	 * @param parent the parent composite
 	 * 
 	 */
-	protected Composite createDestinationFlatComboViewer(Composite parent) {
-		createDescription(parent, MetamodelViewsRepository.ProcessOutputFlow.Properties.destination, MetamodelMessages.ProcessOutputFlowPropertiesEditionPart_DestinationLabel);
-		destination = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination, MetamodelViewsRepository.SWT_KIND));
-		destination.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-
-		destination.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			public void selectionChanged(SelectionChangedEvent event) {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ProcessOutputFlowPropertiesEditionPartImpl.this, MetamodelViewsRepository.ProcessOutputFlow.Properties.destination, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getDestination()));
-			}
-
-		});
-		GridData destinationData = new GridData(GridData.FILL_HORIZONTAL);
-		destination.setLayoutData(destinationData);
-		destination.setID(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination);
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDestinationFlatComboViewer
-
-		// End of user code
-		return parent;
-	}
-
-	/**
-	 * @param parent the parent composite
-	 * 
-	 */
 	protected Composite createSourceFlatComboViewer(Composite parent) {
 		createDescription(parent, MetamodelViewsRepository.ProcessOutputFlow.Properties.source, MetamodelMessages.ProcessOutputFlowPropertiesEditionPart_SourceLabel);
 		source = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.ProcessOutputFlow.Properties.source, MetamodelViewsRepository.SWT_KIND));
@@ -194,6 +168,32 @@ public class ProcessOutputFlowPropertiesEditionPartImpl extends CompositePropert
 		source.setID(MetamodelViewsRepository.ProcessOutputFlow.Properties.source);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.ProcessOutputFlow.Properties.source, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
 		// Start of user code for createSourceFlatComboViewer
+
+		// End of user code
+		return parent;
+	}
+
+	/**
+	 * @param parent the parent composite
+	 * 
+	 */
+	protected Composite createDestinationFlatComboViewer(Composite parent) {
+		createDescription(parent, MetamodelViewsRepository.ProcessOutputFlow.Properties.destination, MetamodelMessages.ProcessOutputFlowPropertiesEditionPart_DestinationLabel);
+		destination = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination, MetamodelViewsRepository.SWT_KIND));
+		destination.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+
+		destination.addSelectionChangedListener(new ISelectionChangedListener() {
+
+			public void selectionChanged(SelectionChangedEvent event) {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ProcessOutputFlowPropertiesEditionPartImpl.this, MetamodelViewsRepository.ProcessOutputFlow.Properties.destination, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SET, null, getDestination()));
+			}
+
+		});
+		GridData destinationData = new GridData(GridData.FILL_HORIZONTAL);
+		destination.setLayoutData(destinationData);
+		destination.setID(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination);
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDestinationFlatComboViewer
 
 		// End of user code
 		return parent;
@@ -233,27 +233,27 @@ public class ProcessOutputFlowPropertiesEditionPartImpl extends CompositePropert
 	 * @param parent the parent composite
 	 * 
 	 */
-	protected Composite createDelaySingleCompositionEditor(Composite parent) {
-		createDescription(parent, MetamodelViewsRepository.ProcessOutputFlow.Properties.delay, MetamodelMessages.ProcessOutputFlowPropertiesEditionPart_DelayLabel);
+	protected Composite createProcessOutputFlowDelaySingleCompositionEditor(Composite parent) {
+		createDescription(parent, MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay, MetamodelMessages.ProcessOutputFlowPropertiesEditionPart_ProcessOutputFlowDelayLabel);
 		//create widget
-		delay = new SingleCompositionEditor(parent, SWT.NONE);
-		GridData delayData = new GridData(GridData.FILL_HORIZONTAL);
-		delay.setLayoutData(delayData);
-		delay.addEditorListener(new SingleCompositionListener() {
+		processOutputFlowDelay = new SingleCompositionEditor(parent, SWT.NONE);
+		GridData processOutputFlowDelayData = new GridData(GridData.FILL_HORIZONTAL);
+		processOutputFlowDelay.setLayoutData(processOutputFlowDelayData);
+		processOutputFlowDelay.addEditorListener(new SingleCompositionListener() {
 			
 			public void edit() {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ProcessOutputFlowPropertiesEditionPartImpl.this,  MetamodelViewsRepository.ProcessOutputFlow.Properties.delay, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, null));				
-				delay.refresh();
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ProcessOutputFlowPropertiesEditionPartImpl.this,  MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, null));				
+				processOutputFlowDelay.refresh();
 			}
 			
 			public void clear() {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ProcessOutputFlowPropertiesEditionPartImpl.this,  MetamodelViewsRepository.ProcessOutputFlow.Properties.delay, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.UNSET, null, null));
-				delay.refresh();
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ProcessOutputFlowPropertiesEditionPartImpl.this,  MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.UNSET, null, null));
+				processOutputFlowDelay.refresh();
 			}
 		});
-		delay.setID(MetamodelViewsRepository.ProcessOutputFlow.Properties.delay);
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.ProcessOutputFlow.Properties.delay, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDelaySingleCompositionEditor
+		processOutputFlowDelay.setID(MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay);
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createProcessOutputFlowDelaySingleCompositionEditor
 
 		// End of user code
 		return parent;
@@ -270,92 +270,6 @@ public class ProcessOutputFlowPropertiesEditionPartImpl extends CompositePropert
 		// Start of user code for tab synchronization
 		
 		// End of user code
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#getDestination()
-	 * 
-	 */
-	public EObject getDestination() {
-		if (destination.getSelection() instanceof StructuredSelection) {
-			Object firstElement = ((StructuredSelection) destination.getSelection()).getFirstElement();
-			if (firstElement instanceof EObject)
-				return (EObject) firstElement;
-		}
-		return null;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#initDestination(EObjectFlatComboSettings)
-	 */
-	public void initDestination(EObjectFlatComboSettings settings) {
-		destination.setInput(settings);
-		if (current != null) {
-			destination.setSelection(new StructuredSelection(settings.getValue()));
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination);
-		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
-			destination.setEnabled(false);
-			destination.setToolTipText(MetamodelMessages.ProcessOutputFlow_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
-			destination.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#setDestination(EObject newValue)
-	 * 
-	 */
-	public void setDestination(EObject newValue) {
-		if (newValue != null) {
-			destination.setSelection(new StructuredSelection(newValue));
-		} else {
-			destination.setSelection(new StructuredSelection()); //$NON-NLS-1$
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination);
-		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
-			destination.setEnabled(false);
-			destination.setToolTipText(MetamodelMessages.ProcessOutputFlow_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
-			destination.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#setDestinationButtonMode(ButtonsModeEnum newValue)
-	 */
-	public void setDestinationButtonMode(ButtonsModeEnum newValue) {
-		destination.setButtonMode(newValue);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#addFilterDestination(ViewerFilter filter)
-	 * 
-	 */
-	public void addFilterToDestination(ViewerFilter filter) {
-		destination.addFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#addBusinessFilterDestination(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToDestination(ViewerFilter filter) {
-		destination.addBusinessRuleFilter(filter);
 	}
 
 	/**
@@ -447,6 +361,92 @@ public class ProcessOutputFlowPropertiesEditionPartImpl extends CompositePropert
 	/**
 	 * {@inheritDoc}
 	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#getDestination()
+	 * 
+	 */
+	public EObject getDestination() {
+		if (destination.getSelection() instanceof StructuredSelection) {
+			Object firstElement = ((StructuredSelection) destination.getSelection()).getFirstElement();
+			if (firstElement instanceof EObject)
+				return (EObject) firstElement;
+		}
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#initDestination(EObjectFlatComboSettings)
+	 */
+	public void initDestination(EObjectFlatComboSettings settings) {
+		destination.setInput(settings);
+		if (current != null) {
+			destination.setSelection(new StructuredSelection(settings.getValue()));
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination);
+		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
+			destination.setEnabled(false);
+			destination.setToolTipText(MetamodelMessages.ProcessOutputFlow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
+			destination.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#setDestination(EObject newValue)
+	 * 
+	 */
+	public void setDestination(EObject newValue) {
+		if (newValue != null) {
+			destination.setSelection(new StructuredSelection(newValue));
+		} else {
+			destination.setSelection(new StructuredSelection()); //$NON-NLS-1$
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ProcessOutputFlow.Properties.destination);
+		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
+			destination.setEnabled(false);
+			destination.setToolTipText(MetamodelMessages.ProcessOutputFlow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
+			destination.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#setDestinationButtonMode(ButtonsModeEnum newValue)
+	 */
+	public void setDestinationButtonMode(ButtonsModeEnum newValue) {
+		destination.setButtonMode(newValue);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#addFilterDestination(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToDestination(ViewerFilter filter) {
+		destination.addFilter(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#addBusinessFilterDestination(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToDestination(ViewerFilter filter) {
+		destination.addBusinessRuleFilter(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
 	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#getQuantity()
 	 * 
 	 */
@@ -493,27 +493,27 @@ public class ProcessOutputFlowPropertiesEditionPartImpl extends CompositePropert
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#getDelay()
+	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#getProcessOutputFlowDelay()
 	 * 
 	 */
-	public EObject getDelay() {
-		return (EObject) delay.getInput();
+	public EObject getProcessOutputFlowDelay() {
+		return (EObject) processOutputFlowDelay.getInput();
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#initDelay(EObjectFlatComboSettings)
+	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#initProcessOutputFlowDelay(EObjectFlatComboSettings)
 	 */
-	public void initDelay(EObjectFlatComboSettings settings) {
-		delay.setAdapterFactory(adapterFactory);
-		delay.setInput(settings);
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ProcessOutputFlow.Properties.delay);
-		if (eefElementEditorReadOnlyState && delay.isEnabled()) {
-			delay.setEnabled(false);
-			delay.setToolTipText(MetamodelMessages.ProcessOutputFlow_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !delay.isEnabled()) {
-			delay.setEnabled(true);
+	public void initProcessOutputFlowDelay(EObjectFlatComboSettings settings) {
+		processOutputFlowDelay.setAdapterFactory(adapterFactory);
+		processOutputFlowDelay.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay);
+		if (eefElementEditorReadOnlyState && processOutputFlowDelay.isEnabled()) {
+			processOutputFlowDelay.setEnabled(false);
+			processOutputFlowDelay.setToolTipText(MetamodelMessages.ProcessOutputFlow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !processOutputFlowDelay.isEnabled()) {
+			processOutputFlowDelay.setEnabled(true);
 		}	
 		
 	}
@@ -521,17 +521,17 @@ public class ProcessOutputFlowPropertiesEditionPartImpl extends CompositePropert
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#setDelay(EObject newValue)
+	 * @see be.cetic.simqri.metamodel.parts.ProcessOutputFlowPropertiesEditionPart#setProcessOutputFlowDelay(EObject newValue)
 	 * 
 	 */
-	public void setDelay(EObject newValue) {
-		delay.refresh();
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ProcessOutputFlow.Properties.delay);
-		if (eefElementEditorReadOnlyState && delay.isEnabled()) {
-			delay.setEnabled(false);
-			delay.setToolTipText(MetamodelMessages.ProcessOutputFlow_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !delay.isEnabled()) {
-			delay.setEnabled(true);
+	public void setProcessOutputFlowDelay(EObject newValue) {
+		processOutputFlowDelay.refresh();
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ProcessOutputFlow.Properties.processOutputFlowDelay);
+		if (eefElementEditorReadOnlyState && processOutputFlowDelay.isEnabled()) {
+			processOutputFlowDelay.setEnabled(false);
+			processOutputFlowDelay.setToolTipText(MetamodelMessages.ProcessOutputFlow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !processOutputFlowDelay.isEnabled()) {
+			processOutputFlowDelay.setEnabled(true);
 		}	
 		
 	}

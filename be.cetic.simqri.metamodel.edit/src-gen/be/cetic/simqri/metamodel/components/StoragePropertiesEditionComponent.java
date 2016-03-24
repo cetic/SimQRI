@@ -5,6 +5,8 @@ package be.cetic.simqri.metamodel.components;
 
 // Start of user code for imports
 import be.cetic.simqri.metamodel.MetamodelPackage;
+import be.cetic.simqri.metamodel.OrderOnStockThreshold;
+import be.cetic.simqri.metamodel.ProcessOutputFlow;
 import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
 
@@ -60,6 +62,16 @@ public class StoragePropertiesEditionComponent extends SiriusAwarePropertiesEdit
 	 */
 	private ReferencesTableSettings storageOutputFlowSettings;
 	
+	/**
+	 * Settings for orderOnStockThreshold ReferencesTable
+	 */
+	private ReferencesTableSettings orderOnStockThresholdSettings;
+	
+	/**
+	 * Settings for processOutputFlow ReferencesTable
+	 */
+	private ReferencesTableSettings processOutputFlowSettings;
+	
 	
 	/**
 	 * Default constructor
@@ -103,6 +115,14 @@ public class StoragePropertiesEditionComponent extends SiriusAwarePropertiesEdit
 				storageOutputFlowSettings = new ReferencesTableSettings(storage, MetamodelPackage.eINSTANCE.getStorage_StorageOutputFlow());
 				basePart.initStorageOutputFlow(storageOutputFlowSettings);
 			}
+			if (isAccessible(MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold)) {
+				orderOnStockThresholdSettings = new ReferencesTableSettings(storage, MetamodelPackage.eINSTANCE.getStorage_OrderOnStockThreshold());
+				basePart.initOrderOnStockThreshold(orderOnStockThresholdSettings);
+			}
+			if (isAccessible(MetamodelViewsRepository.Storage.Properties.processOutputFlow)) {
+				processOutputFlowSettings = new ReferencesTableSettings(storage, MetamodelPackage.eINSTANCE.getStorage_ProcessOutputFlow());
+				basePart.initProcessOutputFlow(processOutputFlowSettings);
+			}
 			// init filters
 			
 			
@@ -113,6 +133,16 @@ public class StoragePropertiesEditionComponent extends SiriusAwarePropertiesEdit
 				// Start of user code for additional businessfilters for storageOutputFlow
 				// End of user code
 			}
+			if (isAccessible(MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold)) {
+				basePart.addFilterToOrderOnStockThreshold(new EObjectFilter(MetamodelPackage.Literals.ORDER_ON_STOCK_THRESHOLD));
+				// Start of user code for additional businessfilters for orderOnStockThreshold
+				// End of user code
+			}
+			if (isAccessible(MetamodelViewsRepository.Storage.Properties.processOutputFlow)) {
+				basePart.addFilterToProcessOutputFlow(new EObjectFilter(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW));
+				// Start of user code for additional businessfilters for processOutputFlow
+				// End of user code
+			}
 			// init values for referenced views
 			
 			// init filters for referenced views
@@ -120,6 +150,8 @@ public class StoragePropertiesEditionComponent extends SiriusAwarePropertiesEdit
 		}
 		setInitializing(false);
 	}
+
+
 
 
 
@@ -147,6 +179,12 @@ public class StoragePropertiesEditionComponent extends SiriusAwarePropertiesEdit
 		}
 		if (editorKey == MetamodelViewsRepository.Storage.Properties.storageOutputFlow) {
 			return MetamodelPackage.eINSTANCE.getStorage_StorageOutputFlow();
+		}
+		if (editorKey == MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold) {
+			return MetamodelPackage.eINSTANCE.getStorage_OrderOnStockThreshold();
+		}
+		if (editorKey == MetamodelViewsRepository.Storage.Properties.processOutputFlow) {
+			return MetamodelPackage.eINSTANCE.getStorage_ProcessOutputFlow();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -179,6 +217,28 @@ public class StoragePropertiesEditionComponent extends SiriusAwarePropertiesEdit
 				storageOutputFlowSettings.removeFromReference((EObject) event.getNewValue());
 			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
 				storageOutputFlowSettings.move(event.getNewIndex(), (StorageOutputFlow) event.getNewValue());
+			}
+		}
+		if (MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.ADD) {
+				if (event.getNewValue() instanceof OrderOnStockThreshold) {
+					orderOnStockThresholdSettings.addToReference((EObject) event.getNewValue());
+				}
+			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
+				orderOnStockThresholdSettings.removeFromReference((EObject) event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
+				orderOnStockThresholdSettings.move(event.getNewIndex(), (OrderOnStockThreshold) event.getNewValue());
+			}
+		}
+		if (MetamodelViewsRepository.Storage.Properties.processOutputFlow == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.ADD) {
+				if (event.getNewValue() instanceof ProcessOutputFlow) {
+					processOutputFlowSettings.addToReference((EObject) event.getNewValue());
+				}
+			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
+				processOutputFlowSettings.removeFromReference((EObject) event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
+				processOutputFlowSettings.move(event.getNewIndex(), (ProcessOutputFlow) event.getNewValue());
 			}
 		}
 	}
@@ -217,6 +277,10 @@ public class StoragePropertiesEditionComponent extends SiriusAwarePropertiesEdit
 			
 			if (MetamodelPackage.eINSTANCE.getStorage_StorageOutputFlow().equals(msg.getFeature())  && isAccessible(MetamodelViewsRepository.Storage.Properties.storageOutputFlow))
 				basePart.updateStorageOutputFlow();
+			if (MetamodelPackage.eINSTANCE.getStorage_OrderOnStockThreshold().equals(msg.getFeature())  && isAccessible(MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold))
+				basePart.updateOrderOnStockThreshold();
+			if (MetamodelPackage.eINSTANCE.getStorage_ProcessOutputFlow().equals(msg.getFeature())  && isAccessible(MetamodelViewsRepository.Storage.Properties.processOutputFlow))
+				basePart.updateProcessOutputFlow();
 			
 		}
 	}
@@ -233,7 +297,9 @@ public class StoragePropertiesEditionComponent extends SiriusAwarePropertiesEdit
 			MetamodelPackage.eINSTANCE.getStorage_Size(),
 			MetamodelPackage.eINSTANCE.getStorage_InitialContent(),
 			MetamodelPackage.eINSTANCE.getStorage_Overflow(),
-			MetamodelPackage.eINSTANCE.getStorage_StorageOutputFlow()		);
+			MetamodelPackage.eINSTANCE.getStorage_StorageOutputFlow(),
+			MetamodelPackage.eINSTANCE.getStorage_OrderOnStockThreshold(),
+			MetamodelPackage.eINSTANCE.getStorage_ProcessOutputFlow()		);
 		return new NotificationFilter[] {filter,};
 	}
 

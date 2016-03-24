@@ -69,14 +69,14 @@ public class OrderOnStockThresholdPropertiesEditionComponent extends SiriusAware
 
 	
 	/**
-	 * Settings for storage EObjectFlatComboViewer
-	 */
-	private EObjectFlatComboSettings storageSettings;
-	
-	/**
 	 * Settings for supplier EObjectFlatComboViewer
 	 */
 	private EObjectFlatComboSettings supplierSettings;
+	
+	/**
+	 * Settings for storage EObjectFlatComboViewer
+	 */
+	private EObjectFlatComboSettings storageSettings;
 	
 	
 	/**
@@ -120,13 +120,6 @@ public class OrderOnStockThresholdPropertiesEditionComponent extends SiriusAware
 			if (isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.orderType)) {
 				basePart.initOrderType(EEFUtils.choiceOfValues(orderOnStockThreshold, MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_OrderType()), orderOnStockThreshold.getOrderType());
 			}
-			if (isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage)) {
-				// init part
-				storageSettings = new EObjectFlatComboSettings(orderOnStockThreshold, MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Storage());
-				basePart.initStorage(storageSettings);
-				// set the button mode
-				basePart.setStorageButtonMode(ButtonsModeEnum.BROWSE);
-			}
 			if (isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier)) {
 				// init part
 				supplierSettings = new EObjectFlatComboSettings(orderOnStockThreshold, MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Supplier());
@@ -134,28 +127,19 @@ public class OrderOnStockThresholdPropertiesEditionComponent extends SiriusAware
 				// set the button mode
 				basePart.setSupplierButtonMode(ButtonsModeEnum.BROWSE);
 			}
+			if (isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage)) {
+				// init part
+				storageSettings = new EObjectFlatComboSettings(orderOnStockThreshold, MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Storage());
+				basePart.initStorage(storageSettings);
+				// set the button mode
+				basePart.setStorageButtonMode(ButtonsModeEnum.BROWSE);
+			}
 			// init filters
 			
 			
 			
 			
 			
-			if (isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage)) {
-				basePart.addFilterToStorage(new ViewerFilter() {
-				
-					/**
-					 * {@inheritDoc}
-					 * 
-					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-					 */
-					public boolean select(Viewer viewer, Object parentElement, Object element) {
-						return (element instanceof Storage);
-					}
-					
-				});
-				// Start of user code for additional businessfilters for storage
-				// End of user code
-			}
 			if (isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier)) {
 				basePart.addFilterToSupplier(new ViewerFilter() {
 				
@@ -170,6 +154,22 @@ public class OrderOnStockThresholdPropertiesEditionComponent extends SiriusAware
 					
 				});
 				// Start of user code for additional businessfilters for supplier
+				// End of user code
+			}
+			if (isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage)) {
+				basePart.addFilterToStorage(new ViewerFilter() {
+				
+					/**
+					 * {@inheritDoc}
+					 * 
+					 * @see org.eclipse.jface.viewers.ViewerFilter#select(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+					 */
+					public boolean select(Viewer viewer, Object parentElement, Object element) {
+						return (element instanceof Storage);
+					}
+					
+				});
+				// Start of user code for additional businessfilters for storage
 				// End of user code
 			}
 			// init values for referenced views
@@ -209,11 +209,11 @@ public class OrderOnStockThresholdPropertiesEditionComponent extends SiriusAware
 		if (editorKey == MetamodelViewsRepository.OrderOnStockThreshold.Properties.orderType) {
 			return MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_OrderType();
 		}
-		if (editorKey == MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage) {
-			return MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Storage();
-		}
 		if (editorKey == MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier) {
 			return MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Supplier();
+		}
+		if (editorKey == MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage) {
+			return MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Storage();
 		}
 		return super.associatedFeature(editorKey);
 	}
@@ -240,22 +240,6 @@ public class OrderOnStockThresholdPropertiesEditionComponent extends SiriusAware
 		if (MetamodelViewsRepository.OrderOnStockThreshold.Properties.orderType == event.getAffectedEditor()) {
 			orderOnStockThreshold.setOrderType((OrderType)event.getNewValue());
 		}
-		if (MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage == event.getAffectedEditor()) {
-			if (event.getKind() == PropertiesEditionEvent.SET) {
-				storageSettings.setToReference((Storage)event.getNewValue());
-			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
-				Storage eObject = MetamodelFactory.eINSTANCE.createStorage();
-				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, eObject, editingContext.getAdapterFactory());
-				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(eObject, PropertiesEditingProvider.class);
-				if (provider != null) {
-					PropertiesEditingPolicy policy = provider.getPolicy(context);
-					if (policy != null) {
-						policy.execute();
-					}
-				}
-				storageSettings.setToReference(eObject);
-			}
-		}
 		if (MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.SET) {
 				supplierSettings.setToReference((Supplier)event.getNewValue());
@@ -270,6 +254,22 @@ public class OrderOnStockThresholdPropertiesEditionComponent extends SiriusAware
 					}
 				}
 				supplierSettings.setToReference(eObject);
+			}
+		}
+		if (MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.SET) {
+				storageSettings.setToReference((Storage)event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.ADD) {
+				Storage eObject = MetamodelFactory.eINSTANCE.createStorage();
+				EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, eObject, editingContext.getAdapterFactory());
+				PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(eObject, PropertiesEditingProvider.class);
+				if (provider != null) {
+					PropertiesEditingPolicy policy = provider.getPolicy(context);
+					if (policy != null) {
+						policy.execute();
+					}
+				}
+				storageSettings.setToReference(eObject);
 			}
 		}
 	}
@@ -313,10 +313,10 @@ public class OrderOnStockThresholdPropertiesEditionComponent extends SiriusAware
 			if (MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_OrderType().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.orderType))
 				basePart.setOrderType((OrderType)msg.getNewValue());
 			
-			if (MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Storage().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage))
-				basePart.setStorage((EObject)msg.getNewValue());
 			if (MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Supplier().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier))
 				basePart.setSupplier((EObject)msg.getNewValue());
+			if (MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Storage().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage))
+				basePart.setStorage((EObject)msg.getNewValue());
 			
 		}
 	}
@@ -334,8 +334,8 @@ public class OrderOnStockThresholdPropertiesEditionComponent extends SiriusAware
 			MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Name(),
 			MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_OrderQuantity(),
 			MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_OrderType(),
-			MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Storage(),
-			MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Supplier()		);
+			MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Supplier(),
+			MetamodelPackage.eINSTANCE.getOrderOnStockThreshold_Storage()		);
 		return new NotificationFilter[] {filter,};
 	}
 
@@ -347,7 +347,7 @@ public class OrderOnStockThresholdPropertiesEditionComponent extends SiriusAware
 	 * 
 	 */
 	public boolean isRequired(Object key, int kind) {
-		return key == MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage || key == MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier;
+		return key == MetamodelViewsRepository.OrderOnStockThreshold.Properties.supplier || key == MetamodelViewsRepository.OrderOnStockThreshold.Properties.storage;
 	}
 
 	/**

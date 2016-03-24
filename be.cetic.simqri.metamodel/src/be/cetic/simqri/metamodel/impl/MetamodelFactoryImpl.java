@@ -93,7 +93,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.QUERY: return createQuery();
 			case MetamodelPackage.STORAGE: return createStorage();
 			case MetamodelPackage.SUPPLIER: return createSupplier();
-			case MetamodelPackage.CONVEYOR_BELT: return createConveyorBelt();
 			case MetamodelPackage.BATCH_PROCESS: return createBatchProcess();
 			case MetamodelPackage.OUTPUT: return createOutput();
 			case MetamodelPackage.STORAGE_OUTPUT_FLOW: return createStorageOutputFlow();
@@ -116,6 +115,7 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.STUDENTS_T: return createStudentsT();
 			case MetamodelPackage.UNIFORM: return createUniform();
 			case MetamodelPackage.WEIBULL: return createWeibull();
+			case MetamodelPackage.CONVEYOR_BELT: return createConveyorBelt();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

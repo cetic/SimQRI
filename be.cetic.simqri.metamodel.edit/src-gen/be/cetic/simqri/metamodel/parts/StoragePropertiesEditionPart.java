@@ -119,6 +119,90 @@ public interface StoragePropertiesEditionPart {
 
 
 
+	/**
+	 * Init the orderOnStockThreshold
+	 * @param settings settings for the orderOnStockThreshold ReferencesTable 
+	 */
+	public void initOrderOnStockThreshold(ReferencesTableSettings settings);
+
+	/**
+	 * Update the orderOnStockThreshold
+	 * @param newValue the orderOnStockThreshold to update
+	 * 
+	 */
+	public void updateOrderOnStockThreshold();
+
+	/**
+	 * Adds the given filter to the orderOnStockThreshold edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addFilterToOrderOnStockThreshold(ViewerFilter filter);
+
+	/**
+	 * Adds the given filter to the orderOnStockThreshold edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addBusinessFilterToOrderOnStockThreshold(ViewerFilter filter);
+
+	/**
+	 * @return true if the given element is contained inside the orderOnStockThreshold table
+	 * 
+	 */
+	public boolean isContainedInOrderOnStockThresholdTable(EObject element);
+
+
+
+
+	/**
+	 * Init the processOutputFlow
+	 * @param settings settings for the processOutputFlow ReferencesTable 
+	 */
+	public void initProcessOutputFlow(ReferencesTableSettings settings);
+
+	/**
+	 * Update the processOutputFlow
+	 * @param newValue the processOutputFlow to update
+	 * 
+	 */
+	public void updateProcessOutputFlow();
+
+	/**
+	 * Adds the given filter to the processOutputFlow edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addFilterToProcessOutputFlow(ViewerFilter filter);
+
+	/**
+	 * Adds the given filter to the processOutputFlow edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addBusinessFilterToProcessOutputFlow(ViewerFilter filter);
+
+	/**
+	 * @return true if the given element is contained inside the processOutputFlow table
+	 * 
+	 */
+	public boolean isContainedInProcessOutputFlowTable(EObject element);
+
+
+
+
 
 	/**
 	 * Returns the internationalized title text.

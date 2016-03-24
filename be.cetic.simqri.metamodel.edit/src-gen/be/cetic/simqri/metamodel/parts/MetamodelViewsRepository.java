@@ -81,6 +81,12 @@ public class MetamodelViewsRepository {
 			
 			public static String storageOutputFlow = "metamodel::Storage::properties::storageOutputFlow";
 			
+			
+			public static String orderOnStockThreshold = "metamodel::Storage::properties::orderOnStockThreshold";
+			
+			
+			public static String processOutputFlow = "metamodel::Storage::properties::processOutputFlow";
+			
 	
 		}
 	
@@ -103,31 +109,7 @@ public class MetamodelViewsRepository {
 			public static String refillPolicy = "metamodel::Supplier::properties::refillPolicy";
 			
 			
-			public static String delay = "metamodel::Supplier::properties::delay";
-			
-	
-		}
-	
-	}
-
-	/**
-	 * ConveyorBelt view descriptor
-	 * 
-	 */
-	public static class ConveyorBelt {
-		public static class Properties {
-	
-			
-			public static String name = "metamodel::ConveyorBelt::properties::name";
-			
-			
-			public static String duration = "metamodel::ConveyorBelt::properties::duration";
-			
-			
-			public static String minimalSeparationBetweenBatches = "metamodel::ConveyorBelt::properties::minimalSeparationBetweenBatches";
-			
-			
-			public static String output = "metamodel::ConveyorBelt::properties::output";
+			public static String supplierDelay = "metamodel::Supplier::properties::supplierDelay";
 			
 	
 		}
@@ -146,6 +128,9 @@ public class MetamodelViewsRepository {
 			
 			
 			public static String duration = "metamodel::BatchProcess::properties::duration";
+			
+			
+			public static String storageOutputFlow = "metamodel::BatchProcess::properties::storageOutputFlow";
 			
 			
 			public static String percentageOfSuccess = "metamodel::BatchProcess::properties::percentageOfSuccess";
@@ -190,10 +175,10 @@ public class MetamodelViewsRepository {
 		public static class Properties {
 	
 			
-			public static String destination = "metamodel::StorageOutputFlow::properties::destination";
-			
-			
 			public static String source = "metamodel::StorageOutputFlow::properties::source";
+			
+			
+			public static String destination = "metamodel::StorageOutputFlow::properties::destination";
 			
 			
 			public static String quantity = "metamodel::StorageOutputFlow::properties::quantity";
@@ -211,16 +196,16 @@ public class MetamodelViewsRepository {
 		public static class Properties {
 	
 			
-			public static String destination = "metamodel::ProcessOutputFlow::properties::destination";
-			
-			
 			public static String source = "metamodel::ProcessOutputFlow::properties::source";
+			
+			
+			public static String destination = "metamodel::ProcessOutputFlow::properties::destination";
 			
 			
 			public static String quantity = "metamodel::ProcessOutputFlow::properties::quantity";
 			
 			
-			public static String delay = "metamodel::ProcessOutputFlow::properties::delay";
+			public static String processOutputFlowDelay = "metamodel::ProcessOutputFlow::properties::processOutputFlowDelay";
 			
 	
 		}
@@ -250,10 +235,10 @@ public class MetamodelViewsRepository {
 			public static String orderType = "metamodel::OrderOnStockThreshold::properties::orderType";
 			
 			
-			public static String storage = "metamodel::OrderOnStockThreshold::properties::storage";
-			
-			
 			public static String supplier = "metamodel::OrderOnStockThreshold::properties::supplier";
+			
+			
+			public static String storage = "metamodel::OrderOnStockThreshold::properties::storage";
 			
 	
 		}
@@ -536,6 +521,33 @@ public class MetamodelViewsRepository {
 			
 			
 			public static String scale = "metamodel::Weibull::properties::scale";
+			
+	
+		}
+	
+	}
+
+	/**
+	 * ConveyorBelt view descriptor
+	 * 
+	 */
+	public static class ConveyorBelt {
+		public static class Properties {
+	
+			
+			public static String name = "metamodel::ConveyorBelt::properties::name";
+			
+			
+			public static String duration = "metamodel::ConveyorBelt::properties::duration";
+			
+			
+			public static String storageOutputFlow = "metamodel::ConveyorBelt::properties::storageOutputFlow";
+			
+			
+			public static String minimalSeparationBetweenBatches = "metamodel::ConveyorBelt::properties::minimalSeparationBetweenBatches";
+			
+			
+			public static String output = "metamodel::ConveyorBelt::properties::output";
 			
 	
 		}

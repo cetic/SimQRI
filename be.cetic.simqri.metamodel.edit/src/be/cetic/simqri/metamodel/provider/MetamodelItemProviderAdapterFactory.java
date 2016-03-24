@@ -795,7 +795,6 @@ public class MetamodelItemProviderAdapterFactory extends MetamodelAdapterFactory
 		if (queryItemProvider != null) queryItemProvider.dispose();
 		if (storageItemProvider != null) storageItemProvider.dispose();
 		if (supplierItemProvider != null) supplierItemProvider.dispose();
-		if (conveyorBeltItemProvider != null) conveyorBeltItemProvider.dispose();
 		if (batchProcessItemProvider != null) batchProcessItemProvider.dispose();
 		if (outputItemProvider != null) outputItemProvider.dispose();
 		if (storageOutputFlowItemProvider != null) storageOutputFlowItemProvider.dispose();
@@ -818,6 +817,7 @@ public class MetamodelItemProviderAdapterFactory extends MetamodelAdapterFactory
 		if (studentsTItemProvider != null) studentsTItemProvider.dispose();
 		if (uniformItemProvider != null) uniformItemProvider.dispose();
 		if (weibullItemProvider != null) weibullItemProvider.dispose();
+		if (conveyorBeltItemProvider != null) conveyorBeltItemProvider.dispose();
 	}
 
 }

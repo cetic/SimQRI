@@ -47,8 +47,8 @@ public class ProcessOutputFlowItemProvider extends FlowItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDestinationPropertyDescriptor(object);
 			addSourcePropertyDescriptor(object);
+			addDestinationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

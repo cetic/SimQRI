@@ -7,7 +7,7 @@ package be.cetic.simqri.metamodel.components;
 import be.cetic.simqri.metamodel.BatchProcess;
 import be.cetic.simqri.metamodel.MetamodelPackage;
 import be.cetic.simqri.metamodel.Output;
-
+import be.cetic.simqri.metamodel.StorageOutputFlow;
 import be.cetic.simqri.metamodel.parts.BatchProcessPropertiesEditionPart;
 import be.cetic.simqri.metamodel.parts.MetamodelViewsRepository;
 
@@ -34,7 +34,7 @@ import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
-
+import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -64,6 +64,11 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 	
 	public static String BASE_PART = "Base"; //$NON-NLS-1$
 
+	
+	/**
+	 * Settings for storageOutputFlow ReferencesTable
+	 */
+	private ReferencesTableSettings storageOutputFlowSettings;
 	
 	/**
 	 * Settings for outputs ReferencesTable
@@ -103,6 +108,10 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 			if (isAccessible(MetamodelViewsRepository.BatchProcess.Properties.duration))
 				basePart.setDuration(EEFConverterUtil.convertToString(MetamodelPackage.Literals.POSITIVE_DOUBLE, batchProcess.getDuration()));
 			
+			if (isAccessible(MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow)) {
+				storageOutputFlowSettings = new ReferencesTableSettings(batchProcess, MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow());
+				basePart.initStorageOutputFlow(storageOutputFlowSettings);
+			}
 			if (isAccessible(MetamodelViewsRepository.BatchProcess.Properties.percentageOfSuccess))
 				basePart.setPercentageOfSuccess(EEFConverterUtil.convertToString(MetamodelPackage.Literals.PERCENT, batchProcess.getPercentageOfSuccess()));
 			
@@ -116,6 +125,11 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 			// init filters
 			
 			
+			if (isAccessible(MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow)) {
+				basePart.addFilterToStorageOutputFlow(new EObjectFilter(MetamodelPackage.Literals.STORAGE_OUTPUT_FLOW));
+				// Start of user code for additional businessfilters for storageOutputFlow
+				// End of user code
+			}
 			
 			
 			if (isAccessible(MetamodelViewsRepository.BatchProcess.Properties.outputs)) {
@@ -148,6 +162,7 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 
 
 
+
 	/**
 	 * {@inheritDoc}
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#associatedFeature(java.lang.Object)
@@ -158,6 +173,9 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 		}
 		if (editorKey == MetamodelViewsRepository.BatchProcess.Properties.duration) {
 			return MetamodelPackage.eINSTANCE.getProcess_Duration();
+		}
+		if (editorKey == MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow) {
+			return MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow();
 		}
 		if (editorKey == MetamodelViewsRepository.BatchProcess.Properties.percentageOfSuccess) {
 			return MetamodelPackage.eINSTANCE.getBatchProcess_PercentageOfSuccess();
@@ -183,6 +201,17 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 		}
 		if (MetamodelViewsRepository.BatchProcess.Properties.duration == event.getAffectedEditor()) {
 			batchProcess.setDuration((java.lang.Double)EEFConverterUtil.createFromString(MetamodelPackage.Literals.POSITIVE_DOUBLE, (String)event.getNewValue()));
+		}
+		if (MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.ADD) {
+				if (event.getNewValue() instanceof StorageOutputFlow) {
+					storageOutputFlowSettings.addToReference((EObject) event.getNewValue());
+				}
+			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
+				storageOutputFlowSettings.removeFromReference((EObject) event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
+				storageOutputFlowSettings.move(event.getNewIndex(), (StorageOutputFlow) event.getNewValue());
+			}
 		}
 		if (MetamodelViewsRepository.BatchProcess.Properties.percentageOfSuccess == event.getAffectedEditor()) {
 			batchProcess.setPercentageOfSuccess((java.lang.Double)EEFConverterUtil.createFromString(MetamodelPackage.Literals.PERCENT, (String)event.getNewValue()));
@@ -239,6 +268,8 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 					basePart.setDuration("");
 				}
 			}
+			if (MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow().equals(msg.getFeature())  && isAccessible(MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow))
+				basePart.updateStorageOutputFlow();
 			if (MetamodelPackage.eINSTANCE.getBatchProcess_PercentageOfSuccess().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(MetamodelViewsRepository.BatchProcess.Properties.percentageOfSuccess)) {
 				if (msg.getNewValue() != null) {
 					basePart.setPercentageOfSuccess(EcoreUtil.convertToString(MetamodelPackage.Literals.PERCENT, msg.getNewValue()));
@@ -269,6 +300,7 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			MetamodelPackage.eINSTANCE.getComponent_Name(),
 			MetamodelPackage.eINSTANCE.getProcess_Duration(),
+			MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow(),
 			MetamodelPackage.eINSTANCE.getBatchProcess_PercentageOfSuccess(),
 			MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfLines(),
 			MetamodelPackage.eINSTANCE.getBatchProcess_Outputs()		);

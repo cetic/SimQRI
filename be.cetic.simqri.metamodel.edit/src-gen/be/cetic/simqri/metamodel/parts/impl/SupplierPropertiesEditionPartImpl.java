@@ -87,7 +87,7 @@ public class SupplierPropertiesEditionPartImpl extends CompositePropertiesEditio
 	protected ReferencesTable refillPolicy;
 	protected List<ViewerFilter> refillPolicyBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> refillPolicyFilters = new ArrayList<ViewerFilter>();
-	private SingleCompositionEditor delay;
+	private SingleCompositionEditor supplierDelay;
 
 
 
@@ -129,7 +129,7 @@ public class SupplierPropertiesEditionPartImpl extends CompositePropertiesEditio
 		propertiesStep.addStep(MetamodelViewsRepository.Supplier.Properties.name);
 		propertiesStep.addStep(MetamodelViewsRepository.Supplier.Properties.deliveredPercentage);
 		propertiesStep.addStep(MetamodelViewsRepository.Supplier.Properties.refillPolicy);
-		propertiesStep.addStep(MetamodelViewsRepository.Supplier.Properties.delay);
+		propertiesStep.addStep(MetamodelViewsRepository.Supplier.Properties.supplierDelay);
 		
 		
 		composer = new PartComposer(supplierStep) {
@@ -148,8 +148,8 @@ public class SupplierPropertiesEditionPartImpl extends CompositePropertiesEditio
 				if (key == MetamodelViewsRepository.Supplier.Properties.refillPolicy) {
 					return createRefillPolicyAdvancedReferencesTable(parent);
 				}
-				if (key == MetamodelViewsRepository.Supplier.Properties.delay) {
-					return createDelaySingleCompositionEditor(parent);
+				if (key == MetamodelViewsRepository.Supplier.Properties.supplierDelay) {
+					return createSupplierDelaySingleCompositionEditor(parent);
 				}
 				return parent;
 			}
@@ -356,27 +356,27 @@ public class SupplierPropertiesEditionPartImpl extends CompositePropertiesEditio
 	 * @param parent the parent composite
 	 * 
 	 */
-	protected Composite createDelaySingleCompositionEditor(Composite parent) {
-		createDescription(parent, MetamodelViewsRepository.Supplier.Properties.delay, MetamodelMessages.SupplierPropertiesEditionPart_DelayLabel);
+	protected Composite createSupplierDelaySingleCompositionEditor(Composite parent) {
+		createDescription(parent, MetamodelViewsRepository.Supplier.Properties.supplierDelay, MetamodelMessages.SupplierPropertiesEditionPart_SupplierDelayLabel);
 		//create widget
-		delay = new SingleCompositionEditor(parent, SWT.NONE);
-		GridData delayData = new GridData(GridData.FILL_HORIZONTAL);
-		delay.setLayoutData(delayData);
-		delay.addEditorListener(new SingleCompositionListener() {
+		supplierDelay = new SingleCompositionEditor(parent, SWT.NONE);
+		GridData supplierDelayData = new GridData(GridData.FILL_HORIZONTAL);
+		supplierDelay.setLayoutData(supplierDelayData);
+		supplierDelay.addEditorListener(new SingleCompositionListener() {
 			
 			public void edit() {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SupplierPropertiesEditionPartImpl.this,  MetamodelViewsRepository.Supplier.Properties.delay, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, null));				
-				delay.refresh();
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SupplierPropertiesEditionPartImpl.this,  MetamodelViewsRepository.Supplier.Properties.supplierDelay, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, null));				
+				supplierDelay.refresh();
 			}
 			
 			public void clear() {
-				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SupplierPropertiesEditionPartImpl.this,  MetamodelViewsRepository.Supplier.Properties.delay, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.UNSET, null, null));
-				delay.refresh();
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(SupplierPropertiesEditionPartImpl.this,  MetamodelViewsRepository.Supplier.Properties.supplierDelay, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.UNSET, null, null));
+				supplierDelay.refresh();
 			}
 		});
-		delay.setID(MetamodelViewsRepository.Supplier.Properties.delay);
-		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.Supplier.Properties.delay, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDelaySingleCompositionEditor
+		supplierDelay.setID(MetamodelViewsRepository.Supplier.Properties.supplierDelay);
+		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.Supplier.Properties.supplierDelay, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
+		// Start of user code for createSupplierDelaySingleCompositionEditor
 
 		// End of user code
 		return parent;
@@ -527,27 +527,27 @@ public class SupplierPropertiesEditionPartImpl extends CompositePropertiesEditio
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see be.cetic.simqri.metamodel.parts.SupplierPropertiesEditionPart#getDelay()
+	 * @see be.cetic.simqri.metamodel.parts.SupplierPropertiesEditionPart#getSupplierDelay()
 	 * 
 	 */
-	public EObject getDelay() {
-		return (EObject) delay.getInput();
+	public EObject getSupplierDelay() {
+		return (EObject) supplierDelay.getInput();
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see be.cetic.simqri.metamodel.parts.SupplierPropertiesEditionPart#initDelay(EObjectFlatComboSettings)
+	 * @see be.cetic.simqri.metamodel.parts.SupplierPropertiesEditionPart#initSupplierDelay(EObjectFlatComboSettings)
 	 */
-	public void initDelay(EObjectFlatComboSettings settings) {
-		delay.setAdapterFactory(adapterFactory);
-		delay.setInput(settings);
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.Supplier.Properties.delay);
-		if (eefElementEditorReadOnlyState && delay.isEnabled()) {
-			delay.setEnabled(false);
-			delay.setToolTipText(MetamodelMessages.Supplier_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !delay.isEnabled()) {
-			delay.setEnabled(true);
+	public void initSupplierDelay(EObjectFlatComboSettings settings) {
+		supplierDelay.setAdapterFactory(adapterFactory);
+		supplierDelay.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.Supplier.Properties.supplierDelay);
+		if (eefElementEditorReadOnlyState && supplierDelay.isEnabled()) {
+			supplierDelay.setEnabled(false);
+			supplierDelay.setToolTipText(MetamodelMessages.Supplier_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !supplierDelay.isEnabled()) {
+			supplierDelay.setEnabled(true);
 		}	
 		
 	}
@@ -555,17 +555,17 @@ public class SupplierPropertiesEditionPartImpl extends CompositePropertiesEditio
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see be.cetic.simqri.metamodel.parts.SupplierPropertiesEditionPart#setDelay(EObject newValue)
+	 * @see be.cetic.simqri.metamodel.parts.SupplierPropertiesEditionPart#setSupplierDelay(EObject newValue)
 	 * 
 	 */
-	public void setDelay(EObject newValue) {
-		delay.refresh();
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.Supplier.Properties.delay);
-		if (eefElementEditorReadOnlyState && delay.isEnabled()) {
-			delay.setEnabled(false);
-			delay.setToolTipText(MetamodelMessages.Supplier_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !delay.isEnabled()) {
-			delay.setEnabled(true);
+	public void setSupplierDelay(EObject newValue) {
+		supplierDelay.refresh();
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.Supplier.Properties.supplierDelay);
+		if (eefElementEditorReadOnlyState && supplierDelay.isEnabled()) {
+			supplierDelay.setEnabled(false);
+			supplierDelay.setToolTipText(MetamodelMessages.Supplier_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !supplierDelay.isEnabled()) {
+			supplierDelay.setEnabled(true);
 		}	
 		
 	}

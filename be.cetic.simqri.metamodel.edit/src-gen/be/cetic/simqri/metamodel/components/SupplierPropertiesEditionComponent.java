@@ -72,9 +72,9 @@ public class SupplierPropertiesEditionComponent extends SiriusAwarePropertiesEdi
 	private ReferencesTableSettings refillPolicySettings;
 	
 	/**
-	 * Settings for delay SingleCompositionEditor
+	 * Settings for supplierDelay SingleCompositionEditor
 	 */
-	private EObjectFlatComboSettings delaySettings;
+	private EObjectFlatComboSettings supplierDelaySettings;
 	
 	
 	/**
@@ -113,10 +113,10 @@ public class SupplierPropertiesEditionComponent extends SiriusAwarePropertiesEdi
 				refillPolicySettings = new ReferencesTableSettings(supplier, MetamodelPackage.eINSTANCE.getSupplier_RefillPolicy());
 				basePart.initRefillPolicy(refillPolicySettings);
 			}
-			if (isAccessible(MetamodelViewsRepository.Supplier.Properties.delay)) {
+			if (isAccessible(MetamodelViewsRepository.Supplier.Properties.supplierDelay)) {
 				// init part
-				delaySettings = new EObjectFlatComboSettings(supplier, MetamodelPackage.eINSTANCE.getSupplier_SupplierDelay());
-				basePart.initDelay(delaySettings);
+				supplierDelaySettings = new EObjectFlatComboSettings(supplier, MetamodelPackage.eINSTANCE.getSupplier_SupplierDelay());
+				basePart.initSupplierDelay(supplierDelaySettings);
 			}
 			// init filters
 			
@@ -155,7 +155,7 @@ public class SupplierPropertiesEditionComponent extends SiriusAwarePropertiesEdi
 		if (editorKey == MetamodelViewsRepository.Supplier.Properties.refillPolicy) {
 			return MetamodelPackage.eINSTANCE.getSupplier_RefillPolicy();
 		}
-		if (editorKey == MetamodelViewsRepository.Supplier.Properties.delay) {
+		if (editorKey == MetamodelViewsRepository.Supplier.Properties.supplierDelay) {
 			return MetamodelPackage.eINSTANCE.getSupplier_SupplierDelay();
 		}
 		return super.associatedFeature(editorKey);
@@ -185,10 +185,10 @@ public class SupplierPropertiesEditionComponent extends SiriusAwarePropertiesEdi
 				refillPolicySettings.move(event.getNewIndex(), (OrderOnStockThreshold) event.getNewValue());
 			}
 		}
-		if (MetamodelViewsRepository.Supplier.Properties.delay == event.getAffectedEditor()) {
+		if (MetamodelViewsRepository.Supplier.Properties.supplierDelay == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.EDIT) {
-				if (delaySettings.getValue() == "") {
-					EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, delaySettings, editingContext.getAdapterFactory());
+				if (supplierDelaySettings.getValue() == "") {
+					EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, supplierDelaySettings, editingContext.getAdapterFactory());
 					PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(editingContext.getEObject(), PropertiesEditingProvider.class);
 					Object result = null;
 					if (provider != null) {
@@ -199,11 +199,11 @@ public class SupplierPropertiesEditionComponent extends SiriusAwarePropertiesEdi
 						}
 					}
 					if (result != null) {
-						delaySettings.setToReference(result);
+						supplierDelaySettings.setToReference(result);
 					}
 				} else {
-					EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, (EObject) delaySettings.getValue(), editingContext.getAdapterFactory());
-					PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(delaySettings.getValue(), PropertiesEditingProvider.class);
+					EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, (EObject) supplierDelaySettings.getValue(), editingContext.getAdapterFactory());
+					PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(supplierDelaySettings.getValue(), PropertiesEditingProvider.class);
 					if (provider != null) {
 						PropertiesEditingPolicy policy = provider.getPolicy(context);
 						if (policy != null) {
@@ -212,7 +212,7 @@ public class SupplierPropertiesEditionComponent extends SiriusAwarePropertiesEdi
 					}
 				}
 			} else if (event.getKind() == PropertiesEditionEvent.UNSET) {
-				delaySettings.setToReference(null);
+				supplierDelaySettings.setToReference(null);
 			}
 			
 		}
@@ -242,8 +242,8 @@ public class SupplierPropertiesEditionComponent extends SiriusAwarePropertiesEdi
 			}
 			if (MetamodelPackage.eINSTANCE.getSupplier_RefillPolicy().equals(msg.getFeature())  && isAccessible(MetamodelViewsRepository.Supplier.Properties.refillPolicy))
 				basePart.updateRefillPolicy();
-			if (MetamodelPackage.eINSTANCE.getSupplier_SupplierDelay().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.Supplier.Properties.delay))
-				basePart.setDelay((EObject)msg.getNewValue());
+			if (MetamodelPackage.eINSTANCE.getSupplier_SupplierDelay().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.Supplier.Properties.supplierDelay))
+				basePart.setSupplierDelay((EObject)msg.getNewValue());
 			
 		}
 	}
@@ -271,7 +271,7 @@ public class SupplierPropertiesEditionComponent extends SiriusAwarePropertiesEdi
 	 * 
 	 */
 	public boolean isRequired(Object key, int kind) {
-		return key == MetamodelViewsRepository.Supplier.Properties.delay;
+		return key == MetamodelViewsRepository.Supplier.Properties.supplierDelay;
 	}
 
 	/**

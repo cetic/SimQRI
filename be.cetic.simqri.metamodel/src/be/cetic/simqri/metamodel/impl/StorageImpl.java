@@ -3,6 +3,8 @@
 package be.cetic.simqri.metamodel.impl;
 
 import be.cetic.simqri.metamodel.MetamodelPackage;
+import be.cetic.simqri.metamodel.OrderOnStockThreshold;
+import be.cetic.simqri.metamodel.ProcessOutputFlow;
 import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
 
@@ -33,6 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link be.cetic.simqri.metamodel.impl.StorageImpl#getInitialContent <em>Initial Content</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.StorageImpl#isOverflow <em>Overflow</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.StorageImpl#getStorageOutputFlow <em>Storage Output Flow</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.StorageImpl#getOrderOnStockThreshold <em>Order On Stock Threshold</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.StorageImpl#getProcessOutputFlow <em>Process Output Flow</em>}</li>
  * </ul>
  *
  * @generated
@@ -107,6 +111,26 @@ public class StorageImpl extends ComponentImpl implements Storage {
 	 * @ordered
 	 */
 	protected EList<StorageOutputFlow> storageOutputFlow;
+
+	/**
+	 * The cached value of the '{@link #getOrderOnStockThreshold() <em>Order On Stock Threshold</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOrderOnStockThreshold()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<OrderOnStockThreshold> orderOnStockThreshold;
+
+	/**
+	 * The cached value of the '{@link #getProcessOutputFlow() <em>Process Output Flow</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProcessOutputFlow()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ProcessOutputFlow> processOutputFlow;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -207,12 +231,40 @@ public class StorageImpl extends ComponentImpl implements Storage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<OrderOnStockThreshold> getOrderOnStockThreshold() {
+		if (orderOnStockThreshold == null) {
+			orderOnStockThreshold = new EObjectWithInverseResolvingEList<OrderOnStockThreshold>(OrderOnStockThreshold.class, this, MetamodelPackage.STORAGE__ORDER_ON_STOCK_THRESHOLD, MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE);
+		}
+		return orderOnStockThreshold;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ProcessOutputFlow> getProcessOutputFlow() {
+		if (processOutputFlow == null) {
+			processOutputFlow = new EObjectWithInverseResolvingEList<ProcessOutputFlow>(ProcessOutputFlow.class, this, MetamodelPackage.STORAGE__PROCESS_OUTPUT_FLOW, MetamodelPackage.PROCESS_OUTPUT_FLOW__DESTINATION);
+		}
+		return processOutputFlow;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case MetamodelPackage.STORAGE__STORAGE_OUTPUT_FLOW:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStorageOutputFlow()).basicAdd(otherEnd, msgs);
+			case MetamodelPackage.STORAGE__ORDER_ON_STOCK_THRESHOLD:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOrderOnStockThreshold()).basicAdd(otherEnd, msgs);
+			case MetamodelPackage.STORAGE__PROCESS_OUTPUT_FLOW:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProcessOutputFlow()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -227,6 +279,10 @@ public class StorageImpl extends ComponentImpl implements Storage {
 		switch (featureID) {
 			case MetamodelPackage.STORAGE__STORAGE_OUTPUT_FLOW:
 				return ((InternalEList<?>)getStorageOutputFlow()).basicRemove(otherEnd, msgs);
+			case MetamodelPackage.STORAGE__ORDER_ON_STOCK_THRESHOLD:
+				return ((InternalEList<?>)getOrderOnStockThreshold()).basicRemove(otherEnd, msgs);
+			case MetamodelPackage.STORAGE__PROCESS_OUTPUT_FLOW:
+				return ((InternalEList<?>)getProcessOutputFlow()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -247,6 +303,10 @@ public class StorageImpl extends ComponentImpl implements Storage {
 				return isOverflow();
 			case MetamodelPackage.STORAGE__STORAGE_OUTPUT_FLOW:
 				return getStorageOutputFlow();
+			case MetamodelPackage.STORAGE__ORDER_ON_STOCK_THRESHOLD:
+				return getOrderOnStockThreshold();
+			case MetamodelPackage.STORAGE__PROCESS_OUTPUT_FLOW:
+				return getProcessOutputFlow();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -273,6 +333,14 @@ public class StorageImpl extends ComponentImpl implements Storage {
 				getStorageOutputFlow().clear();
 				getStorageOutputFlow().addAll((Collection<? extends StorageOutputFlow>)newValue);
 				return;
+			case MetamodelPackage.STORAGE__ORDER_ON_STOCK_THRESHOLD:
+				getOrderOnStockThreshold().clear();
+				getOrderOnStockThreshold().addAll((Collection<? extends OrderOnStockThreshold>)newValue);
+				return;
+			case MetamodelPackage.STORAGE__PROCESS_OUTPUT_FLOW:
+				getProcessOutputFlow().clear();
+				getProcessOutputFlow().addAll((Collection<? extends ProcessOutputFlow>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -297,6 +365,12 @@ public class StorageImpl extends ComponentImpl implements Storage {
 			case MetamodelPackage.STORAGE__STORAGE_OUTPUT_FLOW:
 				getStorageOutputFlow().clear();
 				return;
+			case MetamodelPackage.STORAGE__ORDER_ON_STOCK_THRESHOLD:
+				getOrderOnStockThreshold().clear();
+				return;
+			case MetamodelPackage.STORAGE__PROCESS_OUTPUT_FLOW:
+				getProcessOutputFlow().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -317,6 +391,10 @@ public class StorageImpl extends ComponentImpl implements Storage {
 				return overflow != OVERFLOW_EDEFAULT;
 			case MetamodelPackage.STORAGE__STORAGE_OUTPUT_FLOW:
 				return storageOutputFlow != null && !storageOutputFlow.isEmpty();
+			case MetamodelPackage.STORAGE__ORDER_ON_STOCK_THRESHOLD:
+				return orderOnStockThreshold != null && !orderOnStockThreshold.isEmpty();
+			case MetamodelPackage.STORAGE__PROCESS_OUTPUT_FLOW:
+				return processOutputFlow != null && !processOutputFlow.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

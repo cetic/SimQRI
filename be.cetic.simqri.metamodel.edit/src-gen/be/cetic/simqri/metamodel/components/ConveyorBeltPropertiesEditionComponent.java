@@ -6,7 +6,7 @@ package be.cetic.simqri.metamodel.components;
 // Start of user code for imports
 import be.cetic.simqri.metamodel.ConveyorBelt;
 import be.cetic.simqri.metamodel.MetamodelPackage;
-
+import be.cetic.simqri.metamodel.StorageOutputFlow;
 import be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart;
 import be.cetic.simqri.metamodel.parts.MetamodelViewsRepository;
 
@@ -33,7 +33,7 @@ import org.eclipse.emf.eef.runtime.context.PropertiesEditingContext;
 
 import org.eclipse.emf.eef.runtime.context.impl.EObjectPropertiesEditionContext;
 import org.eclipse.emf.eef.runtime.context.impl.EReferencePropertiesEditionContext;
-
+import org.eclipse.emf.eef.runtime.impl.filters.EObjectFilter;
 import org.eclipse.emf.eef.runtime.impl.notify.PropertiesEditionEvent;
 
 import org.eclipse.emf.eef.runtime.impl.utils.EEFConverterUtil;
@@ -45,7 +45,7 @@ import org.eclipse.emf.eef.runtime.policies.impl.CreateEditingPolicy;
 import org.eclipse.emf.eef.runtime.providers.PropertiesEditingProvider;
 
 import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
-
+import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.eclipse.sirius.eef.components.SiriusAwarePropertiesEditingComponent;
 
 
@@ -60,6 +60,11 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 	
 	public static String BASE_PART = "Base"; //$NON-NLS-1$
 
+	
+	/**
+	 * Settings for storageOutputFlow ReferencesTable
+	 */
+	private ReferencesTableSettings storageOutputFlowSettings;
 	
 	/**
 	 * Settings for output SingleCompositionEditor
@@ -99,6 +104,10 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 			if (isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.duration))
 				basePart.setDuration(EEFConverterUtil.convertToString(MetamodelPackage.Literals.POSITIVE_DOUBLE, conveyorBelt.getDuration()));
 			
+			if (isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow)) {
+				storageOutputFlowSettings = new ReferencesTableSettings(conveyorBelt, MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow());
+				basePart.initStorageOutputFlow(storageOutputFlowSettings);
+			}
 			if (isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.minimalSeparationBetweenBatches))
 				basePart.setMinimalSeparationBetweenBatches(EEFConverterUtil.convertToString(MetamodelPackage.Literals.POSITIVE_DOUBLE, conveyorBelt.getMinimalSeparationBetweenBatches()));
 			
@@ -110,6 +119,11 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 			// init filters
 			
 			
+			if (isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow)) {
+				basePart.addFilterToStorageOutputFlow(new EObjectFilter(MetamodelPackage.Literals.STORAGE_OUTPUT_FLOW));
+				// Start of user code for additional businessfilters for storageOutputFlow
+				// End of user code
+			}
 			
 			
 			// init values for referenced views
@@ -119,6 +133,7 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 		}
 		setInitializing(false);
 	}
+
 
 
 
@@ -136,6 +151,9 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 		}
 		if (editorKey == MetamodelViewsRepository.ConveyorBelt.Properties.duration) {
 			return MetamodelPackage.eINSTANCE.getProcess_Duration();
+		}
+		if (editorKey == MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow) {
+			return MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow();
 		}
 		if (editorKey == MetamodelViewsRepository.ConveyorBelt.Properties.minimalSeparationBetweenBatches) {
 			return MetamodelPackage.eINSTANCE.getConveyorBelt_MinimalSeparationBetweenBatches();
@@ -158,6 +176,17 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 		}
 		if (MetamodelViewsRepository.ConveyorBelt.Properties.duration == event.getAffectedEditor()) {
 			conveyorBelt.setDuration((java.lang.Double)EEFConverterUtil.createFromString(MetamodelPackage.Literals.POSITIVE_DOUBLE, (String)event.getNewValue()));
+		}
+		if (MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow == event.getAffectedEditor()) {
+			if (event.getKind() == PropertiesEditionEvent.ADD) {
+				if (event.getNewValue() instanceof StorageOutputFlow) {
+					storageOutputFlowSettings.addToReference((EObject) event.getNewValue());
+				}
+			} else if (event.getKind() == PropertiesEditionEvent.REMOVE) {
+				storageOutputFlowSettings.removeFromReference((EObject) event.getNewValue());
+			} else if (event.getKind() == PropertiesEditionEvent.MOVE) {
+				storageOutputFlowSettings.move(event.getNewIndex(), (StorageOutputFlow) event.getNewValue());
+			}
 		}
 		if (MetamodelViewsRepository.ConveyorBelt.Properties.minimalSeparationBetweenBatches == event.getAffectedEditor()) {
 			conveyorBelt.setMinimalSeparationBetweenBatches((java.lang.Double)EEFConverterUtil.createFromString(MetamodelPackage.Literals.POSITIVE_DOUBLE, (String)event.getNewValue()));
@@ -217,6 +246,8 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 					basePart.setDuration("");
 				}
 			}
+			if (MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow().equals(msg.getFeature())  && isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow))
+				basePart.updateStorageOutputFlow();
 			if (MetamodelPackage.eINSTANCE.getConveyorBelt_MinimalSeparationBetweenBatches().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.minimalSeparationBetweenBatches)) {
 				if (msg.getNewValue() != null) {
 					basePart.setMinimalSeparationBetweenBatches(EcoreUtil.convertToString(MetamodelPackage.Literals.POSITIVE_DOUBLE, msg.getNewValue()));
@@ -240,6 +271,7 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			MetamodelPackage.eINSTANCE.getComponent_Name(),
 			MetamodelPackage.eINSTANCE.getProcess_Duration(),
+			MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow(),
 			MetamodelPackage.eINSTANCE.getConveyorBelt_MinimalSeparationBetweenBatches(),
 			MetamodelPackage.eINSTANCE.getConveyorBelt_Output()		);
 		return new NotificationFilter[] {filter,};

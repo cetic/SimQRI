@@ -26,9 +26,6 @@ public class MetamodelMessages extends NLS {
 	public static String SupplierPropertiesEditionPart_PropertiesGroupLabel;
 
 	
-	public static String ConveyorBeltPropertiesEditionPart_PropertiesGroupLabel;
-
-	
 	public static String BatchProcessPropertiesEditionPart_PropertiesGroupLabel;
 
 	
@@ -94,6 +91,9 @@ public class MetamodelMessages extends NLS {
 	
 	public static String WeibullPropertiesEditionPart_PropertiesGroupLabel;
 
+	
+	public static String ConveyorBeltPropertiesEditionPart_PropertiesGroupLabel;
+
 
 	
 	public static String Model_ReadOnly;
@@ -118,12 +118,6 @@ public class MetamodelMessages extends NLS {
 
 	
 	public static String Supplier_Part_Title;
-
-	
-	public static String ConveyorBelt_ReadOnly;
-
-	
-	public static String ConveyorBelt_Part_Title;
 
 	
 	public static String BatchProcess_ReadOnly;
@@ -257,6 +251,12 @@ public class MetamodelMessages extends NLS {
 	
 	public static String Weibull_Part_Title;
 
+	
+	public static String ConveyorBelt_ReadOnly;
+
+	
+	public static String ConveyorBelt_Part_Title;
+
 
 	
 	public static String ModelPropertiesEditionPart_NameLabel;
@@ -295,6 +295,12 @@ public class MetamodelMessages extends NLS {
 	public static String StoragePropertiesEditionPart_StorageOutputFlowLabel;
 
 	
+	public static String StoragePropertiesEditionPart_OrderOnStockThresholdLabel;
+
+	
+	public static String StoragePropertiesEditionPart_ProcessOutputFlowLabel;
+
+	
 	public static String SupplierPropertiesEditionPart_NameLabel;
 
 	
@@ -304,25 +310,16 @@ public class MetamodelMessages extends NLS {
 	public static String SupplierPropertiesEditionPart_RefillPolicyLabel;
 
 	
-	public static String SupplierPropertiesEditionPart_DelayLabel;
-
-	
-	public static String ConveyorBeltPropertiesEditionPart_NameLabel;
-
-	
-	public static String ConveyorBeltPropertiesEditionPart_DurationLabel;
-
-	
-	public static String ConveyorBeltPropertiesEditionPart_MinimalSeparationBetweenBatchesLabel;
-
-	
-	public static String ConveyorBeltPropertiesEditionPart_OutputLabel;
+	public static String SupplierPropertiesEditionPart_SupplierDelayLabel;
 
 	
 	public static String BatchProcessPropertiesEditionPart_NameLabel;
 
 	
 	public static String BatchProcessPropertiesEditionPart_DurationLabel;
+
+	
+	public static String BatchProcessPropertiesEditionPart_StorageOutputFlowLabel;
 
 	
 	public static String BatchProcessPropertiesEditionPart_PercentageOfSuccessLabel;
@@ -343,25 +340,25 @@ public class MetamodelMessages extends NLS {
 	public static String OutputPropertiesEditionPart_DescriptionLabel;
 
 	
-	public static String StorageOutputFlowPropertiesEditionPart_DestinationLabel;
+	public static String StorageOutputFlowPropertiesEditionPart_SourceLabel;
 
 	
-	public static String StorageOutputFlowPropertiesEditionPart_SourceLabel;
+	public static String StorageOutputFlowPropertiesEditionPart_DestinationLabel;
 
 	
 	public static String StorageOutputFlowPropertiesEditionPart_QuantityLabel;
 
 	
-	public static String ProcessOutputFlowPropertiesEditionPart_DestinationLabel;
+	public static String ProcessOutputFlowPropertiesEditionPart_SourceLabel;
 
 	
-	public static String ProcessOutputFlowPropertiesEditionPart_SourceLabel;
+	public static String ProcessOutputFlowPropertiesEditionPart_DestinationLabel;
 
 	
 	public static String ProcessOutputFlowPropertiesEditionPart_QuantityLabel;
 
 	
-	public static String ProcessOutputFlowPropertiesEditionPart_DelayLabel;
+	public static String ProcessOutputFlowPropertiesEditionPart_ProcessOutputFlowDelayLabel;
 
 	
 	public static String OrderOnStockThresholdPropertiesEditionPart_PeriodLabel;
@@ -379,10 +376,10 @@ public class MetamodelMessages extends NLS {
 	public static String OrderOnStockThresholdPropertiesEditionPart_OrderTypeLabel;
 
 	
-	public static String OrderOnStockThresholdPropertiesEditionPart_StorageLabel;
+	public static String OrderOnStockThresholdPropertiesEditionPart_SupplierLabel;
 
 	
-	public static String OrderOnStockThresholdPropertiesEditionPart_SupplierLabel;
+	public static String OrderOnStockThresholdPropertiesEditionPart_StorageLabel;
 
 	
 	public static String CauchyPropertiesEditionPart_LocationLabel;
@@ -461,6 +458,21 @@ public class MetamodelMessages extends NLS {
 
 	
 	public static String WeibullPropertiesEditionPart_ScaleLabel;
+
+	
+	public static String ConveyorBeltPropertiesEditionPart_NameLabel;
+
+	
+	public static String ConveyorBeltPropertiesEditionPart_DurationLabel;
+
+	
+	public static String ConveyorBeltPropertiesEditionPart_StorageOutputFlowLabel;
+
+	
+	public static String ConveyorBeltPropertiesEditionPart_MinimalSeparationBetweenBatchesLabel;
+
+	
+	public static String ConveyorBeltPropertiesEditionPart_OutputLabel;
 
 
 	

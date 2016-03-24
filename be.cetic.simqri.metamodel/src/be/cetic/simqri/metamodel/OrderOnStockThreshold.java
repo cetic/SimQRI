@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link be.cetic.simqri.metamodel.OrderOnStockThreshold#getName <em>Name</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.OrderOnStockThreshold#getOrderQuantity <em>Order Quantity</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.OrderOnStockThreshold#getOrderType <em>Order Type</em>}</li>
- *   <li>{@link be.cetic.simqri.metamodel.OrderOnStockThreshold#getStorage <em>Storage</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.OrderOnStockThreshold#getSupplier <em>Supplier</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.OrderOnStockThreshold#getStorage <em>Storage</em>}</li>
  * </ul>
  *
  * @see be.cetic.simqri.metamodel.MetamodelPackage#getOrderOnStockThreshold()
@@ -162,6 +162,7 @@ public interface OrderOnStockThreshold extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Storage</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link be.cetic.simqri.metamodel.Storage#getOrderOnStockThreshold <em>Order On Stock Threshold</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Storage</em>' reference isn't clear,
@@ -171,7 +172,8 @@ public interface OrderOnStockThreshold extends EObject {
 	 * @return the value of the '<em>Storage</em>' reference.
 	 * @see #setStorage(Storage)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getOrderOnStockThreshold_Storage()
-	 * @model required="true"
+	 * @see be.cetic.simqri.metamodel.Storage#getOrderOnStockThreshold
+	 * @model opposite="orderOnStockThreshold" required="true"
 	 * @generated
 	 */
 	Storage getStorage();

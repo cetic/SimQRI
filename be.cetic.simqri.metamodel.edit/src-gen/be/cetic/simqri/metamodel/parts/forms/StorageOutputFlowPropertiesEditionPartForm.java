@@ -63,8 +63,8 @@ import org.eclipse.ui.forms.widgets.Section;
  */
 public class StorageOutputFlowPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, StorageOutputFlowPropertiesEditionPart {
 
-	protected EObjectFlatComboViewer destination;
 	protected EObjectFlatComboViewer source;
+	protected EObjectFlatComboViewer destination;
 	protected SingleCompositionEditor quantity;
 
 
@@ -111,8 +111,8 @@ public class StorageOutputFlowPropertiesEditionPartForm extends SectionPropertie
 	public void createControls(final FormToolkit widgetFactory, Composite view) {
 		CompositionSequence storageOutputFlowStep = new BindingCompositionSequence(propertiesEditionComponent);
 		CompositionStep propertiesStep = storageOutputFlowStep.addStep(MetamodelViewsRepository.StorageOutputFlow.Properties.class);
-		propertiesStep.addStep(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
 		propertiesStep.addStep(MetamodelViewsRepository.StorageOutputFlow.Properties.source);
+		propertiesStep.addStep(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
 		propertiesStep.addStep(MetamodelViewsRepository.StorageOutputFlow.Properties.quantity);
 		
 		
@@ -123,11 +123,11 @@ public class StorageOutputFlowPropertiesEditionPartForm extends SectionPropertie
 				if (key == MetamodelViewsRepository.StorageOutputFlow.Properties.class) {
 					return createPropertiesGroup(widgetFactory, parent);
 				}
-				if (key == MetamodelViewsRepository.StorageOutputFlow.Properties.destination) {
-					return createDestinationFlatComboViewer(parent, widgetFactory);
-				}
 				if (key == MetamodelViewsRepository.StorageOutputFlow.Properties.source) {
 					return createSourceFlatComboViewer(parent, widgetFactory);
+				}
+				if (key == MetamodelViewsRepository.StorageOutputFlow.Properties.destination) {
+					return createDestinationFlatComboViewer(parent, widgetFactory);
 				}
 				if (key == MetamodelViewsRepository.StorageOutputFlow.Properties.quantity) {
 					return createQuantitySingleCompositionEditor(parent, widgetFactory);
@@ -159,39 +159,6 @@ public class StorageOutputFlowPropertiesEditionPartForm extends SectionPropertie
 	 * @param widgetFactory factory to use to instanciante widget of the form
 	 * 
 	 */
-	protected Composite createDestinationFlatComboViewer(Composite parent, FormToolkit widgetFactory) {
-		createDescription(parent, MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelMessages.StorageOutputFlowPropertiesEditionPart_DestinationLabel);
-		destination = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelViewsRepository.FORM_KIND));
-		widgetFactory.adapt(destination);
-		destination.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
-		GridData destinationData = new GridData(GridData.FILL_HORIZONTAL);
-		destination.setLayoutData(destinationData);
-		destination.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
-			 */
-			public void selectionChanged(SelectionChangedEvent event) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StorageOutputFlowPropertiesEditionPartForm.this, MetamodelViewsRepository.StorageOutputFlow.Properties.destination, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getDestination()));
-			}
-
-		});
-		destination.setID(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelViewsRepository.FORM_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDestinationFlatComboViewer
-
-		// End of user code
-		return parent;
-	}
-
-	/**
-	 * @param parent the parent composite
-	 * @param widgetFactory factory to use to instanciante widget of the form
-	 * 
-	 */
 	protected Composite createSourceFlatComboViewer(Composite parent, FormToolkit widgetFactory) {
 		createDescription(parent, MetamodelViewsRepository.StorageOutputFlow.Properties.source, MetamodelMessages.StorageOutputFlowPropertiesEditionPart_SourceLabel);
 		source = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.StorageOutputFlow.Properties.source, MetamodelViewsRepository.FORM_KIND));
@@ -215,6 +182,39 @@ public class StorageOutputFlowPropertiesEditionPartForm extends SectionPropertie
 		source.setID(MetamodelViewsRepository.StorageOutputFlow.Properties.source);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.StorageOutputFlow.Properties.source, MetamodelViewsRepository.FORM_KIND), null); //$NON-NLS-1$
 		// Start of user code for createSourceFlatComboViewer
+
+		// End of user code
+		return parent;
+	}
+
+	/**
+	 * @param parent the parent composite
+	 * @param widgetFactory factory to use to instanciante widget of the form
+	 * 
+	 */
+	protected Composite createDestinationFlatComboViewer(Composite parent, FormToolkit widgetFactory) {
+		createDescription(parent, MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelMessages.StorageOutputFlowPropertiesEditionPart_DestinationLabel);
+		destination = new EObjectFlatComboViewer(parent, !propertiesEditionComponent.isRequired(MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelViewsRepository.FORM_KIND));
+		widgetFactory.adapt(destination);
+		destination.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
+		GridData destinationData = new GridData(GridData.FILL_HORIZONTAL);
+		destination.setLayoutData(destinationData);
+		destination.addSelectionChangedListener(new ISelectionChangedListener() {
+
+			/**
+			 * {@inheritDoc}
+			 * 
+			 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
+			 */
+			public void selectionChanged(SelectionChangedEvent event) {
+				if (propertiesEditionComponent != null)
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StorageOutputFlowPropertiesEditionPartForm.this, MetamodelViewsRepository.StorageOutputFlow.Properties.destination, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, getDestination()));
+			}
+
+		});
+		destination.setID(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
+		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.StorageOutputFlow.Properties.destination, MetamodelViewsRepository.FORM_KIND), null); //$NON-NLS-1$
+		// Start of user code for createDestinationFlatComboViewer
 
 		// End of user code
 		return parent;
@@ -263,92 +263,6 @@ public class StorageOutputFlowPropertiesEditionPartForm extends SectionPropertie
 		// Start of user code for tab synchronization
 		
 		// End of user code
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#getDestination()
-	 * 
-	 */
-	public EObject getDestination() {
-		if (destination.getSelection() instanceof StructuredSelection) {
-			Object firstElement = ((StructuredSelection) destination.getSelection()).getFirstElement();
-			if (firstElement instanceof EObject)
-				return (EObject) firstElement;
-		}
-		return null;
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#initDestination(EObjectFlatComboSettings)
-	 */
-	public void initDestination(EObjectFlatComboSettings settings) {
-		destination.setInput(settings);
-		if (current != null) {
-			destination.setSelection(new StructuredSelection(settings.getValue()));
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
-		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
-			destination.setEnabled(false);
-			destination.setToolTipText(MetamodelMessages.StorageOutputFlow_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
-			destination.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#setDestination(EObject newValue)
-	 * 
-	 */
-	public void setDestination(EObject newValue) {
-		if (newValue != null) {
-			destination.setSelection(new StructuredSelection(newValue));
-		} else {
-			destination.setSelection(new StructuredSelection()); //$NON-NLS-1$
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
-		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
-			destination.setEnabled(false);
-			destination.setToolTipText(MetamodelMessages.StorageOutputFlow_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
-			destination.setEnabled(true);
-		}	
-		
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#setDestinationButtonMode(ButtonsModeEnum newValue)
-	 */
-	public void setDestinationButtonMode(ButtonsModeEnum newValue) {
-		destination.setButtonMode(newValue);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#addFilterDestination(ViewerFilter filter)
-	 * 
-	 */
-	public void addFilterToDestination(ViewerFilter filter) {
-		destination.addFilter(filter);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#addBusinessFilterDestination(ViewerFilter filter)
-	 * 
-	 */
-	public void addBusinessFilterToDestination(ViewerFilter filter) {
-		destination.addBusinessRuleFilter(filter);
 	}
 
 	/**
@@ -435,6 +349,92 @@ public class StorageOutputFlowPropertiesEditionPartForm extends SectionPropertie
 	 */
 	public void addBusinessFilterToSource(ViewerFilter filter) {
 		source.addBusinessRuleFilter(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#getDestination()
+	 * 
+	 */
+	public EObject getDestination() {
+		if (destination.getSelection() instanceof StructuredSelection) {
+			Object firstElement = ((StructuredSelection) destination.getSelection()).getFirstElement();
+			if (firstElement instanceof EObject)
+				return (EObject) firstElement;
+		}
+		return null;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#initDestination(EObjectFlatComboSettings)
+	 */
+	public void initDestination(EObjectFlatComboSettings settings) {
+		destination.setInput(settings);
+		if (current != null) {
+			destination.setSelection(new StructuredSelection(settings.getValue()));
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
+		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
+			destination.setEnabled(false);
+			destination.setToolTipText(MetamodelMessages.StorageOutputFlow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
+			destination.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#setDestination(EObject newValue)
+	 * 
+	 */
+	public void setDestination(EObject newValue) {
+		if (newValue != null) {
+			destination.setSelection(new StructuredSelection(newValue));
+		} else {
+			destination.setSelection(new StructuredSelection()); //$NON-NLS-1$
+		}
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.StorageOutputFlow.Properties.destination);
+		if (eefElementEditorReadOnlyState && destination.isEnabled()) {
+			destination.setEnabled(false);
+			destination.setToolTipText(MetamodelMessages.StorageOutputFlow_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !destination.isEnabled()) {
+			destination.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#setDestinationButtonMode(ButtonsModeEnum newValue)
+	 */
+	public void setDestinationButtonMode(ButtonsModeEnum newValue) {
+		destination.setButtonMode(newValue);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#addFilterDestination(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToDestination(ViewerFilter filter) {
+		destination.addFilter(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StorageOutputFlowPropertiesEditionPart#addBusinessFilterDestination(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToDestination(ViewerFilter filter) {
+		destination.addBusinessRuleFilter(filter);
 	}
 
 	/**

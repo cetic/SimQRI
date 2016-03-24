@@ -112,12 +112,6 @@ public class MetamodelPropertiesEditionPartProvider implements IPropertiesEditio
 			if (kind == MetamodelViewsRepository.FORM_KIND)
 				return new SupplierPropertiesEditionPartForm(component);
 		}
-		if (key == MetamodelViewsRepository.ConveyorBelt.class) {
-			if (kind == MetamodelViewsRepository.SWT_KIND)
-				return new ConveyorBeltPropertiesEditionPartImpl(component);
-			if (kind == MetamodelViewsRepository.FORM_KIND)
-				return new ConveyorBeltPropertiesEditionPartForm(component);
-		}
 		if (key == MetamodelViewsRepository.BatchProcess.class) {
 			if (kind == MetamodelViewsRepository.SWT_KIND)
 				return new BatchProcessPropertiesEditionPartImpl(component);
@@ -249,6 +243,12 @@ public class MetamodelPropertiesEditionPartProvider implements IPropertiesEditio
 				return new WeibullPropertiesEditionPartImpl(component);
 			if (kind == MetamodelViewsRepository.FORM_KIND)
 				return new WeibullPropertiesEditionPartForm(component);
+		}
+		if (key == MetamodelViewsRepository.ConveyorBelt.class) {
+			if (kind == MetamodelViewsRepository.SWT_KIND)
+				return new ConveyorBeltPropertiesEditionPartImpl(component);
+			if (kind == MetamodelViewsRepository.FORM_KIND)
+				return new ConveyorBeltPropertiesEditionPartForm(component);
 		}
 		return null;
 	}

@@ -49,6 +49,8 @@ public class StorageItemProvider extends ComponentItemProvider {
 			addInitialContentPropertyDescriptor(object);
 			addOverflowPropertyDescriptor(object);
 			addStorageOutputFlowPropertyDescriptor(object);
+			addOrderOnStockThresholdPropertyDescriptor(object);
+			addProcessOutputFlowPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -133,6 +135,50 @@ public class StorageItemProvider extends ComponentItemProvider {
 				 getString("_UI_Storage_storageOutputFlow_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Storage_storageOutputFlow_feature", "_UI_Storage_type"),
 				 MetamodelPackage.Literals.STORAGE__STORAGE_OUTPUT_FLOW,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Order On Stock Threshold feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOrderOnStockThresholdPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Storage_orderOnStockThreshold_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Storage_orderOnStockThreshold_feature", "_UI_Storage_type"),
+				 MetamodelPackage.Literals.STORAGE__ORDER_ON_STOCK_THRESHOLD,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Process Output Flow feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProcessOutputFlowPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Storage_processOutputFlow_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Storage_processOutputFlow_feature", "_UI_Storage_type"),
+				 MetamodelPackage.Literals.STORAGE__PROCESS_OUTPUT_FLOW,
 				 true,
 				 false,
 				 true,

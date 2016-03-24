@@ -17,6 +17,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link be.cetic.simqri.metamodel.Storage#getInitialContent <em>Initial Content</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Storage#isOverflow <em>Overflow</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Storage#getStorageOutputFlow <em>Storage Output Flow</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.Storage#getOrderOnStockThreshold <em>Order On Stock Threshold</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.Storage#getProcessOutputFlow <em>Process Output Flow</em>}</li>
  * </ul>
  *
  * @see be.cetic.simqri.metamodel.MetamodelPackage#getStorage()
@@ -119,5 +121,41 @@ public interface Storage extends Component {
 	 * @generated
 	 */
 	EList<StorageOutputFlow> getStorageOutputFlow();
+
+	/**
+	 * Returns the value of the '<em><b>Order On Stock Threshold</b></em>' reference list.
+	 * The list contents are of type {@link be.cetic.simqri.metamodel.OrderOnStockThreshold}.
+	 * It is bidirectional and its opposite is '{@link be.cetic.simqri.metamodel.OrderOnStockThreshold#getStorage <em>Storage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Order On Stock Threshold</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Order On Stock Threshold</em>' reference list.
+	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getStorage_OrderOnStockThreshold()
+	 * @see be.cetic.simqri.metamodel.OrderOnStockThreshold#getStorage
+	 * @model opposite="storage"
+	 * @generated
+	 */
+	EList<OrderOnStockThreshold> getOrderOnStockThreshold();
+
+	/**
+	 * Returns the value of the '<em><b>Process Output Flow</b></em>' reference list.
+	 * The list contents are of type {@link be.cetic.simqri.metamodel.ProcessOutputFlow}.
+	 * It is bidirectional and its opposite is '{@link be.cetic.simqri.metamodel.ProcessOutputFlow#getDestination <em>Destination</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Process Output Flow</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Process Output Flow</em>' reference list.
+	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getStorage_ProcessOutputFlow()
+	 * @see be.cetic.simqri.metamodel.ProcessOutputFlow#getDestination
+	 * @model opposite="destination"
+	 * @generated
+	 */
+	EList<ProcessOutputFlow> getProcessOutputFlow();
 
 } // Storage

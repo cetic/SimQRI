@@ -47,6 +47,48 @@ public interface BatchProcessPropertiesEditionPart {
 	public void setDuration(String newValue);
 
 
+
+
+	/**
+	 * Init the storageOutputFlow
+	 * @param settings settings for the storageOutputFlow ReferencesTable 
+	 */
+	public void initStorageOutputFlow(ReferencesTableSettings settings);
+
+	/**
+	 * Update the storageOutputFlow
+	 * @param newValue the storageOutputFlow to update
+	 * 
+	 */
+	public void updateStorageOutputFlow();
+
+	/**
+	 * Adds the given filter to the storageOutputFlow edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addFilterToStorageOutputFlow(ViewerFilter filter);
+
+	/**
+	 * Adds the given filter to the storageOutputFlow edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addBusinessFilterToStorageOutputFlow(ViewerFilter filter);
+
+	/**
+	 * @return true if the given element is contained inside the storageOutputFlow table
+	 * 
+	 */
+	public boolean isContainedInStorageOutputFlowTable(EObject element);
+
+
 	/**
 	 * @return the percentageOfSuccess
 	 * 

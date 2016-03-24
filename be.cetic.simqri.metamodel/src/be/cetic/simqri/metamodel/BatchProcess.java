@@ -87,7 +87,6 @@ public interface BatchProcess extends be.cetic.simqri.metamodel.Process {
 	 * @return the value of the '<em>Outputs</em>' containment reference list.
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getBatchProcess_Outputs()
 	 * @model containment="true"
-	 *        extendedMetaData="kind='group'"
 	 * @generated
 	 */
 	EList<Output> getOutputs();

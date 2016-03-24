@@ -22,53 +22,6 @@ import org.eclipse.jface.viewers.ViewerFilter;
 public interface StorageOutputFlowPropertiesEditionPart {
 
 	/**
-	 * @return the destination
-	 * 
-	 */
-	public EObject getDestination();
-
-	/**
-	 * Init the destination
-	 * @param settings the combo setting
-	 */
-	public void initDestination(EObjectFlatComboSettings settings);
-
-	/**
-	 * Defines a new destination
-	 * @param newValue the new destination to set
-	 * 
-	 */
-	public void setDestination(EObject newValue);
-
-	/**
-	 * Defines the button mode
-	 * @param newValue the new mode to set
-	 * 
-	 */
-	public void setDestinationButtonMode(ButtonsModeEnum newValue);
-
-	/**
-	 * Adds the given filter to the destination edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addFilterToDestination(ViewerFilter filter);
-
-	/**
-	 * Adds the given filter to the destination edition editor.
-	 * 
-	 * @param filter
-	 *            a viewer filter
-	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
-	 * 
-	 */
-	public void addBusinessFilterToDestination(ViewerFilter filter);
-
-
-	/**
 	 * @return the source
 	 * 
 	 */
@@ -113,6 +66,53 @@ public interface StorageOutputFlowPropertiesEditionPart {
 	 * 
 	 */
 	public void addBusinessFilterToSource(ViewerFilter filter);
+
+
+	/**
+	 * @return the destination
+	 * 
+	 */
+	public EObject getDestination();
+
+	/**
+	 * Init the destination
+	 * @param settings the combo setting
+	 */
+	public void initDestination(EObjectFlatComboSettings settings);
+
+	/**
+	 * Defines a new destination
+	 * @param newValue the new destination to set
+	 * 
+	 */
+	public void setDestination(EObject newValue);
+
+	/**
+	 * Defines the button mode
+	 * @param newValue the new mode to set
+	 * 
+	 */
+	public void setDestinationButtonMode(ButtonsModeEnum newValue);
+
+	/**
+	 * Adds the given filter to the destination edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addFilterToDestination(ViewerFilter filter);
+
+	/**
+	 * Adds the given filter to the destination edition editor.
+	 * 
+	 * @param filter
+	 *            a viewer filter
+	 * @see org.eclipse.jface.viewers.StructuredViewer#addFilter(ViewerFilter)
+	 * 
+	 */
+	public void addBusinessFilterToDestination(ViewerFilter filter);
 
 
 	/**

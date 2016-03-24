@@ -65,8 +65,8 @@ public class OrderOnStockThresholdItemProvider
 			addNamePropertyDescriptor(object);
 			addOrderQuantityPropertyDescriptor(object);
 			addOrderTypePropertyDescriptor(object);
-			addStoragePropertyDescriptor(object);
 			addSupplierPropertyDescriptor(object);
+			addStoragePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

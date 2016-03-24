@@ -23,6 +23,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="overflow" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="storageOutputFlow" upperBound="-1"
         eType="#//StorageOutputFlow" eOpposite="#//StorageOutputFlow/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="orderOnStockThreshold"
+        upperBound="-1" eType="#//OrderOnStockThreshold" eOpposite="#//OrderOnStockThreshold/storage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processOutputFlow" upperBound="-1"
+        eType="#//ProcessOutputFlow" eOpposite="#//ProcessOutputFlow/destination"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Supplier" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="deliveredPercentage" eType="#//Percent"/>
@@ -31,21 +35,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="supplierDelay" lowerBound="1"
         eType="#//Probability" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConveyorBelt" eSuperTypes="#//Process">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimalSeparationBetweenBatches"
-        eType="#//PositiveDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//Output"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BatchProcess" eSuperTypes="#//Process">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentageOfSuccess" eType="#//Percent"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfLines" eType="#//PositiveIntNotNull"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
-        eType="#//Output" containment="true">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="kind" value="group"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        eType="#//Output" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="OrderType">
     <eLiterals name="FIXED"/>
@@ -64,21 +58,23 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StorageOutputFlow" eSuperTypes="#//Flow">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="destination" lowerBound="1"
-        eType="#//Process"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//Storage" eOpposite="#//Storage/storageOutputFlow"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destination" lowerBound="1"
+        eType="#//Process" eOpposite="#//Process/storageOutputFlow"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProcessOutputFlow" eSuperTypes="#//Flow">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="destination" lowerBound="1"
-        eType="#//Storage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
         eType="#//Output" eOpposite="#//Output/processOutputFlow"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processOutputFlowDelay"
         lowerBound="1" eType="#//Probability" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destination" lowerBound="1"
+        eType="#//Storage" eOpposite="#//Storage/processOutputFlow"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Process" abstract="true" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="#//PositiveDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storageOutputFlow" upperBound="-1"
+        eType="#//StorageOutputFlow" eOpposite="#//StorageOutputFlow/destination"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrderOnStockThreshold">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//PositiveDouble"/>
@@ -86,10 +82,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orderQuantity" eType="#//PositiveInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="orderType" eType="#//OrderType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="storage" lowerBound="1"
-        eType="#//Storage"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="supplier" lowerBound="1"
         eType="#//Supplier" eOpposite="#//Supplier/refillPolicy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storage" lowerBound="1"
+        eType="#//Storage" eOpposite="#//Storage/orderOnStockThreshold"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -210,5 +206,11 @@
       <details key="maxInclusive" value="1"/>
       <details key="minExclusive" value="0"/>
     </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConveyorBelt" eSuperTypes="#//Process">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimalSeparationBetweenBatches"
+        eType="#//PositiveDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//Output"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

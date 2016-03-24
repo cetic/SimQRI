@@ -30,8 +30,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link be.cetic.simqri.metamodel.impl.OrderOnStockThresholdImpl#getName <em>Name</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.OrderOnStockThresholdImpl#getOrderQuantity <em>Order Quantity</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.OrderOnStockThresholdImpl#getOrderType <em>Order Type</em>}</li>
- *   <li>{@link be.cetic.simqri.metamodel.impl.OrderOnStockThresholdImpl#getStorage <em>Storage</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.OrderOnStockThresholdImpl#getSupplier <em>Supplier</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.OrderOnStockThresholdImpl#getStorage <em>Storage</em>}</li>
  * </ul>
  *
  * @generated
@@ -138,16 +138,6 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 	protected OrderType orderType = ORDER_TYPE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getStorage() <em>Storage</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getStorage()
-	 * @generated
-	 * @ordered
-	 */
-	protected Storage storage;
-
-	/**
 	 * The cached value of the '{@link #getSupplier() <em>Supplier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,6 +146,16 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 	 * @ordered
 	 */
 	protected Supplier supplier;
+
+	/**
+	 * The cached value of the '{@link #getStorage() <em>Storage</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStorage()
+	 * @generated
+	 * @ordered
+	 */
+	protected Storage storage;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -312,11 +312,33 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStorage(Storage newStorage) {
+	public NotificationChain basicSetStorage(Storage newStorage, NotificationChain msgs) {
 		Storage oldStorage = storage;
 		storage = newStorage;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE, oldStorage, storage));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE, oldStorage, newStorage);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setStorage(Storage newStorage) {
+		if (newStorage != storage) {
+			NotificationChain msgs = null;
+			if (storage != null)
+				msgs = ((InternalEObject)storage).eInverseRemove(this, MetamodelPackage.STORAGE__ORDER_ON_STOCK_THRESHOLD, Storage.class, msgs);
+			if (newStorage != null)
+				msgs = ((InternalEObject)newStorage).eInverseAdd(this, MetamodelPackage.STORAGE__ORDER_ON_STOCK_THRESHOLD, Storage.class, msgs);
+			msgs = basicSetStorage(newStorage, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE, newStorage, newStorage));
 	}
 
 	/**
@@ -391,6 +413,10 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 				if (supplier != null)
 					msgs = ((InternalEObject)supplier).eInverseRemove(this, MetamodelPackage.SUPPLIER__REFILL_POLICY, Supplier.class, msgs);
 				return basicSetSupplier((Supplier)otherEnd, msgs);
+			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE:
+				if (storage != null)
+					msgs = ((InternalEObject)storage).eInverseRemove(this, MetamodelPackage.STORAGE__ORDER_ON_STOCK_THRESHOLD, Storage.class, msgs);
+				return basicSetStorage((Storage)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -405,6 +431,8 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 		switch (featureID) {
 			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__SUPPLIER:
 				return basicSetSupplier(null, msgs);
+			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE:
+				return basicSetStorage(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -427,12 +455,12 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 				return getOrderQuantity();
 			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__ORDER_TYPE:
 				return getOrderType();
-			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE:
-				if (resolve) return getStorage();
-				return basicGetStorage();
 			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__SUPPLIER:
 				if (resolve) return getSupplier();
 				return basicGetSupplier();
+			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE:
+				if (resolve) return getStorage();
+				return basicGetStorage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -460,11 +488,11 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__ORDER_TYPE:
 				setOrderType((OrderType)newValue);
 				return;
-			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE:
-				setStorage((Storage)newValue);
-				return;
 			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__SUPPLIER:
 				setSupplier((Supplier)newValue);
+				return;
+			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE:
+				setStorage((Storage)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -493,11 +521,11 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__ORDER_TYPE:
 				setOrderType(ORDER_TYPE_EDEFAULT);
 				return;
-			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE:
-				setStorage((Storage)null);
-				return;
 			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__SUPPLIER:
 				setSupplier((Supplier)null);
+				return;
+			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE:
+				setStorage((Storage)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -521,10 +549,10 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 				return ORDER_QUANTITY_EDEFAULT == null ? orderQuantity != null : !ORDER_QUANTITY_EDEFAULT.equals(orderQuantity);
 			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__ORDER_TYPE:
 				return orderType != ORDER_TYPE_EDEFAULT;
-			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE:
-				return storage != null;
 			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__SUPPLIER:
 				return supplier != null;
+			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD__STORAGE:
+				return storage != null;
 		}
 		return super.eIsSet(featureID);
 	}

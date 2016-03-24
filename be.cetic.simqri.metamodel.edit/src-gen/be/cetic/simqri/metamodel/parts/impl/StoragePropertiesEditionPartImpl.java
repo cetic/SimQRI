@@ -84,6 +84,12 @@ public class StoragePropertiesEditionPartImpl extends CompositePropertiesEdition
 	protected ReferencesTable storageOutputFlow;
 	protected List<ViewerFilter> storageOutputFlowBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> storageOutputFlowFilters = new ArrayList<ViewerFilter>();
+	protected ReferencesTable orderOnStockThreshold;
+	protected List<ViewerFilter> orderOnStockThresholdBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> orderOnStockThresholdFilters = new ArrayList<ViewerFilter>();
+	protected ReferencesTable processOutputFlow;
+	protected List<ViewerFilter> processOutputFlowBusinessFilters = new ArrayList<ViewerFilter>();
+	protected List<ViewerFilter> processOutputFlowFilters = new ArrayList<ViewerFilter>();
 
 
 
@@ -127,6 +133,8 @@ public class StoragePropertiesEditionPartImpl extends CompositePropertiesEdition
 		propertiesStep.addStep(MetamodelViewsRepository.Storage.Properties.initialContent);
 		propertiesStep.addStep(MetamodelViewsRepository.Storage.Properties.overflow);
 		propertiesStep.addStep(MetamodelViewsRepository.Storage.Properties.storageOutputFlow);
+		propertiesStep.addStep(MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold);
+		propertiesStep.addStep(MetamodelViewsRepository.Storage.Properties.processOutputFlow);
 		
 		
 		composer = new PartComposer(storageStep) {
@@ -150,6 +158,12 @@ public class StoragePropertiesEditionPartImpl extends CompositePropertiesEdition
 				}
 				if (key == MetamodelViewsRepository.Storage.Properties.storageOutputFlow) {
 					return createStorageOutputFlowAdvancedReferencesTable(parent);
+				}
+				if (key == MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold) {
+					return createOrderOnStockThresholdAdvancedReferencesTable(parent);
+				}
+				if (key == MetamodelViewsRepository.Storage.Properties.processOutputFlow) {
+					return createProcessOutputFlowAdvancedReferencesTable(parent);
 				}
 				return parent;
 			}
@@ -431,6 +445,170 @@ public class StoragePropertiesEditionPartImpl extends CompositePropertiesEdition
 		}
 	}
 
+	/**
+	 * 
+	 */
+	protected Composite createOrderOnStockThresholdAdvancedReferencesTable(Composite parent) {
+		String label = getDescription(MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold, MetamodelMessages.StoragePropertiesEditionPart_OrderOnStockThresholdLabel);		 
+		this.orderOnStockThreshold = new ReferencesTable(label, new ReferencesTableListener() {
+			public void handleAdd() { addOrderOnStockThreshold(); }
+			public void handleEdit(EObject element) { editOrderOnStockThreshold(element); }
+			public void handleMove(EObject element, int oldIndex, int newIndex) { moveOrderOnStockThreshold(element, oldIndex, newIndex); }
+			public void handleRemove(EObject element) { removeFromOrderOnStockThreshold(element); }
+			public void navigateTo(EObject element) { }
+		});
+		this.orderOnStockThreshold.setHelpText(propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold, MetamodelViewsRepository.SWT_KIND));
+		this.orderOnStockThreshold.createControls(parent);
+		this.orderOnStockThreshold.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item != null && e.item.getData() instanceof EObject) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StoragePropertiesEditionPartImpl.this, MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+				}
+			}
+			
+		});
+		GridData orderOnStockThresholdData = new GridData(GridData.FILL_HORIZONTAL);
+		orderOnStockThresholdData.horizontalSpan = 3;
+		this.orderOnStockThreshold.setLayoutData(orderOnStockThresholdData);
+		this.orderOnStockThreshold.disableMove();
+		orderOnStockThreshold.setID(MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold);
+		orderOnStockThreshold.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected void addOrderOnStockThreshold() {
+		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(orderOnStockThreshold.getInput(), orderOnStockThresholdFilters, orderOnStockThresholdBusinessFilters,
+		"orderOnStockThreshold", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
+			@Override
+			public void process(IStructuredSelection selection) {
+				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
+					EObject elem = (EObject) iter.next();
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StoragePropertiesEditionPartImpl.this, MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold,
+						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
+				}
+				orderOnStockThreshold.refresh();
+			}
+		};
+		dialog.open();
+	}
+
+	/**
+	 * 
+	 */
+	protected void moveOrderOnStockThreshold(EObject element, int oldIndex, int newIndex) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StoragePropertiesEditionPartImpl.this, MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		orderOnStockThreshold.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void removeFromOrderOnStockThreshold(EObject element) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StoragePropertiesEditionPartImpl.this, MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		orderOnStockThreshold.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void editOrderOnStockThreshold(EObject element) {
+		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
+		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
+		if (provider != null) {
+			PropertiesEditingPolicy policy = provider.getPolicy(context);
+			if (policy != null) {
+				policy.execute();
+				orderOnStockThreshold.refresh();
+			}
+		}
+	}
+
+	/**
+	 * 
+	 */
+	protected Composite createProcessOutputFlowAdvancedReferencesTable(Composite parent) {
+		String label = getDescription(MetamodelViewsRepository.Storage.Properties.processOutputFlow, MetamodelMessages.StoragePropertiesEditionPart_ProcessOutputFlowLabel);		 
+		this.processOutputFlow = new ReferencesTable(label, new ReferencesTableListener() {
+			public void handleAdd() { addProcessOutputFlow(); }
+			public void handleEdit(EObject element) { editProcessOutputFlow(element); }
+			public void handleMove(EObject element, int oldIndex, int newIndex) { moveProcessOutputFlow(element, oldIndex, newIndex); }
+			public void handleRemove(EObject element) { removeFromProcessOutputFlow(element); }
+			public void navigateTo(EObject element) { }
+		});
+		this.processOutputFlow.setHelpText(propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.Storage.Properties.processOutputFlow, MetamodelViewsRepository.SWT_KIND));
+		this.processOutputFlow.createControls(parent);
+		this.processOutputFlow.addSelectionListener(new SelectionAdapter() {
+			
+			public void widgetSelected(SelectionEvent e) {
+				if (e.item != null && e.item.getData() instanceof EObject) {
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StoragePropertiesEditionPartImpl.this, MetamodelViewsRepository.Storage.Properties.processOutputFlow, PropertiesEditionEvent.CHANGE, PropertiesEditionEvent.SELECTION_CHANGED, null, e.item.getData()));
+				}
+			}
+			
+		});
+		GridData processOutputFlowData = new GridData(GridData.FILL_HORIZONTAL);
+		processOutputFlowData.horizontalSpan = 3;
+		this.processOutputFlow.setLayoutData(processOutputFlowData);
+		this.processOutputFlow.disableMove();
+		processOutputFlow.setID(MetamodelViewsRepository.Storage.Properties.processOutputFlow);
+		processOutputFlow.setEEFType("eef::AdvancedReferencesTable"); //$NON-NLS-1$
+		return parent;
+	}
+
+	/**
+	 * 
+	 */
+	protected void addProcessOutputFlow() {
+		TabElementTreeSelectionDialog dialog = new TabElementTreeSelectionDialog(processOutputFlow.getInput(), processOutputFlowFilters, processOutputFlowBusinessFilters,
+		"processOutputFlow", propertiesEditionComponent.getEditingContext().getAdapterFactory(), current.eResource()) {
+			@Override
+			public void process(IStructuredSelection selection) {
+				for (Iterator<?> iter = selection.iterator(); iter.hasNext();) {
+					EObject elem = (EObject) iter.next();
+					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StoragePropertiesEditionPartImpl.this, MetamodelViewsRepository.Storage.Properties.processOutputFlow,
+						PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.ADD, null, elem));
+				}
+				processOutputFlow.refresh();
+			}
+		};
+		dialog.open();
+	}
+
+	/**
+	 * 
+	 */
+	protected void moveProcessOutputFlow(EObject element, int oldIndex, int newIndex) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StoragePropertiesEditionPartImpl.this, MetamodelViewsRepository.Storage.Properties.processOutputFlow, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.MOVE, element, newIndex));
+		processOutputFlow.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void removeFromProcessOutputFlow(EObject element) {
+		propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(StoragePropertiesEditionPartImpl.this, MetamodelViewsRepository.Storage.Properties.processOutputFlow, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.REMOVE, null, element));
+		processOutputFlow.refresh();
+	}
+
+	/**
+	 * 
+	 */
+	protected void editProcessOutputFlow(EObject element) {
+		EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(propertiesEditionComponent.getEditingContext(), propertiesEditionComponent, element, adapterFactory);
+		PropertiesEditingProvider provider = (PropertiesEditingProvider)adapterFactory.adapt(element, PropertiesEditingProvider.class);
+		if (provider != null) {
+			PropertiesEditingPolicy policy = provider.getPolicy(context);
+			if (policy != null) {
+				policy.execute();
+				processOutputFlow.refresh();
+			}
+		}
+	}
+
 
 	/**
 	 * {@inheritDoc}
@@ -635,6 +813,136 @@ public class StoragePropertiesEditionPartImpl extends CompositePropertiesEdition
 	 */
 	public boolean isContainedInStorageOutputFlowTable(EObject element) {
 		return ((ReferencesTableSettings)storageOutputFlow.getInput()).contains(element);
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StoragePropertiesEditionPart#initOrderOnStockThreshold(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
+	 */
+	public void initOrderOnStockThreshold(ReferencesTableSettings settings) {
+		if (current.eResource() != null && current.eResource().getResourceSet() != null)
+			this.resourceSet = current.eResource().getResourceSet();
+		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
+		orderOnStockThreshold.setContentProvider(contentProvider);
+		orderOnStockThreshold.setInput(settings);
+		orderOnStockThresholdBusinessFilters.clear();
+		orderOnStockThresholdFilters.clear();
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.Storage.Properties.orderOnStockThreshold);
+		if (eefElementEditorReadOnlyState && orderOnStockThreshold.getTable().isEnabled()) {
+			orderOnStockThreshold.setEnabled(false);
+			orderOnStockThreshold.setToolTipText(MetamodelMessages.Storage_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !orderOnStockThreshold.getTable().isEnabled()) {
+			orderOnStockThreshold.setEnabled(true);
+		}
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StoragePropertiesEditionPart#updateOrderOnStockThreshold()
+	 * 
+	 */
+	public void updateOrderOnStockThreshold() {
+	orderOnStockThreshold.refresh();
+}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StoragePropertiesEditionPart#addFilterOrderOnStockThreshold(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToOrderOnStockThreshold(ViewerFilter filter) {
+		orderOnStockThresholdFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StoragePropertiesEditionPart#addBusinessFilterOrderOnStockThreshold(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToOrderOnStockThreshold(ViewerFilter filter) {
+		orderOnStockThresholdBusinessFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StoragePropertiesEditionPart#isContainedInOrderOnStockThresholdTable(EObject element)
+	 * 
+	 */
+	public boolean isContainedInOrderOnStockThresholdTable(EObject element) {
+		return ((ReferencesTableSettings)orderOnStockThreshold.getInput()).contains(element);
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StoragePropertiesEditionPart#initProcessOutputFlow(org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings)
+	 */
+	public void initProcessOutputFlow(ReferencesTableSettings settings) {
+		if (current.eResource() != null && current.eResource().getResourceSet() != null)
+			this.resourceSet = current.eResource().getResourceSet();
+		ReferencesTableContentProvider contentProvider = new ReferencesTableContentProvider();
+		processOutputFlow.setContentProvider(contentProvider);
+		processOutputFlow.setInput(settings);
+		processOutputFlowBusinessFilters.clear();
+		processOutputFlowFilters.clear();
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.Storage.Properties.processOutputFlow);
+		if (eefElementEditorReadOnlyState && processOutputFlow.getTable().isEnabled()) {
+			processOutputFlow.setEnabled(false);
+			processOutputFlow.setToolTipText(MetamodelMessages.Storage_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !processOutputFlow.getTable().isEnabled()) {
+			processOutputFlow.setEnabled(true);
+		}
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StoragePropertiesEditionPart#updateProcessOutputFlow()
+	 * 
+	 */
+	public void updateProcessOutputFlow() {
+	processOutputFlow.refresh();
+}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StoragePropertiesEditionPart#addFilterProcessOutputFlow(ViewerFilter filter)
+	 * 
+	 */
+	public void addFilterToProcessOutputFlow(ViewerFilter filter) {
+		processOutputFlowFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StoragePropertiesEditionPart#addBusinessFilterProcessOutputFlow(ViewerFilter filter)
+	 * 
+	 */
+	public void addBusinessFilterToProcessOutputFlow(ViewerFilter filter) {
+		processOutputFlowBusinessFilters.add(filter);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.StoragePropertiesEditionPart#isContainedInProcessOutputFlowTable(EObject element)
+	 * 
+	 */
+	public boolean isContainedInProcessOutputFlowTable(EObject element) {
+		return ((ReferencesTableSettings)processOutputFlow.getInput()).contains(element);
 	}
 
 

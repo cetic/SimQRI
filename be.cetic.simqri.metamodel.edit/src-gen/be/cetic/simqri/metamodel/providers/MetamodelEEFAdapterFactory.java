@@ -47,14 +47,6 @@ public class MetamodelEEFAdapterFactory extends MetamodelAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createConveyorBeltAdapter()
-	 * 
-	 */
-	public Adapter createConveyorBeltAdapter() {
-		return new ConveyorBeltPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
 	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createBatchProcessAdapter()
 	 * 
 	 */
@@ -228,6 +220,14 @@ public class MetamodelEEFAdapterFactory extends MetamodelAdapterFactory {
 	 */
 	public Adapter createWeibullAdapter() {
 		return new WeibullPropertiesEditionProvider();
+	}
+	/**
+	 * {@inheritDoc}
+	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createConveyorBeltAdapter()
+	 * 
+	 */
+	public Adapter createConveyorBeltAdapter() {
+		return new ConveyorBeltPropertiesEditionProvider();
 	}
 
 }
