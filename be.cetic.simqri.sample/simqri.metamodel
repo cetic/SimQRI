@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metamodel:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metamodel="http://www.example.org/metamodel">
-  <orderOnStockThreshold name="oost 0" storage="//@component.1" supplier="//@component.0"/>
-  <component xsi:type="metamodel:Supplier" name="yo" deliveredPercentage="19.0" refillPolicy="//@orderOnStockThreshold.0"/>
-  <component xsi:type="metamodel:Storage" name="new_storage 1" storageOutputFlow="//@flow.0"/>
-  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 1" numberOfLines="1">
-    <outputs processOutputFlow="//@flow.1"/>
+  <orderOnStockThreshold name="oost 0" supplier="//@component.0" storage="//@component.1"/>
+  <component xsi:type="metamodel:Supplier" name="new_storage 1" refillPolicy="//@orderOnStockThreshold.0">
+    <supplierDelay xsi:type="metamodel:DiracDelta"/>
   </component>
-  <component xsi:type="metamodel:Storage" name="new_storage 2" overflow="true"/>
-  <flow xsi:type="metamodel:StorageOutputFlow" destination="//@component.2" source="//@component.1"/>
-  <flow xsi:type="metamodel:ProcessOutputFlow" destination="//@component.3" source="//@component.2/@outputs.0"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 1" storageOutputFlow="//@flow.2" orderOnStockThreshold="//@orderOnStockThreshold.0"/>
+  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 1" storageOutputFlow="//@flow.2" percentageOfSuccess="99.0" numberOfLines="1">
+    <outputs processOutputFlow="//@flow.0"/>
+    <outputs type="FAILURE" processOutputFlow="//@flow.1"/>
+  </component>
+  <component xsi:type="metamodel:Storage" name="new_storage 2" overflow="true" processOutputFlow="//@flow.1"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 3" processOutputFlow="//@flow.0"/>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.0" destination="//@component.4">
+    <quantity xsi:type="metamodel:Scalar"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar"/>
+  </flow>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.1" destination="//@component.3">
+    <quantity xsi:type="metamodel:Exponential"/>
+    <processOutputFlowDelay xsi:type="metamodel:Cauchy" location="33.0"/>
+  </flow>
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.1" destination="//@component.2">
+    <quantity xsi:type="metamodel:Scalar"/>
+  </flow>
 </metamodel:Model>
