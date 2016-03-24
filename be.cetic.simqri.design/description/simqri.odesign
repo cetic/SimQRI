@@ -12,13 +12,13 @@
         </ownedRules>
       </validationSet>
       <defaultLayer name="Default">
-        <nodeMappings name="SD_supplier" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.supplierDelay)" domainClass="metamodel.Supplier">
+        <nodeMappings name="SD_supplier" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.supplierDelay)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.Supplier">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.sample/images/supplier.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="SD_storage" semanticCandidatesExpression="feature:component" domainClass="metamodel.Storage">
+        <nodeMappings name="SD_storage" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.Storage">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.sample/images/storage.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -30,7 +30,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="SD_batchprocess" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.outputs)" domainClass="metamodel.BatchProcess">
+        <nodeMappings name="SD_batchprocess" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.outputs)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.BatchProcess">
           <borderedNodeMappings name="SD_output_bp" semanticCandidatesExpression="feature:outputs" domainClass="metamodel.Output">
             <style xsi:type="style:SquareDescription" labelExpression="feature:type" hideLabelByDefault="true" sizeComputationExpression="2" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -61,7 +61,7 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="SD_conveyorbelt" semanticCandidatesExpression="feature:component" domainClass="metamodel.ConveyorBelt">
+        <nodeMappings name="SD_conveyorbelt" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.ConveyorBelt">
           <borderedNodeMappings name="SD_output_cb" semanticCandidatesExpression="feature:output" domainClass="metamodel.Output">
             <style xsi:type="style:SquareDescription" labelExpression="feature:type" hideLabelByDefault="true" sizeComputationExpression="2" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -81,7 +81,7 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Supplier" referenceName="component">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_storage '+self.eContainer().component->filter(metamodel::Supplier)->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_supplier '+self.eContainer().component->filter(metamodel::Supplier)->size()"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -188,6 +188,21 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="Usability">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Open EEF Wizard" mappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Open EEF Wizard Action" id="org.eclipse.sirius.eef.actions.openPropertiesWizard"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="SD_DirectEditLabel" inputLabelExpression="aql:self.name">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.type=metamodel::OutputType::FAILURE">
             <featureCustomizations xsi:type="description:EReferenceCustomization" appliedOn="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp']/@style" referenceName="color">
@@ -207,7 +222,7 @@
         </customization>
       </defaultLayer>
       <additionalLayers name="SD_edges" activeByDefault="true">
-        <edgeMappings name="SD_storageoutputflow" semanticElements="aql:self->including(self.quantity)" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']" targetFinderExpression="feature:destination" sourceFinderExpression="feature:source" domainClass="metamodel.StorageOutputFlow" useDomainElement="true">
+        <edgeMappings name="SD_storageoutputflow" semanticElements="aql:self->including(self.quantity)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']" targetFinderExpression="feature:destination" sourceFinderExpression="feature:source" domainClass="metamodel.StorageOutputFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Target_StorageOutputFlow'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Source_StorageOutputFlow']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="10">
@@ -215,7 +230,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="SD_processoutputflow" semanticElements="aql:self->including(self.quantity and self.processOutputFlowDelay)" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']/@borderedNodeMappings[name='SD_output_cb']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetFinderExpression="feature:destination" sourceFinderExpression="feature:source" domainClass="metamodel.ProcessOutputFlow" useDomainElement="true">
+        <edgeMappings name="SD_processoutputflow" semanticElements="aql:self->including(self.quantity and self.processOutputFlowDelay)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']/@borderedNodeMappings[name='SD_output_cb']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetFinderExpression="feature:destination" sourceFinderExpression="feature:source" domainClass="metamodel.ProcessOutputFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Target_ProcessOutputFlow'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Source_ProcessOutputFlow']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="10">
@@ -223,7 +238,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="SD_oost" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetFinderExpression="feature:storage" sourceFinderExpression="feature:supplier" domainClass="metamodel.OrderOnStockThreshold" useDomainElement="true">
+        <edgeMappings name="SD_oost" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetFinderExpression="feature:storage" sourceFinderExpression="feature:supplier" domainClass="metamodel.OrderOnStockThreshold" useDomainElement="true" reconnections="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Target_Oost'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Source_Oost']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="10" labelExpression="aql:self.name+' '+self.orderType">
@@ -274,6 +289,101 @@
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Usability">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Target_ProcessOutputFlow">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="destination" elementExpression="feature:destination"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="destination" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Source_ProcessOutputFlow" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="processOutputFlow" valueExpression="aql:source.processOutputFlow">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="processOutputFlow"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Target_StorageOutputFlow">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="destination" elementExpression="feature:destination"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="destination" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Source_StorageOutputFlow" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="storageOutputFlow" valueExpression="aql:source.storageOutputFlow">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="storageOutputFlow"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Target_Oost">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="storage" elementExpression="feature:storage"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="storage" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Source_Oost" reconnectionKind="RECONNECT_SOURCE">
+            <source name="source"/>
+            <target name="target"/>
+            <sourceView name="sourceView"/>
+            <targetView name="targetView"/>
+            <element name="element"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="refillPolicy" valueExpression="aql:source.refillPolicy">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="refillPolicy"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+            <edgeView name="edgeView"/>
           </ownedTools>
         </toolSections>
       </additionalLayers>
