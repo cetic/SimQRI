@@ -7,14 +7,19 @@
   <component xsi:type="metamodel:Storage" name="myGreatStorage" storageOutputFlow="//@flow.2" orderOnStockThreshold="//@orderOnStockThreshold.0"/>
   <component xsi:type="metamodel:BatchProcess" name="new_batch_process 1" storageOutputFlow="//@flow.2" percentageOfSuccess="99.0" numberOfLines="1">
     <outputs processOutputFlow="//@flow.0"/>
-    <outputs type="FAILURE" processOutputFlow="//@flow.1"/>
+    <outputs type="LOWER_QUALITY" processOutputFlow="//@flow.1"/>
   </component>
   <component xsi:type="metamodel:Storage" name="new_storage 2" overflow="true" processOutputFlow="//@flow.1"/>
   <component xsi:type="metamodel:Storage" name="new_storage 3" processOutputFlow="//@flow.0"/>
   <component xsi:type="metamodel:BatchProcess" name="new_batch_process 2">
     <outputs/>
   </component>
-  <component xsi:type="metamodel:Supplier" name="new_supplier 2"/>
+  <component xsi:type="metamodel:ConveyorBelt" name="new_conveyor_belt 1">
+    <output/>
+  </component>
+  <component xsi:type="metamodel:Supplier" name="new_supplier 2">
+    <supplierDelay xsi:type="metamodel:Uniform" minimum="14.0" maximum="12.0"/>
+  </component>
   <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.0" destination="//@component.4">
     <quantity xsi:type="metamodel:Scalar"/>
     <processOutputFlowDelay xsi:type="metamodel:Scalar"/>
