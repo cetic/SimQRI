@@ -2,6 +2,7 @@ package be.cetic.simqri.design.templates;
 
 import be.cetic.simqri.metamodel.Model;
 
+
 /**
  * @author FK
  * @version 1.0
@@ -18,8 +19,14 @@ public class CheckQueries {
 	 * This method calls a scala method from a scala plug-in which parse probes to the OscaR DES Engine and check the validity of all of them
 	 */
 	public boolean checkValidity(Model model) {
-		// TODO the call to the scala plug-in
+		//SimQRiSirius sim = new SimQRiSirius();
+		//System.err.println("tesJ");
 		return true;
 	}
+	
+	public static void main(String[] args) {
+
+	}
+	
 
 }

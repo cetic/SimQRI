@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="/Users/francois/Desktop/CETIC/MyOscarJar/JSci/classes/jsci-mathmlimpl.jar"/>
 	<classpathentry kind="lib" path="/Users/francois/Desktop/CETIC/MyOscarJar/JSci/classes/jsci-wavelet.jar"/>
 	<classpathentry kind="lib" path="/Users/francois/Desktop/CETIC/MyOscarJar/JSci/classes/jsci-xtra.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/be.cetic.simqri.simulator"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

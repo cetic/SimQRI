@@ -30,6 +30,9 @@
             </initialOperation>
           </fixes>
         </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="testQueries" level="ERROR" targetClass="metamodel.Model">
+          <audits auditExpression="aql:self.checkValidity()=true"/>
+        </ownedRules>
       </validationSet>
       <defaultLayer name="Default">
         <nodeMappings name="SD_supplier" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.supplierDelay)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.Supplier">
@@ -222,6 +225,12 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="Check Queries" precondition="aql:self.oclIsKindOf(metamodel::Model)" elementsToSelect="Check Queries">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="SD_Gateway" id="gateway"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.type=metamodel::OutputType::FAILURE">
@@ -411,5 +420,6 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckFlows"/>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckOutputs"/>
+    <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckQueries"/>
   </ownedViewpoints>
 </description:Group>
