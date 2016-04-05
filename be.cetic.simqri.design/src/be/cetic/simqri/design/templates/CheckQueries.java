@@ -1,6 +1,7 @@
 package be.cetic.simqri.design.templates;
 
 import be.cetic.simqri.metamodel.Model;
+import be.cetic.simqri.simulator.mapping.SimQRiSirius;
 
 
 /**
@@ -19,9 +20,10 @@ public class CheckQueries {
 	 * This method calls a scala method from a scala plug-in which parse probes to the OscaR DES Engine and check the validity of all of them
 	 */
 	public boolean checkValidity(Model model) {
-		//SimQRiSirius sim = new SimQRiSirius();
-		//System.err.println("tesJ");
-		return true;
+		SimQRiSirius sim = new SimQRiSirius();
+		if(model.isValid()) System.out.println("vrai");
+		else System.out.println("faux");
+		return sim.essai();
 	}
 	
 	public static void main(String[] args) {
