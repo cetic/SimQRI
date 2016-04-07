@@ -23,12 +23,15 @@
           <audits auditExpression="aql:self.haseOneFlowFromThatPort()=true"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkUniformDistribution" level="ERROR" message="The &quot;maximum&quot; parameter of the Uniform distribution has to be greater than &quot;minimum&quot; parameter !" targetClass="metamodel.Uniform">
-          <audits auditExpression="aql:self.maximum>self.minimum"/>
+          <audits auditExpression="aql:self.minimum&lt;self.maximum"/>
           <fixes name="Set maximum to &quot;minimum + 1&quot;">
             <initialOperation>
               <firstModelOperations xsi:type="tool:SetValue" featureName="maximum" valueExpression="aql:self.minimum+1"/>
             </initialOperation>
           </fixes>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="testQueries" level="ERROR" targetClass="metamodel.Model">
+          <audits auditExpression="aql:self.checkValidity()=true"/>
         </ownedRules>
       </validationSet>
       <defaultLayer name="Default">
@@ -222,6 +225,14 @@
               <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:OperationAction" name="Check Queries" precondition="aql:self.oclIsKindOf(metamodel::Model)" elementsToSelect="Check Queries">
+            <view name="views"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:metamodel::Model">
+                <subModelOperations xsi:type="tool:SetValue" featureName="valid" valueExpression="service:checkValidity()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <customization>
           <vsmElementCustomizations xsi:type="description:VSMElementCustomization" predicateExpression="aql:self.type=metamodel::OutputType::FAILURE">
@@ -261,7 +272,7 @@
         <edgeMappings name="SD_oost" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetFinderExpression="feature:storage" sourceFinderExpression="feature:supplier" domainClass="metamodel.OrderOnStockThreshold" useDomainElement="true" reconnections="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Target_Oost'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Source_Oost']">
           <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
-            <centerLabelStyleDescription labelSize="10" labelExpression="aql:self.name+' '+self.orderType">
+            <centerLabelStyleDescription labelSize="10" labelExpression="[if (self.period>0) then self.name+' with tick '+' ('+self.orderType+')' else self.name+' ('+self.orderType+')' endif /]">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
             </centerLabelStyleDescription>
           </style>
@@ -306,6 +317,7 @@
                   <subModelOperations xsi:type="tool:SetValue" featureName="supplier" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="storage" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'oost '+self.eContainer().flow->filter(metamodel::OrderOnStockThreshold)->size()"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="period" valueExpression="0.0"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -410,5 +422,6 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckFlows"/>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckOutputs"/>
+    <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckQueries"/>
   </ownedViewpoints>
 </description:Group>
