@@ -25,7 +25,7 @@ public class Gateway implements IExternalJavaAction {
 	@Override
 	public boolean canExecute(Collection<? extends EObject> selections) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }

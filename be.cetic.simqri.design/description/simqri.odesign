@@ -228,9 +228,7 @@
           <ownedTools xsi:type="tool:OperationAction" name="Check Queries" precondition="aql:self.oclIsKindOf(metamodel::Model)" elementsToSelect="Check Queries">
             <view name="views"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:metamodel::Model">
-                <subModelOperations xsi:type="tool:SetValue" featureName="valid" valueExpression="service:checkValidity()"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="SD_CheckOutputs" id="gateway"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
