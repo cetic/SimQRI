@@ -5,7 +5,7 @@ package be.cetic.simqri.metamodel.parts;
 
 // Start of user code for imports
 import org.eclipse.emf.ecore.EObject;
-
+import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 
 import org.eclipse.jface.viewers.ViewerFilter;
@@ -37,14 +37,20 @@ public interface BatchProcessPropertiesEditionPart {
 	 * @return the duration
 	 * 
 	 */
-	public String getDuration();
+	public EObject getDuration();
+
+	/**
+	 * Init the duration
+	 * @param settings the combo setting
+	 */
+	public void initDuration(EObjectFlatComboSettings settings);
 
 	/**
 	 * Defines a new duration
 	 * @param newValue the new duration to set
 	 * 
 	 */
-	public void setDuration(String newValue);
+	public void setDuration(EObject newValue);
 
 
 

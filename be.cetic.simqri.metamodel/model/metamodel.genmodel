@@ -69,8 +69,8 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//ProcessOutputFlow/destination"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Process">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Process/duration"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Process/storageOutputFlow"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Process/duration"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//OrderOnStockThreshold">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//OrderOnStockThreshold/period"/>

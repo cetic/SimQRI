@@ -37,14 +37,20 @@ public interface ConveyorBeltPropertiesEditionPart {
 	 * @return the duration
 	 * 
 	 */
-	public String getDuration();
+	public EObject getDuration();
+
+	/**
+	 * Init the duration
+	 * @param settings the combo setting
+	 */
+	public void initDuration(EObjectFlatComboSettings settings);
 
 	/**
 	 * Defines a new duration
 	 * @param newValue the new duration to set
 	 * 
 	 */
-	public void setDuration(String newValue);
+	public void setDuration(EObject newValue);
 
 
 

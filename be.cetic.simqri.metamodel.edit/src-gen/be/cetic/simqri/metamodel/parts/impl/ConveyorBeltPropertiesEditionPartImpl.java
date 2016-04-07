@@ -70,7 +70,7 @@ import org.eclipse.swt.widgets.Text;
 public class ConveyorBeltPropertiesEditionPartImpl extends CompositePropertiesEditionPart implements ISWTPropertiesEditionPart, ConveyorBeltPropertiesEditionPart {
 
 	protected Text name;
-	protected Text duration;
+	private SingleCompositionEditor duration;
 	protected ReferencesTable storageOutputFlow;
 	protected List<ViewerFilter> storageOutputFlowBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> storageOutputFlowFilters = new ArrayList<ViewerFilter>();
@@ -132,7 +132,7 @@ public class ConveyorBeltPropertiesEditionPartImpl extends CompositePropertiesEd
 					return createNameText(parent);
 				}
 				if (key == MetamodelViewsRepository.ConveyorBelt.Properties.duration) {
-					return createDurationText(parent);
+					return createDurationSingleCompositionEditor(parent);
 				}
 				if (key == MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow) {
 					return createStorageOutputFlowAdvancedReferencesTable(parent);
@@ -213,50 +213,31 @@ public class ConveyorBeltPropertiesEditionPartImpl extends CompositePropertiesEd
 		return parent;
 	}
 
-	
-	protected Composite createDurationText(Composite parent) {
+	/**
+	 * @param parent the parent composite
+	 * 
+	 */
+	protected Composite createDurationSingleCompositionEditor(Composite parent) {
 		createDescription(parent, MetamodelViewsRepository.ConveyorBelt.Properties.duration, MetamodelMessages.ConveyorBeltPropertiesEditionPart_DurationLabel);
-		duration = SWTUtils.createScrollableText(parent, SWT.BORDER);
+		//create widget
+		duration = new SingleCompositionEditor(parent, SWT.NONE);
 		GridData durationData = new GridData(GridData.FILL_HORIZONTAL);
 		duration.setLayoutData(durationData);
-		duration.addFocusListener(new FocusAdapter() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ConveyorBeltPropertiesEditionPartImpl.this, MetamodelViewsRepository.ConveyorBelt.Properties.duration, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, duration.getText()));
+		duration.addEditorListener(new SingleCompositionListener() {
+			
+			public void edit() {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ConveyorBeltPropertiesEditionPartImpl.this,  MetamodelViewsRepository.ConveyorBelt.Properties.duration, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, null));				
+				duration.refresh();
 			}
-
-		});
-		duration.addKeyListener(new KeyAdapter() {
-
-			/**
-			 * {@inheritDoc}
-			 * 
-			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void keyPressed(KeyEvent e) {
-				if (e.character == SWT.CR) {
-					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ConveyorBeltPropertiesEditionPartImpl.this, MetamodelViewsRepository.ConveyorBelt.Properties.duration, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, duration.getText()));
-				}
+			
+			public void clear() {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ConveyorBeltPropertiesEditionPartImpl.this,  MetamodelViewsRepository.ConveyorBelt.Properties.duration, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.UNSET, null, null));
+				duration.refresh();
 			}
-
 		});
-		EditingUtils.setID(duration, MetamodelViewsRepository.ConveyorBelt.Properties.duration);
-		EditingUtils.setEEFtype(duration, "eef::Text"); //$NON-NLS-1$
+		duration.setID(MetamodelViewsRepository.ConveyorBelt.Properties.duration);
 		SWTUtils.createHelpButton(parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.ConveyorBelt.Properties.duration, MetamodelViewsRepository.SWT_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDurationText
+		// Start of user code for createDurationSingleCompositionEditor
 
 		// End of user code
 		return parent;
@@ -474,22 +455,36 @@ public class ConveyorBeltPropertiesEditionPartImpl extends CompositePropertiesEd
 	 * @see be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart#getDuration()
 	 * 
 	 */
-	public String getDuration() {
-		return duration.getText();
+	public EObject getDuration() {
+		return (EObject) duration.getInput();
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart#setDuration(String newValue)
+	 * @see be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart#initDuration(EObjectFlatComboSettings)
+	 */
+	public void initDuration(EObjectFlatComboSettings settings) {
+		duration.setAdapterFactory(adapterFactory);
+		duration.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ConveyorBelt.Properties.duration);
+		if (eefElementEditorReadOnlyState && duration.isEnabled()) {
+			duration.setEnabled(false);
+			duration.setToolTipText(MetamodelMessages.ConveyorBelt_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !duration.isEnabled()) {
+			duration.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.ConveyorBeltPropertiesEditionPart#setDuration(EObject newValue)
 	 * 
 	 */
-	public void setDuration(String newValue) {
-		if (newValue != null) {
-			duration.setText(newValue);
-		} else {
-			duration.setText(""); //$NON-NLS-1$
-		}
+	public void setDuration(EObject newValue) {
+		duration.refresh();
 		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.ConveyorBelt.Properties.duration);
 		if (eefElementEditorReadOnlyState && duration.isEnabled()) {
 			duration.setEnabled(false);

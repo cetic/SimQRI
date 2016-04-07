@@ -779,8 +779,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProcess_Duration() {
-		return (EAttribute)processEClass.getEStructuralFeatures().get(0);
+	public EReference getProcess_Duration() {
+		return (EReference)processEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -789,7 +789,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	public EReference getProcess_StorageOutputFlow() {
-		return (EReference)processEClass.getEStructuralFeatures().get(1);
+		return (EReference)processEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1459,8 +1459,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		createEReference(processOutputFlowEClass, PROCESS_OUTPUT_FLOW__DESTINATION);
 
 		processEClass = createEClass(PROCESS);
-		createEAttribute(processEClass, PROCESS__DURATION);
 		createEReference(processEClass, PROCESS__STORAGE_OUTPUT_FLOW);
+		createEReference(processEClass, PROCESS__DURATION);
 
 		orderOnStockThresholdEClass = createEClass(ORDER_ON_STOCK_THRESHOLD);
 		createEAttribute(orderOnStockThresholdEClass, ORDER_ON_STOCK_THRESHOLD__PERIOD);
@@ -1659,8 +1659,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEReference(getProcessOutputFlow_Destination(), this.getStorage(), this.getStorage_ProcessOutputFlow(), "destination", null, 1, 1, ProcessOutputFlow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(processEClass, be.cetic.simqri.metamodel.Process.class, "Process", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getProcess_Duration(), this.getPositiveDouble(), "duration", null, 0, 1, be.cetic.simqri.metamodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProcess_StorageOutputFlow(), this.getStorageOutputFlow(), this.getStorageOutputFlow_Destination(), "storageOutputFlow", null, 0, -1, be.cetic.simqri.metamodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProcess_Duration(), this.getProbability(), null, "duration", null, 1, 1, be.cetic.simqri.metamodel.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orderOnStockThresholdEClass, OrderOnStockThreshold.class, "OrderOnStockThreshold", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOrderOnStockThreshold_Period(), this.getPositiveDouble(), "period", null, 0, 1, OrderOnStockThreshold.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

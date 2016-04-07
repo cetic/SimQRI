@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link be.cetic.simqri.metamodel.Process#getDuration <em>Duration</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Process#getStorageOutputFlow <em>Storage Output Flow</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.Process#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @see be.cetic.simqri.metamodel.MetamodelPackage#getProcess()
@@ -24,30 +24,30 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Process extends Component {
 	/**
-	 * Returns the value of the '<em><b>Duration</b></em>' attribute.
+	 * Returns the value of the '<em><b>Duration</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Duration</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Duration</em>' attribute.
-	 * @see #setDuration(Double)
+	 * @return the value of the '<em>Duration</em>' containment reference.
+	 * @see #setDuration(Probability)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getProcess_Duration()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveDouble"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Double getDuration();
+	Probability getDuration();
 
 	/**
-	 * Sets the value of the '{@link be.cetic.simqri.metamodel.Process#getDuration <em>Duration</em>}' attribute.
+	 * Sets the value of the '{@link be.cetic.simqri.metamodel.Process#getDuration <em>Duration</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Duration</em>' attribute.
+	 * @param value the new value of the '<em>Duration</em>' containment reference.
 	 * @see #getDuration()
 	 * @generated
 	 */
-	void setDuration(Double value);
+	void setDuration(Probability value);
 
 	/**
 	 * Returns the value of the '<em><b>Storage Output Flow</b></em>' reference list.

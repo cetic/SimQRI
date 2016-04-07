@@ -62,6 +62,11 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 
 	
 	/**
+	 * Settings for duration SingleCompositionEditor
+	 */
+	private EObjectFlatComboSettings durationSettings;
+	
+	/**
 	 * Settings for storageOutputFlow ReferencesTable
 	 */
 	private ReferencesTableSettings storageOutputFlowSettings;
@@ -101,9 +106,11 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 			if (isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.name))
 				basePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, conveyorBelt.getName()));
 			
-			if (isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.duration))
-				basePart.setDuration(EEFConverterUtil.convertToString(MetamodelPackage.Literals.POSITIVE_DOUBLE, conveyorBelt.getDuration()));
-			
+			if (isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.duration)) {
+				// init part
+				durationSettings = new EObjectFlatComboSettings(conveyorBelt, MetamodelPackage.eINSTANCE.getProcess_Duration());
+				basePart.initDuration(durationSettings);
+			}
 			if (isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow)) {
 				storageOutputFlowSettings = new ReferencesTableSettings(conveyorBelt, MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow());
 				basePart.initStorageOutputFlow(storageOutputFlowSettings);
@@ -175,7 +182,35 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 			conveyorBelt.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
 		}
 		if (MetamodelViewsRepository.ConveyorBelt.Properties.duration == event.getAffectedEditor()) {
-			conveyorBelt.setDuration((java.lang.Double)EEFConverterUtil.createFromString(MetamodelPackage.Literals.POSITIVE_DOUBLE, (String)event.getNewValue()));
+			if (event.getKind() == PropertiesEditionEvent.EDIT) {
+				if (durationSettings.getValue() == "") {
+					EReferencePropertiesEditionContext context = new EReferencePropertiesEditionContext(editingContext, this, durationSettings, editingContext.getAdapterFactory());
+					PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(editingContext.getEObject(), PropertiesEditingProvider.class);
+					Object result = null;
+					if (provider != null) {
+						PropertiesEditingPolicy policy = provider.getPolicy(context);
+						if (policy instanceof CreateEditingPolicy) {
+							policy.execute();
+							result = ((CreateEditingPolicy) policy).getResult();
+						}
+					}
+					if (result != null) {
+						durationSettings.setToReference(result);
+					}
+				} else {
+					EObjectPropertiesEditionContext context = new EObjectPropertiesEditionContext(editingContext, this, (EObject) durationSettings.getValue(), editingContext.getAdapterFactory());
+					PropertiesEditingProvider provider = (PropertiesEditingProvider)editingContext.getAdapterFactory().adapt(durationSettings.getValue(), PropertiesEditingProvider.class);
+					if (provider != null) {
+						PropertiesEditingPolicy policy = provider.getPolicy(context);
+						if (policy != null) {
+							policy.execute();
+						}
+					}
+				}
+			} else if (event.getKind() == PropertiesEditionEvent.UNSET) {
+				durationSettings.setToReference(null);
+			}
+			
 		}
 		if (MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
@@ -239,13 +274,8 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 					basePart.setName("");
 				}
 			}
-			if (MetamodelPackage.eINSTANCE.getProcess_Duration().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.duration)) {
-				if (msg.getNewValue() != null) {
-					basePart.setDuration(EcoreUtil.convertToString(MetamodelPackage.Literals.POSITIVE_DOUBLE, msg.getNewValue()));
-				} else {
-					basePart.setDuration("");
-				}
-			}
+			if (MetamodelPackage.eINSTANCE.getProcess_Duration().equals(msg.getFeature()) && basePart != null && isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.duration))
+				basePart.setDuration((EObject)msg.getNewValue());
 			if (MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow().equals(msg.getFeature())  && isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.storageOutputFlow))
 				basePart.updateStorageOutputFlow();
 			if (MetamodelPackage.eINSTANCE.getConveyorBelt_MinimalSeparationBetweenBatches().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(MetamodelViewsRepository.ConveyorBelt.Properties.minimalSeparationBetweenBatches)) {
@@ -281,6 +311,16 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 	/**
 	 * {@inheritDoc}
 	 * 
+	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#isRequired(java.lang.Object, int)
+	 * 
+	 */
+	public boolean isRequired(Object key, int kind) {
+		return key == MetamodelViewsRepository.ConveyorBelt.Properties.duration;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
 	 * @see org.eclipse.emf.eef.runtime.api.component.IPropertiesEditionComponent#validateValue(org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent)
 	 * 
 	 */
@@ -294,13 +334,6 @@ public class ConveyorBeltPropertiesEditionComponent extends SiriusAwarePropertie
 						newValue = EEFConverterUtil.createFromString(MetamodelPackage.eINSTANCE.getComponent_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(MetamodelPackage.eINSTANCE.getComponent_Name().getEAttributeType(), newValue);
-				}
-				if (MetamodelViewsRepository.ConveyorBelt.Properties.duration == event.getAffectedEditor()) {
-					Object newValue = event.getNewValue();
-					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(MetamodelPackage.eINSTANCE.getProcess_Duration().getEAttributeType(), (String)newValue);
-					}
-					ret = Diagnostician.INSTANCE.validate(MetamodelPackage.eINSTANCE.getProcess_Duration().getEAttributeType(), newValue);
 				}
 				if (MetamodelViewsRepository.ConveyorBelt.Properties.minimalSeparationBetweenBatches == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();

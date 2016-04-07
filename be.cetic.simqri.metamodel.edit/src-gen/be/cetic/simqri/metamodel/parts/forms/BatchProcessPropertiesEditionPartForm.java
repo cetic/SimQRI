@@ -38,7 +38,10 @@ import org.eclipse.emf.eef.runtime.ui.widgets.FormUtils;
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable;
 
 import org.eclipse.emf.eef.runtime.ui.widgets.ReferencesTable.ReferencesTableListener;
+import org.eclipse.emf.eef.runtime.ui.widgets.SingleCompositionEditor;
+import org.eclipse.emf.eef.runtime.ui.widgets.SingleCompositionEditor.SingleCompositionListener;
 import org.eclipse.emf.eef.runtime.ui.widgets.TabElementTreeSelectionDialog;
+import org.eclipse.emf.eef.runtime.ui.widgets.eobjflatcombo.EObjectFlatComboSettings;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableContentProvider;
 import org.eclipse.emf.eef.runtime.ui.widgets.referencestable.ReferencesTableSettings;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -73,7 +76,7 @@ import org.eclipse.ui.forms.widgets.Section;
 public class BatchProcessPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, BatchProcessPropertiesEditionPart {
 
 	protected Text name;
-	protected Text duration;
+	protected SingleCompositionEditor duration;
 	protected ReferencesTable storageOutputFlow;
 	protected List<ViewerFilter> storageOutputFlowBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> storageOutputFlowFilters = new ArrayList<ViewerFilter>();
@@ -146,7 +149,7 @@ public class BatchProcessPropertiesEditionPartForm extends SectionPropertiesEdit
 					return createNameText(widgetFactory, parent);
 				}
 				if (key == MetamodelViewsRepository.BatchProcess.Properties.duration) {
-					return createDurationText(widgetFactory, parent);
+					return createDurationSingleCompositionEditor(parent, widgetFactory);
 				}
 				if (key == MetamodelViewsRepository.BatchProcess.Properties.storageOutputFlow) {
 					return createStorageOutputFlowReferencesTable(widgetFactory, parent);
@@ -250,73 +253,37 @@ public class BatchProcessPropertiesEditionPartForm extends SectionPropertiesEdit
 		return parent;
 	}
 
-	
-	protected Composite createDurationText(FormToolkit widgetFactory, Composite parent) {
+	/**
+	 * @param parent the parent composite
+	 * @param widgetFactory factory to use to instanciante widget of the form
+	 * 
+	 */
+	protected Composite createDurationSingleCompositionEditor(Composite parent, FormToolkit widgetFactory) {
 		createDescription(parent, MetamodelViewsRepository.BatchProcess.Properties.duration, MetamodelMessages.BatchProcessPropertiesEditionPart_DurationLabel);
-		duration = widgetFactory.createText(parent, ""); //$NON-NLS-1$
-		duration.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
-		widgetFactory.paintBordersFor(parent);
+		//create widget
+		duration = new SingleCompositionEditor(widgetFactory, parent, SWT.NONE);
 		GridData durationData = new GridData(GridData.FILL_HORIZONTAL);
 		duration.setLayoutData(durationData);
-		duration.addFocusListener(new FocusAdapter() {
-			/**
-			 * @see org.eclipse.swt.events.FocusAdapter#focusLost(org.eclipse.swt.events.FocusEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void focusLost(FocusEvent e) {
-				if (propertiesEditionComponent != null) {
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(
-							BatchProcessPropertiesEditionPartForm.this,
-							MetamodelViewsRepository.BatchProcess.Properties.duration,
-							PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, duration.getText()));
-					propertiesEditionComponent
-							.firePropertiesChanged(new PropertiesEditionEvent(
-									BatchProcessPropertiesEditionPartForm.this,
-									MetamodelViewsRepository.BatchProcess.Properties.duration,
-									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_LOST,
-									null, duration.getText()));
-				}
+		duration.addEditorListener(new SingleCompositionListener() {
+			
+			public void edit() {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(BatchProcessPropertiesEditionPartForm.this,  MetamodelViewsRepository.BatchProcess.Properties.duration, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.EDIT, null, null));				
+				duration.refresh();
 			}
-
-			/**
-			 * @see org.eclipse.swt.events.FocusAdapter#focusGained(org.eclipse.swt.events.FocusEvent)
-			 */
-			@Override
-			public void focusGained(FocusEvent e) {
-				if (propertiesEditionComponent != null) {
-					propertiesEditionComponent
-							.firePropertiesChanged(new PropertiesEditionEvent(
-									BatchProcessPropertiesEditionPartForm.this,
-									null,
-									PropertiesEditionEvent.FOCUS_CHANGED, PropertiesEditionEvent.FOCUS_GAINED,
-									null, null));
-				}
+			
+			public void clear() {
+				propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(BatchProcessPropertiesEditionPartForm.this,  MetamodelViewsRepository.BatchProcess.Properties.duration, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.UNSET, null, null));
+				duration.refresh();
 			}
 		});
-		duration.addKeyListener(new KeyAdapter() {
-			/**
-			 * @see org.eclipse.swt.events.KeyAdapter#keyPressed(org.eclipse.swt.events.KeyEvent)
-			 * 
-			 */
-			@Override
-			@SuppressWarnings("synthetic-access")
-			public void keyPressed(KeyEvent e) {
-				if (e.character == SWT.CR) {
-					if (propertiesEditionComponent != null)
-						propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(BatchProcessPropertiesEditionPartForm.this, MetamodelViewsRepository.BatchProcess.Properties.duration, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, duration.getText()));
-				}
-			}
-		});
-		EditingUtils.setID(duration, MetamodelViewsRepository.BatchProcess.Properties.duration);
-		EditingUtils.setEEFtype(duration, "eef::Text"); //$NON-NLS-1$
+		duration.setID(MetamodelViewsRepository.BatchProcess.Properties.duration);
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.BatchProcess.Properties.duration, MetamodelViewsRepository.FORM_KIND), null); //$NON-NLS-1$
-		// Start of user code for createDurationText
+		// Start of user code for createDurationSingleCompositionEditor
 
 		// End of user code
 		return parent;
 	}
+
 
 	/**
 	 * 
@@ -640,22 +607,36 @@ public class BatchProcessPropertiesEditionPartForm extends SectionPropertiesEdit
 	 * @see be.cetic.simqri.metamodel.parts.BatchProcessPropertiesEditionPart#getDuration()
 	 * 
 	 */
-	public String getDuration() {
-		return duration.getText();
+	public EObject getDuration() {
+		return (EObject) duration.getInput();
 	}
 
 	/**
 	 * {@inheritDoc}
 	 * 
-	 * @see be.cetic.simqri.metamodel.parts.BatchProcessPropertiesEditionPart#setDuration(String newValue)
+	 * @see be.cetic.simqri.metamodel.parts.BatchProcessPropertiesEditionPart#initDuration(EObjectFlatComboSettings)
+	 */
+	public void initDuration(EObjectFlatComboSettings settings) {
+		duration.setAdapterFactory(adapterFactory);
+		duration.setInput(settings);
+		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.BatchProcess.Properties.duration);
+		if (eefElementEditorReadOnlyState && duration.isEnabled()) {
+			duration.setEnabled(false);
+			duration.setToolTipText(MetamodelMessages.BatchProcess_ReadOnly);
+		} else if (!eefElementEditorReadOnlyState && !duration.isEnabled()) {
+			duration.setEnabled(true);
+		}	
+		
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * @see be.cetic.simqri.metamodel.parts.BatchProcessPropertiesEditionPart#setDuration(EObject newValue)
 	 * 
 	 */
-	public void setDuration(String newValue) {
-		if (newValue != null) {
-			duration.setText(newValue);
-		} else {
-			duration.setText(""); //$NON-NLS-1$
-		}
+	public void setDuration(EObject newValue) {
+		duration.refresh();
 		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.BatchProcess.Properties.duration);
 		if (eefElementEditorReadOnlyState && duration.isEnabled()) {
 			duration.setEnabled(false);

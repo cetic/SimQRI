@@ -4,6 +4,7 @@ package be.cetic.simqri.metamodel.impl;
 
 import be.cetic.simqri.metamodel.MetamodelPackage;
 
+import be.cetic.simqri.metamodel.Probability;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -25,33 +26,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link be.cetic.simqri.metamodel.impl.ProcessImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.ProcessImpl#getStorageOutputFlow <em>Storage Output Flow</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.ProcessImpl#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ProcessImpl extends ComponentImpl implements be.cetic.simqri.metamodel.Process {
-	/**
-	 * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDuration()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Double DURATION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDuration()
-	 * @generated
-	 * @ordered
-	 */
-	protected Double duration = DURATION_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getStorageOutputFlow() <em>Storage Output Flow</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -61,6 +42,16 @@ public abstract class ProcessImpl extends ComponentImpl implements be.cetic.simq
 	 * @ordered
 	 */
 	protected EList<StorageOutputFlow> storageOutputFlow;
+
+	/**
+	 * The cached value of the '{@link #getDuration() <em>Duration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDuration()
+	 * @generated
+	 * @ordered
+	 */
+	protected Probability duration;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -86,7 +77,7 @@ public abstract class ProcessImpl extends ComponentImpl implements be.cetic.simq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Double getDuration() {
+	public Probability getDuration() {
 		return duration;
 	}
 
@@ -95,11 +86,33 @@ public abstract class ProcessImpl extends ComponentImpl implements be.cetic.simq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDuration(Double newDuration) {
-		Double oldDuration = duration;
+	public NotificationChain basicSetDuration(Probability newDuration, NotificationChain msgs) {
+		Probability oldDuration = duration;
 		duration = newDuration;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.PROCESS__DURATION, oldDuration, duration));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MetamodelPackage.PROCESS__DURATION, oldDuration, newDuration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDuration(Probability newDuration) {
+		if (newDuration != duration) {
+			NotificationChain msgs = null;
+			if (duration != null)
+				msgs = ((InternalEObject)duration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MetamodelPackage.PROCESS__DURATION, null, msgs);
+			if (newDuration != null)
+				msgs = ((InternalEObject)newDuration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MetamodelPackage.PROCESS__DURATION, null, msgs);
+			msgs = basicSetDuration(newDuration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.PROCESS__DURATION, newDuration, newDuration));
 	}
 
 	/**
@@ -139,6 +152,8 @@ public abstract class ProcessImpl extends ComponentImpl implements be.cetic.simq
 		switch (featureID) {
 			case MetamodelPackage.PROCESS__STORAGE_OUTPUT_FLOW:
 				return ((InternalEList<?>)getStorageOutputFlow()).basicRemove(otherEnd, msgs);
+			case MetamodelPackage.PROCESS__DURATION:
+				return basicSetDuration(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -151,10 +166,10 @@ public abstract class ProcessImpl extends ComponentImpl implements be.cetic.simq
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MetamodelPackage.PROCESS__DURATION:
-				return getDuration();
 			case MetamodelPackage.PROCESS__STORAGE_OUTPUT_FLOW:
 				return getStorageOutputFlow();
+			case MetamodelPackage.PROCESS__DURATION:
+				return getDuration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -168,12 +183,12 @@ public abstract class ProcessImpl extends ComponentImpl implements be.cetic.simq
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MetamodelPackage.PROCESS__DURATION:
-				setDuration((Double)newValue);
-				return;
 			case MetamodelPackage.PROCESS__STORAGE_OUTPUT_FLOW:
 				getStorageOutputFlow().clear();
 				getStorageOutputFlow().addAll((Collection<? extends StorageOutputFlow>)newValue);
+				return;
+			case MetamodelPackage.PROCESS__DURATION:
+				setDuration((Probability)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -187,11 +202,11 @@ public abstract class ProcessImpl extends ComponentImpl implements be.cetic.simq
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MetamodelPackage.PROCESS__DURATION:
-				setDuration(DURATION_EDEFAULT);
-				return;
 			case MetamodelPackage.PROCESS__STORAGE_OUTPUT_FLOW:
 				getStorageOutputFlow().clear();
+				return;
+			case MetamodelPackage.PROCESS__DURATION:
+				setDuration((Probability)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -205,28 +220,12 @@ public abstract class ProcessImpl extends ComponentImpl implements be.cetic.simq
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MetamodelPackage.PROCESS__DURATION:
-				return DURATION_EDEFAULT == null ? duration != null : !DURATION_EDEFAULT.equals(duration);
 			case MetamodelPackage.PROCESS__STORAGE_OUTPUT_FLOW:
 				return storageOutputFlow != null && !storageOutputFlow.isEmpty();
+			case MetamodelPackage.PROCESS__DURATION:
+				return duration != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (duration: ");
-		result.append(duration);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ProcessImpl

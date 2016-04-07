@@ -73,7 +73,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Component/name"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z8t_GlEeWjQNaciI-lWA" name="duration" views="_E6z9G_GlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Process/duration"/>
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Process/duration"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z8uPGlEeWjQNaciI-lWA" name="storageOutputFlow" views="_E6z9HPGlEeWjQNaciI-lWA">
           <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Process/storageOutputFlow"/>
@@ -286,7 +286,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Component/name"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z8-vGlEeWjQNaciI-lWA" name="duration" views="_E6z9dPGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Process/duration"/>
+          <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Process/duration"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z8-_GlEeWjQNaciI-lWA" name="storageOutputFlow" views="_E6z9dfGlEeWjQNaciI-lWA">
           <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Process/storageOutputFlow"/>
@@ -387,7 +387,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_E6z9G_GlEeWjQNaciI-lWA" name="duration">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.14"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_E6z9HPGlEeWjQNaciI-lWA" name="storageOutputFlow">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>
@@ -644,7 +644,7 @@
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_E6z9dPGlEeWjQNaciI-lWA" name="duration">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
+            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.14"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_E6z9dfGlEeWjQNaciI-lWA" name="storageOutputFlow">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.8"/>

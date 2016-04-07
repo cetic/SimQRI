@@ -210,8 +210,8 @@ public class ProcessOutputFlowPropertiesEditionComponent extends SiriusAwareProp
 	 * @see org.eclipse.emf.eef.runtime.impl.components.StandardPropertiesEditionComponent#updateSemanticModel(org.eclipse.emf.eef.runtime.api.notify.IPropertiesEditionEvent)
 	 * 
 	 */
-	@SuppressWarnings("unused")
 	public void updateSemanticModel(final IPropertiesEditionEvent event) {
+		@SuppressWarnings("unused")
 		ProcessOutputFlow processOutputFlow = (ProcessOutputFlow)semanticObject;
 		if (MetamodelViewsRepository.ProcessOutputFlow.Properties.source == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.SET) {

@@ -72,9 +72,10 @@
         eType="#//Storage" eOpposite="#//Storage/processOutputFlow"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Process" abstract="true" eSuperTypes="#//Component">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="#//PositiveDouble"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="storageOutputFlow" upperBound="-1"
         eType="#//StorageOutputFlow" eOpposite="#//StorageOutputFlow/destination"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" lowerBound="1"
+        eType="#//Probability" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OrderOnStockThreshold">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="period" eType="#//PositiveDouble"/>
