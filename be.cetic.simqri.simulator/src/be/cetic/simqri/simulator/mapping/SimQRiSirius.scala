@@ -28,12 +28,11 @@ import be.cetic.simqri.metamodel.impl.ScalarImpl
 import be.cetic.simqri.metamodel.StorageOutputFlow
 import be.cetic.simqri.metamodel.ProcessOutputFlow
 
-class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String], mcSim : Boolean) extends FactorySimulationHelper {
+class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulationHelper {
   
   val m = new Model
-  private val verboseFunc = if (verbose) sqlogger.loggerFunc else null
   var runTime = 0L
-  val factoryModel = if (mcSim) new FactoryModel(null) else new FactoryModel(verboseFunc)
+  val factoryModel = new FactoryModel(null) 
   
   // Main function for create the model (with OscaR-DES-Flow)
   def fillModelWithSiriusData(model : be.cetic.simqri.metamodel.Model) {
@@ -235,7 +234,6 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String
         val batchProcess = c.asInstanceOf[be.cetic.simqri.metamodel.BatchProcess]
         val numLines = batchProcess.getNumberOfLines
         val perSuc = batchProcess.getPercentageOfSuccess/100
-        println(perSuc)
         val duration = ph.getNonNegativeDoubleFunc(batchProcess.getDuration)
         val linkInfos = mapLinkInfos.get(components.indexOf(c))
         val storageFlowInfo = getStorageFlowInfo(mapStorages, linkInfos.get._1.toList).toArray
@@ -314,8 +312,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String
         case DoubleHistoryExpressionResult(dblHistExpr) =>
           probesList :+= (s"${query.getName}", dblHistExpr)
         case ParsingError(errStr) =>
-          sqlogger.log("rawinfo", s"The probe '${query.getName}' cannot be parsed. This is the error : $errStr")
-          println("The probe '${query.getName}' cannot be parsed. This is the error : $errStr")
+          if(verbose)
+            println("The probe "+query.getName+" cannot be parsed. This is the error : "+errStr)
         case _ =>
       }
     }
