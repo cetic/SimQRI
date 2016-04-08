@@ -221,8 +221,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String
                                                      Array(), 
                                                      Array(( () => partSuppInfo.get._3*orderQtyFunc(oost.getThreshold())/100, oStorage)), 
                                                      identity, 
-                                                     oost.getName,
-                                                     partSuppInfo.get._1)
+                                                     partSuppInfo.get._1,
+                                                     "0")
       val period = oost.getPeriod.toFloat                                               
       val newOost = factoryModel.onLowerThreshold(oStorage, partSupp, oost.getThreshold, activateFunc, period, oost.getName)
       activableProcesses +:= partSupp
