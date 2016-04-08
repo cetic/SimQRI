@@ -128,7 +128,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String
         val newStorage = factoryModel.fIFOStorage(storage.getSize, 
                                                   List((storage.getInitialContent.asInstanceOf[Int], attributeSet(SortedSet(rawBatch), attributes).itemClass)), 
                                                   storage.getName, 
-                                                  storage.isOverflow())
+                                                  storage.isOverflow(),
+                                                  "0")
         mapStorages += (components.indexOf(c) -> newStorage)
       }
       else if(c.isInstanceOf[be.cetic.simqri.metamodel.Supplier]) {
@@ -244,7 +245,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String
                                                        storageFlowInfo, 
                                                        storageFlowOutputInfo, 
                                                        identity, 
-                                                       batchProcess.getName)
+                                                       batchProcess.getName, 
+                                                       "0")
           activableProcesses +:= newSBP
         }
         else if(numLines!=1 && perSuc==100) {
@@ -253,7 +255,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String
                                                 storageFlowInfo, 
                                                 storageFlowOutputInfo, 
                                                 batchProcess.getName,
-                                                identity)
+                                                identity,
+                                                "0")
           activableProcesses +:= newBP
         }
         else if(numLines==1 && perSuc!=100) {
@@ -262,7 +265,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String
                                                                  storageFlowInfo, 
                                                                  Array(storageFlowOutputInfo, getStorageFlowOutputFailsInfo),
                                                                  outputValue(DiscreteChoice(portChoices)), 
-                                                                 batchProcess.getName)
+                                                                 batchProcess.getName,
+                                                                 "0")
           activableProcesses +:= newFSBP                                                     
         }
         else if(numLines!=1 && perSuc!=100) {
@@ -272,7 +276,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String
                                                           storageFlowInfo, 
                                                           Array(storageFlowOutputInfo, getStorageFlowOutputFailsInfo),
                                                           batchProcess.getName,
-                                                          outputValue(DiscreteChoice(portChoices)))
+                                                          outputValue(DiscreteChoice(portChoices)), 
+                                                          "0")
           activableProcesses +:= newFBP                                                
         }
       }
@@ -287,7 +292,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String
                                                       storageFlowInfo, 
                                                       storageFlowOutputInfo, 
                                                       identity, 
-                                                      conveyorBelt.getName)
+                                                      conveyorBelt.getName, 
+                                                      "0")
         activableProcesses +:= newCBP
       }
     }
