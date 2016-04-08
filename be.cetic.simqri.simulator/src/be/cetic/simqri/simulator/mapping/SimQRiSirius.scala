@@ -235,6 +235,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger : Logger[String
         val batchProcess = c.asInstanceOf[be.cetic.simqri.metamodel.BatchProcess]
         val numLines = batchProcess.getNumberOfLines
         val perSuc = batchProcess.getPercentageOfSuccess/100
+        println(perSuc)
         val duration = ph.getNonNegativeDoubleFunc(batchProcess.getDuration)
         val linkInfos = mapLinkInfos.get(components.indexOf(c))
         val storageFlowInfo = getStorageFlowInfo(mapStorages, linkInfos.get._1.toList).toArray
