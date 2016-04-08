@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: be.cetic.simqri.design
+Bundle-SymbolicName: be.cetic.simqri.design;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: be.cetic.simqri.design.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.sirius,
+ org.eclipse.sirius.common.acceleo.aql,
+ be.cetic.simqri.metamodel;bundle-version="0.1.0",
+ be.cetic.simqri.cockpit;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+
+
