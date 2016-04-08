@@ -6,7 +6,7 @@ import be.cetic.simqri.simulator.mapping.SimQRiSirius;
 
 public class Test {
 	public static void test(Model model) {
-		SimQRiSirius sim = new SimQRiSirius(100, false, null, false);
+		SimQRiSirius sim = new SimQRiSirius(100, true);
 		sim.fillModelWithSiriusData(model);
 	}
 	
