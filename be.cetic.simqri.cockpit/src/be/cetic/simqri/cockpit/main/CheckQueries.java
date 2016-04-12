@@ -12,14 +12,14 @@ public class CheckQueries {
 	
 	public static void check(Model model) {
 		SimQRiSirius sim = new SimQRiSirius(100, true);
-		boolean queriesAreValid =  sim.fillModelWithSiriusData(model);
+		String errors =  sim.fillModelWithSiriusData(model);
 		JFrame frame = new JFrame();
 		frame.setSize(300,  150);
 		frame.setResizable(false);
-		if(queriesAreValid) 
+		if(errors.isEmpty()) 
 			showMessage("All your queries are valid !", false);
 		else 
-			showMessage("At least one of your queries is not valid. \n Check Console for more details.", true);
+			showMessage(errors, true);
 	}
 	
 	private static void showMessage(String message, boolean error) {
