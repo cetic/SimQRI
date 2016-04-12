@@ -10,8 +10,12 @@
   <extension
         point="org.eclipse.sirius.externalJavaAction">
      <javaActions
-           actionClass="be.cetic.simqri.design.Gateway"
-           id="gateway">
+           actionClass="be.cetic.simqri.design.actions.ActionCheckQueries"
+           id="actionCheckQueries">
+     </javaActions>
+     <javaActions
+           actionClass="be.cetic.simqri.design.actions.ActionSimulation"
+           id="actionSimulation">
      </javaActions>
   </extension>
 </plugin>

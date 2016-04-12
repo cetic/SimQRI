@@ -9,7 +9,8 @@ Require-Bundle: org.eclipse.ui,
  be.cetic.simqri.metamodel;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: be.cetic.simqri.cockpit
+Export-Package: be.cetic.simqri.cockpit,
+ be.cetic.simqri.cockpit.main
 Bundle-ClassPath: .,
  lib/oscar.jar,
  lib/scala-library-2.10.6.jar,

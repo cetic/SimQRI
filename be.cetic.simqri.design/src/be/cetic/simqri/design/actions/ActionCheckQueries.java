@@ -1,4 +1,4 @@
-package be.cetic.simqri.design;
+package be.cetic.simqri.design.actions;
 
 import java.util.Collection;
 
@@ -8,21 +8,20 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
-import be.cetic.simqri.cockpit.Test;
+import be.cetic.simqri.cockpit.main.CheckQueries;
 import be.cetic.simqri.metamodel.Model;
 
-public class Gateway implements IExternalJavaAction {
+public class ActionCheckQueries implements IExternalJavaAction {
 
-	public Gateway() {
+	public ActionCheckQueries() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
-		// TODO Auto-generated method stub
-		// System.out.println("Collection : "+selections.toString());
 		Model model = (Model) parameters.get("model");
-		Test.test(model);
+		// TODO Next step : retrieve "println" messages in the window
+		CheckQueries.check(model);
 	}
 
 	@Override
