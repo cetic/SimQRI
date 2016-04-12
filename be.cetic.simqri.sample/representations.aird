@@ -475,7 +475,7 @@
       <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_dUhbcPIGEeWTytDotMNV7w" name="new_conveyor_belt 1" incomingEdges="_SInd4PTeEeWs5rCDWg1G7A" width="-1" height="-1" resizeKind="NSEW">
         <target xmi:type="metamodel:ConveyorBelt" href="simqri.metamodel#//@component.6"/>
         <semanticElements xmi:type="metamodel:ConveyorBelt" href="simqri.metamodel#//@component.6"/>
-        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_dz1NoPIGEeWTytDotMNV7w" name="SUCCESS" outgoingEdges="_SqSnkPTeEeWs5rCDWg1G7A" width="2" height="2" resizeKind="NSEW">
+        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_dz1NoPIGEeWTytDotMNV7w" name="FAILURE" outgoingEdges="_SqSnkPTeEeWs5rCDWg1G7A" width="2" height="2" resizeKind="NSEW">
           <target xmi:type="metamodel:Output" href="simqri.metamodel#//@component.6/@output"/>
           <semanticElements xmi:type="metamodel:Output" href="simqri.metamodel#//@component.6/@output"/>
           <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_dz2bwPIGEeWTytDotMNV7w"/>

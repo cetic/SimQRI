@@ -7,12 +7,9 @@
 
 package be.cetic.simqri.simulator.mapping
 
-import oscar.des.engine.Model
-
 import oscar.des.flow.core.{DiscreteChoice, Putable, Fetchable}
 import oscar.des.flow.lib._
 import oscar.des.flow.modeling._
-import oscar.des.logger.Logger
 import oscar.des.montecarlo.DataSampling
 
 import scala.collection.{mutable, SortedSet}
@@ -23,78 +20,19 @@ import be.cetic.simqri.metamodel.Output
 import be.cetic.simqri.metamodel.OutputType
 import be.cetic.simqri.metamodel.Component
 import be.cetic.simqri.metamodel.Flow
-import be.cetic.simqri.metamodel.Scalar
-import be.cetic.simqri.metamodel.impl.ScalarImpl
 import be.cetic.simqri.metamodel.StorageOutputFlow
 import be.cetic.simqri.metamodel.ProcessOutputFlow
 
 class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulationHelper {
   
-  val m = new Model
+  val tools = new Tools
+  // val m = new Model
   var runTime = 0L
   val factoryModel = new FactoryModel(null) 
+  var simQRiComponents : Array[SimQRiComponent] = new Array[SimQRiComponent](0)
   
   // Main function for create the model (with OscaR-DES-Flow)
   def fillModelWithSiriusData(model : be.cetic.simqri.metamodel.Model) {
-    
-    // Auxiliary function to obtain the list of inputs or failures
-    def getStorageFlowInfo(storInfo : mutable.HashMap[Int, Storage],
-                           connInfo : List[(() => Int, Int)]) : List[(() => Int, Fetchable)] = connInfo match {
-      case Nil => Nil
-      case (dur, storId)::ls =>
-        val storeInf = storInfo.get(storId)
-        storeInf match {
-          case Some(stor) => (dur, stor)::getStorageFlowInfo(storInfo, ls)
-          case None => getStorageFlowInfo(storInfo, ls)
-        }
-    }
-    
-    // Auxiliary function to obtain the list of outputs
-    // it will create Delay objects if the delay data is not zero
-    def getStorageFlowOutputInfo(storInfo : mutable.HashMap[Int, Storage],
-                                 connInfo : List[(() => Int, Option[()=>Double], Int)]) : List[(() => Int, Putable)] = connInfo match {
-      case Nil => Nil
-      case (dur, delayOpt, storId)::ls =>
-        val storeInf = storInfo.get(storId)
-        storeInf match {
-          case Some(stor) =>
-            delayOpt match {
-              case None => (dur, stor)::getStorageFlowOutputInfo(storInfo, ls)
-              case Some(delay) =>
-                val newDelay = new Delay(stor, m, delay)
-                (dur, newDelay)::getStorageFlowOutputInfo(storInfo, ls)
-            }
-          case None => getStorageFlowOutputInfo(storInfo, ls)
-        }
-    }
-    
-    // NEW : Auxiliary function to obtain the place of a Storage object in a list of components from the 'sirius' model
-    def getIdStorage(components : List[Component], storage : be.cetic.simqri.metamodel.Storage) : Int = {
-      for(c <- components) {
-        if(c.isInstanceOf[be.cetic.simqri.metamodel.Storage]) {
-          val s = c.asInstanceOf[be.cetic.simqri.metamodel.Storage]
-          if(s.equals(storage))
-            components.indexOf(c)
-        }
-      }
-      -1
-    }
-    
-    // NEW : Auxiliary function to obtain the output port(s) of a process
-    def getOutputPorts(process : be.cetic.simqri.metamodel.Process) : List[Output] = {
-      if(process.isInstanceOf[be.cetic.simqri.metamodel.BatchProcess]) {
-        val batchProcess = process.asInstanceOf[be.cetic.simqri.metamodel.BatchProcess]
-        val ports = batchProcess.getOutputs.toList
-        ports
-        
-      }
-      else if (process.isInstanceOf[be.cetic.simqri.metamodel.ConveyorBelt]) {
-        val conveyorBelt = process.asInstanceOf[be.cetic.simqri.metamodel.ConveyorBelt]
-        val port = List(conveyorBelt.getOutput)
-        port
-      }
-      List()
-    }
     
     // Attributes
     // val standardItemClass = zeroItemClass
@@ -130,6 +68,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
                                                   storage.isOverflow(),
                                                   "0")
         mapStorages += (components.indexOf(c) -> newStorage)
+        simQRiComponents +:= CStorage(newStorage)
       }
       else if(c.isInstanceOf[be.cetic.simqri.metamodel.Supplier]) {
         val supplier = c.asInstanceOf[be.cetic.simqri.metamodel.Supplier]
@@ -150,11 +89,11 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
           if(flow.isInstanceOf[StorageOutputFlow]) {
             val sof = flow.asInstanceOf[StorageOutputFlow]
             if(sof.getDestination.equals(process))
-              inputs.+=((ph.getNonNegativeIntFunc(sof.getQuantity), getIdStorage(components, sof.getSource)))
+              inputs.+=((ph.getNonNegativeIntFunc(sof.getQuantity), tools.getIdStorage(components, sof.getSource)))
           }
           else if(flow.isInstanceOf[ProcessOutputFlow]) {
             val pof = flow.asInstanceOf[ProcessOutputFlow]
-            val listOfOutputPorts = getOutputPorts(process)
+            val listOfOutputPorts = tools.getOutputPorts(process)
             var pofLinkedToProcess = false
             for(port <- listOfOutputPorts) {
               if(port.equals(pof.getSource))
@@ -164,7 +103,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
               val delay = ph.getDoubleFunc(pof.getProcessOutputFlowDelay)
               val out = (ph.getNonNegativeIntFunc(pof.getQuantity), 
                          if(delay().doubleValue() == 0F) None else Some(delay), 
-                         getIdStorage(components, pof.getDestination))
+                         tools.getIdStorage(components, pof.getDestination))
               
               val outputPort = pof.getSource
               outputPort.getType match {
@@ -226,6 +165,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
       val period = oost.getPeriod.toFloat                                               
       val newOost = factoryModel.onLowerThreshold(oStorage, partSupp, oost.getThreshold, activateFunc, period, oost.getName)
       activableProcesses +:= partSupp
+      simQRiComponents +:= CPartSupplier(partSupp)
+      simQRiComponents +:= COrderOnStockThreshold(newOost)
     }
     
     // The third loop is done on the elements to create and add all the process elements in the model.
@@ -236,9 +177,9 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
         val perSuc = batchProcess.getPercentageOfSuccess/100
         val duration = ph.getNonNegativeDoubleFunc(batchProcess.getDuration)
         val linkInfos = mapLinkInfos.get(components.indexOf(c))
-        val storageFlowInfo = getStorageFlowInfo(mapStorages, linkInfos.get._1.toList).toArray
-        val storageFlowOutputInfo = getStorageFlowOutputInfo(mapStorages, linkInfos.get._2.toList).toArray
-        val getStorageFlowOutputFailsInfo = getStorageFlowOutputInfo(mapStorages, linkInfos.get._3.toList).toArray
+        val storageFlowInfo = tools.getStorageFlowInfo(mapStorages, linkInfos.get._1.toList).toArray
+        val storageFlowOutputInfo = tools.getStorageFlowOutputInfo(mapStorages, linkInfos.get._2.toList).toArray
+        val getStorageFlowOutputFailsInfo = tools.getStorageFlowOutputInfo(mapStorages, linkInfos.get._3.toList).toArray
         if(numLines==1 && perSuc==100) {
           val newSBP = factoryModel.singleBatchProcess(duration, 
                                                        storageFlowInfo, 
@@ -247,6 +188,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
                                                        batchProcess.getName, 
                                                        "0")
           activableProcesses +:= newSBP
+          simQRiComponents +:= CSingleBatchProcess(newSBP)
         }
         else if(numLines!=1 && perSuc==100) {
           val newBP = factoryModel.batchProcess(batchProcess.getNumberOfLines,
@@ -257,6 +199,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
                                                 identity,
                                                 "0")
           activableProcesses +:= newBP
+          simQRiComponents +:= CBatchProcess(newBP)
         }
         else if(numLines==1 && perSuc!=100) {
           val portChoices = List((0, perSuc.toDouble), (1, 1D-perSuc))
@@ -266,7 +209,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
                                                                  outputValue(DiscreteChoice(portChoices)), 
                                                                  batchProcess.getName,
                                                                  "0")
-          activableProcesses +:= newFSBP                                                     
+          activableProcesses +:= newFSBP  
+          simQRiComponents +:= CFailingSingleBatchProcess(newFSBP)
         }
         else if(numLines!=1 && perSuc!=100) {
           val portChoices = List((0, perSuc.toDouble), (1, 1D-perSuc))
@@ -277,15 +221,16 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
                                                           batchProcess.getName,
                                                           outputValue(DiscreteChoice(portChoices)), 
                                                           "0")
-          activableProcesses +:= newFBP                                                
+          activableProcesses +:= newFBP 
+          simQRiComponents +:= CFailingBatchProcess(newFBP)
         }
       }
       else if(c.isInstanceOf[be.cetic.simqri.metamodel.ConveyorBelt]) {
         val conveyorBelt = c.asInstanceOf[be.cetic.simqri.metamodel.ConveyorBelt]
         val duration = ph.getNonNegativeDoubleFunc(conveyorBelt.getDuration)
         val linkInfos = mapLinkInfos.get(components.indexOf(c))
-        val storageFlowInfo = getStorageFlowInfo(mapStorages, linkInfos.get._1.toList).toArray
-        val storageFlowOutputInfo = getStorageFlowOutputInfo(mapStorages, linkInfos.get._2.toList).toArray
+        val storageFlowInfo = tools.getStorageFlowInfo(mapStorages, linkInfos.get._1.toList).toArray
+        val storageFlowOutputInfo = tools.getStorageFlowOutputInfo(mapStorages, linkInfos.get._2.toList).toArray
         val newCBP = factoryModel.conveyorBeltProcess(duration, 
                                                       conveyorBelt.getMinimalSeparationBetweenBatches, 
                                                       storageFlowInfo, 
@@ -294,10 +239,11 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
                                                       conveyorBelt.getName, 
                                                       "0")
         activableProcesses +:= newCBP
+        simQRiComponents +:= CConveyorBeltProcess(newCBP)
       }
     }
     
-     // The final loop is on the probes. We will parse and add them to the probes list
+    // The final loop is on the probes. We will parse and add them to the probes list
     var probesList : List[(String,Expression)] = Nil
     val probeParser = ListenerParser.apply(mapStorages.values, activableProcesses)
     // The model is now complete! We can now simulate it.
@@ -335,4 +281,20 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
     println("-----------------------------------------------------------------------") 
   }
   
+  // Main function for creating the model (with OscaR-DES-Flow) and simulating it.
+  def simulateOneShot(): Unit = {
+    val time0 = System.nanoTime()
+    factoryModel.simulate(duration)
+    val time1 = System.nanoTime()
+    runTime = time1 - time0
+    println("probe", "Elapsed time in nanoseconds", runTime.toString)
+    factoryModel.logMetrics()
+    simQRiComponents.foreach((comp) => {
+      comp.mapInfo.foreach((tuple) => {
+        val attr = tuple._1
+        val value = tuple._2.toString
+        println("mapinfo", comp.getName, comp.getType, attr, value)
+      })
+    })
+  }
 }
