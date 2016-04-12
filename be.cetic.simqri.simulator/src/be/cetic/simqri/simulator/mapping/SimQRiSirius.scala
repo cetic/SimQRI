@@ -297,4 +297,59 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
       })
     })
   }
+  
+    // Main function for MC simulation
+  def simulateMonteCarlo(numIterations : Int): Unit = {
+    var samplingMap : Map[String, Map[String,DataSampling]] = null
+    var singleProbesSamplingMap : Map[String,DataSampling] = null
+    var historyProbesMap : Map[String,List[(Double,List[Double])]] = null
+    val samplingRuntime = new DataSampling
+    var i = 0
+    var currentFM = factoryModel
+    while (i < numIterations) {
+      val time0 = System.nanoTime()
+      currentFM.simulate(duration)
+      val time1 = System.nanoTime()
+      runTime = time1 - time0
+      val mapsTup = if (singleProbesSamplingMap == null)
+                      SimQRiModel.createProbesMaps(currentFM)
+                    else
+                      SimQRiModel.addProbeValuesToMaps(currentFM, singleProbesSamplingMap, historyProbesMap)
+      singleProbesSamplingMap = mapsTup._1
+      historyProbesMap = mapsTup._2
+      samplingRuntime <-- runTime.toDouble
+      if (i == 0) {
+        samplingMap = SimQRiModel.createSamplingMap(SimQRiModel.getMapInfos(currentFM))
+      }
+      else {
+        samplingMap = SimQRiModel.addToSamplingMap(samplingMap, SimQRiModel.getMapInfos(currentFM))
+      }
+      currentFM = factoryModel.cloneReset
+      i += 1
+    }
+    // Log elements infos
+    samplingMap.foreach((samplings) => {
+      val elem_name = samplings._1
+      val attrs_map = samplings._2
+      attrs_map.foreach((attr_map) => {
+        val attr_name = attr_map._1
+        val attr_sampling = attr_map._2
+        println("mc_sampling_element", elem_name, attr_name, attr_sampling.toJSONString)
+      })
+    })
+    // Log runtime info
+    println("mc_sampling_runtime", samplingRuntime.toJSONString)
+    // Log single probes info
+    singleProbesSamplingMap.foreach((probe_map) => {
+      val probe_name = probe_map._1
+      val probe_sampling = probe_map._2
+      println("mc_sampling_probe", probe_name, probe_sampling.toJSONString)
+    })
+    // Log history probes info
+    historyProbesMap.foreach((history_map) => {
+      val probe_name = history_map._1
+      val probe_history = history_map._2
+      println("mc_history_probe", probe_name, SimQRiModel.historyListToJSONString(probe_history))
+    })
+  }
 }
