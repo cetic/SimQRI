@@ -32,7 +32,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
   var simQRiComponents : Array[SimQRiComponent] = new Array[SimQRiComponent](0)
   
   // Main function for create the model (with OscaR-DES-Flow)
-  def fillModelWithSiriusData(model : be.cetic.simqri.metamodel.Model) {
+  def fillModelWithSiriusData(model : be.cetic.simqri.metamodel.Model) : Boolean = {
     
     // Attributes
     // val standardItemClass = zeroItemClass
@@ -246,6 +246,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
     // The final loop is on the probes. We will parse and add them to the probes list
     var probesList : List[(String,Expression)] = Nil
     val probeParser = ListenerParser.apply(mapStorages.values, activableProcesses)
+    var valid = true // check if all queries are valid
     // The model is now complete! We can now simulate it.
     for(query <- model.getQuery) {
       probeParser.apply(query.getValue) match { // probesList :+= (s"${query.getName} $query.getType", boolExpr) add a type to probes ?
@@ -260,13 +261,14 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
         case ParsingError(errStr) =>
           if(verbose)
             println("The probe "+query.getName+" cannot be parsed. This is the error : "+errStr)
+          valid = false
         case _ =>
       }
     }
     factoryModel.setQueries(probesList)
     
     // This epilogue loop is just here to check the good working of this service...
-    println("-----------------------------------------------------------------------")
+    /*println("-----------------------------------------------------------------------")
     println("PROCESSES")
     for(a <- factoryModel.getProcesses)
       println(a.name)
@@ -279,6 +281,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
     for(c <- factoryModel.queries)
       println(c._1.toString()+' '+c._2.toString())
     println("-----------------------------------------------------------------------") 
+    */
+    return valid
   }
   
   // Main function for creating the model (with OscaR-DES-Flow) and simulating it.
