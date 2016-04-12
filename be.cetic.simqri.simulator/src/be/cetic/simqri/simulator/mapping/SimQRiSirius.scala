@@ -32,7 +32,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
   var simQRiComponents : Array[SimQRiComponent] = new Array[SimQRiComponent](0)
   
   // Main function for create the model (with OscaR-DES-Flow)
-  def fillModelWithSiriusData(model : be.cetic.simqri.metamodel.Model) : Boolean = {
+  def fillModelWithSiriusData(model : be.cetic.simqri.metamodel.Model) : String = {
     
     // Attributes
     // val standardItemClass = zeroItemClass
@@ -246,7 +246,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
     // The final loop is on the probes. We will parse and add them to the probes list
     var probesList : List[(String,Expression)] = Nil
     val probeParser = ListenerParser.apply(mapStorages.values, activableProcesses)
-    var valid = true // check if all queries are valid
+    var message = "" // check if all queries are valid
     // The model is now complete! We can now simulate it.
     for(query <- model.getQuery) {
       probeParser.apply(query.getValue) match { // probesList :+= (s"${query.getName} $query.getType", boolExpr) add a type to probes ?
@@ -260,8 +260,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
           probesList :+= (s"${query.getName}", dblHistExpr)
         case ParsingError(errStr) =>
           if(verbose)
-            println("The probe "+query.getName+" cannot be parsed. This is the error : "+errStr)
-          valid = false
+            message += "The probe "+query.getName+" cannot be parsed. This is the error : "+errStr+"\n"
         case _ =>
       }
     }
@@ -282,7 +281,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
       println(c._1.toString()+' '+c._2.toString())
     println("-----------------------------------------------------------------------") 
     */
-    return valid
+    return message
   }
   
   // Main function for creating the model (with OscaR-DES-Flow) and simulating it.
