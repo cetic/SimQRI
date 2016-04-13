@@ -6,6 +6,7 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
+import be.cetic.simqri.cockpit.main.Simulation;
 import be.cetic.simqri.design.templates.CheckFlows;
 import be.cetic.simqri.design.templates.CheckOutputs;
 import be.cetic.simqri.metamodel.Model;
@@ -18,8 +19,8 @@ public class ActionSimulation implements IExternalJavaAction {
 
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
-		// TODO Auto-generated method stub
-
+		Model model = (Model) parameters.get("model");
+		Simulation.launch(model);
 	}
 	
 	private boolean checkModelValidity(Model model) {
