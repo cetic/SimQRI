@@ -44,7 +44,7 @@ class ProbabilityHandler {
     case ln : LogNormal =>
       val intRdVar = new IntRandomVar("lognormal", new LognormalDistribution(ln.getLocation, ln.getScale))
       intRdVar.dynamicIntRandomFunc
-    case n : Gaussian =>
+    case n : Gaussian => // = "normal" in the web client
       val intRdVar = new IntRandomVar("normal", new NormalDistribution(n.getLocation, n.getScale))
       intRdVar.dynamicIntRandomFunc
     case p : Pareto =>

@@ -117,6 +117,9 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
         }
         mapLinkInfos.+=(idProc -> (inputs, outputs, fails))
       }
+      println("MAP LINK INFOS")
+      println(mapLinkInfos)
+      println("--------------------------------------------")
     }
     
     // The second loop is done on the OrderOnStockThreshold links and will allow to create 
@@ -131,7 +134,12 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
       // Retrieve the storage from oscar-des correspinding to the storage dest of the oost from metamodel
       for(c <- components) {
         if(c.isInstanceOf[be.cetic.simqri.metamodel.Storage] && c.equals(storageDest)) {
+          println("equals method works for storage "+c)
+          println("-------------------------------------------")
           optionStorage = mapStorages.get(components.indexOf(c))
+          println("targeted storage of oost : "+optionStorage)
+          println("should be equals to : "+c)
+          println("------------------------------------------")
           
         }
       }
@@ -144,7 +152,12 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
       // Retrieve the right mapped supplier from oscar-des correspinding to the supplier src of the oost from metamodel
       for(c <- components) {
         if(c.isInstanceOf[be.cetic.simqri.metamodel.Supplier] && c.equals(supplierSrc)) {
+          println("equals method works for supplier "+c)
+          println("-------------------------------------------")
           partSuppInfo = mapPartSuppliers.get(components.indexOf(c))
+          println("supplier source of oost : "+partSuppInfo)
+          println("should be equals to : "+c)
+          println("------------------------------------------")
         }
       }
       
@@ -267,20 +280,18 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
     factoryModel.setQueries(probesList)
     
     // This epilogue loop is just here to check the good working of this service...
-    /*println("-----------------------------------------------------------------------")
+    println("-----------------------------------------------------------------------")
     println("PROCESSES")
-    for(a <- factoryModel.getProcesses)
-      println(a.name)
+    println(activableProcesses)
     println("-----------------------------------------------------------------------")
     println("STORAGES")
-    for(b <- factoryModel.getStorages)
-      println(b.name)
+    println(mapStorages)
     println("-----------------------------------------------------------------------")
     println("QUERIES")
     for(c <- factoryModel.queries)
       println(c._1.toString()+' '+c._2.toString())
     println("-----------------------------------------------------------------------") 
-    */
+    
     return message
   }
   
