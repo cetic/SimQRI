@@ -1,10 +1,3 @@
-/**
- * SimQRi Project.
-	 This module implements the transformation between the metamodel sent from the interface and the
-   SimQRi model in OscaR-DES
- * @author FK & Gustavo Ospina
- */
-
 package be.cetic.simqri.simulator.mapping
 
 import oscar.des.flow.core.{DiscreteChoice, Putable, Fetchable}
@@ -24,6 +17,12 @@ import be.cetic.simqri.metamodel.Flow
 import be.cetic.simqri.metamodel.StorageOutputFlow
 import be.cetic.simqri.metamodel.ProcessOutputFlow
 
+/**
+ * SimQRi Project.
+	 This module implements the transformation between the metamodel sent from the interface and the
+   SimQRi model in OscaR-DES
+ * @author FK & Gustavo Ospina
+ */
 class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulationHelper {
   
   val tools = new Tools
@@ -32,7 +31,10 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
   val factoryModel = new FactoryModel(null) 
   var simQRiComponents : Array[SimQRiComponent] = new Array[SimQRiComponent](0)
   
-  // Main function for create the model (with OscaR-DES-Flow)
+  /**
+   * Main function for create the model (with OscaR-DES-Flow)
+   * Returns a String which is empty if all queries are valid. It will contain the error message(s) otherwise
+   */
   def fillModelWithSiriusData(model : be.cetic.simqri.metamodel.Model) : String = {
     
     // Attributes
@@ -95,24 +97,17 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
           else if(flow.isInstanceOf[ProcessOutputFlow]) {
             val pof = flow.asInstanceOf[ProcessOutputFlow]
             val listOfOutputPorts = tools.getOutputPorts(process)
-            println("OUTPUT PORTS: ")
-            println(listOfOutputPorts)
-            println("--------------------------------------------")
             var pofLinkedToProcess = false
             for(port <- listOfOutputPorts) {
               if(port.equals(pof.getSource))
                   pofLinkedToProcess = true
             }
-            println("le lien a bien le port comme source : "+pofLinkedToProcess)
-            println("--------------------------------------------")
             if(pofLinkedToProcess) {
               val delay = ph.getDoubleFunc(pof.getProcessOutputFlowDelay)
               val out = (ph.getNonNegativeIntFunc(pof.getQuantity), 
                          if(delay().doubleValue() == 0F) None else Some(delay), 
                          tools.getIdStorage(components, pof.getDestination))
               val outputPort = pof.getSource
-              println("Output source de la relation: "+outputPort.toString())
-              println("--------------------------------------------")
               outputPort.getType match {
                 case OutputType.SUCCESS => outputs.+=(out)
                 case OutputType.FAILURE => fails.+=(out)
@@ -123,15 +118,6 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
           }
         }
         mapLinkInfos.+=(idProc -> (inputs, outputs, fails))
-        println("INPUTS")
-        println(inputs.toList)
-        println("--------------------------------------------")
-        println("OUTPUTS")
-        println(outputs.toList)
-        println("--------------------------------------------")
-        println("FAILS")
-        println(fails.toList)
-        println("--------------------------------------------")
       }
     }
     
@@ -169,8 +155,6 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
                          else
                             (x:Int) => oStorage.maxCapacity - oStorage.contentSize
       val activateFunc = (x : Int) => 1
-      printf("------------------------------")
-      printf("Part supp infos (tuple) : "+partSuppInfo)
       // We create now the single batch process corresponding to the part supplier
       val partSupp = factoryModel.singleBatchProcess(partSuppInfo.get._2,
                                                      Array(), 
@@ -180,7 +164,6 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
                                                      "0")
       val period = oost.getPeriod.toFloat                                               
       val newOost = factoryModel.onLowerThreshold(oStorage, partSupp, oost.getThreshold, activateFunc, period, oost.getName)
-      println("OOST: "+newOost)
       activableProcesses +:= partSupp
       simQRiComponents +:= CPartSupplier(partSupp)
       simQRiComponents +:= COrderOnStockThreshold(newOost)
@@ -287,7 +270,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
     factoryModel.setQueries(probesList)
     
     // This epilogue loop is just here to check the good working of this service...
-    println("-----------------------------------------------------------------------")
+    /*println("-----------------------------------------------------------------------")
     println("PROCESSES")
     println(activableProcesses)
     println("-----------------------------------------------------------------------")
@@ -298,7 +281,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
     for(c <- factoryModel.queries)
       println(c._1.toString()+' '+c._2.toString())
     println("-----------------------------------------------------------------------") 
-    
+    */
     return message
   }
   

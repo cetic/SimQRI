@@ -60,7 +60,6 @@ class Tools {
         if(c.isInstanceOf[be.cetic.simqri.metamodel.Storage]) {
           val s = c.asInstanceOf[be.cetic.simqri.metamodel.Storage]
           if(s.equals(storage)) {
-            println("egalité des storages ok")
             index = components.indexOf(c)
           }
         }
