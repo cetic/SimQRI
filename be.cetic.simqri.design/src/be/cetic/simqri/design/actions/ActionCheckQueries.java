@@ -11,6 +11,14 @@ import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import be.cetic.simqri.cockpit.main.CheckQueries;
 import be.cetic.simqri.metamodel.Model;
 
+/**
+ * 
+ * @author FK
+ * This class is used like a "gateway" between the Sirius modeler and the simulator. 
+ * It retrieves the drawn "Model" object and transmit it to the "cockpit" project,
+ * which displays GUIs related to simulations and queries management and perform 
+ * actions through the simulator scala project, which uses OscaR-DES API.
+ */
 public class ActionCheckQueries implements IExternalJavaAction {
 
 	public ActionCheckQueries() {

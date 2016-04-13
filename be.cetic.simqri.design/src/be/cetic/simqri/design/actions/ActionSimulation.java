@@ -11,6 +11,15 @@ import be.cetic.simqri.design.templates.CheckFlows;
 import be.cetic.simqri.design.templates.CheckOutputs;
 import be.cetic.simqri.metamodel.Model;
 
+/**
+ * 
+ * @author FK
+ * This class is used like a "gateway" between the Sirius modeler and the simulator. 
+ * It retrieves the drawn "Model" object and transmit it to the "cockpit" project,
+ * which displays GUIs related to simulations and queries management and perform 
+ * actions through the simulator scala project, which uses OscaR-DES API.
+ *
+ */
 public class ActionSimulation implements IExternalJavaAction {
 
 	public ActionSimulation() {
@@ -20,7 +29,8 @@ public class ActionSimulation implements IExternalJavaAction {
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
 		Model model = (Model) parameters.get("model");
-		Simulation.launch(model);
+		boolean valid = checkModelValidity(model);
+		Simulation.launch(model, valid);
 	}
 	
 	private boolean checkModelValidity(Model model) {

@@ -1,21 +1,22 @@
 package be.cetic.simqri.cockpit.main;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.simulator.mapping.SimQRiSirius;
 
+/**
+ * 
+ * @author FK
+ * This class is used to check queries kept in the "Model" object and written by the user in the Sirius interface.
+ * 
+ */
 public class CheckQueries {
 	
 	public static void check(Model model) {
 		SimQRiSirius sim = new SimQRiSirius(100, true);
 		String errors =  sim.fillModelWithSiriusData(model);
-		JFrame frame = new JFrame();
-		frame.setSize(300,  150);
-		frame.setResizable(false);
 		if(errors.isEmpty()) 
 			showMessage("All your queries are valid !", false);
 		else 
