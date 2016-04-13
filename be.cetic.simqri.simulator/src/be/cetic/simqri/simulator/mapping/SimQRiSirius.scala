@@ -95,18 +95,24 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
           else if(flow.isInstanceOf[ProcessOutputFlow]) {
             val pof = flow.asInstanceOf[ProcessOutputFlow]
             val listOfOutputPorts = tools.getOutputPorts(process)
+            println("OUTPUT PORTS: ")
+            println(listOfOutputPorts)
+            println("--------------------------------------------")
             var pofLinkedToProcess = false
             for(port <- listOfOutputPorts) {
               if(port.equals(pof.getSource))
                   pofLinkedToProcess = true
             }
+            println("le lien a bien le port comme source : "+pofLinkedToProcess)
+            println("--------------------------------------------")
             if(pofLinkedToProcess) {
               val delay = ph.getDoubleFunc(pof.getProcessOutputFlowDelay)
               val out = (ph.getNonNegativeIntFunc(pof.getQuantity), 
                          if(delay().doubleValue() == 0F) None else Some(delay), 
                          tools.getIdStorage(components, pof.getDestination))
-              
               val outputPort = pof.getSource
+              println("Output source de la relation: "+outputPort.toString())
+              println("--------------------------------------------")
               outputPort.getType match {
                 case OutputType.SUCCESS => outputs.+=(out)
                 case OutputType.FAILURE => fails.+=(out)
@@ -163,7 +169,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
                          else
                             (x:Int) => oStorage.maxCapacity - oStorage.contentSize
       val activateFunc = (x : Int) => 1
-      
+      printf("------------------------------")
+      printf("Part supp infos (tuple) : "+partSuppInfo)
       // We create now the single batch process corresponding to the part supplier
       val partSupp = factoryModel.singleBatchProcess(partSuppInfo.get._2,
                                                      Array(), 
@@ -188,17 +195,11 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
         val duration = ph.getNonNegativeDoubleFunc(batchProcess.getDuration)
         val linkInfos = mapLinkInfos.get(components.indexOf(c))
         val storageFlowInfo = tools.getStorageFlowInfo(mapStorages, linkInfos.get._1.toList).toArray
-        println("result getStorageFlowInfo : ")
-        println(storageFlowInfo)
-        println("------------------------------------")
+
         val storageFlowOutputInfo = tools.getStorageFlowOutputInfo(mapStorages, linkInfos.get._2.toList).toArray
-        println("result getStorageFlowOutputInfo : ")
-        println(storageFlowOutputInfo)
-        println("------------------------------------")
+
         val getStorageFlowOutputFailsInfo = tools.getStorageFlowOutputInfo(mapStorages, linkInfos.get._3.toList).toArray
-        println("result getStorageFlowOutputInfo (fails): ")
-        println(getStorageFlowOutputFailsInfo)
-        println("------------------------------------")
+
         if(numLines==1 && perSuc==100) {
           val newSBP = factoryModel.singleBatchProcess(duration, 
                                                        storageFlowInfo, 

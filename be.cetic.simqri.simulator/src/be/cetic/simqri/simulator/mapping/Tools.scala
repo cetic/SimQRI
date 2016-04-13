@@ -55,14 +55,17 @@ class Tools {
     
     // NEW : Auxiliary function to obtain the place of a Storage object in a list of components from the 'sirius' model
     def getIdStorage(components : List[Component], storage : be.cetic.simqri.metamodel.Storage) : Int = {
+      var index = -1
       for(c <- components) {
         if(c.isInstanceOf[be.cetic.simqri.metamodel.Storage]) {
           val s = c.asInstanceOf[be.cetic.simqri.metamodel.Storage]
-          if(s.equals(storage))
-            components.indexOf(c)
+          if(s.equals(storage)) {
+            println("egalité des storages ok")
+            index = components.indexOf(c)
+          }
         }
       }
-      -1
+      index
     }
     
     // NEW : Auxiliary function to obtain the output port(s) of a process
@@ -77,6 +80,8 @@ class Tools {
         val port = List(conveyorBelt.getOutput)
         port
       }
-      List()
+      else {
+        List()
+      }
     }
 }
