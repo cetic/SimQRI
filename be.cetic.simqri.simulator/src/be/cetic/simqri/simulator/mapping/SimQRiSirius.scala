@@ -8,6 +8,7 @@
 package be.cetic.simqri.simulator.mapping
 
 import oscar.des.flow.core.{DiscreteChoice, Putable, Fetchable}
+
 import oscar.des.flow.lib._
 import oscar.des.flow.modeling._
 import oscar.des.montecarlo.DataSampling
@@ -116,10 +117,16 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
           }
         }
         mapLinkInfos.+=(idProc -> (inputs, outputs, fails))
+        println("INPUTS")
+        println(inputs.toList)
+        println("--------------------------------------------")
+        println("OUTPUTS")
+        println(outputs.toList)
+        println("--------------------------------------------")
+        println("FAILS")
+        println(fails.toList)
+        println("--------------------------------------------")
       }
-      println("MAP LINK INFOS")
-      println(mapLinkInfos)
-      println("--------------------------------------------")
     }
     
     // The second loop is done on the OrderOnStockThreshold links and will allow to create 
@@ -130,17 +137,11 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
     for (oost <- oosts) {
       var storageDest = oost.getStorage
       // Declaration of the oscar-des storage (will definitely be updated in the following loop)
-       var optionStorage = mapStorages.get(0) 
+      var optionStorage = mapStorages.get(0) 
       // Retrieve the storage from oscar-des correspinding to the storage dest of the oost from metamodel
       for(c <- components) {
         if(c.isInstanceOf[be.cetic.simqri.metamodel.Storage] && c.equals(storageDest)) {
-          println("equals method works for storage "+c)
-          println("-------------------------------------------")
           optionStorage = mapStorages.get(components.indexOf(c))
-          println("targeted storage of oost : "+optionStorage)
-          println("should be equals to : "+c)
-          println("------------------------------------------")
-          
         }
       }
       // Transform the Option[Storage] to Storage (need for the upcoming singleBatchProcess creation)
@@ -152,12 +153,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
       // Retrieve the right mapped supplier from oscar-des correspinding to the supplier src of the oost from metamodel
       for(c <- components) {
         if(c.isInstanceOf[be.cetic.simqri.metamodel.Supplier] && c.equals(supplierSrc)) {
-          println("equals method works for supplier "+c)
-          println("-------------------------------------------")
           partSuppInfo = mapPartSuppliers.get(components.indexOf(c))
-          println("supplier source of oost : "+partSuppInfo)
-          println("should be equals to : "+c)
-          println("------------------------------------------")
         }
       }
       
@@ -177,6 +173,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
                                                      "0")
       val period = oost.getPeriod.toFloat                                               
       val newOost = factoryModel.onLowerThreshold(oStorage, partSupp, oost.getThreshold, activateFunc, period, oost.getName)
+      println("OOST: "+newOost)
       activableProcesses +:= partSupp
       simQRiComponents +:= CPartSupplier(partSupp)
       simQRiComponents +:= COrderOnStockThreshold(newOost)
@@ -191,8 +188,17 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
         val duration = ph.getNonNegativeDoubleFunc(batchProcess.getDuration)
         val linkInfos = mapLinkInfos.get(components.indexOf(c))
         val storageFlowInfo = tools.getStorageFlowInfo(mapStorages, linkInfos.get._1.toList).toArray
+        println("result getStorageFlowInfo : ")
+        println(storageFlowInfo)
+        println("------------------------------------")
         val storageFlowOutputInfo = tools.getStorageFlowOutputInfo(mapStorages, linkInfos.get._2.toList).toArray
+        println("result getStorageFlowOutputInfo : ")
+        println(storageFlowOutputInfo)
+        println("------------------------------------")
         val getStorageFlowOutputFailsInfo = tools.getStorageFlowOutputInfo(mapStorages, linkInfos.get._3.toList).toArray
+        println("result getStorageFlowOutputInfo (fails): ")
+        println(getStorageFlowOutputFailsInfo)
+        println("------------------------------------")
         if(numLines==1 && perSuc==100) {
           val newSBP = factoryModel.singleBatchProcess(duration, 
                                                        storageFlowInfo, 
