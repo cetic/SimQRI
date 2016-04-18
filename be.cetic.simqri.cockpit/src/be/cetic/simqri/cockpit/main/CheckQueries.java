@@ -9,6 +9,8 @@ import be.cetic.simqri.simulator.mapping.SimQRiSirius;
 /**
  * 
  * @author FK
+ * @version 2.0
+ * 
  * This class is used to check queries kept in the "Model" object and written by the user in the Sirius interface.
  * 
  */

@@ -14,7 +14,7 @@ import be.cetic.simqri.metamodel.OutputType;
  * 
  * @author François Kouptchinsky
  * @since 24/03/2016
- * @version 1.0
+ * @version 2.0
  * 
  * Contains all checks about ports (process outputs) of SimQRi graphical tool
  */
@@ -28,6 +28,7 @@ public class CheckOutputs {
 	 * @return An error message if there is at least one process of the model that has two outputs of the same type. An empty string otherwise.
 	 */
 	public String hasNotTwoOutputsOfSameType(Model model) {
+		String errMessage = "";
 		BatchProcess bp = null;
 		OutputType  outputType = null;
 		for(Component c : model.getComponent()) {
@@ -38,16 +39,16 @@ public class CheckOutputs {
 					if(!outputTypes.contains(outputType)) 
 						outputTypes.add(outputType);
 					else 
-						return "> Each process can only have one flow from the same storage\n";
+						errMessage += "> Process "+bp.getName()+" has two outputs of the same type ("+outputType+" here)\n";
 				}
 				// Check if the process contains at least one "success" output if he contains some outputs
 				if(!outputTypes.isEmpty() && !outputTypes.contains(OutputType.SUCCESS)) {
-					return "> Some of your processes have at least 2 outputs of the same type or need a \"success\" output\n";
+					errMessage += "> Process "+bp.getName()+" need a \"success\" output\n";
 				}
 			}
 			outputTypes.clear();
 		}
-		return "";
+		return errMessage;
 	}
 	
 	/**
@@ -57,14 +58,15 @@ public class CheckOutputs {
 	 * /!\ The type of the output will not influence the execution of the simulation
 	 */
 	public String hasAnOutputOfSuccessType(Model model) {
+		String errMessage = "";
 		ConveyorBelt cb = null;
 		for(Component c : model.getComponent()) {
 			if(c instanceof ConveyorBelt) {
 				cb = (ConveyorBelt) c;
 				if(cb.getOutput() != null && cb.getOutput().getType() != OutputType.SUCCESS)
-					return "> There is at least an output port of your conveyor belts that is not a \"SUCCESS\" output. However, it will be considered as such.\n";
+					errMessage += "> The output port of the conveyor belt "+cb.getName()+" has to be a \"SUCCESS\" output. Whatever its type, it will be considered as such.\n";
 			}
 		}
-		return "";
+		return errMessage;
 	}
 }

@@ -10,6 +10,8 @@ import be.cetic.simqri.metamodel.Model;
 /**
  * 
  * @author FK
+ * @version 2.0
+ * 
  * This class is used to call displays related to simulations
  */
 public class Simulation {

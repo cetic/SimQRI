@@ -15,6 +15,8 @@ import be.cetic.simqri.metamodel.Model;
 /**
  * 
  * @author FK
+ * @version 2.0
+ * 
  * This class is used like a "gateway" between the Sirius modeler and the simulator. 
  * It retrieves the drawn "Model" object and transmit it to the "cockpit" project,
  * which displays GUIs related to simulations and queries management and perform 
@@ -42,6 +44,7 @@ public class ActionSimulation implements IExternalJavaAction {
 		errMessages += cf.hasOneFlowFromThatPort(model);
 		errMessages += cf.hasOneFlowFromThatStorage(model);
 		errMessages += cf.hasOneFlowFromThatSupplier(model);
+		errMessages += cf.isProbabilitySet(model);
 		return errMessages;
 	}
 
