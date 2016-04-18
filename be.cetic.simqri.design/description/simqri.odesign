@@ -325,7 +325,7 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.OrderOnStockThreshold" referenceName="orderOnStockThreshold">
                   <subModelOperations xsi:type="tool:SetValue" featureName="supplier" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="storage" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'oost '+self.eContainer().flow->filter(metamodel::OrderOnStockThreshold)->size()"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'oost '+self.eContainer().orderOnStockThreshold->size()"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="period" valueExpression="0.0"/>
                 </subModelOperations>
               </firstModelOperations>

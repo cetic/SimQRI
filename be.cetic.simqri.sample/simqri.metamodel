@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metamodel:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metamodel="http://www.example.org/metamodel">
-  <orderOnStockThreshold period="30.0" name="oost 0" supplier="//@component.0" storage="//@component.1"/>
-  <orderOnStockThreshold period="0.0" name="oost 0" supplier="//@component.7" storage="//@component.8"/>
+  <orderOnStockThreshold period="0.0" name="oost 1" orderType="REFILL" supplier="//@component.0" storage="//@component.1"/>
+  <orderOnStockThreshold period="0.0" name="oost 2" supplier="//@component.7" storage="//@component.8"/>
   <component xsi:type="metamodel:Supplier" name="new_supplier 1" refillPolicy="//@orderOnStockThreshold.0">
     <supplierDelay xsi:type="metamodel:DiracDelta"/>
   </component>
