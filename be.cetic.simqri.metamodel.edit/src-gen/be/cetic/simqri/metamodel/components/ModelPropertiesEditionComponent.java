@@ -111,10 +111,7 @@ public class ModelPropertiesEditionComponent extends SiriusAwarePropertiesEditin
 			// init values
 			if (isAccessible(MetamodelViewsRepository.Model.Properties.name))
 				basePart.setName(EEFConverterUtil.convertToString(EcorePackage.Literals.ESTRING, model.getName()));
-			
-			if (isAccessible(MetamodelViewsRepository.Model.Properties.valid)) {
-				basePart.setValid(model.isValid());
-			}
+
 			if (isAccessible(MetamodelViewsRepository.Model.Properties.query)) {
 				querySettings = new ReferencesTableSettings(model, MetamodelPackage.eINSTANCE.getModel_Query());
 				basePart.initQuery(querySettings);
@@ -198,9 +195,6 @@ public class ModelPropertiesEditionComponent extends SiriusAwarePropertiesEditin
 		if (editorKey == MetamodelViewsRepository.Model.Properties.name) {
 			return MetamodelPackage.eINSTANCE.getModel_Name();
 		}
-		if (editorKey == MetamodelViewsRepository.Model.Properties.valid) {
-			return MetamodelPackage.eINSTANCE.getModel_Valid();
-		}
 		if (editorKey == MetamodelViewsRepository.Model.Properties.query) {
 			return MetamodelPackage.eINSTANCE.getModel_Query();
 		}
@@ -222,9 +216,6 @@ public class ModelPropertiesEditionComponent extends SiriusAwarePropertiesEditin
 		Model model = (Model)semanticObject;
 		if (MetamodelViewsRepository.Model.Properties.name == event.getAffectedEditor()) {
 			model.setName((java.lang.String)EEFConverterUtil.createFromString(EcorePackage.Literals.ESTRING, (String)event.getNewValue()));
-		}
-		if (MetamodelViewsRepository.Model.Properties.valid == event.getAffectedEditor()) {
-			model.setValid((Boolean)event.getNewValue());
 		}
 		if (MetamodelViewsRepository.Model.Properties.query == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
@@ -318,9 +309,6 @@ public class ModelPropertiesEditionComponent extends SiriusAwarePropertiesEditin
 					basePart.setName("");
 				}
 			}
-			if (MetamodelPackage.eINSTANCE.getModel_Valid().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(MetamodelViewsRepository.Model.Properties.valid))
-				basePart.setValid((Boolean)msg.getNewValue());
-			
 			if (MetamodelPackage.eINSTANCE.getModel_Query().equals(msg.getFeature()) && isAccessible(MetamodelViewsRepository.Model.Properties.query))
 				basePart.updateQuery();
 			if (MetamodelPackage.eINSTANCE.getModel_Component().equals(msg.getFeature()) && isAccessible(MetamodelViewsRepository.Model.Properties.component))
@@ -340,7 +328,6 @@ public class ModelPropertiesEditionComponent extends SiriusAwarePropertiesEditin
 	protected NotificationFilter[] getNotificationFilters() {
 		NotificationFilter filter = new EStructuralFeatureNotificationFilter(
 			MetamodelPackage.eINSTANCE.getModel_Name(),
-			MetamodelPackage.eINSTANCE.getModel_Valid(),
 			MetamodelPackage.eINSTANCE.getModel_Query(),
 			MetamodelPackage.eINSTANCE.getModel_Component(),
 			MetamodelPackage.eINSTANCE.getModel_Flow()		);
@@ -364,13 +351,6 @@ public class ModelPropertiesEditionComponent extends SiriusAwarePropertiesEditin
 						newValue = EEFConverterUtil.createFromString(MetamodelPackage.eINSTANCE.getModel_Name().getEAttributeType(), (String)newValue);
 					}
 					ret = Diagnostician.INSTANCE.validate(MetamodelPackage.eINSTANCE.getModel_Name().getEAttributeType(), newValue);
-				}
-				if (MetamodelViewsRepository.Model.Properties.valid == event.getAffectedEditor()) {
-					Object newValue = event.getNewValue();
-					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(MetamodelPackage.eINSTANCE.getModel_Valid().getEAttributeType(), (String)newValue);
-					}
-					ret = Diagnostician.INSTANCE.validate(MetamodelPackage.eINSTANCE.getModel_Valid().getEAttributeType(), newValue);
 				}
 			} catch (IllegalArgumentException iae) {
 				ret = BasicDiagnostic.toDiagnostic(iae);

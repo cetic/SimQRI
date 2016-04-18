@@ -34,7 +34,7 @@ public class BetaImpl extends DistributionImpl implements Beta {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double FREEDOM_DEGREE_A_EDEFAULT = null;
+	protected static final Double FREEDOM_DEGREE_A_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getFreedomDegreeA() <em>Freedom Degree A</em>}' attribute.
@@ -54,7 +54,7 @@ public class BetaImpl extends DistributionImpl implements Beta {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double FREEDOM_DEGREE_B_EDEFAULT = null;
+	protected static final Double FREEDOM_DEGREE_B_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getFreedomDegreeB() <em>Freedom Degree B</em>}' attribute.

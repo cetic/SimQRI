@@ -34,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link be.cetic.simqri.metamodel.impl.ModelImpl#getName <em>Name</em>}</li>
- *   <li>{@link be.cetic.simqri.metamodel.impl.ModelImpl#isValid <em>Valid</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.ModelImpl#getQuery <em>Query</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.ModelImpl#getOrderOnStockThreshold <em>Order On Stock Threshold</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.ModelImpl#getComponent <em>Component</em>}</li>
@@ -63,26 +62,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #isValid() <em>Valid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isValid()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean VALID_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isValid() <em>Valid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isValid()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean valid = VALID_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getQuery() <em>Query</em>}' containment reference list.
@@ -169,27 +148,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isValid() {
-		return valid;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValid(boolean newValid) {
-		boolean oldValid = valid;
-		valid = newValid;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.MODEL__VALID, oldValid, valid));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Query> getQuery() {
 		if (query == null) {
 			query = new EObjectContainmentEList<Query>(Query.class, this, MetamodelPackage.MODEL__QUERY);
@@ -263,8 +221,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		switch (featureID) {
 			case MetamodelPackage.MODEL__NAME:
 				return getName();
-			case MetamodelPackage.MODEL__VALID:
-				return isValid();
 			case MetamodelPackage.MODEL__QUERY:
 				return getQuery();
 			case MetamodelPackage.MODEL__ORDER_ON_STOCK_THRESHOLD:
@@ -288,9 +244,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		switch (featureID) {
 			case MetamodelPackage.MODEL__NAME:
 				setName((String)newValue);
-				return;
-			case MetamodelPackage.MODEL__VALID:
-				setValid((Boolean)newValue);
 				return;
 			case MetamodelPackage.MODEL__QUERY:
 				getQuery().clear();
@@ -323,9 +276,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case MetamodelPackage.MODEL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case MetamodelPackage.MODEL__VALID:
-				setValid(VALID_EDEFAULT);
-				return;
 			case MetamodelPackage.MODEL__QUERY:
 				getQuery().clear();
 				return;
@@ -352,8 +302,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		switch (featureID) {
 			case MetamodelPackage.MODEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case MetamodelPackage.MODEL__VALID:
-				return valid != VALID_EDEFAULT;
 			case MetamodelPackage.MODEL__QUERY:
 				return query != null && !query.isEmpty();
 			case MetamodelPackage.MODEL__ORDER_ON_STOCK_THRESHOLD:
@@ -378,8 +326,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", valid: ");
-		result.append(valid);
 		result.append(')');
 		return result.toString();
 	}

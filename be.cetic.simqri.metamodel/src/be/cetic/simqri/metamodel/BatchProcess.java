@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
 public interface BatchProcess extends be.cetic.simqri.metamodel.Process {
 	/**
 	 * Returns the value of the '<em><b>Percentage Of Success</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Percentage Of Success</em>' attribute isn't clear,
@@ -34,7 +35,7 @@ public interface BatchProcess extends be.cetic.simqri.metamodel.Process {
 	 * @return the value of the '<em>Percentage Of Success</em>' attribute.
 	 * @see #setPercentageOfSuccess(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getBatchProcess_PercentageOfSuccess()
-	 * @model dataType="be.cetic.simqri.metamodel.Percent"
+	 * @model default="100" dataType="be.cetic.simqri.metamodel.Percent"
 	 * @generated
 	 */
 	Double getPercentageOfSuccess();
@@ -51,6 +52,7 @@ public interface BatchProcess extends be.cetic.simqri.metamodel.Process {
 
 	/**
 	 * Returns the value of the '<em><b>Number Of Lines</b></em>' attribute.
+	 * The default value is <code>"3"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Number Of Lines</em>' attribute isn't clear,
@@ -60,7 +62,7 @@ public interface BatchProcess extends be.cetic.simqri.metamodel.Process {
 	 * @return the value of the '<em>Number Of Lines</em>' attribute.
 	 * @see #setNumberOfLines(Integer)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getBatchProcess_NumberOfLines()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
+	 * @model default="3" dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
 	 * @generated
 	 */
 	Integer getNumberOfLines();

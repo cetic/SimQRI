@@ -23,6 +23,7 @@ package be.cetic.simqri.metamodel;
 public interface FDistribution extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Freedom Degree A</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Freedom Degree A</em>' attribute isn't clear,
@@ -32,7 +33,7 @@ public interface FDistribution extends Distribution {
 	 * @return the value of the '<em>Freedom Degree A</em>' attribute.
 	 * @see #setFreedomDegreeA(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getFDistribution_FreedomDegreeA()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
 	 *        extendedMetaData="name='freedomDegreeA'"
 	 * @generated
 	 */
@@ -50,6 +51,7 @@ public interface FDistribution extends Distribution {
 
 	/**
 	 * Returns the value of the '<em><b>Freedom Degree B</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Freedom Degree B</em>' attribute isn't clear,
@@ -59,7 +61,7 @@ public interface FDistribution extends Distribution {
 	 * @return the value of the '<em>Freedom Degree B</em>' attribute.
 	 * @see #setFreedomDegreeB(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getFDistribution_FreedomDegreeB()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
 	 * @generated
 	 */
 	Double getFreedomDegreeB();

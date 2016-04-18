@@ -23,6 +23,7 @@ package be.cetic.simqri.metamodel;
 public interface Uniform extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Minimum</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Minimum</em>' attribute isn't clear,
@@ -32,7 +33,7 @@ public interface Uniform extends Distribution {
 	 * @return the value of the '<em>Minimum</em>' attribute.
 	 * @see #setMinimum(double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getUniform_Minimum()
-	 * @model
+	 * @model default="0.0"
 	 * @generated
 	 */
 	double getMinimum();
@@ -49,6 +50,7 @@ public interface Uniform extends Distribution {
 
 	/**
 	 * Returns the value of the '<em><b>Maximum</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Maximum</em>' attribute isn't clear,
@@ -58,7 +60,7 @@ public interface Uniform extends Distribution {
 	 * @return the value of the '<em>Maximum</em>' attribute.
 	 * @see #setMaximum(double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getUniform_Maximum()
-	 * @model
+	 * @model default="0.0"
 	 * @generated
 	 */
 	double getMaximum();

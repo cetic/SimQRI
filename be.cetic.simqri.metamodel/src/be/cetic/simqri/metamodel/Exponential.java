@@ -22,6 +22,7 @@ package be.cetic.simqri.metamodel;
 public interface Exponential extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Scale</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Scale</em>' attribute isn't clear,
@@ -31,7 +32,7 @@ public interface Exponential extends Distribution {
 	 * @return the value of the '<em>Scale</em>' attribute.
 	 * @see #setScale(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getExponential_Scale()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
 	 * @generated
 	 */
 	Double getScale();

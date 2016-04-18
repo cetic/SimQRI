@@ -35,7 +35,7 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NAME_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = "query";
 
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.

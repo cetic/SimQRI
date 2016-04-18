@@ -23,6 +23,7 @@ package be.cetic.simqri.metamodel;
 public interface ConveyorBelt extends be.cetic.simqri.metamodel.Process {
 	/**
 	 * Returns the value of the '<em><b>Minimal Separation Between Batches</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Minimal Separation Between Batches</em>' attribute isn't clear,
@@ -32,7 +33,7 @@ public interface ConveyorBelt extends be.cetic.simqri.metamodel.Process {
 	 * @return the value of the '<em>Minimal Separation Between Batches</em>' attribute.
 	 * @see #setMinimalSeparationBetweenBatches(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getConveyorBelt_MinimalSeparationBetweenBatches()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveDouble"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveDouble"
 	 * @generated
 	 */
 	Double getMinimalSeparationBetweenBatches();

@@ -64,7 +64,6 @@ public class ModelItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addValidPropertyDescriptor(object);
 			addQueryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -88,28 +87,6 @@ public class ModelItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Valid feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addValidPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Model_valid_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Model_valid_feature", "_UI_Model_type"),
-				 MetamodelPackage.Literals.MODEL__VALID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -208,7 +185,6 @@ public class ModelItemProvider
 
 		switch (notification.getFeatureID(Model.class)) {
 			case MetamodelPackage.MODEL__NAME:
-			case MetamodelPackage.MODEL__VALID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MetamodelPackage.MODEL__QUERY:

@@ -33,7 +33,7 @@ public class GeometricImpl extends DistributionImpl implements Geometric {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double PROBA_OF_SUCCESS_EDEFAULT = null;
+	protected static final Double PROBA_OF_SUCCESS_EDEFAULT = 0.1;
 
 	/**
 	 * The cached value of the '{@link #getProbaOfSuccess() <em>Proba Of Success</em>}' attribute.

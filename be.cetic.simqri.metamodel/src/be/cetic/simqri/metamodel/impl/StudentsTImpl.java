@@ -33,7 +33,7 @@ public class StudentsTImpl extends DistributionImpl implements StudentsT {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double DEGREE_OF_FREEDOM_EDEFAULT = null;
+	protected static final Double DEGREE_OF_FREEDOM_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getDegreeOfFreedom() <em>Degree Of Freedom</em>}' attribute.

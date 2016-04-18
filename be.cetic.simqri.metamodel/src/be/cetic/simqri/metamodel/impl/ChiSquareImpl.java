@@ -33,7 +33,7 @@ public class ChiSquareImpl extends DistributionImpl implements ChiSquare {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer DEGREE_OF_FREEDOM_EDEFAULT = null;
+	protected static final Integer DEGREE_OF_FREEDOM_EDEFAULT = 1;
 
 	/**
 	 * The cached value of the '{@link #getDegreeOfFreedom() <em>Degree Of Freedom</em>}' attribute.

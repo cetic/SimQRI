@@ -78,22 +78,13 @@ public interface MetamodelPackage extends EPackage {
 	int MODEL__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__VALID = 1;
-
-	/**
 	 * The feature id for the '<em><b>Query</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__QUERY = 2;
+	int MODEL__QUERY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Order On Stock Threshold</b></em>' containment reference list.
@@ -102,7 +93,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__ORDER_ON_STOCK_THRESHOLD = 3;
+	int MODEL__ORDER_ON_STOCK_THRESHOLD = 2;
 
 	/**
 	 * The feature id for the '<em><b>Component</b></em>' containment reference list.
@@ -111,7 +102,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__COMPONENT = 4;
+	int MODEL__COMPONENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Flow</b></em>' containment reference list.
@@ -120,7 +111,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__FLOW = 5;
+	int MODEL__FLOW = 4;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -129,7 +120,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 6;
+	int MODEL_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -1769,17 +1760,6 @@ public interface MetamodelPackage extends EPackage {
 	EAttribute getModel_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Model#isValid <em>Valid</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Valid</em>'.
-	 * @see be.cetic.simqri.metamodel.Model#isValid()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EAttribute getModel_Valid();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link be.cetic.simqri.metamodel.Model#getQuery <em>Query</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2948,14 +2928,6 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Valid</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODEL__VALID = eINSTANCE.getModel_Valid();
 
 		/**
 		 * The meta object literal for the '<em><b>Query</b></em>' containment reference list feature.

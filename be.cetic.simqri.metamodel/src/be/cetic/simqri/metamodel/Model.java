@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link be.cetic.simqri.metamodel.Model#getName <em>Name</em>}</li>
- *   <li>{@link be.cetic.simqri.metamodel.Model#isValid <em>Valid</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Model#getQuery <em>Query</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Model#getOrderOnStockThreshold <em>Order On Stock Threshold</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Model#getComponent <em>Component</em>}</li>
@@ -53,32 +52,6 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Valid</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Valid</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Valid</em>' attribute.
-	 * @see #setValid(boolean)
-	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getModel_Valid()
-	 * @model
-	 * @generated
-	 */
-	boolean isValid();
-
-	/**
-	 * Sets the value of the '{@link be.cetic.simqri.metamodel.Model#isValid <em>Valid</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Valid</em>' attribute.
-	 * @see #isValid()
-	 * @generated
-	 */
-	void setValid(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Query</b></em>' containment reference list.

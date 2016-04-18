@@ -22,6 +22,7 @@ package be.cetic.simqri.metamodel;
 public interface DiracDelta extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Mean</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Mean</em>' attribute isn't clear,
@@ -31,7 +32,7 @@ public interface DiracDelta extends Distribution {
 	 * @return the value of the '<em>Mean</em>' attribute.
 	 * @see #setMean(Integer)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getDiracDelta_Mean()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
 	 * @generated
 	 */
 	Integer getMean();

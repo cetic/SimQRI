@@ -45,7 +45,7 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double PERCENTAGE_OF_SUCCESS_EDEFAULT = null;
+	protected static final Double PERCENTAGE_OF_SUCCESS_EDEFAULT = 100.0;
 
 	/**
 	 * The cached value of the '{@link #getPercentageOfSuccess() <em>Percentage Of Success</em>}' attribute.
@@ -65,7 +65,7 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer NUMBER_OF_LINES_EDEFAULT = null;
+	protected static final Integer NUMBER_OF_LINES_EDEFAULT = 3;
 
 	/**
 	 * The cached value of the '{@link #getNumberOfLines() <em>Number Of Lines</em>}' attribute.

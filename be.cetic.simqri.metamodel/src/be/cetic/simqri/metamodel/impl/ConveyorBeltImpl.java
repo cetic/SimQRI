@@ -37,7 +37,7 @@ public class ConveyorBeltImpl extends ProcessImpl implements ConveyorBelt {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double MINIMAL_SEPARATION_BETWEEN_BATCHES_EDEFAULT = null;
+	protected static final Double MINIMAL_SEPARATION_BETWEEN_BATCHES_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getMinimalSeparationBetweenBatches() <em>Minimal Separation Between Batches</em>}' attribute.

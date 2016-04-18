@@ -33,7 +33,7 @@ public class PoissonImpl extends DistributionImpl implements Poisson {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double INTERVAL_EDEFAULT = null;
+	protected static final Double INTERVAL_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getInterval() <em>Interval</em>}' attribute.

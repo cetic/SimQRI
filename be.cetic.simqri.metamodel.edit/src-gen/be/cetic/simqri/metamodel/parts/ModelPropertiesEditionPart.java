@@ -32,23 +32,6 @@ public interface ModelPropertiesEditionPart {
 	 */
 	public void setName(String newValue);
 
-
-	/**
-	 * @return the valid
-	 * 
-	 */
-	public Boolean getValid();
-
-	/**
-	 * Defines a new valid
-	 * @param newValue the new valid to set
-	 * 
-	 */
-	public void setValid(Boolean newValue);
-
-
-
-
 	/**
 	 * Init the query
 	 * @param current the current value

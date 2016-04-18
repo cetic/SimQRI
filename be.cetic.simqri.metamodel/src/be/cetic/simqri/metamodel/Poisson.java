@@ -22,6 +22,7 @@ package be.cetic.simqri.metamodel;
 public interface Poisson extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Interval</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Interval</em>' attribute isn't clear,
@@ -31,7 +32,7 @@ public interface Poisson extends Distribution {
 	 * @return the value of the '<em>Interval</em>' attribute.
 	 * @see #setInterval(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getPoisson_Interval()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
 	 * @generated
 	 */
 	Double getInterval();

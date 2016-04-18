@@ -28,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
 public interface Storage extends Component {
 	/**
 	 * Returns the value of the '<em><b>Size</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Size</em>' attribute isn't clear,
@@ -37,7 +38,7 @@ public interface Storage extends Component {
 	 * @return the value of the '<em>Size</em>' attribute.
 	 * @see #setSize(Integer)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getStorage_Size()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
+	 * @model default="100" dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
 	 * @generated
 	 */
 	Integer getSize();
@@ -54,6 +55,7 @@ public interface Storage extends Component {
 
 	/**
 	 * Returns the value of the '<em><b>Initial Content</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Initial Content</em>' attribute isn't clear,
@@ -63,7 +65,7 @@ public interface Storage extends Component {
 	 * @return the value of the '<em>Initial Content</em>' attribute.
 	 * @see #setInitialContent(Integer)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getStorage_InitialContent()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveInt"
+	 * @model default="100" dataType="be.cetic.simqri.metamodel.PositiveInt"
 	 * @generated
 	 */
 	Integer getInitialContent();

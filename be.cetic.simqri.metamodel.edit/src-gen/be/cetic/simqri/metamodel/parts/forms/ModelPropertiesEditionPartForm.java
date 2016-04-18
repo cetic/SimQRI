@@ -5,6 +5,7 @@ package be.cetic.simqri.metamodel.parts.forms;
 
 // Start of user code for imports
 import be.cetic.simqri.metamodel.parts.MetamodelViewsRepository;
+
 import be.cetic.simqri.metamodel.parts.ModelPropertiesEditionPart;
 
 import be.cetic.simqri.metamodel.providers.MetamodelMessages;
@@ -54,7 +55,6 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
@@ -72,7 +72,6 @@ import org.eclipse.ui.forms.widgets.Section;
 public class ModelPropertiesEditionPartForm extends SectionPropertiesEditingPart implements IFormPropertiesEditionPart, ModelPropertiesEditionPart {
 
 	protected Text name;
-	protected Button valid;
 	protected ReferencesTable query;
 	protected List<ViewerFilter> queryBusinessFilters = new ArrayList<ViewerFilter>();
 	protected List<ViewerFilter> queryFilters = new ArrayList<ViewerFilter>();
@@ -143,9 +142,6 @@ public class ModelPropertiesEditionPartForm extends SectionPropertiesEditingPart
 				}
 				if (key == MetamodelViewsRepository.Model.Properties.name) {
 					return createNameText(widgetFactory, parent);
-				}
-				if (key == MetamodelViewsRepository.Model.Properties.valid) {
-					return createValidCheckbox(widgetFactory, parent);
 				}
 				if (key == MetamodelViewsRepository.Model.Properties.query) {
 					return createQueryTableComposition(widgetFactory, parent);
@@ -241,35 +237,6 @@ public class ModelPropertiesEditionPartForm extends SectionPropertiesEditingPart
 		EditingUtils.setEEFtype(name, "eef::Text"); //$NON-NLS-1$
 		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.Model.Properties.name, MetamodelViewsRepository.FORM_KIND), null); //$NON-NLS-1$
 		// Start of user code for createNameText
-
-		// End of user code
-		return parent;
-	}
-
-	
-	protected Composite createValidCheckbox(FormToolkit widgetFactory, Composite parent) {
-		valid = widgetFactory.createButton(parent, getDescription(MetamodelViewsRepository.Model.Properties.valid, MetamodelMessages.ModelPropertiesEditionPart_ValidLabel), SWT.CHECK);
-		valid.addSelectionListener(new SelectionAdapter() {
-
-			/**
-			 * {@inheritDoc}
-			 *
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 * 	
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				if (propertiesEditionComponent != null)
-					propertiesEditionComponent.firePropertiesChanged(new PropertiesEditionEvent(ModelPropertiesEditionPartForm.this, MetamodelViewsRepository.Model.Properties.valid, PropertiesEditionEvent.COMMIT, PropertiesEditionEvent.SET, null, new Boolean(valid.getSelection())));
-			}
-
-		});
-		GridData validData = new GridData(GridData.FILL_HORIZONTAL);
-		validData.horizontalSpan = 2;
-		valid.setLayoutData(validData);
-		EditingUtils.setID(valid, MetamodelViewsRepository.Model.Properties.valid);
-		EditingUtils.setEEFtype(valid, "eef::Checkbox"); //$NON-NLS-1$
-		FormUtils.createHelpButton(widgetFactory, parent, propertiesEditionComponent.getHelpContent(MetamodelViewsRepository.Model.Properties.valid, MetamodelViewsRepository.FORM_KIND), null); //$NON-NLS-1$
-		// Start of user code for createValidCheckbox
 
 		// End of user code
 		return parent;
@@ -472,40 +439,6 @@ public class ModelPropertiesEditionPartForm extends SectionPropertiesEditingPart
 		}	
 		
 	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ModelPropertiesEditionPart#getValid()
-	 * 
-	 */
-	public Boolean getValid() {
-		return Boolean.valueOf(valid.getSelection());
-	}
-
-	/**
-	 * {@inheritDoc}
-	 * 
-	 * @see be.cetic.simqri.metamodel.parts.ModelPropertiesEditionPart#setValid(Boolean newValue)
-	 * 
-	 */
-	public void setValid(Boolean newValue) {
-		if (newValue != null) {
-			valid.setSelection(newValue.booleanValue());
-		} else {
-			valid.setSelection(false);
-		}
-		boolean eefElementEditorReadOnlyState = isReadOnly(MetamodelViewsRepository.Model.Properties.valid);
-		if (eefElementEditorReadOnlyState && valid.isEnabled()) {
-			valid.setEnabled(false);
-			valid.setToolTipText(MetamodelMessages.Model_ReadOnly);
-		} else if (!eefElementEditorReadOnlyState && !valid.isEnabled()) {
-			valid.setEnabled(true);
-		}	
-		
-	}
-
-
 
 	/**
 	 * {@inheritDoc}

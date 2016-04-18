@@ -34,7 +34,7 @@ public class BinomialImpl extends DistributionImpl implements Binomial {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer NBR_OF_TRIAL_EDEFAULT = null;
+	protected static final Integer NBR_OF_TRIAL_EDEFAULT = 1;
 
 	/**
 	 * The cached value of the '{@link #getNbrOfTrial() <em>Nbr Of Trial</em>}' attribute.
@@ -54,7 +54,7 @@ public class BinomialImpl extends DistributionImpl implements Binomial {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double PROBA_OF_SUCCESS_EDEFAULT = null;
+	protected static final Double PROBA_OF_SUCCESS_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getProbaOfSuccess() <em>Proba Of Success</em>}' attribute.

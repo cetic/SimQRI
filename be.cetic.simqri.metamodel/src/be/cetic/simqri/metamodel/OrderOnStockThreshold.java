@@ -29,6 +29,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface OrderOnStockThreshold extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Period</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Period</em>' attribute isn't clear,
@@ -38,7 +39,7 @@ public interface OrderOnStockThreshold extends EObject {
 	 * @return the value of the '<em>Period</em>' attribute.
 	 * @see #setPeriod(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getOrderOnStockThreshold_Period()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveDouble"
+	 * @model default="0" dataType="be.cetic.simqri.metamodel.PositiveDouble"
 	 * @generated
 	 */
 	Double getPeriod();
@@ -55,6 +56,7 @@ public interface OrderOnStockThreshold extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Threshold</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Threshold</em>' attribute isn't clear,
@@ -64,7 +66,7 @@ public interface OrderOnStockThreshold extends EObject {
 	 * @return the value of the '<em>Threshold</em>' attribute.
 	 * @see #setThreshold(Integer)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getOrderOnStockThreshold_Threshold()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveInt"
+	 * @model default="0" dataType="be.cetic.simqri.metamodel.PositiveInt"
 	 * @generated
 	 */
 	Integer getThreshold();
@@ -107,6 +109,7 @@ public interface OrderOnStockThreshold extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Order Quantity</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Order Quantity</em>' attribute isn't clear,
@@ -116,7 +119,7 @@ public interface OrderOnStockThreshold extends EObject {
 	 * @return the value of the '<em>Order Quantity</em>' attribute.
 	 * @see #setOrderQuantity(Integer)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getOrderOnStockThreshold_OrderQuantity()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveInt"
+	 * @model default="0" dataType="be.cetic.simqri.metamodel.PositiveInt"
 	 * @generated
 	 */
 	Integer getOrderQuantity();

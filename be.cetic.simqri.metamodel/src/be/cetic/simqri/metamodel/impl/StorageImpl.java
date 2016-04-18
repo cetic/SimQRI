@@ -50,7 +50,7 @@ public class StorageImpl extends ComponentImpl implements Storage {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer SIZE_EDEFAULT = null;
+	protected static final Integer SIZE_EDEFAULT = 100;
 
 	/**
 	 * The cached value of the '{@link #getSize() <em>Size</em>}' attribute.
@@ -70,7 +70,7 @@ public class StorageImpl extends ComponentImpl implements Storage {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer INITIAL_CONTENT_EDEFAULT = null;
+	protected static final Integer INITIAL_CONTENT_EDEFAULT = 100;
 
 	/**
 	 * The cached value of the '{@link #getInitialContent() <em>Initial Content</em>}' attribute.

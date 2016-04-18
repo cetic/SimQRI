@@ -33,7 +33,7 @@ public class ScalarImpl extends ProbabilityImpl implements Scalar {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer VALUE_EDEFAULT = null;
+	protected static final Integer VALUE_EDEFAULT = 1;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.

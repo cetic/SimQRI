@@ -22,6 +22,7 @@ package be.cetic.simqri.metamodel;
 public interface StudentsT extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Degree Of Freedom</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Degree Of Freedom</em>' attribute isn't clear,
@@ -31,7 +32,7 @@ public interface StudentsT extends Distribution {
 	 * @return the value of the '<em>Degree Of Freedom</em>' attribute.
 	 * @see #setDegreeOfFreedom(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getStudentsT_DegreeOfFreedom()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
 	 * @generated
 	 */
 	Double getDegreeOfFreedom();

@@ -23,6 +23,7 @@ package be.cetic.simqri.metamodel;
 public interface Binomial extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Nbr Of Trial</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Nbr Of Trial</em>' attribute isn't clear,
@@ -32,7 +33,7 @@ public interface Binomial extends Distribution {
 	 * @return the value of the '<em>Nbr Of Trial</em>' attribute.
 	 * @see #setNbrOfTrial(Integer)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getBinomial_NbrOfTrial()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
 	 * @generated
 	 */
 	Integer getNbrOfTrial();
@@ -49,6 +50,7 @@ public interface Binomial extends Distribution {
 
 	/**
 	 * Returns the value of the '<em><b>Proba Of Success</b></em>' attribute.
+	 * The default value is <code>"0.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Proba Of Success</em>' attribute isn't clear,
@@ -58,7 +60,7 @@ public interface Binomial extends Distribution {
 	 * @return the value of the '<em>Proba Of Success</em>' attribute.
 	 * @see #setProbaOfSuccess(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getBinomial_ProbaOfSuccess()
-	 * @model dataType="be.cetic.simqri.metamodel.ProbaDouble"
+	 * @model default="0.0" dataType="be.cetic.simqri.metamodel.ProbaDouble"
 	 * @generated
 	 */
 	Double getProbaOfSuccess();

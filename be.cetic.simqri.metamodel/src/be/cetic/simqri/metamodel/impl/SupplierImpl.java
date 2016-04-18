@@ -46,7 +46,7 @@ public class SupplierImpl extends ComponentImpl implements Supplier {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double DELIVERED_PERCENTAGE_EDEFAULT = null;
+	protected static final Double DELIVERED_PERCENTAGE_EDEFAULT = 100.0;
 
 	/**
 	 * The cached value of the '{@link #getDeliveredPercentage() <em>Delivered Percentage</em>}' attribute.

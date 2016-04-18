@@ -26,7 +26,6 @@
     <genDataTypes ecoreDataType="metamodel.ecore#//ProbaDoubleNotNull"/>
     <genClasses ecoreClass="metamodel.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Model/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Model/valid"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Model/query"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Model/orderOnStockThreshold"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//Model/component"/>

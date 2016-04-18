@@ -22,6 +22,7 @@ package be.cetic.simqri.metamodel;
 public interface Gamma extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Shape</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Shape</em>' attribute isn't clear,
@@ -31,7 +32,7 @@ public interface Gamma extends Distribution {
 	 * @return the value of the '<em>Shape</em>' attribute.
 	 * @see #setShape(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getGamma_Shape()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
 	 * @generated
 	 */
 	Double getShape();

@@ -45,7 +45,7 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double PERIOD_EDEFAULT = null;
+	protected static final Double PERIOD_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getPeriod() <em>Period</em>}' attribute.
@@ -65,7 +65,7 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer THRESHOLD_EDEFAULT = null;
+	protected static final Integer THRESHOLD_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getThreshold() <em>Threshold</em>}' attribute.
@@ -105,7 +105,7 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer ORDER_QUANTITY_EDEFAULT = null;
+	protected static final Integer ORDER_QUANTITY_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getOrderQuantity() <em>Order Quantity</em>}' attribute.

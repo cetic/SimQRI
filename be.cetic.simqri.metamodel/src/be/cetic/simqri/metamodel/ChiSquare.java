@@ -22,6 +22,7 @@ package be.cetic.simqri.metamodel;
 public interface ChiSquare extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Degree Of Freedom</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Degree Of Freedom</em>' attribute isn't clear,
@@ -31,7 +32,7 @@ public interface ChiSquare extends Distribution {
 	 * @return the value of the '<em>Degree Of Freedom</em>' attribute.
 	 * @see #setDegreeOfFreedom(Integer)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getChiSquare_DegreeOfFreedom()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
 	 * @generated
 	 */
 	Integer getDegreeOfFreedom();

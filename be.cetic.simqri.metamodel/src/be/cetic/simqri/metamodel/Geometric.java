@@ -22,6 +22,7 @@ package be.cetic.simqri.metamodel;
 public interface Geometric extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Proba Of Success</b></em>' attribute.
+	 * The default value is <code>"0.1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Proba Of Success</em>' attribute isn't clear,
@@ -31,7 +32,7 @@ public interface Geometric extends Distribution {
 	 * @return the value of the '<em>Proba Of Success</em>' attribute.
 	 * @see #setProbaOfSuccess(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getGeometric_ProbaOfSuccess()
-	 * @model dataType="be.cetic.simqri.metamodel.ProbaDoubleNotNull"
+	 * @model default="0.1" dataType="be.cetic.simqri.metamodel.ProbaDoubleNotNull"
 	 * @generated
 	 */
 	Double getProbaOfSuccess();

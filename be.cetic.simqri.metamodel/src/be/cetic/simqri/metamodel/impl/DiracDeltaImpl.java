@@ -33,7 +33,7 @@ public class DiracDeltaImpl extends DistributionImpl implements DiracDelta {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer MEAN_EDEFAULT = null;
+	protected static final Integer MEAN_EDEFAULT = 1;
 
 	/**
 	 * The cached value of the '{@link #getMean() <em>Mean</em>}' attribute.

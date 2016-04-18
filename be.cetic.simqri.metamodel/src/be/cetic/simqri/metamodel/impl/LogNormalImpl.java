@@ -54,7 +54,7 @@ public class LogNormalImpl extends DistributionImpl implements LogNormal {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double SCALE_EDEFAULT = null;
+	protected static final Double SCALE_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getScale() <em>Scale</em>}' attribute.

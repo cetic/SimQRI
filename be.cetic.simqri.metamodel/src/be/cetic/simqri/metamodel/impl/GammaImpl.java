@@ -33,7 +33,7 @@ public class GammaImpl extends DistributionImpl implements Gamma {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double SHAPE_EDEFAULT = null;
+	protected static final Double SHAPE_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getShape() <em>Shape</em>}' attribute.

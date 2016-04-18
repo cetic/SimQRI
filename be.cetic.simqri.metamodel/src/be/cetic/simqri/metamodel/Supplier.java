@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
 public interface Supplier extends Component {
 	/**
 	 * Returns the value of the '<em><b>Delivered Percentage</b></em>' attribute.
+	 * The default value is <code>"100"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Delivered Percentage</em>' attribute isn't clear,
@@ -34,7 +35,7 @@ public interface Supplier extends Component {
 	 * @return the value of the '<em>Delivered Percentage</em>' attribute.
 	 * @see #setDeliveredPercentage(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getSupplier_DeliveredPercentage()
-	 * @model dataType="be.cetic.simqri.metamodel.Percent"
+	 * @model default="100" dataType="be.cetic.simqri.metamodel.Percent"
 	 * @generated
 	 */
 	Double getDeliveredPercentage();

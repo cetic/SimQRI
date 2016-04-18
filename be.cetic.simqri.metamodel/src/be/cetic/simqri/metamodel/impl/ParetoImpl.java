@@ -34,7 +34,7 @@ public class ParetoImpl extends DistributionImpl implements Pareto {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double SHAPE_EDEFAULT = null;
+	protected static final Double SHAPE_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getShape() <em>Shape</em>}' attribute.
@@ -54,7 +54,7 @@ public class ParetoImpl extends DistributionImpl implements Pareto {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double SCALE_EDEFAULT = null;
+	protected static final Double SCALE_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getScale() <em>Scale</em>}' attribute.

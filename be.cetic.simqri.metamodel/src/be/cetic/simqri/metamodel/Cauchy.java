@@ -23,6 +23,7 @@ package be.cetic.simqri.metamodel;
 public interface Cauchy extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Location</em>' attribute isn't clear,
@@ -32,7 +33,7 @@ public interface Cauchy extends Distribution {
 	 * @return the value of the '<em>Location</em>' attribute.
 	 * @see #setLocation(double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getCauchy_Location()
-	 * @model
+	 * @model default="0"
 	 * @generated
 	 */
 	double getLocation();
@@ -49,6 +50,7 @@ public interface Cauchy extends Distribution {
 
 	/**
 	 * Returns the value of the '<em><b>Scale</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Scale</em>' attribute isn't clear,
@@ -58,7 +60,7 @@ public interface Cauchy extends Distribution {
 	 * @return the value of the '<em>Scale</em>' attribute.
 	 * @see #setScale(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getCauchy_Scale()
-	 * @model dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
+	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
 	 * @generated
 	 */
 	Double getScale();
