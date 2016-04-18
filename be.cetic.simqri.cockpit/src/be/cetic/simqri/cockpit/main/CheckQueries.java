@@ -14,10 +14,15 @@ import be.cetic.simqri.simulator.mapping.SimQRiSirius;
  */
 public class CheckQueries {
 	
-	public static void check(Model model) {
+	public static void check(Model model, String errMessages) {
+		if(!errMessages.isEmpty()) {
+			showMessage("Your queries can not be checked due to some modeling errors in your diagram : \n"
+					+ errMessages, true);
+			return;
+		}
 		SimQRiSirius sim = new SimQRiSirius(100, true);
 		String errors =  sim.fillModelWithSiriusData(model);
-		if(errors.isEmpty()) 
+		if(errors.isEmpty() && errMessages.isEmpty()) 
 			showMessage("All your queries are valid !", false);
 		else 
 			showMessage(errors, true);

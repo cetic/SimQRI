@@ -1,6 +1,7 @@
 package be.cetic.simqri.design.actions;
 
 import java.util.Collection;
+
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
@@ -29,18 +30,19 @@ public class ActionSimulation implements IExternalJavaAction {
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
 		Model model = (Model) parameters.get("model");
-		boolean valid = checkModelValidity(model);
-		Simulation.launch(model, valid);
+		String errMessages = checkModelValidity(model);
+		Simulation.launch(model, errMessages);
 	}
 	
-	private boolean checkModelValidity(Model model) {
+	private String checkModelValidity(Model model) {
 		CheckOutputs co = new CheckOutputs();
 		CheckFlows cf = new CheckFlows();
-		if(!co.hasAnOutputOfSuccessType(model) || !co.hasNotTwoOutputsOfSameType(model) || !cf.haseOneFlowFromThatPort(model)
-			|| !cf.hasOneFlowFromThatStorage(model) || !cf.hasOneFlowFromThatSupplier(model)) {
-			return false;
-		}
-		return true;
+		String errMessages = "";
+		errMessages += co.hasNotTwoOutputsOfSameType(model);
+		errMessages += cf.hasOneFlowFromThatPort(model);
+		errMessages += cf.hasOneFlowFromThatStorage(model);
+		errMessages += cf.hasOneFlowFromThatSupplier(model);
+		return errMessages;
 	}
 
 	@Override

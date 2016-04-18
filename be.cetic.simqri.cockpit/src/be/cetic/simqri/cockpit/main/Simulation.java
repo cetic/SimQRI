@@ -14,12 +14,12 @@ import be.cetic.simqri.metamodel.Model;
  */
 public class Simulation {
 	
-	public static void launch(Model model, boolean valid) {
-		if(valid)
+	public static void launch(Model model, String errMessages) {
+		if(errMessages.isEmpty())
 			new SimulationManagementWindow(model);
 		else
-			showMessage("It seems there is at least one modeling error in your diagram. \n "
-						+ "Please check its validation before launching a simulation.", true);
+			showMessage("The simulation will not be launchable due to some modeling errors in your diagram : \n"
+						+ errMessages, true);
 	}
 	
 	private static void showMessage(String message, boolean error) {

@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
 import be.cetic.simqri.cockpit.main.CheckQueries;
+import be.cetic.simqri.design.templates.CheckFlows;
+import be.cetic.simqri.design.templates.CheckOutputs;
 import be.cetic.simqri.metamodel.Model;
 
 /**
@@ -28,8 +30,19 @@ public class ActionCheckQueries implements IExternalJavaAction {
 	@Override
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
 		Model model = (Model) parameters.get("model");
-		// TODO Next step : retrieve "println" messages in the window
-		CheckQueries.check(model);
+		String errMessages = checkModelValidity(model);
+		CheckQueries.check(model, errMessages);
+	}
+	
+	private String checkModelValidity(Model model) {
+		CheckOutputs co = new CheckOutputs();
+		CheckFlows cf = new CheckFlows();
+		String errMessages = "";
+		errMessages += co.hasNotTwoOutputsOfSameType(model);
+		errMessages += cf.hasOneFlowFromThatPort(model);
+		errMessages += cf.hasOneFlowFromThatStorage(model);
+		errMessages += cf.hasOneFlowFromThatSupplier(model);
+		return errMessages;
 	}
 
 	@Override

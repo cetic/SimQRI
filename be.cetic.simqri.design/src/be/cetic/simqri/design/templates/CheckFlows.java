@@ -14,17 +14,14 @@ import be.cetic.simqri.metamodel.Process;
  * 
  * Contains all checks about flows of SimQRi graphical tool
  */
-public class CheckFlows {
-	
-	// private List<Process> processes = new ArrayList<Process>();
-	
+public class CheckFlows {	
 	
 	/**
 	 * 
 	 * @param The model of the diagram
-	 * @return False if at least one process of the model has more than one flow from the same storage. True otherwise.
+	 * @return An error message if there is at least one process of the model that has more than one flow from the same storage. An empty string otherwise.
 	 */
-	public boolean hasOneFlowFromThatStorage(Model model) {
+	public String hasOneFlowFromThatStorage(Model model) {
 		List<Storage> storages = new ArrayList<Storage>();
 		for(Component c : model.getComponent()) {
 			if(c instanceof Process) {
@@ -33,20 +30,20 @@ public class CheckFlows {
 					if(!storages.contains(sof.getSource()))
 						storages.add(sof.getSource());
 					else 
-						return false;
+						return "> Each process can only have one flow from the same storage\n";
 				}
 			}
 			storages.clear();
 		}
-		return true;
+		return "";
 	}
 	
 	/**
 	 * 
 	 * @param The model of the diagram
-	 * @return False if at least one storage of the model has more than one flow from the same supplier. True otherwise.
+	 * @return An error message if there is at least one storage of the model that has more than one flow from the same supplier. An empty string otherwise.
 	 */
-	public boolean hasOneFlowFromThatSupplier(Model model) {
+	public String hasOneFlowFromThatSupplier(Model model) {
 		List<Supplier> suppliers = new ArrayList<Supplier>();
 		for(Component c : model.getComponent()) {
 			if(c instanceof Storage) {
@@ -55,20 +52,20 @@ public class CheckFlows {
 					if(!suppliers.contains(oost.getSupplier())) 
 						suppliers.add(oost.getSupplier());
 					else 
-						return false;
+						return "> Storages can not have several flows from the same supplier\n";
 				}
 			}
 			suppliers.clear();
 		}
-		return true;
+		return "";
 	}
 	
 	/**
 	 * 
 	 * @param The model of the diagram
-	 * @return False if at least one storage of the model has more than one flow from the same port. True otherwise.
+	 * @return An error message if there is at least one storage of the model that has more than one flow from the same port. An empty string otherwise.
 	 */
-	public boolean haseOneFlowFromThatPort(Model model) {
+	public String hasOneFlowFromThatPort(Model model) {
 		List<Output> outputs = new ArrayList<Output>();
 		for(Component c : model.getComponent()) {
 			if(c instanceof Storage) {
@@ -77,11 +74,11 @@ public class CheckFlows {
 					if(!outputs.contains(pof.getSource())) 
 						outputs.add(pof.getSource());
 					else 
-						return false;
+						return "> Storages can not have several flows from the same output\n";
 				}
 			}
 			outputs.clear();
 		}
-		return true;
+		return "";
 	}
 }

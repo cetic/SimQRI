@@ -25,9 +25,9 @@ public class CheckOutputs {
 	/**
 	 * 
 	 * @param The root model of the diagram
-	 * @return false if at least one process of the model has two outputs of the same type. True otherwise.
+	 * @return An error message if there is at least one process of the model that has two outputs of the same type. An empty string otherwise.
 	 */
-	public boolean hasNotTwoOutputsOfSameType(Model model) {
+	public String hasNotTwoOutputsOfSameType(Model model) {
 		BatchProcess bp = null;
 		OutputType  outputType = null;
 		for(Component c : model.getComponent()) {
@@ -38,32 +38,33 @@ public class CheckOutputs {
 					if(!outputTypes.contains(outputType)) 
 						outputTypes.add(outputType);
 					else 
-						return false;
+						return "> Each process can only have one flow from the same storage\n";
 				}
 				// Check if the process contains at least one "success" output if he contains some outputs
 				if(!outputTypes.isEmpty() && !outputTypes.contains(OutputType.SUCCESS)) {
-					return false;
+					return "> Some of your processes have at least 2 outputs of the same type or need a \"success\" output\n";
 				}
 			}
 			outputTypes.clear();
 		}
-		return true;
+		return "";
 	}
 	
 	/**
 	 * 
 	 * @param The root model of the diagram
-	 * @return false if at least one conveyor belt of the model has not a success output. True otherwise.
+	 * @return A warning message if there is at least one conveyor belt of the model that has not a success output. An empty string otherwise.
+	 * /!\ The type of the output will not influence the execution of the simulation
 	 */
-	public boolean hasAnOutputOfSuccessType(Model model) {
+	public String hasAnOutputOfSuccessType(Model model) {
 		ConveyorBelt cb = null;
 		for(Component c : model.getComponent()) {
 			if(c instanceof ConveyorBelt) {
 				cb = (ConveyorBelt) c;
 				if(cb.getOutput() != null && cb.getOutput().getType() != OutputType.SUCCESS)
-					return false;
+					return "> There is at least an output port of your conveyor belts that is not a \"SUCCESS\" output. However, it will be considered as such.\n";
 			}
 		}
-		return true;
+		return "";
 	}
 }

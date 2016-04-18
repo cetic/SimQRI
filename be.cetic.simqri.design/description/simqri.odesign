@@ -8,19 +8,19 @@
       </filters>
       <validationSet name="Validate Diagram">
         <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromStorages" level="ERROR" message="Each process can only have one flow from the same storage !" targetClass="metamodel.Model">
-          <audits auditExpression="aql:self.hasOneFlowFromThatStorage()=true"/>
+          <audits auditExpression="aql:self.hasOneFlowFromThatStorage().toString()=&quot;&quot;"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkOutputsFromBatchProcesses" level="ERROR" message="Some of your processes have at least 2 outputs of the same type or miss a &quot;success&quot; output !" targetClass="metamodel.Model">
-          <audits auditExpression="aql:self.hasNotTwoOutputsOfSameType()=true"/>
+          <audits auditExpression="aql:self.hasNotTwoOutputsOfSameType().toString()=&quot;&quot;"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkOutputFromConveyorBelt" level="WARNING" message="There is at least an output port of your conveyor belts that is not a &quot;SUCCESS&quot; output. However, it will be considered as such." targetClass="metamodel.Model">
-          <audits auditExpression="aql:self.hasAnOutputOfSuccessType()=true"/>
+          <audits auditExpression="aql:self.hasAnOutputOfSuccessType().toString()=&quot;&quot;"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromSuppliers" level="ERROR" message="Storages can not have several flows from the same supplier !" targetClass="metamodel.Model">
-          <audits auditExpression="aql:self.hasOneFlowFromThatSupplier()=true"/>
+          <audits auditExpression="aql:self.hasOneFlowFromThatSupplier().toString()=&quot;&quot;"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromOutputs" level="ERROR" message="Storages can not have several flows from the same output !" targetClass="metamodel.Model">
-          <audits auditExpression="aql:self.haseOneFlowFromThatPort()=true"/>
+          <audits auditExpression="aql:self.hasOneFlowFromThatPort().toString()=&quot;&quot;"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkUniformDistribution" level="ERROR" message="The &quot;maximum&quot; parameter of the Uniform distribution has to be greater than &quot;minimum&quot; parameter !" targetClass="metamodel.Uniform">
           <audits auditExpression="aql:self.minimum&lt;self.maximum"/>
