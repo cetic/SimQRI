@@ -19,7 +19,7 @@
   </component>
   <component xsi:type="metamodel:ConveyorBelt" name="new_conveyor_belt 1" storageOutputFlow="//@flow.5">
     <duration xsi:type="metamodel:Scalar"/>
-    <output type="FAILURE" processOutputFlow="//@flow.6"/>
+    <output processOutputFlow="//@flow.6"/>
   </component>
   <component xsi:type="metamodel:Supplier" name="new_supplier 2" refillPolicy="//@orderOnStockThreshold.1">
     <supplierDelay xsi:type="metamodel:Uniform" minimum="14.0" maximum="12.0"/>
