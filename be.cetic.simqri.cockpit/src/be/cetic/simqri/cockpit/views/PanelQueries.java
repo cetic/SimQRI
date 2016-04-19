@@ -15,7 +15,7 @@ public class PanelQueries extends JPanel {
 	public PanelQueries(List<List<String>> queries) {
 		super();
 		this.queries = queries;
-		this.jtaTrace = new JTextArea(20, 70);
+		this.jtaTrace = new JTextArea(27, 60);
 		fillJTextArea(queries);
 		this.add(jtaTrace);
 				

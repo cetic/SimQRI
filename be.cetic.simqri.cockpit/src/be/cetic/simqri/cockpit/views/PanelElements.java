@@ -15,7 +15,7 @@ public class PanelElements extends JPanel {
 	public PanelElements(List<List<String>> elements) {
 		super();
 		this.elements = elements;
-		this.jtaTrace = new JTextArea(20, 70);
+		this.jtaTrace = new JTextArea(27, 60);
 		fillJTextArea(elements);
 		this.add(jtaTrace);
 				
