@@ -41,7 +41,6 @@ public class ResultsWindow extends JFrame implements ActionListener {
 		this.add(jtpResults, BorderLayout.CENTER);
 		this.add(this.jpButtons, BorderLayout.SOUTH);
 		
-		this.pack();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
@@ -53,9 +52,9 @@ public class ResultsWindow extends JFrame implements ActionListener {
 		
 		this.jtpResults = new JTabbedPane();
 		
-		this.panelTrace = new PanelTrace(); // Param = mapResults.get("trace")
-		this.panelElements = new PanelElements(); // Param = ...
-		this.panelQueries = new PanelQueries(); // Param = ...
+		this.panelTrace = new PanelTrace(null); // Param = mapResults.get("trace")
+		this.panelElements = new PanelElements(null); // Param = ...
+		this.panelQueries = new PanelQueries(null); // Param = ...
 		
 		this.jtpResults.addTab("Trace", null, panelTrace, "Check the simulation trace");
 		this.jtpResults.addTab("Elements", null, panelElements, "Check the simulation elements");
