@@ -2,9 +2,11 @@ package be.cetic.simqri.simulator.mapping
 
 import oscar.des.flow.core.{DiscreteChoice, Putable, Fetchable}
 
+
 import oscar.des.flow.lib._
 import oscar.des.flow.modeling._
 import oscar.des.montecarlo.DataSampling
+import oscar.des.logger.Logger
 
 import scala.collection.{mutable, SortedSet}
 import scala.collection.mutable
@@ -23,12 +25,13 @@ import be.cetic.simqri.metamodel.ProcessOutputFlow
    SimQRi model in OscaR-DES
  * @author FK & Gustavo Ospina
  */
-class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulationHelper {
+class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String], mcSim : Boolean) extends FactorySimulationHelper {
   
   val tools = new Tools
   // val m = new Model
+  private val verboseFunc = if (verbose) sqlogger.loggerFunc else null
   var runTime = 0L
-  val factoryModel = new FactoryModel(null) 
+  val factoryModel = if (mcSim) new FactoryModel(null) else new FactoryModel(verboseFunc)
   var simQRiComponents : Array[SimQRiComponent] = new Array[SimQRiComponent](0)
   
   /**
@@ -291,13 +294,13 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
     factoryModel.simulate(duration)
     val time1 = System.nanoTime()
     runTime = time1 - time0
-    println("probe", "Elapsed time in nanoseconds", runTime.toString)
+    sqlogger.log("probe", "Elapsed time in nanoseconds", runTime.toString)
     factoryModel.logMetrics()
     simQRiComponents.foreach((comp) => {
       comp.mapInfo.foreach((tuple) => {
         val attr = tuple._1
         val value = tuple._2.toString
-        println("mapinfo", comp.getName, comp.getType, attr, value)
+        sqlogger.log("mapinfo", comp.getName, comp.getType, attr, value)
       })
     })
   }
@@ -338,22 +341,22 @@ class SimQRiSirius(duration : Float, verbose : Boolean) extends FactorySimulatio
       attrs_map.foreach((attr_map) => {
         val attr_name = attr_map._1
         val attr_sampling = attr_map._2
-        println("mc_sampling_element", elem_name, attr_name, attr_sampling.toJSONString)
+        sqlogger.log("mc_sampling_element", elem_name, attr_name, attr_sampling.toJSONString)
       })
     })
     // Log runtime info
-    println("mc_sampling_runtime", samplingRuntime.toJSONString)
+    sqlogger.log("mc_sampling_runtime", samplingRuntime.toJSONString)
     // Log single probes info
     singleProbesSamplingMap.foreach((probe_map) => {
       val probe_name = probe_map._1
       val probe_sampling = probe_map._2
-      println("mc_sampling_probe", probe_name, probe_sampling.toJSONString)
+      sqlogger.log("mc_sampling_probe", probe_name, probe_sampling.toJSONString)
     })
     // Log history probes info
     historyProbesMap.foreach((history_map) => {
       val probe_name = history_map._1
       val probe_history = history_map._2
-      println("mc_history_probe", probe_name, SimQRiModel.historyListToJSONString(probe_history))
+      sqlogger.log("mc_history_probe", probe_name, SimQRiModel.historyListToJSONString(probe_history))
     })
   }
 }
