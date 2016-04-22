@@ -23,14 +23,14 @@ public class PanelResults extends JPanel {
 	public PanelResults(String results) {
 		super();
 		this.results = results;
-		this.jtaResults = new JTextArea(27, 60);
 		fillJTextArea();
-		this.add(jtaResults);
+		//this.add(jtaResults);
 		this.add(jspTextArea);
 				
 	}
 	
 	private void fillJTextArea() {
+		this.jtaResults = new JTextArea(27, 60);
 		this.jtaResults.setText(results);
 		this.jtaResults.setEditable(false);
 		jspTextArea = new JScrollPane(jtaResults, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
