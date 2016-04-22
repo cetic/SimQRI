@@ -34,6 +34,11 @@
     <genClasses ecoreClass="metamodel.ecore#//Query">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/result"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/max"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/min"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/mean"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/variance"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Storage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Storage/size"/>

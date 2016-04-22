@@ -22,6 +22,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getName <em>Name</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getResult <em>Result</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getMax <em>Max</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getMin <em>Min</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getMean <em>Mean</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getVariance <em>Variance</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +71,106 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 	 * @ordered
 	 */
 	protected String value = VALUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getResult() <em>Result</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResult()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String RESULT_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getResult() <em>Result</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getResult()
+	 * @generated
+	 * @ordered
+	 */
+	protected String result = RESULT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMax() <em>Max</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMax()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MAX_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMax() <em>Max</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMax()
+	 * @generated
+	 * @ordered
+	 */
+	protected String max = MAX_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMin() <em>Min</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMin()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MIN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMin() <em>Min</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMin()
+	 * @generated
+	 * @ordered
+	 */
+	protected String min = MIN_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getMean() <em>Mean</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMean()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String MEAN_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getMean() <em>Mean</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMean()
+	 * @generated
+	 * @ordered
+	 */
+	protected String mean = MEAN_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getVariance() <em>Variance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariance()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String VARIANCE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getVariance() <em>Variance</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getVariance()
+	 * @generated
+	 * @ordered
+	 */
+	protected String variance = VARIANCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +238,111 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getResult() {
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setResult(String newResult) {
+		String oldResult = result;
+		result = newResult;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.QUERY__RESULT, oldResult, result));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMax() {
+		return max;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMax(String newMax) {
+		String oldMax = max;
+		max = newMax;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.QUERY__MAX, oldMax, max));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMin() {
+		return min;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMin(String newMin) {
+		String oldMin = min;
+		min = newMin;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.QUERY__MIN, oldMin, min));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getMean() {
+		return mean;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMean(String newMean) {
+		String oldMean = mean;
+		mean = newMean;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.QUERY__MEAN, oldMean, mean));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getVariance() {
+		return variance;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setVariance(String newVariance) {
+		String oldVariance = variance;
+		variance = newVariance;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.QUERY__VARIANCE, oldVariance, variance));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -140,6 +350,16 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return getName();
 			case MetamodelPackage.QUERY__VALUE:
 				return getValue();
+			case MetamodelPackage.QUERY__RESULT:
+				return getResult();
+			case MetamodelPackage.QUERY__MAX:
+				return getMax();
+			case MetamodelPackage.QUERY__MIN:
+				return getMin();
+			case MetamodelPackage.QUERY__MEAN:
+				return getMean();
+			case MetamodelPackage.QUERY__VARIANCE:
+				return getVariance();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,6 +377,21 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return;
 			case MetamodelPackage.QUERY__VALUE:
 				setValue((String)newValue);
+				return;
+			case MetamodelPackage.QUERY__RESULT:
+				setResult((String)newValue);
+				return;
+			case MetamodelPackage.QUERY__MAX:
+				setMax((String)newValue);
+				return;
+			case MetamodelPackage.QUERY__MIN:
+				setMin((String)newValue);
+				return;
+			case MetamodelPackage.QUERY__MEAN:
+				setMean((String)newValue);
+				return;
+			case MetamodelPackage.QUERY__VARIANCE:
+				setVariance((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,6 +411,21 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 			case MetamodelPackage.QUERY__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
+			case MetamodelPackage.QUERY__RESULT:
+				setResult(RESULT_EDEFAULT);
+				return;
+			case MetamodelPackage.QUERY__MAX:
+				setMax(MAX_EDEFAULT);
+				return;
+			case MetamodelPackage.QUERY__MIN:
+				setMin(MIN_EDEFAULT);
+				return;
+			case MetamodelPackage.QUERY__MEAN:
+				setMean(MEAN_EDEFAULT);
+				return;
+			case MetamodelPackage.QUERY__VARIANCE:
+				setVariance(VARIANCE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -192,6 +442,16 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MetamodelPackage.QUERY__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case MetamodelPackage.QUERY__RESULT:
+				return RESULT_EDEFAULT == null ? result != null : !RESULT_EDEFAULT.equals(result);
+			case MetamodelPackage.QUERY__MAX:
+				return MAX_EDEFAULT == null ? max != null : !MAX_EDEFAULT.equals(max);
+			case MetamodelPackage.QUERY__MIN:
+				return MIN_EDEFAULT == null ? min != null : !MIN_EDEFAULT.equals(min);
+			case MetamodelPackage.QUERY__MEAN:
+				return MEAN_EDEFAULT == null ? mean != null : !MEAN_EDEFAULT.equals(mean);
+			case MetamodelPackage.QUERY__VARIANCE:
+				return VARIANCE_EDEFAULT == null ? variance != null : !VARIANCE_EDEFAULT.equals(variance);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -210,6 +470,16 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 		result.append(name);
 		result.append(", value: ");
 		result.append(value);
+		result.append(", result: ");
+		result.append(result);
+		result.append(", max: ");
+		result.append(max);
+		result.append(", min: ");
+		result.append(min);
+		result.append(", mean: ");
+		result.append(mean);
+		result.append(", variance: ");
+		result.append(variance);
 		result.append(')');
 		return result.toString();
 	}

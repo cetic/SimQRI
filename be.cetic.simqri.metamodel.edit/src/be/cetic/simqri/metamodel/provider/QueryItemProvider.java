@@ -62,6 +62,11 @@ public class QueryItemProvider
 
 			addNamePropertyDescriptor(object);
 			addValuePropertyDescriptor(object);
+			addResultPropertyDescriptor(object);
+			addMaxPropertyDescriptor(object);
+			addMinPropertyDescriptor(object);
+			addMeanPropertyDescriptor(object);
+			addVariancePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -111,6 +116,116 @@ public class QueryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Result feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addResultPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Query_result_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Query_result_feature", "_UI_Query_type"),
+				 MetamodelPackage.Literals.QUERY__RESULT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Query_max_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Query_max_feature", "_UI_Query_type"),
+				 MetamodelPackage.Literals.QUERY__MAX,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Min feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Query_min_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Query_min_feature", "_UI_Query_type"),
+				 MetamodelPackage.Literals.QUERY__MIN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Mean feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMeanPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Query_mean_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Query_mean_feature", "_UI_Query_type"),
+				 MetamodelPackage.Literals.QUERY__MEAN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Variance feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addVariancePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Query_variance_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Query_variance_feature", "_UI_Query_type"),
+				 MetamodelPackage.Literals.QUERY__VARIANCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Query.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -150,6 +265,11 @@ public class QueryItemProvider
 		switch (notification.getFeatureID(Query.class)) {
 			case MetamodelPackage.QUERY__NAME:
 			case MetamodelPackage.QUERY__VALUE:
+			case MetamodelPackage.QUERY__RESULT:
+			case MetamodelPackage.QUERY__MAX:
+			case MetamodelPackage.QUERY__MIN:
+			case MetamodelPackage.QUERY__MEAN:
+			case MetamodelPackage.QUERY__VARIANCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

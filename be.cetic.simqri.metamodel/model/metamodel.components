@@ -6,7 +6,6 @@
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6zVo_GlEeWjQNaciI-lWA" name="name" views="_E6z9AfGlEeWjQNaciI-lWA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Model/name"/>
         </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6zVpPGlEeWjQNaciI-lWA" name="valid" views="_E6z9AvGlEeWjQNaciI-lWA"/>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6zVpfGlEeWjQNaciI-lWA" name="query" views="_E6z9A_GlEeWjQNaciI-lWA">
           <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Model/query"/>
         </properties>
@@ -309,9 +308,6 @@
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_E6z9AfGlEeWjQNaciI-lWA" name="name">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
-          </elements>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_E6z9AvGlEeWjQNaciI-lWA" name="valid">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.1"/>
           </elements>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_E6z9A_GlEeWjQNaciI-lWA" name="query">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/EMFProperties.toolkits#//@widgets.7"/>

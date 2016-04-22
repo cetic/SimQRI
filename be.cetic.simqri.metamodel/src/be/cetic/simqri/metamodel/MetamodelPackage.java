@@ -160,13 +160,58 @@ public interface MetamodelPackage extends EPackage {
 	int QUERY__VALUE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Result</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY__RESULT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Max</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY__MAX = 3;
+
+	/**
+	 * The feature id for the '<em><b>Min</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY__MIN = 4;
+
+	/**
+	 * The feature id for the '<em><b>Mean</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY__MEAN = 5;
+
+	/**
+	 * The feature id for the '<em><b>Variance</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY__VARIANCE = 6;
+
+	/**
 	 * The number of structural features of the '<em>Query</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_FEATURE_COUNT = 2;
+	int QUERY_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Query</em>' class.
@@ -1836,6 +1881,61 @@ public interface MetamodelPackage extends EPackage {
 	EAttribute getQuery_Value();
 
 	/**
+	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Query#getResult <em>Result</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Result</em>'.
+	 * @see be.cetic.simqri.metamodel.Query#getResult()
+	 * @see #getQuery()
+	 * @generated
+	 */
+	EAttribute getQuery_Result();
+
+	/**
+	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Query#getMax <em>Max</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Max</em>'.
+	 * @see be.cetic.simqri.metamodel.Query#getMax()
+	 * @see #getQuery()
+	 * @generated
+	 */
+	EAttribute getQuery_Max();
+
+	/**
+	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Query#getMin <em>Min</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Min</em>'.
+	 * @see be.cetic.simqri.metamodel.Query#getMin()
+	 * @see #getQuery()
+	 * @generated
+	 */
+	EAttribute getQuery_Min();
+
+	/**
+	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Query#getMean <em>Mean</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Mean</em>'.
+	 * @see be.cetic.simqri.metamodel.Query#getMean()
+	 * @see #getQuery()
+	 * @generated
+	 */
+	EAttribute getQuery_Mean();
+
+	/**
+	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Query#getVariance <em>Variance</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Variance</em>'.
+	 * @see be.cetic.simqri.metamodel.Query#getVariance()
+	 * @see #getQuery()
+	 * @generated
+	 */
+	EAttribute getQuery_Variance();
+
+	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Storage <em>Storage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2986,6 +3086,46 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUERY__VALUE = eINSTANCE.getQuery_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Result</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY__RESULT = eINSTANCE.getQuery_Result();
+
+		/**
+		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY__MAX = eINSTANCE.getQuery_Max();
+
+		/**
+		 * The meta object literal for the '<em><b>Min</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY__MIN = eINSTANCE.getQuery_Min();
+
+		/**
+		 * The meta object literal for the '<em><b>Mean</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY__MEAN = eINSTANCE.getQuery_Mean();
+
+		/**
+		 * The meta object literal for the '<em><b>Variance</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY__VARIANCE = eINSTANCE.getQuery_Variance();
 
 		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.StorageImpl <em>Storage</em>}' class.
