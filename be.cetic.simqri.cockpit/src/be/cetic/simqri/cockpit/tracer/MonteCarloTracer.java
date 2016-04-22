@@ -43,10 +43,10 @@ public class MonteCarloTracer {
 	}
 	
 	public String getStringElements() {
-		String elementsString = "\n----------------ELEMENTS---------------- \n";
+		String elementsString = "\n  ----------------ELEMENTS---------------- \n";
 		for(Map.Entry<String, List<SamplingTuple>> entry : elementsSampling.entrySet()) {
 			String name = entry.getKey();
-			elementsString += "\nElement "+name+" : \n \n";
+			elementsString += "\n  Element "+name+" : \n \n";
 			Iterator<SamplingTuple> itAttributes = entry.getValue().iterator();
 			while(itAttributes.hasNext()) {
 				SamplingTuple attribute = itAttributes.next();
@@ -59,20 +59,20 @@ public class MonteCarloTracer {
 				double attrMean = JsonFormat.jsonToDouble(jsonDataSampling, "mean");
 				double attrVariance = JsonFormat.jsonToDouble(jsonDataSampling, "variance");
 				
-				elementsString += "* "+attrName+" : \n";
-				elementsString += "  - Max : "+attrMax+" \n";
-				elementsString += "  - Min : "+attrMin+" \n";
-				elementsString += "  - Mean : "+attrMean+" \n";
-				elementsString += "  - Variance : "+attrVariance+" \n \n";
+				elementsString += "  * "+attrName+" : \n";
+				elementsString += "    - Max : "+attrMax+" \n";
+				elementsString += "    - Min : "+attrMin+" \n";
+				elementsString += "    - Mean : "+attrMean+" \n";
+				elementsString += "    - Variance : "+attrVariance+" \n \n";
 			}
-			elementsString += "---------------------------------------- \n";
+			elementsString += "  ---------------------------------------- \n";
 		}
 		// System.out.println(elementsString);
 		return elementsString;
 	}
 	
 	public String getStringRuntime() {
-		String runtimeString = "\n----------------RUNTIME----------------- \n";
+		String runtimeString = "\n  ----------------RUNTIME----------------- \n";
 		String jsonRuntime = runtimeSampling.toJSONString();
 		String jsonDataSampling = JsonFormat.getJSonFromJSon(jsonRuntime, "dataSampling");
 		
@@ -81,18 +81,18 @@ public class MonteCarloTracer {
 		double attrMean = JsonFormat.jsonToDouble(jsonDataSampling, "mean");
 		double attrVariance = JsonFormat.jsonToDouble(jsonDataSampling, "variance");
 		
-		runtimeString += "* Max : "+attrMax+" \n";
-		runtimeString += "* Min : "+attrMin+" \n";
-		runtimeString += "* Mean : "+attrMean+" \n";
-		runtimeString += "* Variance : "+attrVariance+" \n \n";
-		runtimeString += "---------------------------------------- \n";
+		runtimeString += "  * Max : "+attrMax+" \n";
+		runtimeString += "  * Min : "+attrMin+" \n";
+		runtimeString += "  * Mean : "+attrMean+" \n";
+		runtimeString += "  * Variance : "+attrVariance+" \n \n";
+		runtimeString += "  ---------------------------------------- \n";
 		
 		// System.out.println(runtimeString);
 		return runtimeString;
 	}
 	
 	public String getStringProbes() {
-		String probesString = "\n-----------------QUERIES----------------- \n";
+		String probesString = "\n  -----------------QUERIES----------------- \n";
 		Iterator<SamplingTuple> itProbes = probesSampling.iterator();
 		while(itProbes.hasNext()) {
 			SamplingTuple probe = itProbes.next();
@@ -106,19 +106,19 @@ public class MonteCarloTracer {
 			double attrMean = JsonFormat.jsonToDouble(jsonProbeSampling, "mean");
 			double attrVariance = JsonFormat.jsonToDouble(jsonProbeSampling, "variance");
 			
-			probesString += "* "+attrName+" : \n";
-			probesString += "  - Max : "+attrMax+" \n";
-			probesString += "  - Min : "+attrMin+" \n";
-			probesString += "  - Mean : "+attrMean+" \n";
-			probesString += "  - Variance : "+attrVariance+" \n \n";
+			probesString += "  * "+attrName+" : \n";
+			probesString += "    - Max : "+attrMax+" \n";
+			probesString += "    - Min : "+attrMin+" \n";
+			probesString += "    - Mean : "+attrMean+" \n";
+			probesString += "    - Variance : "+attrVariance+" \n \n";
 		}
-		probesString += "----------------------------------------- \n";
+		probesString += "  ----------------------------------------- \n";
 		// System.out.println(probesString);
 		return probesString;
 	}
 	
 	public String getStringHistory() {
-		String historyString = "\n-----------------HISTORY----------------- \n";
+		String historyString = "\n  -----------------HISTORY----------------- \n";
 		Iterator<HistorySampling> itHistory = historySampling.iterator();
 		while(itHistory.hasNext()) {
 			HistorySampling history = itHistory.next();
@@ -128,10 +128,10 @@ public class MonteCarloTracer {
 			
 			String jsonHistorySampling = JsonFormat.getJSonFromJSon(jsonHistory,  "history");	
 			
-			historyString += "* "+attrName+" : \n";
+			historyString += "  * "+attrName+" : \n";
 			historyString += jsonHistorySampling+" \n";
 		}
-		historyString += "----------------------------------------- \n";
+		historyString += "  ----------------------------------------- \n";
 		// System.out.println(historyString);
 		return historyString;
 	}

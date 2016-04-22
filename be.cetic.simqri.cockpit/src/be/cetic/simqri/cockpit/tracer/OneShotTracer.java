@@ -43,25 +43,25 @@ public class OneShotTracer {
 	}
 	
 	public String getStringEvents() {
-		String eventsString = "\n-----------------EVENTS----------------- \n";
+		String eventsString = "\n  -----------------EVENTS----------------- \n";
 		for(Map.Entry<Object, List<Tuple2<String, String>>> entry : events.entrySet()) {
 			String time = String.valueOf(entry.getKey());
-			eventsString += "\nAt time "+time+" : \n";
+			eventsString += "\n  At time "+time+" : \n";
 			Iterator<Tuple2<String, String>> itTraces = entry.getValue().iterator();
 			while(itTraces.hasNext()) {
 				Tuple2<String, String> trace = itTraces.next();
-				eventsString += "* "+trace._1+" : "+trace._2+" \n";
+				eventsString += "  * "+trace._1+" : "+trace._2+" \n";
 			}
-			eventsString += "---------------------------------------- \n";
+			eventsString += "  ---------------------------------------- \n";
 		}
 		return eventsString;
 	}
 	
 	public String getStringElements() {
-		String elementsString = "\n----------------ELEMENTS---------------- \n";
+		String elementsString = "\n  ----------------ELEMENTS---------------- \n";
 		for(Map.Entry<String, Tuple2<String, List<Tuple2<String, Object>>>> entry : mapInfos.entrySet()) {
 			String name = entry.getKey();
-			elementsString += "\nElement "+name+" ";
+			elementsString += "\n  Element "+name+" ";
 			Tuple2<String, List<Tuple2<String, Object>>> typeAndInfos = entry.getValue();
 			String type = (String) typeAndInfos._1;
 			elementsString += "("+type+") : \n";
@@ -71,23 +71,23 @@ public class OneShotTracer {
 				Tuple2<String, Object> infos = itInfos.next();
 				String attribute = infos._1;
 				String value = String.valueOf(infos._2);
-				elementsString += "* "+attribute+" : "+value+" \n";
+				elementsString += "  * "+attribute+" : "+value+" \n";
 			}
-			elementsString += "---------------------------------------- \n";
+			elementsString += "  ---------------------------------------- \n";
 		}
 		return elementsString;
 	}
 	
 	public String getStringProbes() {
-		String probesString = "\n-----------------PROBES----------------- \n";
+		String probesString = "\n  -----------------PROBES----------------- \n";
 		Iterator<Tuple2<String, String>> itProbes = probes.iterator();
 		while(itProbes.hasNext()) {
 			Tuple2<String, String> probe = itProbes.next();
 			String query = probe._1;
 			String value = probe._2.replaceAll("[^\\d.]", "");
-			probesString += "* "+query+" : "+value+"\n";
+			probesString += "  * "+query+" : "+value+"\n";
 		}
-		probesString += "---------------------------------------- \n";
+		probesString += "  ---------------------------------------- \n";
 		return probesString;
 	}
 	
