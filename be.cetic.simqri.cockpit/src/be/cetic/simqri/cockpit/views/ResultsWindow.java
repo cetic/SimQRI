@@ -103,7 +103,10 @@ public class ResultsWindow extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Implement file saving & exit 
+		// TODO Implement file saving
+		if(e.getSource() == this.jbExit) {
+			this.dispose();
+		}
 	} 
 	
 }
