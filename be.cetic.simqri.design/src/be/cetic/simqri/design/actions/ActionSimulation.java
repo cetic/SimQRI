@@ -33,7 +33,7 @@ public class ActionSimulation implements IExternalJavaAction {
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
 		Model model = (Model) parameters.get("model");
 		String errMessages = checkModelValidity(model);
-		Simulation.launch(model, errMessages);
+		Simulation.displaySimulationWindow(model, errMessages);
 	}
 	
 	private String checkModelValidity(Model model) {

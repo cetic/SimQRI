@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="simqri" version="10.1.3.201511131800">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="simqri" version="10.1.3.201511131800">
   <ownedViewpoints name="SimQRi Design" modelFileExtension="">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SimQRi Diagram" domainClass="metamodel.Model" enablePopupBars="true">
       <metamodel href="http://www.example.org/metamodel#/"/>
@@ -428,6 +428,23 @@
           </ownedTools>
         </toolSections>
       </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Queries Table" initialisation="true" domainClass="metamodel.Model">
+      <metamodel href="http://www.example.org/metamodel#/"/>
+      <ownedLineMappings name="QT_Query" label="Query" domainClass="metamodel.Query" headerLabelExpression="aql:self.name"/>
+      <ownedCreateLine name="Add a query" forceRefresh="true" elementsToSelect="aql:self.query" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
+        <variables name="root" documentation="The semantic root element of the table."/>
+        <variables name="element" documentation="The semantic currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        <firstModelOperation xsi:type="tool:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewQuery"/>
+      </ownedCreateLine>
+      <ownedColumnMappings name="QT_Name" label="Name" headerLabelExpression="Name" canEdit="aql:true" featureName="name" labelExpression="feature:name"/>
+      <ownedColumnMappings name="QT_Value" label="Value" headerLabelExpression="Value" canEdit="aql:true" featureName="value" labelExpression="feature:value"/>
+      <ownedColumnMappings name="QT_Result" label="Result" semanticElements="feature:result" headerLabelExpression="&quot;One Shot&quot; results" canEdit="aql:false" featureName="result" labelExpression="feature:result"/>
+      <ownedColumnMappings name="QT_Max" label="Max" semanticElements="feature:max" headerLabelExpression="Maximum" canEdit="aql:false" featureName="max" labelExpression="feature:max"/>
+      <ownedColumnMappings name="QT_Min" label="Min" semanticElements="feature:min" headerLabelExpression="Minimum" canEdit="aql:false" featureName="min" labelExpression="feature:min"/>
+      <ownedColumnMappings name="QT_Mean" label="Mean" semanticElements="feature:mean" headerLabelExpression="Mean" canEdit="aql:false" featureName="mean" labelExpression="feature:mean"/>
+      <ownedColumnMappings name="QT_Variance" label="Variance" semanticElements="feature:variance" headerLabelExpression="Variance" canEdit="aql:false" featureName="variance" labelExpression="feature:variance"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckFlows"/>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckOutputs"/>
