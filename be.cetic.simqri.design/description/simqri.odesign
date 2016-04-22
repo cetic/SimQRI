@@ -32,13 +32,13 @@
         </ownedRules>
       </validationSet>
       <defaultLayer name="Default">
-        <nodeMappings name="SD_supplier" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.supplierDelay)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.Supplier">
+        <nodeMappings name="SD_supplier" deletionDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Remove%20Supplier']" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.supplierDelay)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.Supplier">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.sample/images/supplier.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
-        <nodeMappings name="SD_storage" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.Storage">
+        <nodeMappings name="SD_storage" deletionDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Remove%20Storage']" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.Storage">
           <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.sample/images/storage.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -50,8 +50,8 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="SD_batchprocess" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.outputs)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.BatchProcess">
-          <borderedNodeMappings name="SD_output_bp" semanticCandidatesExpression="feature:outputs" domainClass="metamodel.Output">
+        <nodeMappings name="SD_batchprocess" deletionDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Remove%20Process']" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.outputs)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.BatchProcess">
+          <borderedNodeMappings name="SD_output_bp" deletionDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Remove%20Output%20Port']" semanticCandidatesExpression="feature:outputs" domainClass="metamodel.Output">
             <style xsi:type="style:SquareDescription" labelExpression="feature:type" hideLabelByDefault="true" sizeComputationExpression="2" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -81,8 +81,8 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
-        <nodeMappings name="SD_conveyorbelt" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.ConveyorBelt">
-          <borderedNodeMappings name="SD_output_cb" semanticCandidatesExpression="feature:output" domainClass="metamodel.Output">
+        <nodeMappings name="SD_conveyorbelt" deletionDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Remove%20Process']" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.ConveyorBelt">
+          <borderedNodeMappings name="SD_output_cb" deletionDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Remove%20Output%20Port']" semanticCandidatesExpression="feature:output" domainClass="metamodel.Output">
             <style xsi:type="style:SquareDescription" labelExpression="feature:type" hideLabelByDefault="true" sizeComputationExpression="2" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -204,6 +204,64 @@
                 <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(metamodel::ConveyorBelt)">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="output"/>
                 </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Remove Supplier" forceRefresh="true" elementsToSelect="aql:self.refillPolicy">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool:For" expression="aql:self.refillPolicy">
+                  <subModelOperations xsi:type="tool:RemoveElement"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Remove Process" forceRefresh="true" elementsToSelect="aql:self.storageOutputFlow">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool:For" expression="aql:self.storageOutputFlow">
+                  <subModelOperations xsi:type="tool:RemoveElement"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Remove Storage" forceRefresh="true">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool:For" expression="aql:self.storageOutputFlow">
+                  <subModelOperations xsi:type="tool:RemoveElement"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:For" expression="aql:self.processOutputFlow">
+                  <subModelOperations xsi:type="tool:RemoveElement"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:For" expression="aql:self.orderOnStockThreshold">
+                  <subModelOperations xsi:type="tool:RemoveElement"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Remove Output Port" forceRefresh="true">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool:For" expression="aql:self.processOutputFlow">
+                  <subModelOperations xsi:type="tool:RemoveElement"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
