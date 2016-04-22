@@ -1,6 +1,7 @@
 package be.cetic.simqri.cockpit.views;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /**
@@ -16,6 +17,7 @@ public class PanelResults extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private JTextArea jtaTrace;
+	private JScrollPane jspTextArea;
 	private String results;
 	
 	public PanelResults(String results) {
@@ -30,6 +32,9 @@ public class PanelResults extends JPanel {
 	private void fillJTextArea() {
 		this.jtaTrace.setText(results);
 		this.jtaTrace.setEditable(false);
+		jspTextArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		jspTextArea.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
 	}
 
 }
