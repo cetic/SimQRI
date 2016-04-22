@@ -2,14 +2,21 @@ package be.cetic.simqri.cockpit.views;
 
 import java.awt.BorderLayout;
 
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
@@ -33,8 +40,8 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	private JTabbedPane jtpResults;
 	private Component panelTrace, panelRuntime, panelElements, panelQueries;
 	private JButton jbSave, jbExit;
-	private OneShotTracer ost;
-	private MonteCarloTracer mct;
+	private OneShotTracer ost = null;
+	private MonteCarloTracer mct = null;
 	
 	public ResultsWindow(OneShotTracer ost) {
 		super("One Shot simulation results");
@@ -102,11 +109,44 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Implement file saving
-		if(e.getSource() == this.jbExit) {
+	public void actionPerformed(ActionEvent event) {
+		if(event.getSource() == this.jbSave) {
+			String allResults = "";
+			if(this.ost != null && this.mct == null) 
+				allResults = ost.getStringEvents()+"\n"+ost.getStringElements()+"\n"+ost.getStringProbes()+"\n";
+			else if(this.ost == null && this.mct != null)
+				allResults = mct.getStringRuntime()+"\n"+mct.getStringElements()+"\n"+mct.getStringProbes()+"\n";
+			
+			saveInTextFile(allResults);
+		}
+		if(event.getSource() == this.jbExit) {
 			this.dispose();
 		}
 	} 
+	
+	private void saveInTextFile(String allResults) {
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setDialogTitle("Specify a text file to save");   
+		int userSelection = fileChooser.showSaveDialog(null);
+		
+		if (userSelection == JFileChooser.APPROVE_OPTION) {
+		    File fileToSave = fileChooser.getSelectedFile();
+		    
+		    if(!fileToSave.getName().toLowerCase().endsWith(".txt")) {
+			    JOptionPane.showMessageDialog(null, fileToSave.getName()+" is not a text file !", "Error", JOptionPane.ERROR_MESSAGE);
+		    }
+		    else {
+			    BufferedWriter  bf = null;
+			    try {
+					bf = new BufferedWriter(new FileWriter(fileToSave));
+					bf.write(allResults);
+					bf.close();
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(this, "Erreur: " + e.getMessage() + "");
+				}
+			      JOptionPane.showMessageDialog(null, "Data saved successfully at "+fileToSave.getAbsolutePath(), "Information", JOptionPane.INFORMATION_MESSAGE);
+		    }
+		}
+	}
 	
 }
