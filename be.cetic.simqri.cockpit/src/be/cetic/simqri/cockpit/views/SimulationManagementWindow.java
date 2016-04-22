@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.PlainDocument;
 
+import be.cetic.simqri.cockpit.main.Simulation;
 import be.cetic.simqri.metamodel.Model;
-import be.cetic.simqri.simulator.mapping.SimQRiSirius;
 
 /**
  * 
@@ -93,14 +93,11 @@ public class SimulationManagementWindow extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		int timeUnits = Integer.parseInt(this.jtfTimeUnits.getText().toString());
-		SimQRiSirius sim = new SimQRiSirius(timeUnits, true);
-		sim.fillModelWithSiriusData(this.model);
-		if(e.getSource() == this.jbOneShot) {
-			sim.simulateOneShot();
-		}
+		if(e.getSource() == this.jbOneShot) 
+			Simulation.launch("One Shot", timeUnits, 0, this.model);
 		else if(e.getSource() == this.jbMonteCarlo) {
 			int maxIterations = Integer.parseInt(this.jtfMaxIterations.getText().toString());
-			sim.simulateMonteCarlo(maxIterations);
+			Simulation.launch("Monte-Carlo", timeUnits, maxIterations, this.model);
 		}
 		this.dispose();
 	}
