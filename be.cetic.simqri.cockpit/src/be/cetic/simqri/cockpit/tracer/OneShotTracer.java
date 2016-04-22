@@ -79,7 +79,7 @@ public class OneShotTracer {
 	}
 	
 	public String getStringProbes() {
-		String probesString = "\n  -----------------PROBES----------------- \n";
+		String probesString = "\n  -----------------QUERIES---------------- \n";
 		Iterator<Tuple2<String, String>> itProbes = probes.iterator();
 		while(itProbes.hasNext()) {
 			Tuple2<String, String> probe = itProbes.next();

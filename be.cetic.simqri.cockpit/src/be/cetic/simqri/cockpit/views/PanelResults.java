@@ -24,7 +24,6 @@ public class PanelResults extends JPanel {
 		super();
 		this.results = results;
 		fillJTextArea();
-		//this.add(jtaResults);
 		this.add(jspTextArea);
 				
 	}

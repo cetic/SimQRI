@@ -143,7 +143,6 @@ public class Simulation {
 					domain.getCommandStack().execute(new RecordingCommand(domain) {
 					   public void doExecute() {
 						  q.setResult("");
-						  System.out.println(probes.samplingStr());
 						  q.setMax(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "max")));
 						  q.setMin(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "min")));
 						  q.setMean(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "mean")));
