@@ -16,24 +16,26 @@ public class PanelResults extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	private JTextArea jtaTrace;
-	private JScrollPane jspTextArea;
+	private JTextArea jtaResults;
+	private JScrollPane jspVertical, jspHorizontal;
 	private String results;
 	
 	public PanelResults(String results) {
 		super();
 		this.results = results;
-		this.jtaTrace = new JTextArea(27, 60);
+		this.jtaResults = new JTextArea(27, 60);
 		fillJTextArea();
-		this.add(jtaTrace);
+		this.add(jtaResults);
 				
 	}
 	
 	private void fillJTextArea() {
-		this.jtaTrace.setText(results);
-		this.jtaTrace.setEditable(false);
-		jspTextArea.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		jspTextArea.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		this.jtaResults.setText(results);
+		this.jtaResults.setEditable(false);
+		jspVertical = new JScrollPane(jtaResults);
+		jspHorizontal = new JScrollPane(jtaResults);
+		jspVertical.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		jspHorizontal.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 
 	}
 
