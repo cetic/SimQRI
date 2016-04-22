@@ -3,10 +3,11 @@ package be.cetic.simqri.simulator.mapping
 import oscar.des.flow.core.{DiscreteChoice, Putable, Fetchable}
 
 
+
 import oscar.des.flow.lib._
 import oscar.des.flow.modeling._
 import oscar.des.montecarlo.DataSampling
-import oscar.des.logger.Logger
+import oscar.des.logger._
 
 import scala.collection.{mutable, SortedSet}
 import scala.collection.mutable
@@ -302,7 +303,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
         val value = tuple._2.toString
         sqlogger.log("mapinfo", comp.getName, comp.getType, attr, value)
       })
-    })
+    })    
   }
   
     // Main function for MC simulation

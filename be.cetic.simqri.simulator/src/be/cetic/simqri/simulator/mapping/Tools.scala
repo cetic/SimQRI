@@ -2,9 +2,12 @@ package be.cetic.simqri.simulator.mapping
 
 import oscar.des.engine.Model
 
+
+
 import oscar.des.flow.core.{DiscreteChoice, Putable, Fetchable}
 import oscar.des.flow.lib._
 import oscar.des.flow.modeling._
+import oscar.des.logger._
 
 import scala.collection.{mutable, SortedSet}
 import scala.collection.mutable
@@ -82,5 +85,24 @@ class Tools {
       else {
         List()
       }
+    }
+   
+    // NEW : Auxiliary functions to obtain a java map from scala maps of simulation results (ONE SHOT)
+    def eventsToJavaMap(sqlogger : TraceLogger) : java.util.Map[Double, List[(String, String)]] = {
+      var events = sqlogger.logs.events
+      var javaEvents = mapAsJavaMap(events)
+      javaEvents
+    }
+    def mapInfosToJavaMap(sqlogger : TraceLogger) : java.util.Map[String, (String, List[(String, Double)])] = {
+      var mapInfos = sqlogger.logs.mapInfos
+      var javaMapInfos = mapAsJavaMap(mapInfos)
+      mapInfos
+    }
+    
+    // NEW : Auxiliary functions to obtain a java map from scala maps of simulation results (MONTE_CARLO)
+    def elementsSamplingsToJavaMap(sqlogger : TraceLogger) : java.util.Map[String, List[SamplingTuple]] = {
+      var elementsSamplings = sqlogger.logs.mcSamplings.elementsSamplings
+      var esMap = mapAsJavaMap(elementsSamplings)
+      esMap
     }
 }
