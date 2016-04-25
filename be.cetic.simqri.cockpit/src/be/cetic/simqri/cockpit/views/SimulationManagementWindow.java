@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.text.PlainDocument;
 
 import be.cetic.simqri.cockpit.main.Simulation;
+import be.cetic.simqri.cockpit.util.IntFilter;
 import be.cetic.simqri.metamodel.Model;
 
 /**

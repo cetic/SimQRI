@@ -53,8 +53,8 @@ public class Simulation {
 	 * @param maxIterations simulation parameter
 	 * @param model The instance drawn in the Sirius diagram
 	 * 
-	 * This method launches simulations and retrieve results in a tracer and then call a windows 
-	 * in which these results will be diplayed.
+	 * This method launches simulations and retrieves results in a logger, manages them into a tracer 
+	 * and then calls a window in which these results will be diplayed.
 	 * It also set results of queries as attributes to all "Query" instances of the sirius model 
 	 * in order to display them in the queries table view
 	 */

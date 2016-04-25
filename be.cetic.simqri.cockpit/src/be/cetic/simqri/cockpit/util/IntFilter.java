@@ -1,4 +1,4 @@
-package be.cetic.simqri.cockpit.views;
+package be.cetic.simqri.cockpit.util;
 
 import javax.swing.JOptionPane;
 import javax.swing.text.AttributeSet;
