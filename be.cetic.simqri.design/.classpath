@@ -9,6 +9,5 @@
 	<classpathentry kind="lib" path="lib/scala-library-2.10.6.jar"/>
 	<classpathentry kind="lib" path="lib/simulator.jar"/>
 	<classpathentry kind="lib" path="lib/java-json.jar"/>
-	<classpathentry kind="lib" path="lib/gson-2.2.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

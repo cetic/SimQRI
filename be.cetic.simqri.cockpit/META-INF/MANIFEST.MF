@@ -20,5 +20,4 @@ Bundle-ClassPath: .,
  lib/simulator.jar,
  lib/jsci-core.jar,
  lib/jsci-xtra.jar,
- lib/java-json.jar,
- lib/gson-2.2.2.jar
+ lib/java-json.jar

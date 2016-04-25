@@ -50,7 +50,7 @@ public class MonteCarloTracer {
 			Iterator<SamplingTuple> itAttributes = entry.getValue().iterator();
 			while(itAttributes.hasNext()) {
 				SamplingTuple attribute = itAttributes.next();
-				String jsonAttribute = attribute.toJSONString().replace(" ", "");
+				String jsonAttribute = attribute.toJSONString();
 				String attrName = JsonFormat.jsonToString(jsonAttribute, "name");
 				String jsonDataSampling = JsonFormat.getJSonFromJSon(jsonAttribute,  "dataSampling");
 				
@@ -97,7 +97,7 @@ public class MonteCarloTracer {
 		while(itProbes.hasNext()) {
 			SamplingTuple probe = itProbes.next();
 			
-			String jsonProbe = probe.toJSONString().replace(" ",  "");
+			String jsonProbe = probe.toJSONString();
 			String attrName = JsonFormat.jsonToString(jsonProbe, "name");
 			
 			String jsonProbeSampling = JsonFormat.getJSonFromJSon(jsonProbe,  "dataSampling");
