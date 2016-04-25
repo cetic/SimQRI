@@ -66,7 +66,6 @@ public class ResultsWindow extends JFrame implements ActionListener {
 		this.add(jtpResults, BorderLayout.CENTER);
 		this.add(this.jpButtons, BorderLayout.SOUTH);
 		
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
