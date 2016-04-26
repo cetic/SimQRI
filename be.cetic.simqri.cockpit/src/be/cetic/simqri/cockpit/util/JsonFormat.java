@@ -1,5 +1,7 @@
 package be.cetic.simqri.cockpit.util;
 
+import javax.swing.JOptionPane;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,14 +20,14 @@ public class JsonFormat {
 		try {
 			jsonObject = new JSONObject(jsonString);
 		} catch (JSONException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,  "Invalid JSon format", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		String val = null;
 		try {
 			val = jsonObject.getString(key);
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,  "Invalid JSon format", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 
 		return val;
@@ -36,14 +38,13 @@ public class JsonFormat {
 		try {
 			jsonObject = new JSONObject(jsonString);
 		} catch (JSONException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,  "Invalid JSon format", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		double val = 0;
 		try {
 			val = jsonObject.getDouble(key);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,  "Invalid JSon format", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 
 		return val;
@@ -54,13 +55,13 @@ public class JsonFormat {
 		try {
 			json = new JSONObject(jsonString);
 		} catch (JSONException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,  "Invalid JSon format", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		JSONObject subJson = null;
 		try {
 			subJson = json.getJSONObject(key);
 		} catch (JSONException e) {
-			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,  "Invalid JSon format", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		return subJson.toString();
 	}

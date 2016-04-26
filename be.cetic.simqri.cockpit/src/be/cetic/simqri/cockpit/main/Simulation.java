@@ -65,12 +65,7 @@ public class Simulation {
 		if(type.equals("One Shot")) {
 			SimQRiSirius sim = new SimQRiSirius(timeUnits, true, sqlogger, false);
 			String errQueries = sim.fillModelWithSiriusData(model);
-			if(!errQueries.isEmpty()) {
-				showMessage("The simulation will not be launchable due to some errors in your queries : \n"
-						+ errQueries, true);
-				
-			}
-			else {
+			if(errQueries.isEmpty()) {
 				sim.simulateOneShot();
 				
 				// Instance of the object that will store "One Shot" simulation results and transphorm them to strings for the display
@@ -82,24 +77,22 @@ public class Simulation {
 				ost.setRawInfos(sqlogger.logs().rawInfos());
 				
 				setQueriesResult(sqlogger, model);
-				
+
 				new ResultsWindow(ost);
+			}
+			else {
+				showMessage("The simulation will not be launchable due to some errors in your queries : \n"
+						+ errQueries, true);
 			}
 			
 		}
 		else if(type.equals("Monte-Carlo")) {
 			SimQRiSirius sim = new SimQRiSirius(timeUnits, true, sqlogger, true);
 			String errQueries = sim.fillModelWithSiriusData(model);
-			if(!errQueries.isEmpty()) {
-				showMessage("The simulation will not be launchable due to some errors in your queries : \n"
-						+ errQueries, true);
-				
-			}
-			else {
+			if(errQueries.isEmpty()) {
 				sim.simulateMonteCarlo(maxIterations);
 				
 				MonteCarloTracer mct = new MonteCarloTracer();
-				
 				mct.setElementsSampling(t.elementsSamplingsToJavaMap(sqlogger));
 				mct.setRuntimeSampling(sqlogger.logs().mcSamplings().runtimeSampling());
 				mct.setProbesSampling(sqlogger.logs().mcSamplings().probesSampling());
@@ -108,6 +101,10 @@ public class Simulation {
 				setQueriesSamples(sqlogger, model);
 				
 				new ResultsWindow(mct);
+			}
+			else {
+				showMessage("The simulation will not be launchable due to some errors in your queries : \n"
+						+ errQueries, true);
 			}
 		}
 		
@@ -129,7 +126,7 @@ public class Simulation {
 					TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(q);
 					domain.getCommandStack().execute(new RecordingCommand(domain) {
 					   public void doExecute() {
-						   q.setResult(probes._2.toString().replaceAll("[^\\d.]", ""));
+						   q.setResult(probes._2.toString().replaceAll("[^\\d.]", "")); // On ne garde que les valeurs numériques du résultat
 						   q.setMax("");
 						   q.setMin("");
 						   q.setMean("");
