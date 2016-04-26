@@ -17,5 +17,9 @@
            actionClass="be.cetic.simqri.design.actions.ActionSimulation"
            id="actionSimulation">
      </javaActions>
+     <javaActions
+           actionClass="be.cetic.simqri.design.actions.ActionBasicQueries"
+           id="basicQueries">
+     </javaActions>
   </extension>
 </plugin>

@@ -496,6 +496,16 @@
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
         <firstModelOperation xsi:type="tool:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewQuery"/>
       </ownedCreateLine>
+      <ownedCreateLine name="Add basic queries" forceRefresh="true" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
+        <variables name="root" documentation="The semantic root element of the table."/>
+        <variables name="element" documentation="The semantic currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
+          <subModelOperations xsi:type="tool:ExternalJavaAction" name="QT_DefaultQueries" id="basicQueries">
+            <parameters name="model" value="aql:self"/>
+          </subModelOperations>
+        </firstModelOperation>
+      </ownedCreateLine>
       <ownedColumnMappings name="QT_Name" label="Name" headerLabelExpression="Name" canEdit="aql:true" featureName="name" labelExpression="feature:name"/>
       <ownedColumnMappings name="QT_Value" label="Value" headerLabelExpression="Value" canEdit="aql:true" featureName="value" labelExpression="feature:value"/>
       <ownedColumnMappings name="QT_Result" label="Result" semanticElements="feature:result" headerLabelExpression="&quot;One Shot&quot; results" canEdit="aql:false" featureName="result" labelExpression="feature:result"/>

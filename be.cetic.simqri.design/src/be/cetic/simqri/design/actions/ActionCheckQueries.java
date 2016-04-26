@@ -26,7 +26,6 @@ import be.cetic.simqri.metamodel.Model;
 public class ActionCheckQueries implements IExternalJavaAction {
 
 	public ActionCheckQueries() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
@@ -50,7 +49,6 @@ public class ActionCheckQueries implements IExternalJavaAction {
 
 	@Override
 	public boolean canExecute(Collection<? extends EObject> selections) {
-		// TODO Auto-generated method stub
 		return true;
 	}
 
