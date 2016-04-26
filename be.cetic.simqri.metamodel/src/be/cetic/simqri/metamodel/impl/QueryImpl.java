@@ -177,7 +177,7 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected QueryImpl() {
+	public QueryImpl() {
 		super();
 	}
 
