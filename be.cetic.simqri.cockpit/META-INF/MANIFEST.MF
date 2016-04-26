@@ -19,5 +19,4 @@ Bundle-ClassPath: .,
  lib/scala-library-2.10.6.jar,
  lib/simulator.jar,
  lib/jsci-core.jar,
- lib/jsci-xtra.jar,
  lib/java-json.jar
