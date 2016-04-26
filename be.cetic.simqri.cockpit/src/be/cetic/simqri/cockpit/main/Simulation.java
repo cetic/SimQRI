@@ -64,36 +64,51 @@ public class Simulation {
 		Tools t = new Tools(); // Tools : Scala class of the "simulator" project that provides auxiliary functions
 		if(type.equals("One Shot")) {
 			SimQRiSirius sim = new SimQRiSirius(timeUnits, true, sqlogger, false);
-			sim.fillModelWithSiriusData(model);
-			sim.simulateOneShot();
+			String errQueries = sim.fillModelWithSiriusData(model);
+			if(!errQueries.isEmpty()) {
+				showMessage("The simulation will not be launchable due to some errors in your queries : \n"
+						+ errQueries, true);
+				
+			}
+			else {
+				sim.simulateOneShot();
+				
+				// Instance of the object that will store "One Shot" simulation results and transphorm them to strings for the display
+				OneShotTracer ost = new OneShotTracer();
+				// Passing simulation results to our own tracer
+				ost.setEvents(t.eventsToJavaMap(sqlogger));
+				ost.setMapInfos(t.mapInfosToJavaMap(sqlogger));
+				ost.setProbes(sqlogger.logs().probes());
+				ost.setRawInfos(sqlogger.logs().rawInfos());
+				
+				setQueriesResult(sqlogger, model);
+				
+				new ResultsWindow(ost);
+			}
 			
-			// Instance of the object that will store "One Shot" simulation results and transphorm them to strings for the display
-			OneShotTracer ost = new OneShotTracer();
-			// Passing simulation results to our own tracer
-			ost.setEvents(t.eventsToJavaMap(sqlogger));
-			ost.setMapInfos(t.mapInfosToJavaMap(sqlogger));
-			ost.setProbes(sqlogger.logs().probes());
-			ost.setRawInfos(sqlogger.logs().rawInfos());
-			
-			setQueriesResult(sqlogger, model);
-			
-			new ResultsWindow(ost);
 		}
 		else if(type.equals("Monte-Carlo")) {
 			SimQRiSirius sim = new SimQRiSirius(timeUnits, true, sqlogger, true);
-			sim.fillModelWithSiriusData(model);
-			sim.simulateMonteCarlo(maxIterations);
-			
-			MonteCarloTracer mct = new MonteCarloTracer();
-			
-			mct.setElementsSampling(t.elementsSamplingsToJavaMap(sqlogger));
-			mct.setRuntimeSampling(sqlogger.logs().mcSamplings().runtimeSampling());
-			mct.setProbesSampling(sqlogger.logs().mcSamplings().probesSampling());
-			mct.setHistorySampling(sqlogger.logs().mcSamplings().historySampling());
-			
-			setQueriesSamples(sqlogger, model);
-			
-			new ResultsWindow(mct);
+			String errQueries = sim.fillModelWithSiriusData(model);
+			if(!errQueries.isEmpty()) {
+				showMessage("The simulation will not be launchable due to some errors in your queries : \n"
+						+ errQueries, true);
+				
+			}
+			else {
+				sim.simulateMonteCarlo(maxIterations);
+				
+				MonteCarloTracer mct = new MonteCarloTracer();
+				
+				mct.setElementsSampling(t.elementsSamplingsToJavaMap(sqlogger));
+				mct.setRuntimeSampling(sqlogger.logs().mcSamplings().runtimeSampling());
+				mct.setProbesSampling(sqlogger.logs().mcSamplings().probesSampling());
+				mct.setHistorySampling(sqlogger.logs().mcSamplings().historySampling());
+				
+				setQueriesSamples(sqlogger, model);
+				
+				new ResultsWindow(mct);
+			}
 		}
 		
 	}

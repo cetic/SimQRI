@@ -51,7 +51,7 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	}
 	
 	public ResultsWindow(MonteCarloTracer mct) {
-		super("One Shot simulation results");
+		super("Monte-Carlo simulation results");
 		this.mct = mct;
 		initComponents(true);
 		initWindow();
