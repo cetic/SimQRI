@@ -9,9 +9,12 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
+import be.cetic.simqri.metamodel.BatchProcess;
 import be.cetic.simqri.metamodel.Component;
+import be.cetic.simqri.metamodel.ConveyorBelt;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.Query;
+import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.Supplier;
 import be.cetic.simqri.metamodel.impl.QueryImpl;
 
@@ -27,17 +30,32 @@ public class ActionBasicQueries implements IExternalJavaAction {
 		addQuery("Number of time units plus 1", "plus(time,1)", model);
 		for(Component c : model.getComponent()) {
 			if(c instanceof Supplier) {
-				Supplier s = (Supplier) c;
-				addQuery(s.getName()+" : Number of started batches", "startedBatchCount(\""+s.getName()+"\")", model);
-				addQuery(s.getName()+" : Number of completed batches", "completedBatchCount(\""+s.getName()+"\")", model);
-				addQuery(s.getName()+" : Percentage of time idle", "div(totalWaitDuration(\""+s.getName()+"\"), time)", model);
+				addQuery(c.getName()+" : Number of started batches", "startedBatchCount(\""+c.getName()+"\")", model);
+				addQuery(c.getName()+" : Number of completed batches", "completedBatchCount(\""+c.getName()+"\")", model);
+				addQuery(c.getName()+" : Percentage of time idle", "div(totalWaitDuration(\""+c.getName()+"\"), time)", model);
+			}
+			else if( c instanceof Storage) {
+				Storage s = (Storage) c;
+				addQuery(s.getName()+" : Maximum relative stock level", "maxOnHistory(relativeStockLevel(\""+s.getName()+"\"))", model);
+				addQuery(s.getName()+" : Average relative stock level", "avgOnHistory(relativeStockLevel(\""+s.getName()+"\"))", model);
+				if(s.isOverflow())
+					addQuery(s.getName()+" : Total lost by overflow", "totalLostByOverflow(\""+s.getName()+"\")", model);
+				else
+					addQuery(s.getName()+" : Minimum relative stock level", "minOnHistory(relativeStockLevel(\""+s.getName()+"\"))", model);
+			}
+			else if (c instanceof BatchProcess || c instanceof ConveyorBelt) {
+				addQuery(c.getName()+" : Number of started batches", "startedBatchCount(\""+c.getName()+"\")", model);
+				addQuery(c.getName()+" : Number of completed batches", "completedBatchCount(\""+c.getName()+"\")", model);
+				addQuery(c.getName()+" : Percentage of time idle", "div(totalWaitDuration(\""+c.getName()+"\"), time)", model);
 			}
 		}
 	}
 	
 	private boolean containsQuery(String name, String value, Model model) {
-		// TODO Check if the query is not already set before adding it into the model
-		// Use the value or (the name and the value) to check it
+		for(Query q : model.getQuery()) {
+			if(q.getValue().equals(value))
+				return true;
+		}
 		return false;
 	}
 	
@@ -52,7 +70,6 @@ public class ActionBasicQueries implements IExternalJavaAction {
 				}
 			});
 		}
-
 	}
 
 	@Override
