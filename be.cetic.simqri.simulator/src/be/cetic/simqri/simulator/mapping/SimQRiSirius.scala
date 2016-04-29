@@ -2,8 +2,6 @@ package be.cetic.simqri.simulator.mapping
 
 import oscar.des.flow.core.{DiscreteChoice, Putable, Fetchable}
 
-
-
 import oscar.des.flow.lib._
 import oscar.des.flow.modeling._
 import oscar.des.montecarlo.DataSampling
@@ -34,18 +32,52 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
   var runTime = 0L
   val factoryModel = if (mcSim) new FactoryModel(null) else new FactoryModel(verboseFunc)
   var simQRiComponents : Array[SimQRiComponent] = new Array[SimQRiComponent](0)
+  // val standardItemClass = zeroItemClass
+  val attributes = attributeDefinitions("rawQuantity")
+  val rawBatch = attributes.getN(0)
+  val ph = new ProbabilityHandler()
+  
+  // Auxiliary function to obtain the list of outputs
+  // it will create Delay objects if the delay data is not zero
+  def getStorageFlowOutputInfo(nameProcess : String, storInfo : mutable.HashMap[Int, Storage],
+                               connInfo : List[(() => Int, Option[()=>Double], Int)]) : List[(() => Int, Putable)] = connInfo match {
+    case Nil => Nil
+    case (dur, delayOpt, storId)::ls =>
+      val storeInf = storInfo.get(storId)
+      storeInf match {
+        case Some(stor) =>
+          delayOpt match {
+            case None => (dur, stor)::getStorageFlowOutputInfo(nameProcess, storInfo, ls)
+            case Some(delay) =>
+              // Old way (Delay object) I don't delete it, it could be restored in the future
+              // val newDelay = new Delay(stor, m, delay)
+              // (dur, newDelay)::getStorageFlowOutputInfo(storInfo, ls)
+              
+              // New way : create a Single Batch Process containing the delay, with an intermediate storage
+              // (1) Create the intermediate storage
+              //TODO change the FIFO by other thing, depending on the interface
+              val intStorage = factoryModel.fIFOStorage(2*stor.maxCapacity, List((0, attributeSet(SortedSet(rawBatch), attributes).itemClass)),
+                                                        s"$nameProcess -> ${stor.name} Delay Storage",
+                                                        overflowOnInput = false)
+              simQRiComponents +:= CStorage(intStorage)
+              // (2) Create the single batch process corresponding to the delay
+              val delayProcess = factoryModel.singleBatchProcess(delay,
+                                                                   Array( (dur, intStorage) ),
+                                                                   Array( (dur, stor) ),
+                                                                   identity,
+                                                                   s"$nameProcess -> ${stor.name} Delay Process")
+              simQRiComponents +:= CSingleBatchProcess(delayProcess)
+                              (dur, intStorage)::getStorageFlowOutputInfo(nameProcess, storInfo, ls)
+          }
+        case None => getStorageFlowOutputInfo(nameProcess, storInfo, ls)
+      }
+  }
   
   /**
    * Main function for create the model (with OscaR-DES-Flow)
    * Returns a String which is empty if all queries are valid. It will contain the error message(s) otherwise
    */
   def fillModelWithSiriusData(model : be.cetic.simqri.metamodel.Model) : String = {
-    
-    // Attributes
-    // val standardItemClass = zeroItemClass
-    val attributes = attributeDefinitions("rawQuantity")
-    val rawBatch = attributes.getN(0)
-    val ph = new ProbabilityHandler()
     
     // Retrieve Processes (BP & CB), Storages & Suppliers from the 'sirius' model
     val components = model.getComponent.toList
@@ -183,9 +215,9 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
         val linkInfos = mapLinkInfos.get(components.indexOf(c))
         val storageFlowInfo = tools.getStorageFlowInfo(mapStorages, linkInfos.get._1.toList).toArray
 
-        val storageFlowOutputInfo = tools.getStorageFlowOutputInfo(mapStorages, linkInfos.get._2.toList).toArray
+        val storageFlowOutputInfo = getStorageFlowOutputInfo(batchProcess.getName, mapStorages, linkInfos.get._2.toList).toArray
 
-        val getStorageFlowOutputFailsInfo = tools.getStorageFlowOutputInfo(mapStorages, linkInfos.get._3.toList).toArray
+        val getStorageFlowOutputFailsInfo = getStorageFlowOutputInfo(batchProcess.getName, mapStorages, linkInfos.get._3.toList).toArray
 
         if(numLines==1 && perSuc==100) {
           val newSBP = factoryModel.singleBatchProcess(duration, 
@@ -237,7 +269,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
         val duration = ph.getNonNegativeDoubleFunc(conveyorBelt.getDuration)
         val linkInfos = mapLinkInfos.get(components.indexOf(c))
         val storageFlowInfo = tools.getStorageFlowInfo(mapStorages, linkInfos.get._1.toList).toArray
-        val storageFlowOutputInfo = tools.getStorageFlowOutputInfo(mapStorages, linkInfos.get._2.toList).toArray
+        val storageFlowOutputInfo = getStorageFlowOutputInfo(conveyorBelt.getName, mapStorages, linkInfos.get._2.toList).toArray
         val newCBP = factoryModel.conveyorBeltProcess(duration, 
                                                       conveyorBelt.getMinimalSeparationBetweenBatches, 
                                                       storageFlowInfo, 

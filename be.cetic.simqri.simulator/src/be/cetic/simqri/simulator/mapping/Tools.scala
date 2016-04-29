@@ -2,8 +2,6 @@ package be.cetic.simqri.simulator.mapping
 
 import oscar.des.engine.Model
 
-
-
 import oscar.des.flow.core.{DiscreteChoice, Putable, Fetchable}
 import oscar.des.flow.lib._
 import oscar.des.flow.modeling._
@@ -21,7 +19,7 @@ import be.cetic.simqri.metamodel.Component
  * 
  * This class contains all the auxiliary functions used in SimQRiSirius.scala
  */
-class Tools {
+class Tools extends FactorySimulationHelper {
   
     val m = new Model
   
@@ -34,25 +32,6 @@ class Tools {
         storeInf match {
           case Some(stor) => (dur, stor)::getStorageFlowInfo(storInfo, ls)
           case None => getStorageFlowInfo(storInfo, ls)
-        }
-    }
-    
-    // Auxiliary function to obtain the list of outputs
-    // it will create Delay objects if the delay data is not zero
-    def getStorageFlowOutputInfo(storInfo : mutable.HashMap[Int, Storage],
-                                 connInfo : List[(() => Int, Option[()=>Double], Int)]) : List[(() => Int, Putable)] = connInfo match {
-      case Nil => Nil
-      case (dur, delayOpt, storId)::ls =>
-        val storeInf = storInfo.get(storId)
-        storeInf match {
-          case Some(stor) =>
-            delayOpt match {
-              case None => (dur, stor)::getStorageFlowOutputInfo(storInfo, ls)
-              case Some(delay) =>
-                val newDelay = new Delay(stor, m, delay)
-                (dur, newDelay)::getStorageFlowOutputInfo(storInfo, ls)
-            }
-          case None => getStorageFlowOutputInfo(storInfo, ls)
         }
     }
     
