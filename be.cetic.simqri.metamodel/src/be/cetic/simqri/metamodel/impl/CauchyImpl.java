@@ -34,7 +34,7 @@ public class CauchyImpl extends DistributionImpl implements Cauchy {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double LOCATION_EDEFAULT = 0.0;
+	protected static final double LOCATION_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.

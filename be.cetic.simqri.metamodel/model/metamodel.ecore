@@ -112,7 +112,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Distribution" abstract="true" eSuperTypes="#//Probability"/>
   <eClassifiers xsi:type="ecore:EClass" name="Cauchy" eSuperTypes="#//Distribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0"/>
+        defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDoubleNotNull"
         defaultValueLiteral="1"/>
   </eClassifiers>
@@ -199,7 +199,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Gaussian" eSuperTypes="#//Distribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0"/>
+        defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDoubleNotNull"
         defaultValueLiteral="1"/>
   </eClassifiers>
@@ -224,10 +224,10 @@
         defaultValueLiteral="0.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Weibull" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shape" eType="#//PositiveDouble"
-        defaultValueLiteral="0.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDouble"
-        defaultValueLiteral="0.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shape" eType="#//PositiveDoubleNotNull"
+        defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDoubleNotNull"
+        defaultValueLiteral="1.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="ProbaDouble" instanceClassName="java.lang.Double">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

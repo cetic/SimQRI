@@ -23,7 +23,7 @@ package be.cetic.simqri.metamodel;
 public interface Weibull extends Distribution {
 	/**
 	 * Returns the value of the '<em><b>Shape</b></em>' attribute.
-	 * The default value is <code>"0.0"</code>.
+	 * The default value is <code>"1.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Shape</em>' attribute isn't clear,
@@ -33,7 +33,7 @@ public interface Weibull extends Distribution {
 	 * @return the value of the '<em>Shape</em>' attribute.
 	 * @see #setShape(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getWeibull_Shape()
-	 * @model default="0.0" dataType="be.cetic.simqri.metamodel.PositiveDouble"
+	 * @model default="1.0" dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
 	 * @generated
 	 */
 	Double getShape();
@@ -50,7 +50,7 @@ public interface Weibull extends Distribution {
 
 	/**
 	 * Returns the value of the '<em><b>Scale</b></em>' attribute.
-	 * The default value is <code>"0.0"</code>.
+	 * The default value is <code>"1.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Scale</em>' attribute isn't clear,
@@ -60,7 +60,7 @@ public interface Weibull extends Distribution {
 	 * @return the value of the '<em>Scale</em>' attribute.
 	 * @see #setScale(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getWeibull_Scale()
-	 * @model default="0.0" dataType="be.cetic.simqri.metamodel.PositiveDouble"
+	 * @model default="1.0" dataType="be.cetic.simqri.metamodel.PositiveDoubleNotNull"
 	 * @generated
 	 */
 	Double getScale();

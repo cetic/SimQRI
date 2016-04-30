@@ -34,7 +34,7 @@ public class WeibullImpl extends DistributionImpl implements Weibull {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double SHAPE_EDEFAULT = 0.0;
+	protected static final Double SHAPE_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getShape() <em>Shape</em>}' attribute.
@@ -54,7 +54,7 @@ public class WeibullImpl extends DistributionImpl implements Weibull {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Double SCALE_EDEFAULT = 0.0;
+	protected static final Double SCALE_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getScale() <em>Scale</em>}' attribute.
