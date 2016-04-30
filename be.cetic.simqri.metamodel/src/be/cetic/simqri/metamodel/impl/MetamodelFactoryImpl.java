@@ -3,12 +3,12 @@
 package be.cetic.simqri.metamodel.impl;
 
 import be.cetic.simqri.metamodel.BatchProcess;
+
 import be.cetic.simqri.metamodel.Beta;
 import be.cetic.simqri.metamodel.Binomial;
 import be.cetic.simqri.metamodel.Cauchy;
 import be.cetic.simqri.metamodel.ChiSquare;
 import be.cetic.simqri.metamodel.ConveyorBelt;
-import be.cetic.simqri.metamodel.DiracDelta;
 import be.cetic.simqri.metamodel.Exponential;
 import be.cetic.simqri.metamodel.FDistribution;
 import be.cetic.simqri.metamodel.Gamma;
@@ -103,7 +103,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.BETA: return createBeta();
 			case MetamodelPackage.SCALAR: return createScalar();
 			case MetamodelPackage.CHI_SQUARE: return createChiSquare();
-			case MetamodelPackage.DIRAC_DELTA: return createDiracDelta();
 			case MetamodelPackage.EXPONENTIAL: return createExponential();
 			case MetamodelPackage.FDISTRIBUTION: return createFDistribution();
 			case MetamodelPackage.GAMMA: return createGamma();
@@ -331,16 +330,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	public ChiSquare createChiSquare() {
 		ChiSquareImpl chiSquare = new ChiSquareImpl();
 		return chiSquare;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DiracDelta createDiracDelta() {
-		DiracDeltaImpl diracDelta = new DiracDeltaImpl();
-		return diracDelta;
 	}
 
 	/**

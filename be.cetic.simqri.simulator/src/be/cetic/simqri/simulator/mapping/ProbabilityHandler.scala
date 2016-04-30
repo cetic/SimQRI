@@ -26,9 +26,6 @@ class ProbabilityHandler {
     case cs : ChiSquare =>
       val intRdVar = new IntRandomVar("chisqr", new ChiSqrDistribution(cs.getDegreeOfFreedom.doubleValue()))
       intRdVar.dynamicIntRandomFunc
-    case dd : DiracDelta =>
-      val intRdVar = new IntRandomVar("diracdelta", new DiracDeltaDistribution(dd.getMean.doubleValue()))
-      intRdVar.dynamicIntRandomFunc
     case e : Exponential =>
       val intRdVar = new IntRandomVar("exponential", new ExponentialDistribution(e.getScale))
       intRdVar.dynamicIntRandomFunc
@@ -85,9 +82,6 @@ class ProbabilityHandler {
       doubleRdVar.dynamicDoubleRandomFunc
     case cs : ChiSquare =>
       val doubleRdVar = new DoubleRandomVar("chisqr", new ChiSqrDistribution(cs.getDegreeOfFreedom.doubleValue()))
-      doubleRdVar.dynamicDoubleRandomFunc
-    case dd : DiracDelta =>
-      val doubleRdVar = new DoubleRandomVar("diracdelta", new DiracDeltaDistribution(dd.getMean.doubleValue()))
       doubleRdVar.dynamicDoubleRandomFunc
     case e : Exponential =>
       val doubleRdVar = new DoubleRandomVar("exponential", new ExponentialDistribution(e.getScale))

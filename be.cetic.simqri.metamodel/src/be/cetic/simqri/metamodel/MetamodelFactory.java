@@ -157,15 +157,6 @@ public interface MetamodelFactory extends EFactory {
 	ChiSquare createChiSquare();
 
 	/**
-	 * Returns a new object of class '<em>Dirac Delta</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dirac Delta</em>'.
-	 * @generated
-	 */
-	DiracDelta createDiracDelta();
-
-	/**
 	 * Returns a new object of class '<em>Exponential</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

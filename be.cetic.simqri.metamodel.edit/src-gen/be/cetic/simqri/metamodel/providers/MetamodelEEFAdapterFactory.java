@@ -127,14 +127,6 @@ public class MetamodelEEFAdapterFactory extends MetamodelAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createDiracDeltaAdapter()
-	 * 
-	 */
-	public Adapter createDiracDeltaAdapter() {
-		return new DiracDeltaPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
 	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createExponentialAdapter()
 	 * 
 	 */

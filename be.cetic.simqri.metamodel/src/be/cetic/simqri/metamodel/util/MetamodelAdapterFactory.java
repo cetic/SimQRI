@@ -3,13 +3,13 @@
 package be.cetic.simqri.metamodel.util;
 
 import be.cetic.simqri.metamodel.BatchProcess;
+
 import be.cetic.simqri.metamodel.Beta;
 import be.cetic.simqri.metamodel.Binomial;
 import be.cetic.simqri.metamodel.Cauchy;
 import be.cetic.simqri.metamodel.ChiSquare;
 import be.cetic.simqri.metamodel.Component;
 import be.cetic.simqri.metamodel.ConveyorBelt;
-import be.cetic.simqri.metamodel.DiracDelta;
 import be.cetic.simqri.metamodel.Distribution;
 import be.cetic.simqri.metamodel.Exponential;
 import be.cetic.simqri.metamodel.FDistribution;
@@ -173,10 +173,6 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseChiSquare(ChiSquare object) {
 				return createChiSquareAdapter();
-			}
-			@Override
-			public Adapter caseDiracDelta(DiracDelta object) {
-				return createDiracDeltaAdapter();
 			}
 			@Override
 			public Adapter caseExponential(Exponential object) {
@@ -523,20 +519,6 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createChiSquareAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.DiracDelta <em>Dirac Delta</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.DiracDelta
-	 * @generated
-	 */
-	public Adapter createDiracDeltaAdapter() {
 		return null;
 	}
 

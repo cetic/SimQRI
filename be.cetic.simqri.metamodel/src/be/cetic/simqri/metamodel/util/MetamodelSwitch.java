@@ -3,13 +3,13 @@
 package be.cetic.simqri.metamodel.util;
 
 import be.cetic.simqri.metamodel.BatchProcess;
+
 import be.cetic.simqri.metamodel.Beta;
 import be.cetic.simqri.metamodel.Binomial;
 import be.cetic.simqri.metamodel.Cauchy;
 import be.cetic.simqri.metamodel.ChiSquare;
 import be.cetic.simqri.metamodel.Component;
 import be.cetic.simqri.metamodel.ConveyorBelt;
-import be.cetic.simqri.metamodel.DiracDelta;
 import be.cetic.simqri.metamodel.Distribution;
 import be.cetic.simqri.metamodel.Exponential;
 import be.cetic.simqri.metamodel.FDistribution;
@@ -225,14 +225,6 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				T result = caseChiSquare(chiSquare);
 				if (result == null) result = caseDistribution(chiSquare);
 				if (result == null) result = caseProbability(chiSquare);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MetamodelPackage.DIRAC_DELTA: {
-				DiracDelta diracDelta = (DiracDelta)theEObject;
-				T result = caseDiracDelta(diracDelta);
-				if (result == null) result = caseDistribution(diracDelta);
-				if (result == null) result = caseProbability(diracDelta);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -633,21 +625,6 @@ public class MetamodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseChiSquare(ChiSquare object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dirac Delta</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dirac Delta</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDiracDelta(DiracDelta object) {
 		return null;
 	}
 

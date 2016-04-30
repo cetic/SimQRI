@@ -477,7 +477,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getConveyorBelt()
 	 * @generated
 	 */
-	int CONVEYOR_BELT = 31;
+	int CONVEYOR_BELT = 30;
 
 	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.BatchProcessImpl <em>Batch Process</em>}' class.
@@ -1132,43 +1132,6 @@ public interface MetamodelPackage extends EPackage {
 	int CHI_SQUARE_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.DiracDeltaImpl <em>Dirac Delta</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.DiracDeltaImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getDiracDelta()
-	 * @generated
-	 */
-	int DIRAC_DELTA = 19;
-
-	/**
-	 * The feature id for the '<em><b>Mean</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIRAC_DELTA__MEAN = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Dirac Delta</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIRAC_DELTA_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Dirac Delta</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIRAC_DELTA_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.ExponentialImpl <em>Exponential</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1176,7 +1139,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getExponential()
 	 * @generated
 	 */
-	int EXPONENTIAL = 20;
+	int EXPONENTIAL = 19;
 
 	/**
 	 * The feature id for the '<em><b>Scale</b></em>' attribute.
@@ -1213,7 +1176,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getFDistribution()
 	 * @generated
 	 */
-	int FDISTRIBUTION = 21;
+	int FDISTRIBUTION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Freedom Degree A</b></em>' attribute.
@@ -1259,7 +1222,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGamma()
 	 * @generated
 	 */
-	int GAMMA = 22;
+	int GAMMA = 21;
 
 	/**
 	 * The feature id for the '<em><b>Shape</b></em>' attribute.
@@ -1296,7 +1259,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGeometric()
 	 * @generated
 	 */
-	int GEOMETRIC = 23;
+	int GEOMETRIC = 22;
 
 	/**
 	 * The feature id for the '<em><b>Proba Of Success</b></em>' attribute.
@@ -1333,7 +1296,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getLogNormal()
 	 * @generated
 	 */
-	int LOG_NORMAL = 24;
+	int LOG_NORMAL = 23;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -1379,7 +1342,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGaussian()
 	 * @generated
 	 */
-	int GAUSSIAN = 25;
+	int GAUSSIAN = 24;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -1425,7 +1388,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPareto()
 	 * @generated
 	 */
-	int PARETO = 26;
+	int PARETO = 25;
 
 	/**
 	 * The feature id for the '<em><b>Shape</b></em>' attribute.
@@ -1471,7 +1434,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPoisson()
 	 * @generated
 	 */
-	int POISSON = 27;
+	int POISSON = 26;
 
 	/**
 	 * The feature id for the '<em><b>Interval</b></em>' attribute.
@@ -1508,7 +1471,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getStudentsT()
 	 * @generated
 	 */
-	int STUDENTS_T = 28;
+	int STUDENTS_T = 27;
 
 	/**
 	 * The feature id for the '<em><b>Degree Of Freedom</b></em>' attribute.
@@ -1545,7 +1508,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getUniform()
 	 * @generated
 	 */
-	int UNIFORM = 29;
+	int UNIFORM = 28;
 
 	/**
 	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
@@ -1591,7 +1554,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getWeibull()
 	 * @generated
 	 */
-	int WEIBULL = 30;
+	int WEIBULL = 29;
 
 	/**
 	 * The feature id for the '<em><b>Shape</b></em>' attribute.
@@ -1700,7 +1663,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getOrderType()
 	 * @generated
 	 */
-	int ORDER_TYPE = 32;
+	int ORDER_TYPE = 31;
 
 	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.OutputType <em>Output Type</em>}' enum.
@@ -1710,7 +1673,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getOutputType()
 	 * @generated
 	 */
-	int OUTPUT_TYPE = 33;
+	int OUTPUT_TYPE = 32;
 
 	/**
 	 * The meta object id for the '<em>Percent</em>' data type.
@@ -1720,7 +1683,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPercent()
 	 * @generated
 	 */
-	int PERCENT = 34;
+	int PERCENT = 33;
 
 	/**
 	 * The meta object id for the '<em>Positive Int</em>' data type.
@@ -1730,7 +1693,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveInt()
 	 * @generated
 	 */
-	int POSITIVE_INT = 35;
+	int POSITIVE_INT = 34;
 
 	/**
 	 * The meta object id for the '<em>Positive Double</em>' data type.
@@ -1740,7 +1703,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveDouble()
 	 * @generated
 	 */
-	int POSITIVE_DOUBLE = 36;
+	int POSITIVE_DOUBLE = 35;
 
 	/**
 	 * The meta object id for the '<em>Positive Int Not Null</em>' data type.
@@ -1750,7 +1713,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveIntNotNull()
 	 * @generated
 	 */
-	int POSITIVE_INT_NOT_NULL = 37;
+	int POSITIVE_INT_NOT_NULL = 36;
 
 	/**
 	 * The meta object id for the '<em>Positive Double Not Null</em>' data type.
@@ -1760,7 +1723,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveDoubleNotNull()
 	 * @generated
 	 */
-	int POSITIVE_DOUBLE_NOT_NULL = 38;
+	int POSITIVE_DOUBLE_NOT_NULL = 37;
 
 	/**
 	 * The meta object id for the '<em>Proba Double</em>' data type.
@@ -1770,7 +1733,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getProbaDouble()
 	 * @generated
 	 */
-	int PROBA_DOUBLE = 39;
+	int PROBA_DOUBLE = 38;
 
 	/**
 	 * The meta object id for the '<em>Proba Double Not Null</em>' data type.
@@ -1780,7 +1743,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getProbaDoubleNotNull()
 	 * @generated
 	 */
-	int PROBA_DOUBLE_NOT_NULL = 40;
+	int PROBA_DOUBLE_NOT_NULL = 39;
 
 
 	/**
@@ -2565,27 +2528,6 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getChiSquare_DegreeOfFreedom();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.DiracDelta <em>Dirac Delta</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dirac Delta</em>'.
-	 * @see be.cetic.simqri.metamodel.DiracDelta
-	 * @generated
-	 */
-	EClass getDiracDelta();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.DiracDelta#getMean <em>Mean</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Mean</em>'.
-	 * @see be.cetic.simqri.metamodel.DiracDelta#getMean()
-	 * @see #getDiracDelta()
-	 * @generated
-	 */
-	EAttribute getDiracDelta_Mean();
 
 	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Exponential <em>Exponential</em>}'.
@@ -3634,24 +3576,6 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CHI_SQUARE__DEGREE_OF_FREEDOM = eINSTANCE.getChiSquare_DegreeOfFreedom();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.DiracDeltaImpl <em>Dirac Delta</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.DiracDeltaImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getDiracDelta()
-		 * @generated
-		 */
-		EClass DIRAC_DELTA = eINSTANCE.getDiracDelta();
-
-		/**
-		 * The meta object literal for the '<em><b>Mean</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DIRAC_DELTA__MEAN = eINSTANCE.getDiracDelta_Mean();
 
 		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.ExponentialImpl <em>Exponential</em>}' class.

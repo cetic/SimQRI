@@ -238,11 +238,6 @@ public class SupplierItemProvider extends ComponentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createDiracDelta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
 				 MetamodelFactory.eINSTANCE.createExponential()));
 
 		newChildDescriptors.add

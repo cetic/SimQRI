@@ -151,12 +151,6 @@
                tab="Base">
          </propertySection>
          <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.DiracDeltaPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.DiracDeltaPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.DiracDelta"
-               tab="Base">
-         </propertySection>
-         <propertySection
                class="be.cetic.simqri.metamodel.parts.forms.ExponentialPropertiesEditionPartForm"
                filter="be.cetic.simqri.metamodel.providers.ExponentialPropertiesEditionProvider$EditionFilter"
                id="be.cetic.simqri.metamodel.section.Exponential"

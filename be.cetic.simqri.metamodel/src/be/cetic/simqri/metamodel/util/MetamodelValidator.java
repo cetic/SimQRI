@@ -3,13 +3,13 @@
 package be.cetic.simqri.metamodel.util;
 
 import be.cetic.simqri.metamodel.BatchProcess;
+
 import be.cetic.simqri.metamodel.Beta;
 import be.cetic.simqri.metamodel.Binomial;
 import be.cetic.simqri.metamodel.Cauchy;
 import be.cetic.simqri.metamodel.ChiSquare;
 import be.cetic.simqri.metamodel.Component;
 import be.cetic.simqri.metamodel.ConveyorBelt;
-import be.cetic.simqri.metamodel.DiracDelta;
 import be.cetic.simqri.metamodel.Distribution;
 import be.cetic.simqri.metamodel.Exponential;
 import be.cetic.simqri.metamodel.FDistribution;
@@ -156,8 +156,6 @@ public class MetamodelValidator extends EObjectValidator {
 				return validateScalar((Scalar)value, diagnostics, context);
 			case MetamodelPackage.CHI_SQUARE:
 				return validateChiSquare((ChiSquare)value, diagnostics, context);
-			case MetamodelPackage.DIRAC_DELTA:
-				return validateDiracDelta((DiracDelta)value, diagnostics, context);
 			case MetamodelPackage.EXPONENTIAL:
 				return validateExponential((Exponential)value, diagnostics, context);
 			case MetamodelPackage.FDISTRIBUTION:
@@ -383,15 +381,6 @@ public class MetamodelValidator extends EObjectValidator {
 	 */
 	public boolean validateChiSquare(ChiSquare chiSquare, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(chiSquare, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateDiracDelta(DiracDelta diracDelta, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(diracDelta, diagnostics, context);
 	}
 
 	/**

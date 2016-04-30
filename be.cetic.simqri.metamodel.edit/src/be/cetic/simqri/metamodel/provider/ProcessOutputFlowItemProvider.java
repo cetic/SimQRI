@@ -208,11 +208,6 @@ public class ProcessOutputFlowItemProvider extends FlowItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createDiracDelta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
 				 MetamodelFactory.eINSTANCE.createExponential()));
 
 		newChildDescriptors.add

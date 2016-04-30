@@ -3,13 +3,13 @@
 package be.cetic.simqri.metamodel.impl;
 
 import be.cetic.simqri.metamodel.BatchProcess;
+
 import be.cetic.simqri.metamodel.Beta;
 import be.cetic.simqri.metamodel.Binomial;
 import be.cetic.simqri.metamodel.Cauchy;
 import be.cetic.simqri.metamodel.ChiSquare;
 import be.cetic.simqri.metamodel.Component;
 import be.cetic.simqri.metamodel.ConveyorBelt;
-import be.cetic.simqri.metamodel.DiracDelta;
 import be.cetic.simqri.metamodel.Distribution;
 import be.cetic.simqri.metamodel.Exponential;
 import be.cetic.simqri.metamodel.FDistribution;
@@ -196,13 +196,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	private EClass chiSquareEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass diracDeltaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1076,24 +1069,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDiracDelta() {
-		return diracDeltaEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getDiracDelta_Mean() {
-		return (EAttribute)diracDeltaEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getExponential() {
 		return exponentialEClass;
 	}
@@ -1539,9 +1514,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		chiSquareEClass = createEClass(CHI_SQUARE);
 		createEAttribute(chiSquareEClass, CHI_SQUARE__DEGREE_OF_FREEDOM);
 
-		diracDeltaEClass = createEClass(DIRAC_DELTA);
-		createEAttribute(diracDeltaEClass, DIRAC_DELTA__MEAN);
-
 		exponentialEClass = createEClass(EXPONENTIAL);
 		createEAttribute(exponentialEClass, EXPONENTIAL__SCALE);
 
@@ -1639,7 +1611,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		betaEClass.getESuperTypes().add(this.getDistribution());
 		scalarEClass.getESuperTypes().add(this.getProbability());
 		chiSquareEClass.getESuperTypes().add(this.getDistribution());
-		diracDeltaEClass.getESuperTypes().add(this.getDistribution());
 		exponentialEClass.getESuperTypes().add(this.getDistribution());
 		fDistributionEClass.getESuperTypes().add(this.getDistribution());
 		gammaEClass.getESuperTypes().add(this.getDistribution());
@@ -1742,9 +1713,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		initEClass(chiSquareEClass, ChiSquare.class, "ChiSquare", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getChiSquare_DegreeOfFreedom(), this.getPositiveIntNotNull(), "degreeOfFreedom", "1", 0, 1, ChiSquare.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(diracDeltaEClass, DiracDelta.class, "DiracDelta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDiracDelta_Mean(), this.getPositiveIntNotNull(), "mean", "1", 0, 1, DiracDelta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(exponentialEClass, Exponential.class, "Exponential", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getExponential_Scale(), this.getPositiveDoubleNotNull(), "scale", "1", 0, 1, Exponential.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

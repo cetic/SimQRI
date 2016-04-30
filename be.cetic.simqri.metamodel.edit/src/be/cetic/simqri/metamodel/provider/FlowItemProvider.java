@@ -176,11 +176,6 @@ public class FlowItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createDiracDelta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
 				 MetamodelFactory.eINSTANCE.createExponential()));
 
 		newChildDescriptors.add

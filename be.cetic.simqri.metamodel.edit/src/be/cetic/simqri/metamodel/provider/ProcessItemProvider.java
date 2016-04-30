@@ -186,11 +186,6 @@ public class ProcessItemProvider extends ComponentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createDiracDelta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
 				 MetamodelFactory.eINSTANCE.createExponential()));
 
 		newChildDescriptors.add

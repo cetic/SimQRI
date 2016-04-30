@@ -111,9 +111,6 @@
     <genClasses ecoreClass="metamodel.ecore#//ChiSquare">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ChiSquare/degreeOfFreedom"/>
     </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//DiracDelta">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//DiracDelta/mean"/>
-    </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Exponential">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Exponential/scale"/>
     </genClasses>

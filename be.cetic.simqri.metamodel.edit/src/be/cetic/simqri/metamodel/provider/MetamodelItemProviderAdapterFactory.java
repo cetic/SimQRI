@@ -417,29 +417,6 @@ public class MetamodelItemProviderAdapterFactory extends MetamodelAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.DiracDelta} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DiracDeltaItemProvider diracDeltaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.DiracDelta}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDiracDeltaAdapter() {
-		if (diracDeltaItemProvider == null) {
-			diracDeltaItemProvider = new DiracDeltaItemProvider(this);
-		}
-
-		return diracDeltaItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Exponential} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -805,7 +782,6 @@ public class MetamodelItemProviderAdapterFactory extends MetamodelAdapterFactory
 		if (betaItemProvider != null) betaItemProvider.dispose();
 		if (scalarItemProvider != null) scalarItemProvider.dispose();
 		if (chiSquareItemProvider != null) chiSquareItemProvider.dispose();
-		if (diracDeltaItemProvider != null) diracDeltaItemProvider.dispose();
 		if (exponentialItemProvider != null) exponentialItemProvider.dispose();
 		if (fDistributionItemProvider != null) fDistributionItemProvider.dispose();
 		if (gammaItemProvider != null) gammaItemProvider.dispose();

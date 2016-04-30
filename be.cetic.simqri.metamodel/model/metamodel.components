@@ -188,12 +188,6 @@
         </properties>
         <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ChiSquare"/>
       </bindings>
-      <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z82vGlEeWjQNaciI-lWA" name="DiracDelta" views="_E6z9R_GlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z82_GlEeWjQNaciI-lWA" name="mean" views="_E6z9SfGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//DiracDelta/mean"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//DiracDelta"/>
-      </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z83PGlEeWjQNaciI-lWA" name="Exponential" views="_E6z9SvGlEeWjQNaciI-lWA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z83fGlEeWjQNaciI-lWA" name="scale" views="_E6z9TPGlEeWjQNaciI-lWA">
           <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Exponential/scale"/>
@@ -513,14 +507,6 @@
         <elements xsi:type="eef-views:Container" xmi:id="_E6z9RfGlEeWjQNaciI-lWA" name="properties">
           <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
           <elements xsi:type="eef-views:ElementEditor" xmi:id="_E6z9RvGlEeWjQNaciI-lWA" name="degreeOfFreedom">
-            <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
-          </elements>
-        </elements>
-      </views>
-      <views xmi:id="_E6z9R_GlEeWjQNaciI-lWA" name="DiracDelta">
-        <elements xsi:type="eef-views:Container" xmi:id="_E6z9SPGlEeWjQNaciI-lWA" name="properties">
-          <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.4"/>
-          <elements xsi:type="eef-views:ElementEditor" xmi:id="_E6z9SfGlEeWjQNaciI-lWA" name="mean">
             <representation href="platform:/plugin/org.eclipse.emf.eef.views/std/SWT.toolkits#//@widgets.0"/>
           </elements>
         </elements>

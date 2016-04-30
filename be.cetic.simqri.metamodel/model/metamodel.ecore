@@ -162,10 +162,6 @@
       <details key="minInclusive" value="1"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DiracDelta" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean" eType="#//PositiveIntNotNull"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Exponential" eSuperTypes="#//Distribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDoubleNotNull"
         defaultValueLiteral="1"/>
