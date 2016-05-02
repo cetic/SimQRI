@@ -139,7 +139,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
                   pofLinkedToProcess = true
             }
             if(pofLinkedToProcess) {
-              val delay = ph.getDoubleFunc(pof.getProcessOutputFlowDelay)
+              val delay = ph.getNonNegativeDoubleFunc(pof.getProcessOutputFlowDelay)
               val out = (ph.getNonNegativeIntFunc(pof.getQuantity), 
                          if(delay().doubleValue() == 0F) None else Some(delay), 
                          tools.getIdStorage(components, pof.getDestination))
