@@ -1,56 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metamodel:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metamodel="http://www.example.org/metamodel">
-  <orderOnStockThreshold threshold="1" name="oost 1" orderType="REFILL" supplier="//@component.0" storage="//@component.1"/>
-  <orderOnStockThreshold name="oost 2" supplier="//@component.7" storage="//@component.8"/>
+  <query name="Number of time units plus 1" value="plus(time,1)"/>
+  <query name="new_supplier 1 : Number of started batches" value="startedBatchCount(&quot;new_supplier 1&quot;)"/>
+  <query name="new_supplier 1 : Number of completed batches" value="completedBatchCount(&quot;new_supplier 1&quot;)"/>
+  <query name="new_supplier 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_supplier 1&quot;), time)"/>
+  <query name="new_storage 1 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))"/>
+  <query name="new_storage 1 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))"/>
+  <query name="new_storage 1 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))"/>
+  <query name="new_batch_process 1 : Number of started batches" value="startedBatchCount(&quot;new_batch_process 1&quot;)"/>
+  <query name="new_batch_process 1 : Number of completed batches" value="completedBatchCount(&quot;new_batch_process 1&quot;)"/>
+  <query name="new_batch_process 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_batch_process 1&quot;), time)"/>
+  <query name="new_storage 2 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))"/>
+  <query name="new_storage 2 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))"/>
+  <query name="new_storage 2 : Total lost by overflow" value="totalLostByOverflow(&quot;new_storage 2&quot;)"/>
+  <query name="new_storage 3 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))"/>
+  <query name="new_storage 3 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))"/>
+  <query name="new_storage 3 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))"/>
+  <orderOnStockThreshold name="oost 1" orderQuantity="10" supplier="//@component.0" storage="//@component.1"/>
   <component xsi:type="metamodel:Supplier" name="new_supplier 1" refillPolicy="//@orderOnStockThreshold.0">
-    <supplierDelay xsi:type="metamodel:DiracDelta"/>
+    <supplierDelay xsi:type="metamodel:Gaussian"/>
   </component>
-  <component xsi:type="metamodel:Storage" name="myGreatStorage" storageOutputFlow="//@flow.2 //@flow.3 //@flow.5" orderOnStockThreshold="//@orderOnStockThreshold.0"/>
-  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 1" storageOutputFlow="//@flow.2" percentageOfSuccess="99.0" numberOfLines="1">
-    <duration xsi:type="metamodel:Gaussian" location="2.4"/>
-    <outputs processOutputFlow="//@flow.0"/>
-    <outputs type="LOWER_QUALITY" processOutputFlow="//@flow.1"/>
-  </component>
-  <component xsi:type="metamodel:Storage" name="new_storage 2" overflow="true" processOutputFlow="//@flow.1 //@flow.6"/>
-  <component xsi:type="metamodel:Storage" name="new_storage 3" processOutputFlow="//@flow.0 //@flow.4"/>
-  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 2" storageOutputFlow="//@flow.3 //@flow.7">
+  <component xsi:type="metamodel:Storage" name="new_storage 1" initialContent="70" storageOutputFlow="//@flow.0" orderOnStockThreshold="//@orderOnStockThreshold.0"/>
+  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 1" storageOutputFlow="//@flow.0" percentageOfSuccess="50.0">
     <duration xsi:type="metamodel:Scalar"/>
-    <outputs processOutputFlow="//@flow.4"/>
+    <outputs processOutputFlow="//@flow.1"/>
+    <outputs type="FAILURE" processOutputFlow="//@flow.2"/>
   </component>
-  <component xsi:type="metamodel:ConveyorBelt" name="new_conveyor_belt 1" storageOutputFlow="//@flow.5">
-    <duration xsi:type="metamodel:Scalar"/>
-    <output processOutputFlow="//@flow.6"/>
-  </component>
-  <component xsi:type="metamodel:Supplier" name="new_supplier 2" refillPolicy="//@orderOnStockThreshold.1">
-    <supplierDelay xsi:type="metamodel:Uniform" minimum="14.0" maximum="12.0"/>
-  </component>
-  <component xsi:type="metamodel:Storage" name="new_storage 4" overflow="true" storageOutputFlow="//@flow.7" orderOnStockThreshold="//@orderOnStockThreshold.1"/>
-  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.0" destination="//@component.4">
-    <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Scalar"/>
-  </flow>
-  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.1" destination="//@component.3">
-    <quantity xsi:type="metamodel:Exponential"/>
-    <processOutputFlowDelay xsi:type="metamodel:Cauchy" location="33.0"/>
-  </flow>
+  <component xsi:type="metamodel:Storage" name="new_storage 2" size="150" overflow="true" processOutputFlow="//@flow.1"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 3" size="70" initialContent="10" processOutputFlow="//@flow.2"/>
   <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.1" destination="//@component.2">
     <quantity xsi:type="metamodel:Scalar"/>
   </flow>
-  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.1" destination="//@component.5">
-    <quantity xsi:type="metamodel:Pareto" shape="3.0"/>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.0" destination="//@component.3">
+    <quantity xsi:type="metamodel:Geometric"/>
+    <processOutputFlowDelay xsi:type="metamodel:StudentsT"/>
   </flow>
-  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.5/@outputs.0" destination="//@component.4">
-    <quantity xsi:type="metamodel:FDistribution" freedomDegreeA="12.0"/>
-    <processOutputFlowDelay xsi:type="metamodel:ChiSquare"/>
-  </flow>
-  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.1" destination="//@component.6">
-    <quantity xsi:type="metamodel:Exponential"/>
-  </flow>
-  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.6/@output" destination="//@component.3">
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.1" destination="//@component.4">
     <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Gaussian" location="2.0"/>
-  </flow>
-  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.8" destination="//@component.5">
-    <quantity xsi:type="metamodel:Uniform" minimum="3.0" maximum="1.0"/>
+    <processOutputFlowDelay xsi:type="metamodel:Poisson"/>
   </flow>
 </metamodel:Model>

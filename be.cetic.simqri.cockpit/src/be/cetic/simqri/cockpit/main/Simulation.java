@@ -127,10 +127,10 @@ public class Simulation {
 					domain.getCommandStack().execute(new RecordingCommand(domain) {
 					   public void doExecute() {
 						   q.setResult(probes._2.toString().replaceAll("[^\\d.]", "")); // On ne garde que les valeurs numériques du résultat
-						   q.setMax("");
-						   q.setMin("");
-						   q.setMean("");
-					       q.setVariance("");
+						   // q.setMax("");
+						   // q.setMin("");
+						   // q.setMean("");
+					       // q.setVariance("");
 					   }
 					});
 				}
@@ -154,7 +154,7 @@ public class Simulation {
 					TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(q);
 					domain.getCommandStack().execute(new RecordingCommand(domain) {
 					   public void doExecute() {
-						  q.setResult("");
+						  // q.setResult("");
 						  q.setMax(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "max")));
 						  q.setMin(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "min")));
 						  q.setMean(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "mean")));
