@@ -1,72 +1,198 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:metamodel="http://www.example.org/metamodel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description" xmi:id="_aPLQ8BIMEeaXYehFSMNhlw" selectedViews="_kuz4kBIMEeaXYehFSMNhlw" version="10.1.0.201509162000">
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:metamodel="http://www.example.org/metamodel" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:table="http://www.eclipse.org/sirius/table/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/table/description/1.1.0 http://www.eclipse.org/sirius/table/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_aPLQ8BIMEeaXYehFSMNhlw" selectedViews="_kuz4kBIMEeaXYehFSMNhlw" version="10.1.0.201509162000">
   <semanticResources>sample.simqri</semanticResources>
   <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_kuz4kBIMEeaXYehFSMNhlw">
-    <ownedRepresentations xmi:type="table:DTable" xmi:id="_ku1GsBIMEeaXYehFSMNhlw" name="Queries Table">
-      <target xmi:type="metamodel:Model" href="sample.simqri#/"/>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ku1GsRIMEeaXYehFSMNhlw" label="Name" featureName="name">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Name']"/>
-      </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ku1GshIMEeaXYehFSMNhlw" label="Value" featureName="value">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Value']"/>
-      </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ku1GsxIMEeaXYehFSMNhlw" label="&quot;One Shot&quot; results" featureName="result">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Result']"/>
-      </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ku1GtBIMEeaXYehFSMNhlw" label="Maximum" featureName="max">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Max']"/>
-      </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ku1GtRIMEeaXYehFSMNhlw" label="Minimum" featureName="min">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Min']"/>
-      </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ku1GthIMEeaXYehFSMNhlw" label="Mean" featureName="mean">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Mean']"/>
-      </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ku1GtxIMEeaXYehFSMNhlw" label="Variance" featureName="variance">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Variance']"/>
-      </columns>
-      <description xmi:type="description:EditionTableDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']"/>
-    </ownedRepresentations>
-    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_m0X24BIMEeaXYehFSMNhlw" name="new SimQRi Diagram">
-      <ownedAnnotationEntries xmi:type="description_1:AnnotationEntry" xmi:id="_m0Yd8BIMEeaXYehFSMNhlw" source="DANNOTATION_CUSTOMIZATION_KEY">
-        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_m0Yd8RIMEeaXYehFSMNhlw"/>
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_7OhU8BIOEeaWrKzNGSHc5g" name="new SimQRi Diagram">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_7OhU8RIOEeaWrKzNGSHc5g" source="DANNOTATION_CUSTOMIZATION_KEY">
+        <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_7OhU8hIOEeaWrKzNGSHc5g"/>
       </ownedAnnotationEntries>
-      <ownedAnnotationEntries xmi:type="description_1:AnnotationEntry" xmi:id="_m0Yd8xIMEeaXYehFSMNhlw" source="GMF_DIAGRAMS">
-        <data xmi:type="notation:Diagram" xmi:id="_m0Yd9BIMEeaXYehFSMNhlw" type="Sirius" element="_m0X24BIMEeaXYehFSMNhlw" measurementUnit="Pixel">
-          <styles xmi:type="notation:DiagramStyle" xmi:id="_m0Yd9RIMEeaXYehFSMNhlw"/>
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_7OkYQBIOEeaWrKzNGSHc5g" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_7OkYQRIOEeaWrKzNGSHc5g" type="Sirius" element="_7OhU8BIOEeaWrKzNGSHc5g" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_8yfpIBIOEeaWrKzNGSHc5g" type="2001" element="_8yaJkBIOEeaWrKzNGSHc5g">
+            <children xmi:type="notation:Node" xmi:id="_8yfpIxIOEeaWrKzNGSHc5g" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_8yfpJBIOEeaWrKzNGSHc5g" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_8ygQMBIOEeaWrKzNGSHc5g" type="3005" element="_8yawoBIOEeaWrKzNGSHc5g">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_8ygQMRIOEeaWrKzNGSHc5g" fontName=".SF NS Text"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8ygQMhIOEeaWrKzNGSHc5g"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_8yfpIRIOEeaWrKzNGSHc5g" fontName=".SF NS Text" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8yfpIhIOEeaWrKzNGSHc5g" x="784" y="152" width="68" height="62"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_7OkYQhIOEeaWrKzNGSHc5g"/>
         </data>
       </ownedAnnotationEntries>
-      <description xmi:type="description_2:DiagramDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']"/>
-      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_m0Yd8hIMEeaXYehFSMNhlw"/>
-      <activatedLayers xmi:type="description_2:Layer" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer"/>
-      <activatedLayers xmi:type="description_2:AdditionalLayer" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']"/>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8yaJkBIOEeaWrKzNGSHc5g" name="new_storage 1" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="metamodel:Storage" href="sample.simqri#//@component.0"/>
+        <semanticElements xmi:type="metamodel:Storage" href="sample.simqri#//@component.0"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_8yawoBIOEeaWrKzNGSHc5g" labelSize="10" workspacePath="/be.cetic.simqri.sample/images/storage.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_7OhU8xIOEeaWrKzNGSHc5g"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer"/>
+      <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']"/>
       <target xmi:type="metamodel:Model" href="sample.simqri#/"/>
     </ownedRepresentations>
-    <ownedRepresentations xmi:type="table:DTable" xmi:id="_ovEpABIMEeaXYehFSMNhlw" name="new Queries Table" headerColumnWidth="4">
+    <ownedRepresentations xmi:type="table:DTable" xmi:id="_SrJXcBIPEeaWrKzNGSHc5g" name="new Queries Table" headerColumnWidth="312">
       <target xmi:type="metamodel:Model" href="sample.simqri#/"/>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ovEpARIMEeaXYehFSMNhlw" label="Name" width="143" featureName="name">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Name']"/>
+      <lines xmi:type="table:DLine" xmi:id="_SrJXeRIPEeaWrKzNGSHc5g" label="Number of time units plus 1">
+        <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+        <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXehIPEeaWrKzNGSHc5g" label="Number of time units plus 1" column="_SrJXmRIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXexIPEeaWrKzNGSHc5g" label="plus(time,1)" column="_SrJXmhIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfBIPEeaWrKzNGSHc5g" label="" column="_SrJXmxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfRIPEeaWrKzNGSHc5g" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfhIPEeaWrKzNGSHc5g" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfxIPEeaWrKzNGSHc5g" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXgBIPEeaWrKzNGSHc5g" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_SrJXgRIPEeaWrKzNGSHc5g" label="new_storage 1 : Maximum relative stock level">
+        <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+        <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXghIPEeaWrKzNGSHc5g" label="new_storage 1 : Maximum relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXgxIPEeaWrKzNGSHc5g" label="maxOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhBIPEeaWrKzNGSHc5g" label="" column="_SrJXmxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhRIPEeaWrKzNGSHc5g" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhhIPEeaWrKzNGSHc5g" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhxIPEeaWrKzNGSHc5g" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXiBIPEeaWrKzNGSHc5g" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_SrJXiRIPEeaWrKzNGSHc5g" label="new_storage 1 : Average relative stock level">
+        <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+        <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXihIPEeaWrKzNGSHc5g" label="new_storage 1 : Average relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXixIPEeaWrKzNGSHc5g" label="avgOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjBIPEeaWrKzNGSHc5g" label="" column="_SrJXmxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjRIPEeaWrKzNGSHc5g" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjhIPEeaWrKzNGSHc5g" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjxIPEeaWrKzNGSHc5g" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXkBIPEeaWrKzNGSHc5g" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
+        </cells>
+      </lines>
+      <lines xmi:type="table:DLine" xmi:id="_SrJXkRIPEeaWrKzNGSHc5g" label="new_storage 1 : Minimum relative stock level">
+        <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+        <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXkhIPEeaWrKzNGSHc5g" label="new_storage 1 : Minimum relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXkxIPEeaWrKzNGSHc5g" label="minOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlBIPEeaWrKzNGSHc5g" label="" column="_SrJXmxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlRIPEeaWrKzNGSHc5g" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlhIPEeaWrKzNGSHc5g" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlxIPEeaWrKzNGSHc5g" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_SrJXmBIPEeaWrKzNGSHc5g" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
+        </cells>
+      </lines>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXmRIPEeaWrKzNGSHc5g" label="Name" cells="_SrJXehIPEeaWrKzNGSHc5g _SrJXghIPEeaWrKzNGSHc5g _SrJXihIPEeaWrKzNGSHc5g _SrJXkhIPEeaWrKzNGSHc5g" width="166" featureName="name">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Name']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ovEpAhIMEeaXYehFSMNhlw" label="Value" width="280" featureName="value">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Value']"/>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXmhIPEeaWrKzNGSHc5g" label="Value" cells="_SrJXexIPEeaWrKzNGSHc5g _SrJXgxIPEeaWrKzNGSHc5g _SrJXixIPEeaWrKzNGSHc5g _SrJXkxIPEeaWrKzNGSHc5g" width="189" featureName="value">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Value']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ovEpAxIMEeaXYehFSMNhlw" label="&quot;One Shot&quot; results" width="200" featureName="result">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Result']"/>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXmxIPEeaWrKzNGSHc5g" label="&quot;One Shot&quot; results" cells="_SrJXfBIPEeaWrKzNGSHc5g _SrJXhBIPEeaWrKzNGSHc5g _SrJXjBIPEeaWrKzNGSHc5g _SrJXlBIPEeaWrKzNGSHc5g" width="102" featureName="result">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Result']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ovEpBBIMEeaXYehFSMNhlw" label="Maximum" width="140" featureName="max">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Max']"/>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnBIPEeaWrKzNGSHc5g" label="Maximum" cells="_SrJXfRIPEeaWrKzNGSHc5g _SrJXhRIPEeaWrKzNGSHc5g _SrJXjRIPEeaWrKzNGSHc5g _SrJXlRIPEeaWrKzNGSHc5g" width="55" featureName="max">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Max']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ovEpBRIMEeaXYehFSMNhlw" label="Minimum" width="143" featureName="min">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Min']"/>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnRIPEeaWrKzNGSHc5g" label="Minimum" cells="_SrJXfhIPEeaWrKzNGSHc5g _SrJXhhIPEeaWrKzNGSHc5g _SrJXjhIPEeaWrKzNGSHc5g _SrJXlhIPEeaWrKzNGSHc5g" width="52" featureName="min">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Min']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ovEpBhIMEeaXYehFSMNhlw" label="Mean" width="179" featureName="mean">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Mean']"/>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnhIPEeaWrKzNGSHc5g" label="Mean" cells="_SrJXfxIPEeaWrKzNGSHc5g _SrJXhxIPEeaWrKzNGSHc5g _SrJXjxIPEeaWrKzNGSHc5g _SrJXlxIPEeaWrKzNGSHc5g" width="33" featureName="mean">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Mean']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_ovEpBxIMEeaXYehFSMNhlw" label="Variance" width="255" featureName="variance">
-        <originMapping xmi:type="description:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Variance']"/>
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnxIPEeaWrKzNGSHc5g" label="Variance" cells="_SrJXgBIPEeaWrKzNGSHc5g _SrJXiBIPEeaWrKzNGSHc5g _SrJXkBIPEeaWrKzNGSHc5g _SrJXmBIPEeaWrKzNGSHc5g" width="50" featureName="variance">
+        <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Variance']"/>
       </columns>
-      <description xmi:type="description:EditionTableDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']"/>
+      <description xmi:type="description_2:EditionTableDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']"/>
     </ownedRepresentations>
-    <viewpoint xmi:type="description_1:Viewpoint" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']"/>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']"/>
   </ownedViews>
 </viewpoint:DAnalysis>

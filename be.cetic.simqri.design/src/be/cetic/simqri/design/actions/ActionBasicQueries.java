@@ -53,7 +53,7 @@ public class ActionBasicQueries implements IExternalJavaAction {
 	
 	private boolean containsQuery(String name, String value, Model model) {
 		for(Query q : model.getQuery()) {
-			if(q.getValue().equals(value))
+			if(q.getValue() != null && q.getValue().equals(value))
 				return true;
 		}
 		return false;

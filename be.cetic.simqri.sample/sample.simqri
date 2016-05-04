@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metamodel:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:metamodel="http://www.example.org/metamodel"/>
+<metamodel:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metamodel="http://www.example.org/metamodel">
+  <query name="Number of time units plus 1" value="plus(time,1)"/>
+  <query name="new_storage 1 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))"/>
+  <query name="new_storage 1 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))"/>
+  <query name="new_storage 1 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 1"/>
+</metamodel:Model>
