@@ -98,7 +98,7 @@ public class ResultsWindow extends JFrame implements ActionListener {
 		this.jtpResults.addTab("Queries", null, panelQueries, "Check the simulation queries results");
 		
 		this.jbSave = new JButton("Save as");
-		this.jbExit = new JButton("Exit");
+		this.jbExit = new JButton("Close");
 		this.jbSave.addActionListener(this);
 		this.jbExit.addActionListener(this);
 		

@@ -28,7 +28,7 @@
             id="be.cetic.simqri.metamodel.presentation.MetamodelEditorID"
             name="%_UI_MetamodelEditor_label"
             icon="icons/full/obj16/MetamodelModelFile.gif"
-            extensions="metamodel"
+            extensions="simqri"
             class="be.cetic.simqri.metamodel.presentation.MetamodelEditor"
             contributorClass="be.cetic.simqri.metamodel.presentation.MetamodelActionBarContributor">
       </editor>

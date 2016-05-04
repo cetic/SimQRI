@@ -3,10 +3,10 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/be.cetic.simqri.metamodel/src" modelPluginID="be.cetic.simqri.metamodel"
     modelName="Metamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    publicConstructors="true" operationReflection="true" importOrganizing="true">
   <foreignModel>metamodel.ecore</foreignModel>
   <genPackages prefix="Metamodel" basePackage="be.cetic.simqri" disposableProviderFactory="true"
-      ecorePackage="metamodel.ecore#/">
+      fileExtensions="simqri" ecorePackage="metamodel.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//OrderType">
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//OrderType/FIXED"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//OrderType/REFILL"/>

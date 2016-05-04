@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="simqri" version="10.1.3.201511131800">
-  <ownedViewpoints name="SimQRi Design" modelFileExtension="">
+  <ownedViewpoints name="SimQRi Design" modelFileExtension="simqri">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SimQRi Diagram" domainClass="metamodel.Model" enablePopupBars="true">
       <metamodel href="http://www.example.org/metamodel#/"/>
       <filters xsi:type="filter:CompositeFilterDescription" name="Hide_Process">
@@ -129,7 +129,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_singlebatchprocess" label="New Singe batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']">
+            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_singlebatchprocess" label="New Single batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
