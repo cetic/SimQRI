@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="lib/java-json.jar"/>
-	<classpathentry kind="lib" path="lib/jsci-core.jar"/>
-	<classpathentry kind="lib" path="lib/oscar.jar"/>
-	<classpathentry kind="lib" path="lib/scala-library-2.10.6.jar"/>
-	<classpathentry kind="lib" path="lib/simulator.jar"/>
-	<classpathentry kind="lib" path="lib/cockpit.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry exported="true" kind="lib" path="lib/cockpit.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/java-json.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jsci-core.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/oscar.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/scala-library-2.10.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/simulator.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
