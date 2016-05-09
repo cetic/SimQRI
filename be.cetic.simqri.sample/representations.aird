@@ -17,18 +17,184 @@
               <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8ygQMhIOEeaWrKzNGSHc5g"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_8yfpIRIOEeaWrKzNGSHc5g" fontName=".SF NS Text" fontHeight="10"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8yfpIhIOEeaWrKzNGSHc5g" x="784" y="152" width="68" height="62"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8yfpIhIOEeaWrKzNGSHc5g" x="420" y="159" width="68" height="62"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_bUBm0BLVEeazp9fpAWtKCw" type="2001" element="_bTk64BLVEeazp9fpAWtKCw">
+            <children xmi:type="notation:Node" xmi:id="_bUKwwBLVEeazp9fpAWtKCw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_bUKwwRLVEeazp9fpAWtKCw" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_bUgvABLVEeazp9fpAWtKCw" type="3005" element="_bTmJABLVEeazp9fpAWtKCw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_bUgvARLVEeazp9fpAWtKCw" fontName=".SF NS Text"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bUgvAhLVEeazp9fpAWtKCw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_bUBm0RLVEeazp9fpAWtKCw" fontName=".SF NS Text" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bUBm0hLVEeazp9fpAWtKCw" x="216" y="160" width="82" height="60"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_fyKmEBLVEeazp9fpAWtKCw" type="2001" element="_fxYi8BLVEeazp9fpAWtKCw">
+            <children xmi:type="notation:Node" xmi:id="_fyL0MBLVEeazp9fpAWtKCw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_fyL0MRLVEeazp9fpAWtKCw" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_fyXaYBLVEeazp9fpAWtKCw" type="3005" element="_fxgewBLVEeazp9fpAWtKCw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_fyXaYRLVEeazp9fpAWtKCw" fontName=".SF NS Text"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fyXaYhLVEeazp9fpAWtKCw"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_nLDfMBLVEeazp9fpAWtKCw" type="3001" element="_nKYJwBLVEeazp9fpAWtKCw">
+              <children xmi:type="notation:Node" xmi:id="_nLEGQBLVEeazp9fpAWtKCw" visible="false" type="5001">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_nLEtUBLVEeazp9fpAWtKCw" x="21"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_nLF7cBLVEeazp9fpAWtKCw" type="3003" element="_nKdpUBLVEeazp9fpAWtKCw">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_nLF7cRLVEeazp9fpAWtKCw" fontName=".SF NS Text"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nLF7chLVEeazp9fpAWtKCw"/>
+              </children>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_nLDfMRLVEeazp9fpAWtKCw" fontName=".SF NS Text" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_nLDfMhLVEeazp9fpAWtKCw" x="73" y="21" width="20" height="20"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_fyLNIBLVEeazp9fpAWtKCw" fontName=".SF NS Text" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fyLNIRLVEeazp9fpAWtKCw" x="592" y="159" width="81" height="62"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_jEmAIBLVEeazp9fpAWtKCw" type="2001" element="_jEB_cBLVEeazp9fpAWtKCw">
+            <children xmi:type="notation:Node" xmi:id="_jEmnMBLVEeazp9fpAWtKCw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_jEmnMRLVEeazp9fpAWtKCw" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_jEw_QBLVEeazp9fpAWtKCw" type="3005" element="_jEEbsBLVEeazp9fpAWtKCw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_jEw_QRLVEeazp9fpAWtKCw" fontName=".SF NS Text"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jEw_QhLVEeazp9fpAWtKCw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_jEmAIRLVEeazp9fpAWtKCw" fontName=".SF NS Text" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_jEmAIhLVEeazp9fpAWtKCw" x="768" y="160" width="63" height="59"/>
           </children>
           <styles xmi:type="notation:DiagramStyle" xmi:id="_7OkYQhIOEeaWrKzNGSHc5g"/>
+          <edges xmi:type="notation:Edge" xmi:id="_dm8EoBLVEeazp9fpAWtKCw" type="4001" element="_dgpPYBLVEeazp9fpAWtKCw" source="_bUBm0BLVEeazp9fpAWtKCw" target="_8yfpIBIOEeaWrKzNGSHc5g">
+            <children xmi:type="notation:Node" xmi:id="_dm-g4BLVEeazp9fpAWtKCw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dm-g4RLVEeazp9fpAWtKCw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_dm_H8BLVEeazp9fpAWtKCw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dm_H8RLVEeazp9fpAWtKCw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_dnAWEBLVEeazp9fpAWtKCw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dnAWERLVEeazp9fpAWtKCw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_dm8EoRLVEeazp9fpAWtKCw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_dm8EohLVEeazp9fpAWtKCw" fontColor="4108284" fontName=".SF NS Text" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dm8EoxLVEeazp9fpAWtKCw" points="[0, 0, -122, 0]$[122, 0, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dnCLQBLVEeazp9fpAWtKCw" id="(1.0,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dnCLQRLVEeazp9fpAWtKCw" id="(0.0,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_hJ8RUBLVEeazp9fpAWtKCw" type="4001" element="_hJYQoBLVEeazp9fpAWtKCw" source="_8yfpIBIOEeaWrKzNGSHc5g" target="_fyKmEBLVEeazp9fpAWtKCw">
+            <children xmi:type="notation:Node" xmi:id="_hJ84YBLVEeazp9fpAWtKCw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hJ84YRLVEeazp9fpAWtKCw" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_hJ84YhLVEeazp9fpAWtKCw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hJ84YxLVEeazp9fpAWtKCw" y="10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_hJ84ZBLVEeazp9fpAWtKCw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hJ84ZRLVEeazp9fpAWtKCw" y="10"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_hJ8RURLVEeazp9fpAWtKCw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_hJ8RUhLVEeazp9fpAWtKCw" fontName=".SF NS Text" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hJ8RUxLVEeazp9fpAWtKCw" points="[0, 0, -104, 0]$[104, 0, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hJ9fcBLVEeazp9fpAWtKCw" id="(1.0,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hJ9fcRLVEeazp9fpAWtKCw" id="(0.0,0.5)"/>
+          </edges>
+          <edges xmi:type="notation:Edge" xmi:id="_oOAxABLVEeazp9fpAWtKCw" type="4001" element="_oNiP4BLVEeazp9fpAWtKCw" source="_nLDfMBLVEeazp9fpAWtKCw" target="_jEmAIBLVEeazp9fpAWtKCw">
+            <children xmi:type="notation:Node" xmi:id="_oOBYEBLVEeazp9fpAWtKCw" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oOBYERLVEeazp9fpAWtKCw" x="-1" y="-10"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_oOBYEhLVEeazp9fpAWtKCw" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oOBYExLVEeazp9fpAWtKCw" y="9"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_oOBYFBLVEeazp9fpAWtKCw" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oOBYFRLVEeazp9fpAWtKCw" y="9"/>
+            </children>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_oOAxARLVEeazp9fpAWtKCw"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_oOAxAhLVEeazp9fpAWtKCw" fontName=".SF NS Text" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oOAxAxLVEeazp9fpAWtKCw" points="[2, 1, -83, 0]$[85, 1, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oOB_IBLVEeazp9fpAWtKCw" id="(0.9,0.45)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oOB_IRLVEeazp9fpAWtKCw" id="(0.0,0.5084745762711864)"/>
+          </edges>
         </data>
       </ownedAnnotationEntries>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8yaJkBIOEeaWrKzNGSHc5g" name="new_storage 1" width="-1" height="-1" resizeKind="NSEW">
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8yaJkBIOEeaWrKzNGSHc5g" name="new_storage 1" outgoingEdges="_hJYQoBLVEeazp9fpAWtKCw" incomingEdges="_dgpPYBLVEeazp9fpAWtKCw" width="-1" height="-1" resizeKind="NSEW">
         <target xmi:type="metamodel:Storage" href="sample.simqri#//@component.0"/>
         <semanticElements xmi:type="metamodel:Storage" href="sample.simqri#//@component.0"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_8yawoBIOEeaWrKzNGSHc5g" labelSize="10" workspacePath="/be.cetic.simqri.sample/images/storage.svg">
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_8yawoBIOEeaWrKzNGSHc5g" labelSize="10" workspacePath="/be.cetic.simqri.design/images/storage.svg">
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_jEB_cBLVEeazp9fpAWtKCw" name="new_storage 2" incomingEdges="_oNiP4BLVEeazp9fpAWtKCw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="metamodel:Storage" href="sample.simqri#//@component.3"/>
+        <semanticElements xmi:type="metamodel:Storage" href="sample.simqri#//@component.3"/>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_jEEbsBLVEeazp9fpAWtKCw" labelSize="10" workspacePath="/be.cetic.simqri.design/images/overflow-storage.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_bTk64BLVEeazp9fpAWtKCw" name="new_supplier 1" outgoingEdges="_dgpPYBLVEeazp9fpAWtKCw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="metamodel:Supplier" href="sample.simqri#//@component.1"/>
+        <semanticElements xmi:type="metamodel:Supplier" href="sample.simqri#//@component.1"/>
+        <semanticElements xmi:type="metamodel:Cauchy" href="sample.simqri#//@component.1/@supplierDelay"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_bTmJABLVEeazp9fpAWtKCw" labelSize="10" workspacePath="/be.cetic.simqri.design/images/supplier.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_dgpPYBLVEeazp9fpAWtKCw" name="oost 1 (FIXED)" sourceNode="_bTk64BLVEeazp9fpAWtKCw" targetNode="_8yaJkBIOEeaWrKzNGSHc5g">
+        <target xmi:type="metamodel:OrderOnStockThreshold" href="sample.simqri#//@orderOnStockThreshold.0"/>
+        <semanticElements xmi:type="metamodel:OrderOnStockThreshold" href="sample.simqri#//@orderOnStockThreshold.0"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_dgsSsBLVEeazp9fpAWtKCw" targetArrow="InputFillClosedArrow" size="2" strokeColor="252,175,62">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_dgsSsRLVEeazp9fpAWtKCw" labelSize="10" labelColor="252,175,62"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_fxYi8BLVEeazp9fpAWtKCw" name="new_batch_process 1" incomingEdges="_hJYQoBLVEeazp9fpAWtKCw" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="metamodel:BatchProcess" href="sample.simqri#//@component.2"/>
+        <semanticElements xmi:type="metamodel:BatchProcess" href="sample.simqri#//@component.2"/>
+        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_nKYJwBLVEeazp9fpAWtKCw" name="SUCCESS" outgoingEdges="_oNiP4BLVEeazp9fpAWtKCw" width="2" height="2" resizeKind="NSEW">
+          <target xmi:type="metamodel:Output" href="sample.simqri#//@component.2/@outputs.0"/>
+          <semanticElements xmi:type="metamodel:Output" href="sample.simqri#//@component.2/@outputs.0"/>
+          <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_nKfegBLVEeazp9fpAWtKCw"/>
+          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_nKdpUBLVEeazp9fpAWtKCw" hideLabelByDefault="true" color="138,226,52">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp']"/>
+        </ownedBorderedNodes>
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_fxgewBLVEeazp9fpAWtKCw" labelSize="10" workspacePath="/be.cetic.simqri.design/images/batch-process.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_hJYQoBLVEeazp9fpAWtKCw" sourceNode="_8yaJkBIOEeaWrKzNGSHc5g" targetNode="_fxYi8BLVEeazp9fpAWtKCw">
+        <target xmi:type="metamodel:StorageOutputFlow" href="sample.simqri#//@flow.0"/>
+        <semanticElements xmi:type="metamodel:StorageOutputFlow" href="sample.simqri#//@flow.0"/>
+        <semanticElements xmi:type="metamodel:Gamma" href="sample.simqri#//@flow.0/@quantity"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_hJZewBLVEeazp9fpAWtKCw" size="2" strokeColor="114,159,207">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_hJZewRLVEeazp9fpAWtKCw" labelSize="10"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_oNiP4BLVEeazp9fpAWtKCw" sourceNode="_nKYJwBLVEeazp9fpAWtKCw" targetNode="_jEB_cBLVEeazp9fpAWtKCw">
+        <target xmi:type="metamodel:ProcessOutputFlow" href="sample.simqri#//@flow.1"/>
+        <semanticElements xmi:type="metamodel:ProcessOutputFlow" href="sample.simqri#//@flow.1"/>
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_oNkFEBLVEeazp9fpAWtKCw" targetArrow="InputClosedArrow" size="2">
+          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']/@style"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_oNkFERLVEeazp9fpAWtKCw" labelSize="10"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']"/>
       </ownedDiagramElements>
       <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']"/>
       <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_7OhU8xIOEeaWrKzNGSHc5g"/>
@@ -50,23 +216,23 @@
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXfBIPEeaWrKzNGSHc5g" label="" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfBIPEeaWrKzNGSHc5g" label="1001.0" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXfRIPEeaWrKzNGSHc5g" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfRIPEeaWrKzNGSHc5g" label="1001.0" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXfhIPEeaWrKzNGSHc5g" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfhIPEeaWrKzNGSHc5g" label="1001.0" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXfxIPEeaWrKzNGSHc5g" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfxIPEeaWrKzNGSHc5g" label="1001.0" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXgBIPEeaWrKzNGSHc5g" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXgBIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
@@ -83,23 +249,23 @@
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXhBIPEeaWrKzNGSHc5g" label="" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhBIPEeaWrKzNGSHc5g" label="0.95" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXhRIPEeaWrKzNGSHc5g" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhRIPEeaWrKzNGSHc5g" label="1.0" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXhhIPEeaWrKzNGSHc5g" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhhIPEeaWrKzNGSHc5g" label="0.92" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXhxIPEeaWrKzNGSHc5g" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhxIPEeaWrKzNGSHc5g" label="0.9819191919191919" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXiBIPEeaWrKzNGSHc5g" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXiBIPEeaWrKzNGSHc5g" label="1.0396278990258493E-5" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
@@ -116,23 +282,23 @@
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXjBIPEeaWrKzNGSHc5g" label="" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjBIPEeaWrKzNGSHc5g" label="0.04312634269998943" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXjRIPEeaWrKzNGSHc5g" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjRIPEeaWrKzNGSHc5g" label="0.16921224687201508" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXjhIPEeaWrKzNGSHc5g" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjhIPEeaWrKzNGSHc5g" label="0.029871819367168206" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXjxIPEeaWrKzNGSHc5g" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjxIPEeaWrKzNGSHc5g" label="0.06473430519710473" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXkBIPEeaWrKzNGSHc5g" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXkBIPEeaWrKzNGSHc5g" label="1.9741867272475046E-7" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
@@ -149,23 +315,23 @@
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXlBIPEeaWrKzNGSHc5g" label="" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlBIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXlRIPEeaWrKzNGSHc5g" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlRIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXlhIPEeaWrKzNGSHc5g" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlhIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXlxIPEeaWrKzNGSHc5g" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlxIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXmBIPEeaWrKzNGSHc5g" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXmBIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
