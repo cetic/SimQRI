@@ -50,7 +50,7 @@ public class PoissonImpl extends DistributionImpl implements Poisson {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PoissonImpl() {
+	public PoissonImpl() {
 		super();
 	}
 

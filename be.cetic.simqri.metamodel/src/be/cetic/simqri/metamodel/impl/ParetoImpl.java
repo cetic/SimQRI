@@ -71,7 +71,7 @@ public class ParetoImpl extends DistributionImpl implements Pareto {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParetoImpl() {
+	public ParetoImpl() {
 		super();
 	}
 

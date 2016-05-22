@@ -67,7 +67,7 @@ public class ProcessOutputFlowImpl extends FlowImpl implements ProcessOutputFlow
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProcessOutputFlowImpl() {
+	public ProcessOutputFlowImpl() {
 		super();
 	}
 

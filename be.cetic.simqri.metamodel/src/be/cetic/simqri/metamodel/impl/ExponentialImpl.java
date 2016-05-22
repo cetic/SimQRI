@@ -50,7 +50,7 @@ public class ExponentialImpl extends DistributionImpl implements Exponential {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExponentialImpl() {
+	public ExponentialImpl() {
 		super();
 	}
 

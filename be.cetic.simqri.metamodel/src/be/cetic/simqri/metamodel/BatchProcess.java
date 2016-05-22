@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link be.cetic.simqri.metamodel.BatchProcess#getPercentageOfSuccess <em>Percentage Of Success</em>}</li>
- *   <li>{@link be.cetic.simqri.metamodel.BatchProcess#getNumberOfLines <em>Number Of Lines</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.BatchProcess#getNumberOfChains <em>Number Of Chains</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.BatchProcess#getOutputs <em>Outputs</em>}</li>
  * </ul>
  *
@@ -51,31 +51,31 @@ public interface BatchProcess extends be.cetic.simqri.metamodel.Process {
 	void setPercentageOfSuccess(Double value);
 
 	/**
-	 * Returns the value of the '<em><b>Number Of Lines</b></em>' attribute.
+	 * Returns the value of the '<em><b>Number Of Chains</b></em>' attribute.
 	 * The default value is <code>"3"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Number Of Lines</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Number Of Chains</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Number Of Lines</em>' attribute.
-	 * @see #setNumberOfLines(Integer)
-	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getBatchProcess_NumberOfLines()
+	 * @return the value of the '<em>Number Of Chains</em>' attribute.
+	 * @see #setNumberOfChains(Integer)
+	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getBatchProcess_NumberOfChains()
 	 * @model default="3" dataType="be.cetic.simqri.metamodel.PositiveIntNotNull"
 	 * @generated
 	 */
-	Integer getNumberOfLines();
+	Integer getNumberOfChains();
 
 	/**
-	 * Sets the value of the '{@link be.cetic.simqri.metamodel.BatchProcess#getNumberOfLines <em>Number Of Lines</em>}' attribute.
+	 * Sets the value of the '{@link be.cetic.simqri.metamodel.BatchProcess#getNumberOfChains <em>Number Of Chains</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number Of Lines</em>' attribute.
-	 * @see #getNumberOfLines()
+	 * @param value the new value of the '<em>Number Of Chains</em>' attribute.
+	 * @see #getNumberOfChains()
 	 * @generated
 	 */
-	void setNumberOfLines(Integer value);
+	void setNumberOfChains(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Outputs</b></em>' containment reference list.

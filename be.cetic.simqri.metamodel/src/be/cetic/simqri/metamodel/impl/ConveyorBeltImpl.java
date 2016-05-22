@@ -64,7 +64,7 @@ public class ConveyorBeltImpl extends ProcessImpl implements ConveyorBelt {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConveyorBeltImpl() {
+	public ConveyorBeltImpl() {
 		super();
 	}
 

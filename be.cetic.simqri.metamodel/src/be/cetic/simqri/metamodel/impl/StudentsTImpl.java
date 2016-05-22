@@ -50,7 +50,7 @@ public class StudentsTImpl extends DistributionImpl implements StudentsT {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StudentsTImpl() {
+	public StudentsTImpl() {
 		super();
 	}
 

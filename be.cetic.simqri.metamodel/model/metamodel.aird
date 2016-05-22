@@ -1459,9 +1459,9 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_z506wOXZEeW4tuuFtCl4pA" name="numberOfLines : PositiveIntNotNull = 3" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="metamodel.ecore#//BatchProcess/numberOfLines"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="metamodel.ecore#//BatchProcess/numberOfLines"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_z506wOXZEeW4tuuFtCl4pA" name="numberOfChains : PositiveIntNotNull = 3" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="metamodel.ecore#//BatchProcess/numberOfChains"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="metamodel.ecore#//BatchProcess/numberOfChains"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_2JhsgOXZEeW4tuuFtCl4pA" labelAlignment="LEFT">
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
           </ownedStyle>

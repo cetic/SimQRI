@@ -162,7 +162,7 @@ public class OrderOnStockThresholdImpl extends MinimalEObjectImpl.Container impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OrderOnStockThresholdImpl() {
+	public OrderOnStockThresholdImpl() {
 		super();
 	}
 

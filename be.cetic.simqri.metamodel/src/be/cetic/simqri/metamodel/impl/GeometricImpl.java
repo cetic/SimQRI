@@ -50,7 +50,7 @@ public class GeometricImpl extends DistributionImpl implements Geometric {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GeometricImpl() {
+	public GeometricImpl() {
 		super();
 	}
 

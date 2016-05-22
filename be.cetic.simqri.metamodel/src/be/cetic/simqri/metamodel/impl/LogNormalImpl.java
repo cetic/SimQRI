@@ -71,7 +71,7 @@ public class LogNormalImpl extends DistributionImpl implements LogNormal {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LogNormalImpl() {
+	public LogNormalImpl() {
 		super();
 	}
 

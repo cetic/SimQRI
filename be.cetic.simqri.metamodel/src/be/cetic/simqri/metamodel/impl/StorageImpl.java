@@ -137,7 +137,7 @@ public class StorageImpl extends ComponentImpl implements Storage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StorageImpl() {
+	public StorageImpl() {
 		super();
 	}
 

@@ -71,7 +71,7 @@ public class GaussianImpl extends DistributionImpl implements Gaussian {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GaussianImpl() {
+	public GaussianImpl() {
 		super();
 	}
 

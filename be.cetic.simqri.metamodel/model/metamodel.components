@@ -79,7 +79,7 @@
           <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//BatchProcess/percentageOfSuccess"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z8uvGlEeWjQNaciI-lWA" name="numberOfLines" views="_E6z9HvGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//BatchProcess/numberOfLines"/>
+          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//BatchProcess/numberOfChains"/>
         </properties>
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_uWdUEPGmEeWjQNaciI-lWA" name="outputs" views="_xZgq0PGlEeWjQNaciI-lWA">
           <model xsi:type="ecore:EReference" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//BatchProcess/outputs"/>

@@ -49,7 +49,7 @@ public class BatchProcessItemProvider extends ProcessItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addPercentageOfSuccessPropertyDescriptor(object);
-			addNumberOfLinesPropertyDescriptor(object);
+			addNumberOfChainsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -77,19 +77,19 @@ public class BatchProcessItemProvider extends ProcessItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Number Of Lines feature.
+	 * This adds a property descriptor for the Number Of Chains feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addNumberOfLinesPropertyDescriptor(Object object) {
+	protected void addNumberOfChainsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BatchProcess_numberOfLines_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BatchProcess_numberOfLines_feature", "_UI_BatchProcess_type"),
-				 MetamodelPackage.Literals.BATCH_PROCESS__NUMBER_OF_LINES,
+				 getString("_UI_BatchProcess_numberOfChains_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BatchProcess_numberOfChains_feature", "_UI_BatchProcess_type"),
+				 MetamodelPackage.Literals.BATCH_PROCESS__NUMBER_OF_CHAINS,
 				 true,
 				 false,
 				 false,
@@ -167,7 +167,7 @@ public class BatchProcessItemProvider extends ProcessItemProvider {
 
 		switch (notification.getFeatureID(BatchProcess.class)) {
 			case MetamodelPackage.BATCH_PROCESS__PERCENTAGE_OF_SUCCESS:
-			case MetamodelPackage.BATCH_PROCESS__NUMBER_OF_LINES:
+			case MetamodelPackage.BATCH_PROCESS__NUMBER_OF_CHAINS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case MetamodelPackage.BATCH_PROCESS__OUTPUTS:

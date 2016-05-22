@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link be.cetic.simqri.metamodel.impl.BatchProcessImpl#getPercentageOfSuccess <em>Percentage Of Success</em>}</li>
- *   <li>{@link be.cetic.simqri.metamodel.impl.BatchProcessImpl#getNumberOfLines <em>Number Of Lines</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.BatchProcessImpl#getNumberOfChains <em>Number Of Chains</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.BatchProcessImpl#getOutputs <em>Outputs</em>}</li>
  * </ul>
  *
@@ -58,24 +58,24 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 	protected Double percentageOfSuccess = PERCENTAGE_OF_SUCCESS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getNumberOfLines() <em>Number Of Lines</em>}' attribute.
+	 * The default value of the '{@link #getNumberOfChains() <em>Number Of Chains</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumberOfLines()
+	 * @see #getNumberOfChains()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer NUMBER_OF_LINES_EDEFAULT = 3;
+	protected static final Integer NUMBER_OF_CHAINS_EDEFAULT = 3;
 
 	/**
-	 * The cached value of the '{@link #getNumberOfLines() <em>Number Of Lines</em>}' attribute.
+	 * The cached value of the '{@link #getNumberOfChains() <em>Number Of Chains</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumberOfLines()
+	 * @see #getNumberOfChains()
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer numberOfLines = NUMBER_OF_LINES_EDEFAULT;
+	protected Integer numberOfChains = NUMBER_OF_CHAINS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOutputs() <em>Outputs</em>}' containment reference list.
@@ -92,7 +92,7 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BatchProcessImpl() {
+	public BatchProcessImpl() {
 		super();
 	}
 
@@ -132,8 +132,8 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getNumberOfLines() {
-		return numberOfLines;
+	public Integer getNumberOfChains() {
+		return numberOfChains;
 	}
 
 	/**
@@ -141,11 +141,11 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNumberOfLines(Integer newNumberOfLines) {
-		Integer oldNumberOfLines = numberOfLines;
-		numberOfLines = newNumberOfLines;
+	public void setNumberOfChains(Integer newNumberOfChains) {
+		Integer oldNumberOfChains = numberOfChains;
+		numberOfChains = newNumberOfChains;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.BATCH_PROCESS__NUMBER_OF_LINES, oldNumberOfLines, numberOfLines));
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.BATCH_PROCESS__NUMBER_OF_CHAINS, oldNumberOfChains, numberOfChains));
 	}
 
 	/**
@@ -184,8 +184,8 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 		switch (featureID) {
 			case MetamodelPackage.BATCH_PROCESS__PERCENTAGE_OF_SUCCESS:
 				return getPercentageOfSuccess();
-			case MetamodelPackage.BATCH_PROCESS__NUMBER_OF_LINES:
-				return getNumberOfLines();
+			case MetamodelPackage.BATCH_PROCESS__NUMBER_OF_CHAINS:
+				return getNumberOfChains();
 			case MetamodelPackage.BATCH_PROCESS__OUTPUTS:
 				return getOutputs();
 		}
@@ -204,8 +204,8 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 			case MetamodelPackage.BATCH_PROCESS__PERCENTAGE_OF_SUCCESS:
 				setPercentageOfSuccess((Double)newValue);
 				return;
-			case MetamodelPackage.BATCH_PROCESS__NUMBER_OF_LINES:
-				setNumberOfLines((Integer)newValue);
+			case MetamodelPackage.BATCH_PROCESS__NUMBER_OF_CHAINS:
+				setNumberOfChains((Integer)newValue);
 				return;
 			case MetamodelPackage.BATCH_PROCESS__OUTPUTS:
 				getOutputs().clear();
@@ -226,8 +226,8 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 			case MetamodelPackage.BATCH_PROCESS__PERCENTAGE_OF_SUCCESS:
 				setPercentageOfSuccess(PERCENTAGE_OF_SUCCESS_EDEFAULT);
 				return;
-			case MetamodelPackage.BATCH_PROCESS__NUMBER_OF_LINES:
-				setNumberOfLines(NUMBER_OF_LINES_EDEFAULT);
+			case MetamodelPackage.BATCH_PROCESS__NUMBER_OF_CHAINS:
+				setNumberOfChains(NUMBER_OF_CHAINS_EDEFAULT);
 				return;
 			case MetamodelPackage.BATCH_PROCESS__OUTPUTS:
 				getOutputs().clear();
@@ -246,8 +246,8 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 		switch (featureID) {
 			case MetamodelPackage.BATCH_PROCESS__PERCENTAGE_OF_SUCCESS:
 				return PERCENTAGE_OF_SUCCESS_EDEFAULT == null ? percentageOfSuccess != null : !PERCENTAGE_OF_SUCCESS_EDEFAULT.equals(percentageOfSuccess);
-			case MetamodelPackage.BATCH_PROCESS__NUMBER_OF_LINES:
-				return NUMBER_OF_LINES_EDEFAULT == null ? numberOfLines != null : !NUMBER_OF_LINES_EDEFAULT.equals(numberOfLines);
+			case MetamodelPackage.BATCH_PROCESS__NUMBER_OF_CHAINS:
+				return NUMBER_OF_CHAINS_EDEFAULT == null ? numberOfChains != null : !NUMBER_OF_CHAINS_EDEFAULT.equals(numberOfChains);
 			case MetamodelPackage.BATCH_PROCESS__OUTPUTS:
 				return outputs != null && !outputs.isEmpty();
 		}
@@ -266,8 +266,8 @@ public class BatchProcessImpl extends ProcessImpl implements BatchProcess {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (percentageOfSuccess: ");
 		result.append(percentageOfSuccess);
-		result.append(", numberOfLines: ");
-		result.append(numberOfLines);
+		result.append(", numberOfChains: ");
+		result.append(numberOfChains);
 		result.append(')');
 		return result.toString();
 	}

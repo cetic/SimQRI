@@ -54,9 +54,9 @@ public class MonteCarloTracer {
 				String attrName = JsonFormat.jsonToString(jsonAttribute, "name");
 				String jsonDataSampling = JsonFormat.getJSonFromJSon(jsonAttribute,  "dataSampling");
 				
-				double attrMax = JsonFormat.jsonToDouble(jsonDataSampling, "max");
-				double attrMin = JsonFormat.jsonToDouble(jsonDataSampling, "min");
-				double attrMean = JsonFormat.jsonToDouble(jsonDataSampling, "mean");
+				String attrMax = String.format("%.2f", JsonFormat.jsonToDouble(jsonDataSampling, "max"));
+				String attrMin = String.format("%.2f", JsonFormat.jsonToDouble(jsonDataSampling, "min"));
+				String attrMean = String.format("%.2f", JsonFormat.jsonToDouble(jsonDataSampling, "mean"));
 				double attrVariance = JsonFormat.jsonToDouble(jsonDataSampling, "variance");
 				
 				elementsString += "  * "+attrName+" : \n";
@@ -101,9 +101,9 @@ public class MonteCarloTracer {
 			String attrName = JsonFormat.jsonToString(jsonProbe, "name");
 			
 			String jsonProbeSampling = JsonFormat.getJSonFromJSon(jsonProbe,  "dataSampling");
-			double attrMax = JsonFormat.jsonToDouble(jsonProbeSampling, "max");
-			double attrMin = JsonFormat.jsonToDouble(jsonProbeSampling, "min");
-			double attrMean = JsonFormat.jsonToDouble(jsonProbeSampling, "mean");
+			String attrMax = String.format("%.2f", JsonFormat.jsonToDouble(jsonProbeSampling, "max"));
+			String attrMin = String.format("%.2f", JsonFormat.jsonToDouble(jsonProbeSampling, "min"));
+			String attrMean = String.format("%.2f", JsonFormat.jsonToDouble(jsonProbeSampling, "mean"));
 			double attrVariance = JsonFormat.jsonToDouble(jsonProbeSampling, "variance");
 			
 			probesString += "  * "+attrName+" : \n";

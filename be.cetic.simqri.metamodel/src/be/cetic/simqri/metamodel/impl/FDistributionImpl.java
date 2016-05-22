@@ -71,7 +71,7 @@ public class FDistributionImpl extends DistributionImpl implements FDistribution
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FDistributionImpl() {
+	public FDistributionImpl() {
 		super();
 	}
 

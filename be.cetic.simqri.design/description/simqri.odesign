@@ -62,7 +62,7 @@
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
-          <conditionnalStyles predicateExpression="aql:(self.percentageOfSuccess&lt;100.0 and self.numberOfLines=1)">
+          <conditionnalStyles predicateExpression="aql:(self.percentageOfSuccess&lt;100.0 and self.numberOfChains=1)">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/single-failing-batch-process.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -74,7 +74,7 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
-          <conditionnalStyles predicateExpression="aql:self.numberOfLines=1">
+          <conditionnalStyles predicateExpression="aql:self.numberOfChains=1">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/single-batch-process.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -95,18 +95,21 @@
           </style>
         </nodeMappings>
         <toolSections name="Elements">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="SD_Supplier" label="New Supplier" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="SD_Supplier" label="New Supplier" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']" iconPath="/be.cetic.simqri.design/gifs/Supplier.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Supplier" referenceName="component">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_supplier '+self.eContainer().component->filter(metamodel::Supplier)->size()"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="supplierDelay">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="0"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="SD_conveyorbelt" label="New Conveyor belt" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']">
+          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="SD_conveyorbelt" label="New Conveyor belt" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']" iconPath="/be.cetic.simqri.design/gifs/ConveyorBelt.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -118,30 +121,36 @@
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ToolGroup" name="Batch Process">
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_batchprocess" label="New Batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']">
+            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_batchprocess" label="New Batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/BatchProcess.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_singlebatchprocess" label="New Single batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']">
+            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_singlebatchprocess" label="New Single batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/sbp.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="numberOfLines" valueExpression="1"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="numberOfChains" valueExpression="1"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_failingbatchprocess" label="New Failing batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']">
+            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_failingbatchprocess" label="New Failing batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/fbp.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -149,26 +158,32 @@
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="percentageOfSuccess" valueExpression="99.0"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_singlefailingbatchprocess" label="New Single failing batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']">
+            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_singlefailingbatchprocess" label="New Single failing batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/sfbp.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="numberOfLines" valueExpression="1"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="numberOfChains" valueExpression="1"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="percentageOfSuccess" valueExpression="99.0"/>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </tools>
           </ownedTools>
           <ownedTools xsi:type="tool_1:ToolGroup" name="Storages">
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_Storage" label="New Storage" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']">
+            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_Storage" label="New Storage" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" iconPath="/be.cetic.simqri.design/gifs/Storage.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -180,7 +195,7 @@
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_overflow_storage" label="New Overflow storage" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']">
+            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_overflow_storage" label="New Overflow storage" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" iconPath="/be.cetic.simqri.design/gifs/overflow-storage.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
@@ -332,7 +347,7 @@
           <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription labelSize="10">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
@@ -355,6 +370,9 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.StorageOutputFlow" referenceName="flow">
                   <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="destination" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="quantity">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -369,6 +387,12 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.ProcessOutputFlow" referenceName="flow">
                   <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="destination" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="quantity">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="processOutputFlowDelay">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="0"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>

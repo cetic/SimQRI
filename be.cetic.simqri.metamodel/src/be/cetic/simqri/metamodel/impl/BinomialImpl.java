@@ -71,7 +71,7 @@ public class BinomialImpl extends DistributionImpl implements Binomial {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BinomialImpl() {
+	public BinomialImpl() {
 		super();
 	}
 

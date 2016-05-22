@@ -71,7 +71,7 @@ public class CauchyImpl extends DistributionImpl implements Cauchy {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CauchyImpl() {
+	public CauchyImpl() {
 		super();
 	}
 

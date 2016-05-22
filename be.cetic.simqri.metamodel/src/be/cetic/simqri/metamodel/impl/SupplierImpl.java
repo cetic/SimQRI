@@ -83,7 +83,7 @@ public class SupplierImpl extends ComponentImpl implements Supplier {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SupplierImpl() {
+	public SupplierImpl() {
 		super();
 	}
 

@@ -192,7 +192,7 @@
         <semanticElements xmi:type="metamodel:ProcessOutputFlow" href="sample.simqri#//@flow.1"/>
         <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_oNkFEBLVEeazp9fpAWtKCw" targetArrow="InputClosedArrow" size="2">
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']/@style"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_oNkFERLVEeazp9fpAWtKCw" labelSize="10"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_oNkFERLVEeazp9fpAWtKCw" labelSize="10" labelColor="138,226,52"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']"/>
       </ownedDiagramElements>
@@ -202,7 +202,7 @@
       <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']"/>
       <target xmi:type="metamodel:Model" href="sample.simqri#/"/>
     </ownedRepresentations>
-    <ownedRepresentations xmi:type="table:DTable" xmi:id="_SrJXcBIPEeaWrKzNGSHc5g" name="new Queries Table" headerColumnWidth="312">
+    <ownedRepresentations xmi:type="table:DTable" xmi:id="_SrJXcBIPEeaWrKzNGSHc5g" name="new Queries Table" headerColumnWidth="39">
       <target xmi:type="metamodel:Model" href="sample.simqri#/"/>
       <lines xmi:type="table:DLine" xmi:id="_SrJXeRIPEeaWrKzNGSHc5g" label="Number of time units plus 1">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
@@ -216,23 +216,23 @@
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXfBIPEeaWrKzNGSHc5g" label="1001.0" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfBIPEeaWrKzNGSHc5g" label="1001,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXfRIPEeaWrKzNGSHc5g" label="1001.0" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfRIPEeaWrKzNGSHc5g" label="1001,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXfhIPEeaWrKzNGSHc5g" label="1001.0" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfhIPEeaWrKzNGSHc5g" label="1001,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXfxIPEeaWrKzNGSHc5g" label="1001.0" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXfxIPEeaWrKzNGSHc5g" label="1001,00" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXgBIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXgBIPEeaWrKzNGSHc5g" label="0,00" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
@@ -249,23 +249,23 @@
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXhBIPEeaWrKzNGSHc5g" label="0.95" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhBIPEeaWrKzNGSHc5g" label="1,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXhRIPEeaWrKzNGSHc5g" label="1.0" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhRIPEeaWrKzNGSHc5g" label="1,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXhhIPEeaWrKzNGSHc5g" label="0.92" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhhIPEeaWrKzNGSHc5g" label="0,94" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXhxIPEeaWrKzNGSHc5g" label="0.9819191919191919" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXhxIPEeaWrKzNGSHc5g" label="0,99" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXiBIPEeaWrKzNGSHc5g" label="1.0396278990258493E-5" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXiBIPEeaWrKzNGSHc5g" label="0,00" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
@@ -282,23 +282,23 @@
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXjBIPEeaWrKzNGSHc5g" label="0.04312634269998943" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjBIPEeaWrKzNGSHc5g" label="0,03" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXjRIPEeaWrKzNGSHc5g" label="0.16921224687201508" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjRIPEeaWrKzNGSHc5g" label="0,13" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXjhIPEeaWrKzNGSHc5g" label="0.029871819367168206" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjhIPEeaWrKzNGSHc5g" label="0,03" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXjxIPEeaWrKzNGSHc5g" label="0.06473430519710473" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXjxIPEeaWrKzNGSHc5g" label="0,06" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXkBIPEeaWrKzNGSHc5g" label="1.9741867272475046E-7" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXkBIPEeaWrKzNGSHc5g" label="0,00" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
@@ -315,23 +315,23 @@
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXlBIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlBIPEeaWrKzNGSHc5g" label="0,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXlRIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlRIPEeaWrKzNGSHc5g" label="0,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXlhIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlhIPEeaWrKzNGSHc5g" label="0,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXlxIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXlxIPEeaWrKzNGSHc5g" label="0,00" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_SrJXmBIPEeaWrKzNGSHc5g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_SrJXmBIPEeaWrKzNGSHc5g" label="0,00" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>

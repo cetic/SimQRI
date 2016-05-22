@@ -71,7 +71,7 @@ public class WeibullImpl extends DistributionImpl implements Weibull {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected WeibullImpl() {
+	public WeibullImpl() {
 		super();
 	}
 

@@ -121,12 +121,14 @@ public class Simulation {
 		Iterator<Tuple2<String, String>> itProbes = sqlogger.logs().probes().iterator();
 		while(itProbes.hasNext()) {
 			Tuple2<String, String> probes = itProbes.next();
+			String result = probes._2.toString().replaceAll("[^\\d.]", ""); // On ne garde que les valeurs numériques du résultat
+			double value = Double.parseDouble(result);
 			for(Query q : model.getQuery()) {
 				if(q.getName().equals(probes._1)) {
 					TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(q);
 					domain.getCommandStack().execute(new RecordingCommand(domain) {
 					   public void doExecute() {
-						   q.setResult(probes._2.toString().replaceAll("[^\\d.]", "")); // On ne garde que les valeurs numériques du résultat
+						   q.setResult(String.format("%.2f", value)); 
 						   // q.setMax("");
 						   // q.setMin("");
 						   // q.setMean("");
@@ -155,9 +157,9 @@ public class Simulation {
 					domain.getCommandStack().execute(new RecordingCommand(domain) {
 					   public void doExecute() {
 						  // q.setResult("");
-						  q.setMax(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "max")));
-						  q.setMin(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "min")));
-						  q.setMean(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "mean")));
+						  q.setMax(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "max")));
+						  q.setMin(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "min")));
+						  q.setMean(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "mean")));
 						  q.setVariance(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "variance")));
 					   }
 					});

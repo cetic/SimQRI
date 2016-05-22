@@ -71,7 +71,7 @@ public class BetaImpl extends DistributionImpl implements Beta {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BetaImpl() {
+	public BetaImpl() {
 		super();
 	}
 

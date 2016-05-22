@@ -526,13 +526,13 @@ public interface MetamodelPackage extends EPackage {
 	int BATCH_PROCESS__PERCENTAGE_OF_SUCCESS = PROCESS_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Lines</b></em>' attribute.
+	 * The feature id for the '<em><b>Number Of Chains</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BATCH_PROCESS__NUMBER_OF_LINES = PROCESS_FEATURE_COUNT + 1;
+	int BATCH_PROCESS__NUMBER_OF_CHAINS = PROCESS_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Outputs</b></em>' containment reference list.
@@ -2071,15 +2071,15 @@ public interface MetamodelPackage extends EPackage {
 	EAttribute getBatchProcess_PercentageOfSuccess();
 
 	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.BatchProcess#getNumberOfLines <em>Number Of Lines</em>}'.
+	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.BatchProcess#getNumberOfChains <em>Number Of Chains</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Number Of Lines</em>'.
-	 * @see be.cetic.simqri.metamodel.BatchProcess#getNumberOfLines()
+	 * @return the meta object for the attribute '<em>Number Of Chains</em>'.
+	 * @see be.cetic.simqri.metamodel.BatchProcess#getNumberOfChains()
 	 * @see #getBatchProcess()
 	 * @generated
 	 */
-	EAttribute getBatchProcess_NumberOfLines();
+	EAttribute getBatchProcess_NumberOfChains();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link be.cetic.simqri.metamodel.BatchProcess#getOutputs <em>Outputs</em>}'.
@@ -3206,12 +3206,12 @@ public interface MetamodelPackage extends EPackage {
 		EAttribute BATCH_PROCESS__PERCENTAGE_OF_SUCCESS = eINSTANCE.getBatchProcess_PercentageOfSuccess();
 
 		/**
-		 * The meta object literal for the '<em><b>Number Of Lines</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Number Of Chains</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BATCH_PROCESS__NUMBER_OF_LINES = eINSTANCE.getBatchProcess_NumberOfLines();
+		EAttribute BATCH_PROCESS__NUMBER_OF_CHAINS = eINSTANCE.getBatchProcess_NumberOfChains();
 
 		/**
 		 * The meta object literal for the '<em><b>Outputs</b></em>' containment reference list feature.

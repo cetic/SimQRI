@@ -20,7 +20,7 @@ public abstract class DistributionImpl extends ProbabilityImpl implements Distri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DistributionImpl() {
+	public DistributionImpl() {
 		super();
 	}
 

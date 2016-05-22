@@ -58,7 +58,7 @@ public abstract class ProcessImpl extends ComponentImpl implements be.cetic.simq
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProcessImpl() {
+	public ProcessImpl() {
 		super();
 	}
 

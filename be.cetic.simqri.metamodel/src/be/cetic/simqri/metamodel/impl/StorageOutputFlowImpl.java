@@ -54,7 +54,7 @@ public class StorageOutputFlowImpl extends FlowImpl implements StorageOutputFlow
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StorageOutputFlowImpl() {
+	public StorageOutputFlowImpl() {
 		super();
 	}
 

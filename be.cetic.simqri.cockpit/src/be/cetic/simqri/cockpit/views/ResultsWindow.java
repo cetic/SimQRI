@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
@@ -125,16 +126,20 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	
 	private void saveInTextFile(String allResults) {
 		JFileChooser fileChooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
+		fileChooser.setFileFilter(filter);
 		fileChooser.setDialogTitle("Specify a text file to save");   
 		int userSelection = fileChooser.showSaveDialog(null);
 		
 		if (userSelection == JFileChooser.APPROVE_OPTION) {
 		    File fileToSave = fileChooser.getSelectedFile();
 		    
-		    if(!fileToSave.getName().toLowerCase().endsWith(".txt")) {
-			    JOptionPane.showMessageDialog(null, fileToSave.getName()+" is not a text file !", "Error", JOptionPane.ERROR_MESSAGE);
+		    if(fileToSave.exists()) {
+			    JOptionPane.showMessageDialog(null, fileToSave.getName()+" already exists !", "Error", JOptionPane.ERROR_MESSAGE);
 		    }
 		    else {
+		    		if(!fileToSave.getName().toLowerCase().endsWith(".txt"))
+		    			fileToSave = new File(fileToSave.getAbsolutePath() + ".txt");
 			    BufferedWriter  bf = null;
 			    try {
 					bf = new BufferedWriter(new FileWriter(fileToSave));

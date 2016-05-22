@@ -51,7 +51,7 @@ public abstract class ComponentImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ComponentImpl() {
+	public ComponentImpl() {
 		super();
 	}
 

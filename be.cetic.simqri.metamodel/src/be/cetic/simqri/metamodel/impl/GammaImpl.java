@@ -50,7 +50,7 @@ public class GammaImpl extends DistributionImpl implements Gamma {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GammaImpl() {
+	public GammaImpl() {
 		super();
 	}
 

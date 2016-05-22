@@ -123,7 +123,7 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 				basePart.setPercentageOfSuccess(EEFConverterUtil.convertToString(MetamodelPackage.Literals.PERCENT, batchProcess.getPercentageOfSuccess()));
 			
 			if (isAccessible(MetamodelViewsRepository.BatchProcess.Properties.numberOfLines))
-				basePart.setNumberOfLines(EEFConverterUtil.convertToString(MetamodelPackage.Literals.POSITIVE_INT_NOT_NULL, batchProcess.getNumberOfLines()));
+				basePart.setNumberOfLines(EEFConverterUtil.convertToString(MetamodelPackage.Literals.POSITIVE_INT_NOT_NULL, batchProcess.getNumberOfChains()));
 			
 			if (isAccessible(MetamodelViewsRepository.BatchProcess.Properties.outputs)) {
 				outputsSettings = new ReferencesTableSettings(batchProcess, MetamodelPackage.eINSTANCE.getBatchProcess_Outputs());
@@ -188,7 +188,7 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 			return MetamodelPackage.eINSTANCE.getBatchProcess_PercentageOfSuccess();
 		}
 		if (editorKey == MetamodelViewsRepository.BatchProcess.Properties.numberOfLines) {
-			return MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfLines();
+			return MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfChains();
 		}
 		if (editorKey == MetamodelViewsRepository.BatchProcess.Properties.outputs) {
 			return MetamodelPackage.eINSTANCE.getBatchProcess_Outputs();
@@ -252,7 +252,7 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 			batchProcess.setPercentageOfSuccess((java.lang.Double)EEFConverterUtil.createFromString(MetamodelPackage.Literals.PERCENT, (String)event.getNewValue()));
 		}
 		if (MetamodelViewsRepository.BatchProcess.Properties.numberOfLines == event.getAffectedEditor()) {
-			batchProcess.setNumberOfLines((java.lang.Integer)EEFConverterUtil.createFromString(MetamodelPackage.Literals.POSITIVE_INT_NOT_NULL, (String)event.getNewValue()));
+			batchProcess.setNumberOfChains((java.lang.Integer)EEFConverterUtil.createFromString(MetamodelPackage.Literals.POSITIVE_INT_NOT_NULL, (String)event.getNewValue()));
 		}
 		if (MetamodelViewsRepository.BatchProcess.Properties.outputs == event.getAffectedEditor()) {
 			if (event.getKind() == PropertiesEditionEvent.ADD) {
@@ -307,7 +307,7 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 					basePart.setPercentageOfSuccess("");
 				}
 			}
-			if (MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfLines().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(MetamodelViewsRepository.BatchProcess.Properties.numberOfLines)) {
+			if (MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfChains().equals(msg.getFeature()) && msg.getNotifier().equals(semanticObject) && basePart != null && isAccessible(MetamodelViewsRepository.BatchProcess.Properties.numberOfLines)) {
 				if (msg.getNewValue() != null) {
 					basePart.setNumberOfLines(EcoreUtil.convertToString(MetamodelPackage.Literals.POSITIVE_INT_NOT_NULL, msg.getNewValue()));
 				} else {
@@ -332,7 +332,7 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 			MetamodelPackage.eINSTANCE.getProcess_Duration(),
 			MetamodelPackage.eINSTANCE.getProcess_StorageOutputFlow(),
 			MetamodelPackage.eINSTANCE.getBatchProcess_PercentageOfSuccess(),
-			MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfLines(),
+			MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfChains(),
 			MetamodelPackage.eINSTANCE.getBatchProcess_Outputs()		);
 		return new NotificationFilter[] {filter,};
 	}
@@ -375,9 +375,9 @@ public class BatchProcessPropertiesEditionComponent extends SiriusAwarePropertie
 				if (MetamodelViewsRepository.BatchProcess.Properties.numberOfLines == event.getAffectedEditor()) {
 					Object newValue = event.getNewValue();
 					if (newValue instanceof String) {
-						newValue = EEFConverterUtil.createFromString(MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfLines().getEAttributeType(), (String)newValue);
+						newValue = EEFConverterUtil.createFromString(MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfChains().getEAttributeType(), (String)newValue);
 					}
-					ret = Diagnostician.INSTANCE.validate(MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfLines().getEAttributeType(), newValue);
+					ret = Diagnostician.INSTANCE.validate(MetamodelPackage.eINSTANCE.getBatchProcess_NumberOfChains().getEAttributeType(), newValue);
 				}
 			} catch (IllegalArgumentException iae) {
 				ret = BasicDiagnostic.toDiagnostic(iae);

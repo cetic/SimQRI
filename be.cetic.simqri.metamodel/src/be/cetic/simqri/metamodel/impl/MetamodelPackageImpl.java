@@ -682,7 +682,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBatchProcess_NumberOfLines() {
+	public EAttribute getBatchProcess_NumberOfChains() {
 		return (EAttribute)batchProcessEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1456,7 +1456,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		batchProcessEClass = createEClass(BATCH_PROCESS);
 		createEAttribute(batchProcessEClass, BATCH_PROCESS__PERCENTAGE_OF_SUCCESS);
-		createEAttribute(batchProcessEClass, BATCH_PROCESS__NUMBER_OF_LINES);
+		createEAttribute(batchProcessEClass, BATCH_PROCESS__NUMBER_OF_CHAINS);
 		createEReference(batchProcessEClass, BATCH_PROCESS__OUTPUTS);
 
 		outputEClass = createEClass(OUTPUT);
@@ -1656,7 +1656,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		initEClass(batchProcessEClass, BatchProcess.class, "BatchProcess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBatchProcess_PercentageOfSuccess(), this.getPercent(), "percentageOfSuccess", "100", 0, 1, BatchProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBatchProcess_NumberOfLines(), this.getPositiveIntNotNull(), "numberOfLines", "3", 0, 1, BatchProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBatchProcess_NumberOfChains(), this.getPositiveIntNotNull(), "numberOfChains", "3", 0, 1, BatchProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBatchProcess_Outputs(), this.getOutput(), null, "outputs", null, 0, -1, BatchProcess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(outputEClass, Output.class, "Output", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -147,6 +147,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
               outputPort.getType match {
                 case OutputType.SUCCESS => outputs.+=(out)
                 case OutputType.FAILURE => fails.+=(out)
+                case OutputType.TRASH => fails.+=(out)
                 case _ => outputs.+=(out)
                 // TODO : Other output types behaviours 
               }
@@ -209,7 +210,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
     for(c <- components) {
       if(c.isInstanceOf[be.cetic.simqri.metamodel.BatchProcess]) {
         val batchProcess = c.asInstanceOf[be.cetic.simqri.metamodel.BatchProcess]
-        val numLines = batchProcess.getNumberOfLines
+        val numLines = batchProcess.getNumberOfChains
         val perSuc = batchProcess.getPercentageOfSuccess/100
         val duration = ph.getNonNegativeDoubleFunc(batchProcess.getDuration)
         val linkInfos = mapLinkInfos.get(components.indexOf(c))
@@ -230,7 +231,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
           simQRiComponents +:= CSingleBatchProcess(newSBP)
         }
         else if(numLines!=1 && perSuc==100) {
-          val newBP = factoryModel.batchProcess(batchProcess.getNumberOfLines,
+          val newBP = factoryModel.batchProcess(batchProcess.getNumberOfChains,
                                                 duration, 
                                                 storageFlowInfo, 
                                                 storageFlowOutputInfo, 

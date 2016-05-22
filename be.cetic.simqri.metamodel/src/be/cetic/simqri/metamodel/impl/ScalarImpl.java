@@ -50,7 +50,7 @@ public class ScalarImpl extends ProbabilityImpl implements Scalar {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ScalarImpl() {
+	public ScalarImpl() {
 		super();
 	}
 

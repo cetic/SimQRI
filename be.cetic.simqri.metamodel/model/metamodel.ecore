@@ -46,7 +46,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="BatchProcess" eSuperTypes="#//Process">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="percentageOfSuccess" eType="#//Percent"
         defaultValueLiteral="100"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfLines" eType="#//PositiveIntNotNull"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfChains" eType="#//PositiveIntNotNull"
         defaultValueLiteral="3"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
         eType="#//Output" containment="true"/>

@@ -71,7 +71,7 @@ public class UniformImpl extends DistributionImpl implements Uniform {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UniformImpl() {
+	public UniformImpl() {
 		super();
 	}
 

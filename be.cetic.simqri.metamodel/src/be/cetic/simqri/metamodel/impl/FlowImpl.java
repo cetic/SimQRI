@@ -44,7 +44,7 @@ public abstract class FlowImpl extends MinimalEObjectImpl.Container implements F
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected FlowImpl() {
+	public FlowImpl() {
 		super();
 	}
 

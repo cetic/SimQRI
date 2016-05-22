@@ -85,7 +85,8 @@ public class OneShotTracer {
 			Tuple2<String, String> probe = itProbes.next();
 			String query = probe._1;
 			String value = probe._2.replaceAll("[^\\d.]", "");
-			probesString += "  * "+query+" : "+value+"\n";
+			double doubleValue = Double.parseDouble(value);
+			probesString += "  * "+query+" : "+String.format("%.2f", doubleValue)+"\n";
 		}
 		probesString += "  ---------------------------------------- \n";
 		return probesString;

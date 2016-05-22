@@ -50,7 +50,7 @@ public class ChiSquareImpl extends DistributionImpl implements ChiSquare {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ChiSquareImpl() {
+	public ChiSquareImpl() {
 		super();
 	}
 

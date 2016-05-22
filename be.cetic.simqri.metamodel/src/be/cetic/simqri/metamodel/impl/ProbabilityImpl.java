@@ -22,7 +22,7 @@ public abstract class ProbabilityImpl extends MinimalEObjectImpl.Container imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProbabilityImpl() {
+	public ProbabilityImpl() {
 		super();
 	}
 

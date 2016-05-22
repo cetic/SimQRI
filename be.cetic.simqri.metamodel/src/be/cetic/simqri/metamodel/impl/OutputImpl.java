@@ -94,7 +94,7 @@ public class OutputImpl extends MinimalEObjectImpl.Container implements Output {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected OutputImpl() {
+	public OutputImpl() {
 		super();
 	}
 
