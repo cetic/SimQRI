@@ -1,6 +1,7 @@
 package be.cetic.simqri.cockpit.views;
 
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -9,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.PlainDocument;
@@ -93,14 +95,38 @@ public class SimulationManagementWindow extends JFrame implements ActionListener
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		int timeUnits = Integer.parseInt(this.jtfTimeUnits.getText().toString());
-		if(e.getSource() == this.jbOneShot) 
-			Simulation.launch("One Shot", timeUnits, 0, this.model);
-		else if(e.getSource() == this.jbMonteCarlo) {
-			int maxIterations = Integer.parseInt(this.jtfMaxIterations.getText().toString());
-			Simulation.launch("Monte-Carlo", timeUnits, maxIterations, this.model);
+		if(jtfTimeUnits.getText().isEmpty()) {
+			showMessage("Time Units value is not set!", true);
 		}
-		this.dispose();
+		else {
+			int timeUnits = Integer.parseInt(this.jtfTimeUnits.getText().toString());
+			if(e.getSource() == this.jbOneShot)  {
+				Simulation.launch("One Shot", timeUnits, 0, this.model);
+				this.dispose();
+			}
+			else if(e.getSource() == this.jbMonteCarlo) {
+				if(jtfMaxIterations.getText().isEmpty()) {
+					showMessage("Max Iterations value is not set!", true);
+				}
+				else {
+					int maxIterations = Integer.parseInt(this.jtfMaxIterations.getText().toString());
+					Simulation.launch("Monte-Carlo", timeUnits, maxIterations, this.model);
+					this.dispose();
+				}
+			}
+		}
+	}
+	
+	private static void showMessage(String message, boolean error) {
+	    EventQueue.invokeLater(new Runnable() {
+	        @Override
+	        public void run() {
+	        		if(!error)
+	        			JOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
+	        		else
+	        			JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
+	        }
+	    });
 	}
 
 }

@@ -56,7 +56,7 @@ public class IntFilter extends DocumentFilter {
 
 	   }
 
-	   @Override
+	   /*@Override
 	   public void remove(FilterBypass fb, int offset, int length)
 	         throws BadLocationException {
 	      Document doc = fb.getDocument();
@@ -69,5 +69,5 @@ public class IntFilter extends DocumentFilter {
 	      } else {
 	      }
 
-	   }
+	   }*/
 	}
