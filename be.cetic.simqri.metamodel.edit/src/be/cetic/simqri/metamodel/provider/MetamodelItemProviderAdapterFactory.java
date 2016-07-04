@@ -302,75 +302,6 @@ public class MetamodelItemProviderAdapterFactory extends MetamodelAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Cauchy} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CauchyItemProvider cauchyItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.Cauchy}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCauchyAdapter() {
-		if (cauchyItemProvider == null) {
-			cauchyItemProvider = new CauchyItemProvider(this);
-		}
-
-		return cauchyItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Binomial} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BinomialItemProvider binomialItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.Binomial}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBinomialAdapter() {
-		if (binomialItemProvider == null) {
-			binomialItemProvider = new BinomialItemProvider(this);
-		}
-
-		return binomialItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Beta} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BetaItemProvider betaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.Beta}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBetaAdapter() {
-		if (betaItemProvider == null) {
-			betaItemProvider = new BetaItemProvider(this);
-		}
-
-		return betaItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Scalar} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -391,144 +322,6 @@ public class MetamodelItemProviderAdapterFactory extends MetamodelAdapterFactory
 		}
 
 		return scalarItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.ChiSquare} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChiSquareItemProvider chiSquareItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.ChiSquare}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createChiSquareAdapter() {
-		if (chiSquareItemProvider == null) {
-			chiSquareItemProvider = new ChiSquareItemProvider(this);
-		}
-
-		return chiSquareItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Exponential} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ExponentialItemProvider exponentialItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.Exponential}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createExponentialAdapter() {
-		if (exponentialItemProvider == null) {
-			exponentialItemProvider = new ExponentialItemProvider(this);
-		}
-
-		return exponentialItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.FDistribution} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected FDistributionItemProvider fDistributionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.FDistribution}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createFDistributionAdapter() {
-		if (fDistributionItemProvider == null) {
-			fDistributionItemProvider = new FDistributionItemProvider(this);
-		}
-
-		return fDistributionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Gamma} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GammaItemProvider gammaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.Gamma}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGammaAdapter() {
-		if (gammaItemProvider == null) {
-			gammaItemProvider = new GammaItemProvider(this);
-		}
-
-		return gammaItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Geometric} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected GeometricItemProvider geometricItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.Geometric}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createGeometricAdapter() {
-		if (geometricItemProvider == null) {
-			geometricItemProvider = new GeometricItemProvider(this);
-		}
-
-		return geometricItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.LogNormal} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LogNormalItemProvider logNormalItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.LogNormal}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLogNormalAdapter() {
-		if (logNormalItemProvider == null) {
-			logNormalItemProvider = new LogNormalItemProvider(this);
-		}
-
-		return logNormalItemProvider;
 	}
 
 	/**
@@ -555,29 +348,6 @@ public class MetamodelItemProviderAdapterFactory extends MetamodelAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Pareto} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParetoItemProvider paretoItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.Pareto}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParetoAdapter() {
-		if (paretoItemProvider == null) {
-			paretoItemProvider = new ParetoItemProvider(this);
-		}
-
-		return paretoItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Poisson} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -601,29 +371,6 @@ public class MetamodelItemProviderAdapterFactory extends MetamodelAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.StudentsT} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StudentsTItemProvider studentsTItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.StudentsT}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStudentsTAdapter() {
-		if (studentsTItemProvider == null) {
-			studentsTItemProvider = new StudentsTItemProvider(this);
-		}
-
-		return studentsTItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Uniform} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -644,29 +391,6 @@ public class MetamodelItemProviderAdapterFactory extends MetamodelAdapterFactory
 		}
 
 		return uniformItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link be.cetic.simqri.metamodel.Weibull} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected WeibullItemProvider weibullItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link be.cetic.simqri.metamodel.Weibull}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createWeibullAdapter() {
-		if (weibullItemProvider == null) {
-			weibullItemProvider = new WeibullItemProvider(this);
-		}
-
-		return weibullItemProvider;
 	}
 
 	/**
@@ -777,22 +501,10 @@ public class MetamodelItemProviderAdapterFactory extends MetamodelAdapterFactory
 		if (storageOutputFlowItemProvider != null) storageOutputFlowItemProvider.dispose();
 		if (processOutputFlowItemProvider != null) processOutputFlowItemProvider.dispose();
 		if (orderOnStockThresholdItemProvider != null) orderOnStockThresholdItemProvider.dispose();
-		if (cauchyItemProvider != null) cauchyItemProvider.dispose();
-		if (binomialItemProvider != null) binomialItemProvider.dispose();
-		if (betaItemProvider != null) betaItemProvider.dispose();
 		if (scalarItemProvider != null) scalarItemProvider.dispose();
-		if (chiSquareItemProvider != null) chiSquareItemProvider.dispose();
-		if (exponentialItemProvider != null) exponentialItemProvider.dispose();
-		if (fDistributionItemProvider != null) fDistributionItemProvider.dispose();
-		if (gammaItemProvider != null) gammaItemProvider.dispose();
-		if (geometricItemProvider != null) geometricItemProvider.dispose();
-		if (logNormalItemProvider != null) logNormalItemProvider.dispose();
 		if (gaussianItemProvider != null) gaussianItemProvider.dispose();
-		if (paretoItemProvider != null) paretoItemProvider.dispose();
 		if (poissonItemProvider != null) poissonItemProvider.dispose();
-		if (studentsTItemProvider != null) studentsTItemProvider.dispose();
 		if (uniformItemProvider != null) uniformItemProvider.dispose();
-		if (weibullItemProvider != null) weibullItemProvider.dispose();
 		if (conveyorBeltItemProvider != null) conveyorBeltItemProvider.dispose();
 	}
 

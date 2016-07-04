@@ -151,52 +151,7 @@ public class FlowItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createCauchy()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createBinomial()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createBeta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
 				 MetamodelFactory.eINSTANCE.createScalar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createChiSquare()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createExponential()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createFDistribution()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createGamma()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createGeometric()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createLogNormal()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -206,27 +161,12 @@ public class FlowItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createPareto()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
 				 MetamodelFactory.eINSTANCE.createPoisson()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createStudentsT()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
 				 MetamodelFactory.eINSTANCE.createUniform()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.FLOW__QUANTITY,
-				 MetamodelFactory.eINSTANCE.createWeibull()));
 	}
 
 	/**

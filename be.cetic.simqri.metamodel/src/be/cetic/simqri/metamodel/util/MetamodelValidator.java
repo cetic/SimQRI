@@ -3,28 +3,17 @@
 package be.cetic.simqri.metamodel.util;
 
 import be.cetic.simqri.metamodel.BatchProcess;
-
-import be.cetic.simqri.metamodel.Beta;
-import be.cetic.simqri.metamodel.Binomial;
-import be.cetic.simqri.metamodel.Cauchy;
-import be.cetic.simqri.metamodel.ChiSquare;
 import be.cetic.simqri.metamodel.Component;
 import be.cetic.simqri.metamodel.ConveyorBelt;
 import be.cetic.simqri.metamodel.Distribution;
-import be.cetic.simqri.metamodel.Exponential;
-import be.cetic.simqri.metamodel.FDistribution;
 import be.cetic.simqri.metamodel.Flow;
-import be.cetic.simqri.metamodel.Gamma;
 import be.cetic.simqri.metamodel.Gaussian;
-import be.cetic.simqri.metamodel.Geometric;
-import be.cetic.simqri.metamodel.LogNormal;
 import be.cetic.simqri.metamodel.MetamodelPackage;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.OrderOnStockThreshold;
 import be.cetic.simqri.metamodel.OrderType;
 import be.cetic.simqri.metamodel.Output;
 import be.cetic.simqri.metamodel.OutputType;
-import be.cetic.simqri.metamodel.Pareto;
 import be.cetic.simqri.metamodel.Poisson;
 import be.cetic.simqri.metamodel.Probability;
 import be.cetic.simqri.metamodel.ProcessOutputFlow;
@@ -32,11 +21,8 @@ import be.cetic.simqri.metamodel.Query;
 import be.cetic.simqri.metamodel.Scalar;
 import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
-import be.cetic.simqri.metamodel.StudentsT;
 import be.cetic.simqri.metamodel.Supplier;
 import be.cetic.simqri.metamodel.Uniform;
-import be.cetic.simqri.metamodel.Weibull;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -146,38 +132,14 @@ public class MetamodelValidator extends EObjectValidator {
 				return validateProbability((Probability)value, diagnostics, context);
 			case MetamodelPackage.DISTRIBUTION:
 				return validateDistribution((Distribution)value, diagnostics, context);
-			case MetamodelPackage.CAUCHY:
-				return validateCauchy((Cauchy)value, diagnostics, context);
-			case MetamodelPackage.BINOMIAL:
-				return validateBinomial((Binomial)value, diagnostics, context);
-			case MetamodelPackage.BETA:
-				return validateBeta((Beta)value, diagnostics, context);
 			case MetamodelPackage.SCALAR:
 				return validateScalar((Scalar)value, diagnostics, context);
-			case MetamodelPackage.CHI_SQUARE:
-				return validateChiSquare((ChiSquare)value, diagnostics, context);
-			case MetamodelPackage.EXPONENTIAL:
-				return validateExponential((Exponential)value, diagnostics, context);
-			case MetamodelPackage.FDISTRIBUTION:
-				return validateFDistribution((FDistribution)value, diagnostics, context);
-			case MetamodelPackage.GAMMA:
-				return validateGamma((Gamma)value, diagnostics, context);
-			case MetamodelPackage.GEOMETRIC:
-				return validateGeometric((Geometric)value, diagnostics, context);
-			case MetamodelPackage.LOG_NORMAL:
-				return validateLogNormal((LogNormal)value, diagnostics, context);
 			case MetamodelPackage.GAUSSIAN:
 				return validateGaussian((Gaussian)value, diagnostics, context);
-			case MetamodelPackage.PARETO:
-				return validatePareto((Pareto)value, diagnostics, context);
 			case MetamodelPackage.POISSON:
 				return validatePoisson((Poisson)value, diagnostics, context);
-			case MetamodelPackage.STUDENTS_T:
-				return validateStudentsT((StudentsT)value, diagnostics, context);
 			case MetamodelPackage.UNIFORM:
 				return validateUniform((Uniform)value, diagnostics, context);
-			case MetamodelPackage.WEIBULL:
-				return validateWeibull((Weibull)value, diagnostics, context);
 			case MetamodelPackage.CONVEYOR_BELT:
 				return validateConveyorBelt((ConveyorBelt)value, diagnostics, context);
 			case MetamodelPackage.ORDER_TYPE:
@@ -194,10 +156,6 @@ public class MetamodelValidator extends EObjectValidator {
 				return validatePositiveIntNotNull((Integer)value, diagnostics, context);
 			case MetamodelPackage.POSITIVE_DOUBLE_NOT_NULL:
 				return validatePositiveDoubleNotNull((Double)value, diagnostics, context);
-			case MetamodelPackage.PROBA_DOUBLE:
-				return validateProbaDouble((Double)value, diagnostics, context);
-			case MetamodelPackage.PROBA_DOUBLE_NOT_NULL:
-				return validateProbaDoubleNotNull((Double)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -343,89 +301,8 @@ public class MetamodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCauchy(Cauchy cauchy, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(cauchy, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBinomial(Binomial binomial, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(binomial, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateBeta(Beta beta, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(beta, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateScalar(Scalar scalar, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(scalar, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateChiSquare(ChiSquare chiSquare, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(chiSquare, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateExponential(Exponential exponential, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(exponential, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateFDistribution(FDistribution fDistribution, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(fDistribution, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateGamma(Gamma gamma, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(gamma, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateGeometric(Geometric geometric, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(geometric, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateLogNormal(LogNormal logNormal, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(logNormal, diagnostics, context);
 	}
 
 	/**
@@ -442,15 +319,6 @@ public class MetamodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePareto(Pareto pareto, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(pareto, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validatePoisson(Poisson poisson, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(poisson, diagnostics, context);
 	}
@@ -460,26 +328,8 @@ public class MetamodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStudentsT(StudentsT studentsT, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(studentsT, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateUniform(Uniform uniform, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(uniform, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateWeibull(Weibull weibull, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(weibull, diagnostics, context);
 	}
 
 	/**
@@ -674,112 +524,6 @@ public class MetamodelValidator extends EObjectValidator {
 		boolean result = positiveDoubleNotNull.compareTo(POSITIVE_DOUBLE_NOT_NULL__MIN__VALUE) > 0;
 		if (!result && diagnostics != null)
 			reportMinViolation(MetamodelPackage.Literals.POSITIVE_DOUBLE_NOT_NULL, positiveDoubleNotNull, POSITIVE_DOUBLE_NOT_NULL__MIN__VALUE, false, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProbaDouble(Double probaDouble, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validateProbaDouble_Min(probaDouble, diagnostics, context);
-		if (result || diagnostics != null) result &= validateProbaDouble_Max(probaDouble, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @see #validateProbaDouble_Min
-	 */
-	public static final Double PROBA_DOUBLE__MIN__VALUE = 0.0;
-
-	/**
-	 * Validates the Min constraint of '<em>Proba Double</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProbaDouble_Min(Double probaDouble, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = probaDouble.compareTo(PROBA_DOUBLE__MIN__VALUE) >= 0;
-		if (!result && diagnostics != null)
-			reportMinViolation(MetamodelPackage.Literals.PROBA_DOUBLE, probaDouble, PROBA_DOUBLE__MIN__VALUE, true, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @see #validateProbaDouble_Max
-	 */
-	public static final Double PROBA_DOUBLE__MAX__VALUE = 1.0;
-
-	/**
-	 * Validates the Max constraint of '<em>Proba Double</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProbaDouble_Max(Double probaDouble, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = probaDouble.compareTo(PROBA_DOUBLE__MAX__VALUE) <= 0;
-		if (!result && diagnostics != null)
-			reportMaxViolation(MetamodelPackage.Literals.PROBA_DOUBLE, probaDouble, PROBA_DOUBLE__MAX__VALUE, true, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProbaDoubleNotNull(Double probaDoubleNotNull, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validateProbaDoubleNotNull_Min(probaDoubleNotNull, diagnostics, context);
-		if (result || diagnostics != null) result &= validateProbaDoubleNotNull_Max(probaDoubleNotNull, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @see #validateProbaDoubleNotNull_Min
-	 */
-	public static final Double PROBA_DOUBLE_NOT_NULL__MIN__VALUE = 0.0;
-
-	/**
-	 * Validates the Min constraint of '<em>Proba Double Not Null</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProbaDoubleNotNull_Min(Double probaDoubleNotNull, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = probaDoubleNotNull.compareTo(PROBA_DOUBLE_NOT_NULL__MIN__VALUE) > 0;
-		if (!result && diagnostics != null)
-			reportMinViolation(MetamodelPackage.Literals.PROBA_DOUBLE_NOT_NULL, probaDoubleNotNull, PROBA_DOUBLE_NOT_NULL__MIN__VALUE, false, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @see #validateProbaDoubleNotNull_Max
-	 */
-	public static final Double PROBA_DOUBLE_NOT_NULL__MAX__VALUE = 1.0;
-
-	/**
-	 * Validates the Max constraint of '<em>Proba Double Not Null</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProbaDoubleNotNull_Max(Double probaDoubleNotNull, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = probaDoubleNotNull.compareTo(PROBA_DOUBLE_NOT_NULL__MAX__VALUE) <= 0;
-		if (!result && diagnostics != null)
-			reportMaxViolation(MetamodelPackage.Literals.PROBA_DOUBLE_NOT_NULL, probaDoubleNotNull, PROBA_DOUBLE_NOT_NULL__MAX__VALUE, true, diagnostics, context);
 		return result;
 	}
 

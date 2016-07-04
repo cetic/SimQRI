@@ -477,7 +477,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getConveyorBelt()
 	 * @generated
 	 */
-	int CONVEYOR_BELT = 30;
+	int CONVEYOR_BELT = 18;
 
 	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.BatchProcessImpl <em>Batch Process</em>}' class.
@@ -920,144 +920,6 @@ public interface MetamodelPackage extends EPackage {
 	int DISTRIBUTION_OPERATION_COUNT = PROBABILITY_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.CauchyImpl <em>Cauchy</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.CauchyImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getCauchy()
-	 * @generated
-	 */
-	int CAUCHY = 14;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAUCHY__LOCATION = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Scale</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAUCHY__SCALE = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Cauchy</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAUCHY_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Cauchy</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAUCHY_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.BinomialImpl <em>Binomial</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.BinomialImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getBinomial()
-	 * @generated
-	 */
-	int BINOMIAL = 15;
-
-	/**
-	 * The feature id for the '<em><b>Nbr Of Trial</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINOMIAL__NBR_OF_TRIAL = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Proba Of Success</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINOMIAL__PROBA_OF_SUCCESS = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Binomial</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINOMIAL_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Binomial</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINOMIAL_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.BetaImpl <em>Beta</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.BetaImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getBeta()
-	 * @generated
-	 */
-	int BETA = 16;
-
-	/**
-	 * The feature id for the '<em><b>Freedom Degree A</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BETA__FREEDOM_DEGREE_A = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Freedom Degree B</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BETA__FREEDOM_DEGREE_B = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Beta</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BETA_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Beta</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BETA_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.ScalarImpl <em>Scalar</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1065,7 +927,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getScalar()
 	 * @generated
 	 */
-	int SCALAR = 17;
+	int SCALAR = 14;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1095,246 +957,6 @@ public interface MetamodelPackage extends EPackage {
 	int SCALAR_OPERATION_COUNT = PROBABILITY_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.ChiSquareImpl <em>Chi Square</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.ChiSquareImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getChiSquare()
-	 * @generated
-	 */
-	int CHI_SQUARE = 18;
-
-	/**
-	 * The feature id for the '<em><b>Degree Of Freedom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHI_SQUARE__DEGREE_OF_FREEDOM = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Chi Square</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHI_SQUARE_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Chi Square</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHI_SQUARE_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.ExponentialImpl <em>Exponential</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.ExponentialImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getExponential()
-	 * @generated
-	 */
-	int EXPONENTIAL = 19;
-
-	/**
-	 * The feature id for the '<em><b>Scale</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPONENTIAL__SCALE = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Exponential</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPONENTIAL_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Exponential</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EXPONENTIAL_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.FDistributionImpl <em>FDistribution</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.FDistributionImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getFDistribution()
-	 * @generated
-	 */
-	int FDISTRIBUTION = 20;
-
-	/**
-	 * The feature id for the '<em><b>Freedom Degree A</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FDISTRIBUTION__FREEDOM_DEGREE_A = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Freedom Degree B</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FDISTRIBUTION__FREEDOM_DEGREE_B = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>FDistribution</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FDISTRIBUTION_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>FDistribution</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FDISTRIBUTION_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.GammaImpl <em>Gamma</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.GammaImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGamma()
-	 * @generated
-	 */
-	int GAMMA = 21;
-
-	/**
-	 * The feature id for the '<em><b>Shape</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAMMA__SHAPE = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Gamma</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAMMA_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Gamma</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GAMMA_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.GeometricImpl <em>Geometric</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.GeometricImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGeometric()
-	 * @generated
-	 */
-	int GEOMETRIC = 22;
-
-	/**
-	 * The feature id for the '<em><b>Proba Of Success</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GEOMETRIC__PROBA_OF_SUCCESS = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Geometric</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GEOMETRIC_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Geometric</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GEOMETRIC_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.LogNormalImpl <em>Log Normal</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.LogNormalImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getLogNormal()
-	 * @generated
-	 */
-	int LOG_NORMAL = 23;
-
-	/**
-	 * The feature id for the '<em><b>Location</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOG_NORMAL__LOCATION = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Scale</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOG_NORMAL__SCALE = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Log Normal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOG_NORMAL_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Log Normal</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOG_NORMAL_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.GaussianImpl <em>Gaussian</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1342,7 +964,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGaussian()
 	 * @generated
 	 */
-	int GAUSSIAN = 24;
+	int GAUSSIAN = 15;
 
 	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -1381,52 +1003,6 @@ public interface MetamodelPackage extends EPackage {
 	int GAUSSIAN_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.ParetoImpl <em>Pareto</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.ParetoImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPareto()
-	 * @generated
-	 */
-	int PARETO = 25;
-
-	/**
-	 * The feature id for the '<em><b>Shape</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARETO__SHAPE = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Scale</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARETO__SCALE = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Pareto</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARETO_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Pareto</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARETO_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.PoissonImpl <em>Poisson</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1434,7 +1010,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPoisson()
 	 * @generated
 	 */
-	int POISSON = 26;
+	int POISSON = 16;
 
 	/**
 	 * The feature id for the '<em><b>Interval</b></em>' attribute.
@@ -1464,43 +1040,6 @@ public interface MetamodelPackage extends EPackage {
 	int POISSON_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.StudentsTImpl <em>Students T</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.StudentsTImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getStudentsT()
-	 * @generated
-	 */
-	int STUDENTS_T = 27;
-
-	/**
-	 * The feature id for the '<em><b>Degree Of Freedom</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENTS_T__DEGREE_OF_FREEDOM = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Students T</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENTS_T_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Students T</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STUDENTS_T_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.UniformImpl <em>Uniform</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1508,7 +1047,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getUniform()
 	 * @generated
 	 */
-	int UNIFORM = 28;
+	int UNIFORM = 17;
 
 	/**
 	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
@@ -1545,52 +1084,6 @@ public interface MetamodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNIFORM_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link be.cetic.simqri.metamodel.impl.WeibullImpl <em>Weibull</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.cetic.simqri.metamodel.impl.WeibullImpl
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getWeibull()
-	 * @generated
-	 */
-	int WEIBULL = 29;
-
-	/**
-	 * The feature id for the '<em><b>Shape</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WEIBULL__SHAPE = DISTRIBUTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Scale</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WEIBULL__SCALE = DISTRIBUTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Weibull</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WEIBULL_FEATURE_COUNT = DISTRIBUTION_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>Weibull</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WEIBULL_OPERATION_COUNT = DISTRIBUTION_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1663,7 +1156,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getOrderType()
 	 * @generated
 	 */
-	int ORDER_TYPE = 31;
+	int ORDER_TYPE = 19;
 
 	/**
 	 * The meta object id for the '{@link be.cetic.simqri.metamodel.OutputType <em>Output Type</em>}' enum.
@@ -1673,7 +1166,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getOutputType()
 	 * @generated
 	 */
-	int OUTPUT_TYPE = 32;
+	int OUTPUT_TYPE = 20;
 
 	/**
 	 * The meta object id for the '<em>Percent</em>' data type.
@@ -1683,7 +1176,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPercent()
 	 * @generated
 	 */
-	int PERCENT = 33;
+	int PERCENT = 21;
 
 	/**
 	 * The meta object id for the '<em>Positive Int</em>' data type.
@@ -1693,7 +1186,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveInt()
 	 * @generated
 	 */
-	int POSITIVE_INT = 34;
+	int POSITIVE_INT = 22;
 
 	/**
 	 * The meta object id for the '<em>Positive Double</em>' data type.
@@ -1703,7 +1196,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveDouble()
 	 * @generated
 	 */
-	int POSITIVE_DOUBLE = 35;
+	int POSITIVE_DOUBLE = 23;
 
 	/**
 	 * The meta object id for the '<em>Positive Int Not Null</em>' data type.
@@ -1713,7 +1206,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveIntNotNull()
 	 * @generated
 	 */
-	int POSITIVE_INT_NOT_NULL = 36;
+	int POSITIVE_INT_NOT_NULL = 24;
 
 	/**
 	 * The meta object id for the '<em>Positive Double Not Null</em>' data type.
@@ -1723,28 +1216,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveDoubleNotNull()
 	 * @generated
 	 */
-	int POSITIVE_DOUBLE_NOT_NULL = 37;
-
-	/**
-	 * The meta object id for the '<em>Proba Double</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.Double
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getProbaDouble()
-	 * @generated
-	 */
-	int PROBA_DOUBLE = 38;
-
-	/**
-	 * The meta object id for the '<em>Proba Double Not Null</em>' data type.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see java.lang.Double
-	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getProbaDoubleNotNull()
-	 * @generated
-	 */
-	int PROBA_DOUBLE_NOT_NULL = 39;
-
+	int POSITIVE_DOUBLE_NOT_NULL = 25;
 
 	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Model <em>Model</em>}'.
@@ -2392,102 +1864,6 @@ public interface MetamodelPackage extends EPackage {
 	EClass getDistribution();
 
 	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Cauchy <em>Cauchy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Cauchy</em>'.
-	 * @see be.cetic.simqri.metamodel.Cauchy
-	 * @generated
-	 */
-	EClass getCauchy();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Cauchy#getLocation <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Location</em>'.
-	 * @see be.cetic.simqri.metamodel.Cauchy#getLocation()
-	 * @see #getCauchy()
-	 * @generated
-	 */
-	EAttribute getCauchy_Location();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Cauchy#getScale <em>Scale</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scale</em>'.
-	 * @see be.cetic.simqri.metamodel.Cauchy#getScale()
-	 * @see #getCauchy()
-	 * @generated
-	 */
-	EAttribute getCauchy_Scale();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Binomial <em>Binomial</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Binomial</em>'.
-	 * @see be.cetic.simqri.metamodel.Binomial
-	 * @generated
-	 */
-	EClass getBinomial();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Binomial#getNbrOfTrial <em>Nbr Of Trial</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Nbr Of Trial</em>'.
-	 * @see be.cetic.simqri.metamodel.Binomial#getNbrOfTrial()
-	 * @see #getBinomial()
-	 * @generated
-	 */
-	EAttribute getBinomial_NbrOfTrial();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Binomial#getProbaOfSuccess <em>Proba Of Success</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Proba Of Success</em>'.
-	 * @see be.cetic.simqri.metamodel.Binomial#getProbaOfSuccess()
-	 * @see #getBinomial()
-	 * @generated
-	 */
-	EAttribute getBinomial_ProbaOfSuccess();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Beta <em>Beta</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Beta</em>'.
-	 * @see be.cetic.simqri.metamodel.Beta
-	 * @generated
-	 */
-	EClass getBeta();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Beta#getFreedomDegreeA <em>Freedom Degree A</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Freedom Degree A</em>'.
-	 * @see be.cetic.simqri.metamodel.Beta#getFreedomDegreeA()
-	 * @see #getBeta()
-	 * @generated
-	 */
-	EAttribute getBeta_FreedomDegreeA();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Beta#getFreedomDegreeB <em>Freedom Degree B</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Freedom Degree B</em>'.
-	 * @see be.cetic.simqri.metamodel.Beta#getFreedomDegreeB()
-	 * @see #getBeta()
-	 * @generated
-	 */
-	EAttribute getBeta_FreedomDegreeB();
-
-	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Scalar <em>Scalar</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2507,154 +1883,6 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getScalar_Value();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.ChiSquare <em>Chi Square</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Chi Square</em>'.
-	 * @see be.cetic.simqri.metamodel.ChiSquare
-	 * @generated
-	 */
-	EClass getChiSquare();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.ChiSquare#getDegreeOfFreedom <em>Degree Of Freedom</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Degree Of Freedom</em>'.
-	 * @see be.cetic.simqri.metamodel.ChiSquare#getDegreeOfFreedom()
-	 * @see #getChiSquare()
-	 * @generated
-	 */
-	EAttribute getChiSquare_DegreeOfFreedom();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Exponential <em>Exponential</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Exponential</em>'.
-	 * @see be.cetic.simqri.metamodel.Exponential
-	 * @generated
-	 */
-	EClass getExponential();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Exponential#getScale <em>Scale</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scale</em>'.
-	 * @see be.cetic.simqri.metamodel.Exponential#getScale()
-	 * @see #getExponential()
-	 * @generated
-	 */
-	EAttribute getExponential_Scale();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.FDistribution <em>FDistribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>FDistribution</em>'.
-	 * @see be.cetic.simqri.metamodel.FDistribution
-	 * @generated
-	 */
-	EClass getFDistribution();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.FDistribution#getFreedomDegreeA <em>Freedom Degree A</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Freedom Degree A</em>'.
-	 * @see be.cetic.simqri.metamodel.FDistribution#getFreedomDegreeA()
-	 * @see #getFDistribution()
-	 * @generated
-	 */
-	EAttribute getFDistribution_FreedomDegreeA();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.FDistribution#getFreedomDegreeB <em>Freedom Degree B</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Freedom Degree B</em>'.
-	 * @see be.cetic.simqri.metamodel.FDistribution#getFreedomDegreeB()
-	 * @see #getFDistribution()
-	 * @generated
-	 */
-	EAttribute getFDistribution_FreedomDegreeB();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Gamma <em>Gamma</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Gamma</em>'.
-	 * @see be.cetic.simqri.metamodel.Gamma
-	 * @generated
-	 */
-	EClass getGamma();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Gamma#getShape <em>Shape</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Shape</em>'.
-	 * @see be.cetic.simqri.metamodel.Gamma#getShape()
-	 * @see #getGamma()
-	 * @generated
-	 */
-	EAttribute getGamma_Shape();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Geometric <em>Geometric</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Geometric</em>'.
-	 * @see be.cetic.simqri.metamodel.Geometric
-	 * @generated
-	 */
-	EClass getGeometric();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Geometric#getProbaOfSuccess <em>Proba Of Success</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Proba Of Success</em>'.
-	 * @see be.cetic.simqri.metamodel.Geometric#getProbaOfSuccess()
-	 * @see #getGeometric()
-	 * @generated
-	 */
-	EAttribute getGeometric_ProbaOfSuccess();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.LogNormal <em>Log Normal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Log Normal</em>'.
-	 * @see be.cetic.simqri.metamodel.LogNormal
-	 * @generated
-	 */
-	EClass getLogNormal();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.LogNormal#getLocation <em>Location</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Location</em>'.
-	 * @see be.cetic.simqri.metamodel.LogNormal#getLocation()
-	 * @see #getLogNormal()
-	 * @generated
-	 */
-	EAttribute getLogNormal_Location();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.LogNormal#getScale <em>Scale</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scale</em>'.
-	 * @see be.cetic.simqri.metamodel.LogNormal#getScale()
-	 * @see #getLogNormal()
-	 * @generated
-	 */
-	EAttribute getLogNormal_Scale();
 
 	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Gaussian <em>Gaussian</em>}'.
@@ -2689,38 +1917,6 @@ public interface MetamodelPackage extends EPackage {
 	EAttribute getGaussian_Scale();
 
 	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Pareto <em>Pareto</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Pareto</em>'.
-	 * @see be.cetic.simqri.metamodel.Pareto
-	 * @generated
-	 */
-	EClass getPareto();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Pareto#getShape <em>Shape</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Shape</em>'.
-	 * @see be.cetic.simqri.metamodel.Pareto#getShape()
-	 * @see #getPareto()
-	 * @generated
-	 */
-	EAttribute getPareto_Shape();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Pareto#getScale <em>Scale</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scale</em>'.
-	 * @see be.cetic.simqri.metamodel.Pareto#getScale()
-	 * @see #getPareto()
-	 * @generated
-	 */
-	EAttribute getPareto_Scale();
-
-	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Poisson <em>Poisson</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2740,27 +1936,6 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getPoisson_Interval();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.StudentsT <em>Students T</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Students T</em>'.
-	 * @see be.cetic.simqri.metamodel.StudentsT
-	 * @generated
-	 */
-	EClass getStudentsT();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.StudentsT#getDegreeOfFreedom <em>Degree Of Freedom</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Degree Of Freedom</em>'.
-	 * @see be.cetic.simqri.metamodel.StudentsT#getDegreeOfFreedom()
-	 * @see #getStudentsT()
-	 * @generated
-	 */
-	EAttribute getStudentsT_DegreeOfFreedom();
 
 	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Uniform <em>Uniform</em>}'.
@@ -2793,38 +1968,6 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUniform_Maximum();
-
-	/**
-	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Weibull <em>Weibull</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Weibull</em>'.
-	 * @see be.cetic.simqri.metamodel.Weibull
-	 * @generated
-	 */
-	EClass getWeibull();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Weibull#getShape <em>Shape</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Shape</em>'.
-	 * @see be.cetic.simqri.metamodel.Weibull#getShape()
-	 * @see #getWeibull()
-	 * @generated
-	 */
-	EAttribute getWeibull_Shape();
-
-	/**
-	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Weibull#getScale <em>Scale</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Scale</em>'.
-	 * @see be.cetic.simqri.metamodel.Weibull#getScale()
-	 * @see #getWeibull()
-	 * @generated
-	 */
-	EAttribute getWeibull_Scale();
 
 	/**
 	 * Returns the meta object for enum '{@link be.cetic.simqri.metamodel.OrderType <em>Order Type</em>}'.
@@ -2905,30 +2048,6 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EDataType getPositiveDoubleNotNull();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.Double <em>Proba Double</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Proba Double</em>'.
-	 * @see java.lang.Double
-	 * @model instanceClass="java.lang.Double"
-	 *        extendedMetaData="baseType='http://www.eclipse.org/emf/2002/Ecore#EDouble' minInclusive='0' maxInclusive='1'"
-	 * @generated
-	 */
-	EDataType getProbaDouble();
-
-	/**
-	 * Returns the meta object for data type '{@link java.lang.Double <em>Proba Double Not Null</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for data type '<em>Proba Double Not Null</em>'.
-	 * @see java.lang.Double
-	 * @model instanceClass="java.lang.Double"
-	 *        extendedMetaData="baseType='http://www.eclipse.org/emf/2002/Ecore#EDouble' maxInclusive='1' minExclusive='0'"
-	 * @generated
-	 */
-	EDataType getProbaDoubleNotNull();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -3464,84 +2583,6 @@ public interface MetamodelPackage extends EPackage {
 		EClass DISTRIBUTION = eINSTANCE.getDistribution();
 
 		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.CauchyImpl <em>Cauchy</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.CauchyImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getCauchy()
-		 * @generated
-		 */
-		EClass CAUCHY = eINSTANCE.getCauchy();
-
-		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CAUCHY__LOCATION = eINSTANCE.getCauchy_Location();
-
-		/**
-		 * The meta object literal for the '<em><b>Scale</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CAUCHY__SCALE = eINSTANCE.getCauchy_Scale();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.BinomialImpl <em>Binomial</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.BinomialImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getBinomial()
-		 * @generated
-		 */
-		EClass BINOMIAL = eINSTANCE.getBinomial();
-
-		/**
-		 * The meta object literal for the '<em><b>Nbr Of Trial</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BINOMIAL__NBR_OF_TRIAL = eINSTANCE.getBinomial_NbrOfTrial();
-
-		/**
-		 * The meta object literal for the '<em><b>Proba Of Success</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BINOMIAL__PROBA_OF_SUCCESS = eINSTANCE.getBinomial_ProbaOfSuccess();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.BetaImpl <em>Beta</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.BetaImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getBeta()
-		 * @generated
-		 */
-		EClass BETA = eINSTANCE.getBeta();
-
-		/**
-		 * The meta object literal for the '<em><b>Freedom Degree A</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BETA__FREEDOM_DEGREE_A = eINSTANCE.getBeta_FreedomDegreeA();
-
-		/**
-		 * The meta object literal for the '<em><b>Freedom Degree B</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BETA__FREEDOM_DEGREE_B = eINSTANCE.getBeta_FreedomDegreeB();
-
-		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.ScalarImpl <em>Scalar</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3558,130 +2599,6 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCALAR__VALUE = eINSTANCE.getScalar_Value();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.ChiSquareImpl <em>Chi Square</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.ChiSquareImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getChiSquare()
-		 * @generated
-		 */
-		EClass CHI_SQUARE = eINSTANCE.getChiSquare();
-
-		/**
-		 * The meta object literal for the '<em><b>Degree Of Freedom</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CHI_SQUARE__DEGREE_OF_FREEDOM = eINSTANCE.getChiSquare_DegreeOfFreedom();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.ExponentialImpl <em>Exponential</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.ExponentialImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getExponential()
-		 * @generated
-		 */
-		EClass EXPONENTIAL = eINSTANCE.getExponential();
-
-		/**
-		 * The meta object literal for the '<em><b>Scale</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXPONENTIAL__SCALE = eINSTANCE.getExponential_Scale();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.FDistributionImpl <em>FDistribution</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.FDistributionImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getFDistribution()
-		 * @generated
-		 */
-		EClass FDISTRIBUTION = eINSTANCE.getFDistribution();
-
-		/**
-		 * The meta object literal for the '<em><b>Freedom Degree A</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FDISTRIBUTION__FREEDOM_DEGREE_A = eINSTANCE.getFDistribution_FreedomDegreeA();
-
-		/**
-		 * The meta object literal for the '<em><b>Freedom Degree B</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute FDISTRIBUTION__FREEDOM_DEGREE_B = eINSTANCE.getFDistribution_FreedomDegreeB();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.GammaImpl <em>Gamma</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.GammaImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGamma()
-		 * @generated
-		 */
-		EClass GAMMA = eINSTANCE.getGamma();
-
-		/**
-		 * The meta object literal for the '<em><b>Shape</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GAMMA__SHAPE = eINSTANCE.getGamma_Shape();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.GeometricImpl <em>Geometric</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.GeometricImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getGeometric()
-		 * @generated
-		 */
-		EClass GEOMETRIC = eINSTANCE.getGeometric();
-
-		/**
-		 * The meta object literal for the '<em><b>Proba Of Success</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute GEOMETRIC__PROBA_OF_SUCCESS = eINSTANCE.getGeometric_ProbaOfSuccess();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.LogNormalImpl <em>Log Normal</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.LogNormalImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getLogNormal()
-		 * @generated
-		 */
-		EClass LOG_NORMAL = eINSTANCE.getLogNormal();
-
-		/**
-		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LOG_NORMAL__LOCATION = eINSTANCE.getLogNormal_Location();
-
-		/**
-		 * The meta object literal for the '<em><b>Scale</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LOG_NORMAL__SCALE = eINSTANCE.getLogNormal_Scale();
 
 		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.GaussianImpl <em>Gaussian</em>}' class.
@@ -3710,32 +2627,6 @@ public interface MetamodelPackage extends EPackage {
 		EAttribute GAUSSIAN__SCALE = eINSTANCE.getGaussian_Scale();
 
 		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.ParetoImpl <em>Pareto</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.ParetoImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPareto()
-		 * @generated
-		 */
-		EClass PARETO = eINSTANCE.getPareto();
-
-		/**
-		 * The meta object literal for the '<em><b>Shape</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARETO__SHAPE = eINSTANCE.getPareto_Shape();
-
-		/**
-		 * The meta object literal for the '<em><b>Scale</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PARETO__SCALE = eINSTANCE.getPareto_Scale();
-
-		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.PoissonImpl <em>Poisson</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3752,24 +2643,6 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute POISSON__INTERVAL = eINSTANCE.getPoisson_Interval();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.StudentsTImpl <em>Students T</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.StudentsTImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getStudentsT()
-		 * @generated
-		 */
-		EClass STUDENTS_T = eINSTANCE.getStudentsT();
-
-		/**
-		 * The meta object literal for the '<em><b>Degree Of Freedom</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute STUDENTS_T__DEGREE_OF_FREEDOM = eINSTANCE.getStudentsT_DegreeOfFreedom();
 
 		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.UniformImpl <em>Uniform</em>}' class.
@@ -3796,32 +2669,6 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UNIFORM__MAXIMUM = eINSTANCE.getUniform_Maximum();
-
-		/**
-		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.WeibullImpl <em>Weibull</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.cetic.simqri.metamodel.impl.WeibullImpl
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getWeibull()
-		 * @generated
-		 */
-		EClass WEIBULL = eINSTANCE.getWeibull();
-
-		/**
-		 * The meta object literal for the '<em><b>Shape</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute WEIBULL__SHAPE = eINSTANCE.getWeibull_Shape();
-
-		/**
-		 * The meta object literal for the '<em><b>Scale</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute WEIBULL__SCALE = eINSTANCE.getWeibull_Scale();
 
 		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.OrderType <em>Order Type</em>}' enum.
@@ -3892,26 +2739,6 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EDataType POSITIVE_DOUBLE_NOT_NULL = eINSTANCE.getPositiveDoubleNotNull();
-
-		/**
-		 * The meta object literal for the '<em>Proba Double</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.Double
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getProbaDouble()
-		 * @generated
-		 */
-		EDataType PROBA_DOUBLE = eINSTANCE.getProbaDouble();
-
-		/**
-		 * The meta object literal for the '<em>Proba Double Not Null</em>' data type.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see java.lang.Double
-		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getProbaDoubleNotNull()
-		 * @generated
-		 */
-		EDataType PROBA_DOUBLE_NOT_NULL = eINSTANCE.getProbaDoubleNotNull();
 
 	}
 

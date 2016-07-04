@@ -3,18 +3,8 @@
 package be.cetic.simqri.metamodel.impl;
 
 import be.cetic.simqri.metamodel.BatchProcess;
-
-import be.cetic.simqri.metamodel.Beta;
-import be.cetic.simqri.metamodel.Binomial;
-import be.cetic.simqri.metamodel.Cauchy;
-import be.cetic.simqri.metamodel.ChiSquare;
 import be.cetic.simqri.metamodel.ConveyorBelt;
-import be.cetic.simqri.metamodel.Exponential;
-import be.cetic.simqri.metamodel.FDistribution;
-import be.cetic.simqri.metamodel.Gamma;
 import be.cetic.simqri.metamodel.Gaussian;
-import be.cetic.simqri.metamodel.Geometric;
-import be.cetic.simqri.metamodel.LogNormal;
 import be.cetic.simqri.metamodel.MetamodelFactory;
 import be.cetic.simqri.metamodel.MetamodelPackage;
 import be.cetic.simqri.metamodel.Model;
@@ -22,18 +12,14 @@ import be.cetic.simqri.metamodel.OrderOnStockThreshold;
 import be.cetic.simqri.metamodel.OrderType;
 import be.cetic.simqri.metamodel.Output;
 import be.cetic.simqri.metamodel.OutputType;
-import be.cetic.simqri.metamodel.Pareto;
 import be.cetic.simqri.metamodel.Poisson;
 import be.cetic.simqri.metamodel.ProcessOutputFlow;
 import be.cetic.simqri.metamodel.Query;
 import be.cetic.simqri.metamodel.Scalar;
 import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
-import be.cetic.simqri.metamodel.StudentsT;
 import be.cetic.simqri.metamodel.Supplier;
 import be.cetic.simqri.metamodel.Uniform;
-import be.cetic.simqri.metamodel.Weibull;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -98,22 +84,10 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 			case MetamodelPackage.STORAGE_OUTPUT_FLOW: return createStorageOutputFlow();
 			case MetamodelPackage.PROCESS_OUTPUT_FLOW: return createProcessOutputFlow();
 			case MetamodelPackage.ORDER_ON_STOCK_THRESHOLD: return createOrderOnStockThreshold();
-			case MetamodelPackage.CAUCHY: return createCauchy();
-			case MetamodelPackage.BINOMIAL: return createBinomial();
-			case MetamodelPackage.BETA: return createBeta();
 			case MetamodelPackage.SCALAR: return createScalar();
-			case MetamodelPackage.CHI_SQUARE: return createChiSquare();
-			case MetamodelPackage.EXPONENTIAL: return createExponential();
-			case MetamodelPackage.FDISTRIBUTION: return createFDistribution();
-			case MetamodelPackage.GAMMA: return createGamma();
-			case MetamodelPackage.GEOMETRIC: return createGeometric();
-			case MetamodelPackage.LOG_NORMAL: return createLogNormal();
 			case MetamodelPackage.GAUSSIAN: return createGaussian();
-			case MetamodelPackage.PARETO: return createPareto();
 			case MetamodelPackage.POISSON: return createPoisson();
-			case MetamodelPackage.STUDENTS_T: return createStudentsT();
 			case MetamodelPackage.UNIFORM: return createUniform();
-			case MetamodelPackage.WEIBULL: return createWeibull();
 			case MetamodelPackage.CONVEYOR_BELT: return createConveyorBelt();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -142,10 +116,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 				return createPositiveIntNotNullFromString(eDataType, initialValue);
 			case MetamodelPackage.POSITIVE_DOUBLE_NOT_NULL:
 				return createPositiveDoubleNotNullFromString(eDataType, initialValue);
-			case MetamodelPackage.PROBA_DOUBLE:
-				return createProbaDoubleFromString(eDataType, initialValue);
-			case MetamodelPackage.PROBA_DOUBLE_NOT_NULL:
-				return createProbaDoubleNotNullFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -173,10 +143,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 				return convertPositiveIntNotNullToString(eDataType, instanceValue);
 			case MetamodelPackage.POSITIVE_DOUBLE_NOT_NULL:
 				return convertPositiveDoubleNotNullToString(eDataType, instanceValue);
-			case MetamodelPackage.PROBA_DOUBLE:
-				return convertProbaDoubleToString(eDataType, instanceValue);
-			case MetamodelPackage.PROBA_DOUBLE_NOT_NULL:
-				return convertProbaDoubleNotNullToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -287,99 +253,9 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Cauchy createCauchy() {
-		CauchyImpl cauchy = new CauchyImpl();
-		return cauchy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Binomial createBinomial() {
-		BinomialImpl binomial = new BinomialImpl();
-		return binomial;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Beta createBeta() {
-		BetaImpl beta = new BetaImpl();
-		return beta;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Scalar createScalar() {
 		ScalarImpl scalar = new ScalarImpl();
 		return scalar;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ChiSquare createChiSquare() {
-		ChiSquareImpl chiSquare = new ChiSquareImpl();
-		return chiSquare;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Exponential createExponential() {
-		ExponentialImpl exponential = new ExponentialImpl();
-		return exponential;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FDistribution createFDistribution() {
-		FDistributionImpl fDistribution = new FDistributionImpl();
-		return fDistribution;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Gamma createGamma() {
-		GammaImpl gamma = new GammaImpl();
-		return gamma;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Geometric createGeometric() {
-		GeometricImpl geometric = new GeometricImpl();
-		return geometric;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public LogNormal createLogNormal() {
-		LogNormalImpl logNormal = new LogNormalImpl();
-		return logNormal;
 	}
 
 	/**
@@ -397,16 +273,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Pareto createPareto() {
-		ParetoImpl pareto = new ParetoImpl();
-		return pareto;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Poisson createPoisson() {
 		PoissonImpl poisson = new PoissonImpl();
 		return poisson;
@@ -417,29 +283,9 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StudentsT createStudentsT() {
-		StudentsTImpl studentsT = new StudentsTImpl();
-		return studentsT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Uniform createUniform() {
 		UniformImpl uniform = new UniformImpl();
 		return uniform;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Weibull createWeibull() {
-		WeibullImpl weibull = new WeibullImpl();
-		return weibull;
 	}
 
 	/**
@@ -569,42 +415,6 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 * @generated
 	 */
 	public String convertPositiveDoubleNotNullToString(EDataType eDataType, Object instanceValue) {
-		return EcoreFactory.eINSTANCE.convertToString(EcorePackage.Literals.EDOUBLE, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Double createProbaDoubleFromString(EDataType eDataType, String initialValue) {
-		return (Double)EcoreFactory.eINSTANCE.createFromString(EcorePackage.Literals.EDOUBLE, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertProbaDoubleToString(EDataType eDataType, Object instanceValue) {
-		return EcoreFactory.eINSTANCE.convertToString(EcorePackage.Literals.EDOUBLE, instanceValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Double createProbaDoubleNotNullFromString(EDataType eDataType, String initialValue) {
-		return (Double)EcoreFactory.eINSTANCE.createFromString(EcorePackage.Literals.EDOUBLE, initialValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertProbaDoubleNotNullToString(EDataType eDataType, Object instanceValue) {
 		return EcoreFactory.eINSTANCE.convertToString(EcorePackage.Literals.EDOUBLE, instanceValue);
 	}
 

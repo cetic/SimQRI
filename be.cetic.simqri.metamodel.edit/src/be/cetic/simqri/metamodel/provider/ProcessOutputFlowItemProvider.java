@@ -183,52 +183,7 @@ public class ProcessOutputFlowItemProvider extends FlowItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createCauchy()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createBinomial()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createBeta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
 				 MetamodelFactory.eINSTANCE.createScalar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createChiSquare()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createExponential()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createFDistribution()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createGamma()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createGeometric()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createLogNormal()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -238,27 +193,12 @@ public class ProcessOutputFlowItemProvider extends FlowItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createPareto()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
 				 MetamodelFactory.eINSTANCE.createPoisson()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createStudentsT()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
 				 MetamodelFactory.eINSTANCE.createUniform()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS_OUTPUT_FLOW__PROCESS_OUTPUT_FLOW_DELAY,
-				 MetamodelFactory.eINSTANCE.createWeibull()));
 	}
 
 	/**

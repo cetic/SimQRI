@@ -213,52 +213,7 @@ public class SupplierItemProvider extends ComponentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createCauchy()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createBinomial()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createBeta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
 				 MetamodelFactory.eINSTANCE.createScalar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createChiSquare()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createExponential()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createFDistribution()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createGamma()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createGeometric()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createLogNormal()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -268,27 +223,12 @@ public class SupplierItemProvider extends ComponentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createPareto()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
 				 MetamodelFactory.eINSTANCE.createPoisson()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createStudentsT()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
 				 MetamodelFactory.eINSTANCE.createUniform()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.SUPPLIER__SUPPLIER_DELAY,
-				 MetamodelFactory.eINSTANCE.createWeibull()));
 	}
 
 }

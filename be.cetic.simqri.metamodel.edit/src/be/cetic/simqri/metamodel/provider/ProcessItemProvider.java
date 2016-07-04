@@ -161,52 +161,7 @@ public class ProcessItemProvider extends ComponentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createCauchy()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createBinomial()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createBeta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
 				 MetamodelFactory.eINSTANCE.createScalar()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createChiSquare()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createExponential()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createFDistribution()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createGamma()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createGeometric()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createLogNormal()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -216,27 +171,12 @@ public class ProcessItemProvider extends ComponentItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createPareto()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
 				 MetamodelFactory.eINSTANCE.createPoisson()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createStudentsT()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
 				 MetamodelFactory.eINSTANCE.createUniform()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MetamodelPackage.Literals.PROCESS__DURATION,
-				 MetamodelFactory.eINSTANCE.createWeibull()));
 	}
 
 }

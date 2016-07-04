@@ -3,21 +3,11 @@
 package be.cetic.simqri.metamodel.impl;
 
 import be.cetic.simqri.metamodel.BatchProcess;
-
-import be.cetic.simqri.metamodel.Beta;
-import be.cetic.simqri.metamodel.Binomial;
-import be.cetic.simqri.metamodel.Cauchy;
-import be.cetic.simqri.metamodel.ChiSquare;
 import be.cetic.simqri.metamodel.Component;
 import be.cetic.simqri.metamodel.ConveyorBelt;
 import be.cetic.simqri.metamodel.Distribution;
-import be.cetic.simqri.metamodel.Exponential;
-import be.cetic.simqri.metamodel.FDistribution;
 import be.cetic.simqri.metamodel.Flow;
-import be.cetic.simqri.metamodel.Gamma;
 import be.cetic.simqri.metamodel.Gaussian;
-import be.cetic.simqri.metamodel.Geometric;
-import be.cetic.simqri.metamodel.LogNormal;
 import be.cetic.simqri.metamodel.MetamodelFactory;
 import be.cetic.simqri.metamodel.MetamodelPackage;
 import be.cetic.simqri.metamodel.Model;
@@ -25,7 +15,6 @@ import be.cetic.simqri.metamodel.OrderOnStockThreshold;
 import be.cetic.simqri.metamodel.OrderType;
 import be.cetic.simqri.metamodel.Output;
 import be.cetic.simqri.metamodel.OutputType;
-import be.cetic.simqri.metamodel.Pareto;
 import be.cetic.simqri.metamodel.Poisson;
 import be.cetic.simqri.metamodel.Probability;
 import be.cetic.simqri.metamodel.ProcessOutputFlow;
@@ -33,11 +22,8 @@ import be.cetic.simqri.metamodel.Query;
 import be.cetic.simqri.metamodel.Scalar;
 import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
-import be.cetic.simqri.metamodel.StudentsT;
 import be.cetic.simqri.metamodel.Supplier;
 import be.cetic.simqri.metamodel.Uniform;
-import be.cetic.simqri.metamodel.Weibull;
-
 import be.cetic.simqri.metamodel.util.MetamodelValidator;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -167,70 +153,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass cauchyEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass binomialEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass betaEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass scalarEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass chiSquareEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass exponentialEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass fDistributionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass gammaEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass geometricEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass logNormalEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -244,13 +167,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass paretoEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass poissonEClass = null;
 
 	/**
@@ -258,21 +174,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass studentsTEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass uniformEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass weibullEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -322,20 +224,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	private EDataType positiveDoubleNotNullEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType probaDoubleEDataType = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EDataType probaDoubleNotNullEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -952,87 +840,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCauchy() {
-		return cauchyEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCauchy_Location() {
-		return (EAttribute)cauchyEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCauchy_Scale() {
-		return (EAttribute)cauchyEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBinomial() {
-		return binomialEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBinomial_NbrOfTrial() {
-		return (EAttribute)binomialEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBinomial_ProbaOfSuccess() {
-		return (EAttribute)binomialEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBeta() {
-		return betaEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBeta_FreedomDegreeA() {
-		return (EAttribute)betaEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getBeta_FreedomDegreeB() {
-		return (EAttribute)betaEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getScalar() {
 		return scalarEClass;
 	}
@@ -1044,132 +851,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 */
 	public EAttribute getScalar_Value() {
 		return (EAttribute)scalarEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getChiSquare() {
-		return chiSquareEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getChiSquare_DegreeOfFreedom() {
-		return (EAttribute)chiSquareEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getExponential() {
-		return exponentialEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExponential_Scale() {
-		return (EAttribute)exponentialEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getFDistribution() {
-		return fDistributionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFDistribution_FreedomDegreeA() {
-		return (EAttribute)fDistributionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFDistribution_FreedomDegreeB() {
-		return (EAttribute)fDistributionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGamma() {
-		return gammaEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGamma_Shape() {
-		return (EAttribute)gammaEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getGeometric() {
-		return geometricEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGeometric_ProbaOfSuccess() {
-		return (EAttribute)geometricEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getLogNormal() {
-		return logNormalEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLogNormal_Location() {
-		return (EAttribute)logNormalEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getLogNormal_Scale() {
-		return (EAttribute)logNormalEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1204,33 +885,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPareto() {
-		return paretoEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPareto_Shape() {
-		return (EAttribute)paretoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getPareto_Scale() {
-		return (EAttribute)paretoEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPoisson() {
 		return poissonEClass;
 	}
@@ -1242,24 +896,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 */
 	public EAttribute getPoisson_Interval() {
 		return (EAttribute)poissonEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getStudentsT() {
-		return studentsTEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getStudentsT_DegreeOfFreedom() {
-		return (EAttribute)studentsTEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1287,33 +923,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 */
 	public EAttribute getUniform_Maximum() {
 		return (EAttribute)uniformEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getWeibull() {
-		return weibullEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getWeibull_Shape() {
-		return (EAttribute)weibullEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getWeibull_Scale() {
-		return (EAttribute)weibullEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1377,24 +986,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 */
 	public EDataType getPositiveDoubleNotNull() {
 		return positiveDoubleNotNullEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getProbaDouble() {
-		return probaDoubleEDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EDataType getProbaDoubleNotNull() {
-		return probaDoubleNotNullEDataType;
 	}
 
 	/**
@@ -1496,62 +1087,19 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		distributionEClass = createEClass(DISTRIBUTION);
 
-		cauchyEClass = createEClass(CAUCHY);
-		createEAttribute(cauchyEClass, CAUCHY__LOCATION);
-		createEAttribute(cauchyEClass, CAUCHY__SCALE);
-
-		binomialEClass = createEClass(BINOMIAL);
-		createEAttribute(binomialEClass, BINOMIAL__NBR_OF_TRIAL);
-		createEAttribute(binomialEClass, BINOMIAL__PROBA_OF_SUCCESS);
-
-		betaEClass = createEClass(BETA);
-		createEAttribute(betaEClass, BETA__FREEDOM_DEGREE_A);
-		createEAttribute(betaEClass, BETA__FREEDOM_DEGREE_B);
-
 		scalarEClass = createEClass(SCALAR);
 		createEAttribute(scalarEClass, SCALAR__VALUE);
-
-		chiSquareEClass = createEClass(CHI_SQUARE);
-		createEAttribute(chiSquareEClass, CHI_SQUARE__DEGREE_OF_FREEDOM);
-
-		exponentialEClass = createEClass(EXPONENTIAL);
-		createEAttribute(exponentialEClass, EXPONENTIAL__SCALE);
-
-		fDistributionEClass = createEClass(FDISTRIBUTION);
-		createEAttribute(fDistributionEClass, FDISTRIBUTION__FREEDOM_DEGREE_A);
-		createEAttribute(fDistributionEClass, FDISTRIBUTION__FREEDOM_DEGREE_B);
-
-		gammaEClass = createEClass(GAMMA);
-		createEAttribute(gammaEClass, GAMMA__SHAPE);
-
-		geometricEClass = createEClass(GEOMETRIC);
-		createEAttribute(geometricEClass, GEOMETRIC__PROBA_OF_SUCCESS);
-
-		logNormalEClass = createEClass(LOG_NORMAL);
-		createEAttribute(logNormalEClass, LOG_NORMAL__LOCATION);
-		createEAttribute(logNormalEClass, LOG_NORMAL__SCALE);
 
 		gaussianEClass = createEClass(GAUSSIAN);
 		createEAttribute(gaussianEClass, GAUSSIAN__LOCATION);
 		createEAttribute(gaussianEClass, GAUSSIAN__SCALE);
 
-		paretoEClass = createEClass(PARETO);
-		createEAttribute(paretoEClass, PARETO__SHAPE);
-		createEAttribute(paretoEClass, PARETO__SCALE);
-
 		poissonEClass = createEClass(POISSON);
 		createEAttribute(poissonEClass, POISSON__INTERVAL);
-
-		studentsTEClass = createEClass(STUDENTS_T);
-		createEAttribute(studentsTEClass, STUDENTS_T__DEGREE_OF_FREEDOM);
 
 		uniformEClass = createEClass(UNIFORM);
 		createEAttribute(uniformEClass, UNIFORM__MINIMUM);
 		createEAttribute(uniformEClass, UNIFORM__MAXIMUM);
-
-		weibullEClass = createEClass(WEIBULL);
-		createEAttribute(weibullEClass, WEIBULL__SHAPE);
-		createEAttribute(weibullEClass, WEIBULL__SCALE);
 
 		conveyorBeltEClass = createEClass(CONVEYOR_BELT);
 		createEAttribute(conveyorBeltEClass, CONVEYOR_BELT__MINIMAL_SEPARATION_BETWEEN_BATCHES);
@@ -1567,8 +1115,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		positiveDoubleEDataType = createEDataType(POSITIVE_DOUBLE);
 		positiveIntNotNullEDataType = createEDataType(POSITIVE_INT_NOT_NULL);
 		positiveDoubleNotNullEDataType = createEDataType(POSITIVE_DOUBLE_NOT_NULL);
-		probaDoubleEDataType = createEDataType(PROBA_DOUBLE);
-		probaDoubleNotNullEDataType = createEDataType(PROBA_DOUBLE_NOT_NULL);
 	}
 
 	/**
@@ -1606,22 +1152,10 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		processOutputFlowEClass.getESuperTypes().add(this.getFlow());
 		processEClass.getESuperTypes().add(this.getComponent());
 		distributionEClass.getESuperTypes().add(this.getProbability());
-		cauchyEClass.getESuperTypes().add(this.getDistribution());
-		binomialEClass.getESuperTypes().add(this.getDistribution());
-		betaEClass.getESuperTypes().add(this.getDistribution());
 		scalarEClass.getESuperTypes().add(this.getProbability());
-		chiSquareEClass.getESuperTypes().add(this.getDistribution());
-		exponentialEClass.getESuperTypes().add(this.getDistribution());
-		fDistributionEClass.getESuperTypes().add(this.getDistribution());
-		gammaEClass.getESuperTypes().add(this.getDistribution());
-		geometricEClass.getESuperTypes().add(this.getDistribution());
-		logNormalEClass.getESuperTypes().add(this.getDistribution());
 		gaussianEClass.getESuperTypes().add(this.getDistribution());
-		paretoEClass.getESuperTypes().add(this.getDistribution());
 		poissonEClass.getESuperTypes().add(this.getDistribution());
-		studentsTEClass.getESuperTypes().add(this.getDistribution());
 		uniformEClass.getESuperTypes().add(this.getDistribution());
-		weibullEClass.getESuperTypes().add(this.getDistribution());
 		conveyorBeltEClass.getESuperTypes().add(this.getProcess());
 
 		// Initialize classes, features, and operations; add parameters
@@ -1696,62 +1230,19 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 
 		initEClass(distributionEClass, Distribution.class, "Distribution", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(cauchyEClass, Cauchy.class, "Cauchy", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCauchy_Location(), ecorePackage.getEDouble(), "location", "1", 0, 1, Cauchy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCauchy_Scale(), this.getPositiveDoubleNotNull(), "scale", "1", 0, 1, Cauchy.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(binomialEClass, Binomial.class, "Binomial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBinomial_NbrOfTrial(), this.getPositiveIntNotNull(), "nbrOfTrial", "1", 0, 1, Binomial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBinomial_ProbaOfSuccess(), this.getProbaDouble(), "probaOfSuccess", "0.0", 0, 1, Binomial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(betaEClass, Beta.class, "Beta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBeta_FreedomDegreeA(), this.getPositiveDoubleNotNull(), "freedomDegreeA", "1", 0, 1, Beta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBeta_FreedomDegreeB(), this.getPositiveDoubleNotNull(), "freedomDegreeB", "1", 0, 1, Beta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(scalarEClass, Scalar.class, "Scalar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScalar_Value(), this.getPositiveInt(), "value", "1", 0, 1, Scalar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(chiSquareEClass, ChiSquare.class, "ChiSquare", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getChiSquare_DegreeOfFreedom(), this.getPositiveIntNotNull(), "degreeOfFreedom", "1", 0, 1, ChiSquare.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(exponentialEClass, Exponential.class, "Exponential", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExponential_Scale(), this.getPositiveDoubleNotNull(), "scale", "1", 0, 1, Exponential.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(fDistributionEClass, FDistribution.class, "FDistribution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFDistribution_FreedomDegreeA(), this.getPositiveDoubleNotNull(), "freedomDegreeA", "1", 0, 1, FDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFDistribution_FreedomDegreeB(), this.getPositiveDoubleNotNull(), "freedomDegreeB", "1", 0, 1, FDistribution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(gammaEClass, Gamma.class, "Gamma", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGamma_Shape(), this.getPositiveDoubleNotNull(), "shape", "1", 0, 1, Gamma.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(geometricEClass, Geometric.class, "Geometric", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGeometric_ProbaOfSuccess(), this.getProbaDoubleNotNull(), "probaOfSuccess", "0.1", 0, 1, Geometric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(logNormalEClass, LogNormal.class, "LogNormal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLogNormal_Location(), ecorePackage.getEDouble(), "location", "0.0", 0, 1, LogNormal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLogNormal_Scale(), this.getPositiveDoubleNotNull(), "scale", "1", 0, 1, LogNormal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gaussianEClass, Gaussian.class, "Gaussian", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGaussian_Location(), ecorePackage.getEDouble(), "location", "1", 0, 1, Gaussian.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGaussian_Scale(), this.getPositiveDoubleNotNull(), "scale", "1", 0, 1, Gaussian.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(paretoEClass, Pareto.class, "Pareto", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPareto_Shape(), this.getPositiveDoubleNotNull(), "shape", "1", 0, 1, Pareto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPareto_Scale(), this.getPositiveDoubleNotNull(), "scale", "1", 0, 1, Pareto.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(poissonEClass, Poisson.class, "Poisson", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPoisson_Interval(), this.getPositiveDoubleNotNull(), "interval", "1", 0, 1, Poisson.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(studentsTEClass, StudentsT.class, "StudentsT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStudentsT_DegreeOfFreedom(), this.getPositiveDoubleNotNull(), "degreeOfFreedom", "1", 0, 1, StudentsT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uniformEClass, Uniform.class, "Uniform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUniform_Minimum(), ecorePackage.getEDouble(), "minimum", "0.0", 0, 1, Uniform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUniform_Maximum(), ecorePackage.getEDouble(), "maximum", "0.0", 0, 1, Uniform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(weibullEClass, Weibull.class, "Weibull", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getWeibull_Shape(), this.getPositiveDoubleNotNull(), "shape", "1.0", 0, 1, Weibull.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getWeibull_Scale(), this.getPositiveDoubleNotNull(), "scale", "1.0", 0, 1, Weibull.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(conveyorBeltEClass, ConveyorBelt.class, "ConveyorBelt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConveyorBelt_MinimalSeparationBetweenBatches(), this.getPositiveDouble(), "minimalSeparationBetweenBatches", "1", 0, 1, ConveyorBelt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1774,8 +1265,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEDataType(positiveDoubleEDataType, Double.class, "PositiveDouble", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(positiveIntNotNullEDataType, Integer.class, "PositiveIntNotNull", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 		initEDataType(positiveDoubleNotNullEDataType, Double.class, "PositiveDoubleNotNull", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(probaDoubleEDataType, Double.class, "ProbaDouble", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(probaDoubleNotNullEDataType, Double.class, "ProbaDoubleNotNull", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1824,34 +1313,12 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 			 "minInclusive", "1"
 		   });	
 		addAnnotation
-		  (getFDistribution_FreedomDegreeA(), 
-		   source, 
-		   new String[] {
-			 "name", "freedomDegreeA"
-		   });	
-		addAnnotation
 		  (positiveDoubleNotNullEDataType, 
 		   source, 
 		   new String[] {
 			 "name", "PositiveDoubleNotNull",
 			 "minExclusive", "0",
 			 "baseType", "http://www.eclipse.org/emf/2002/Ecore#EDouble"
-		   });	
-		addAnnotation
-		  (probaDoubleEDataType, 
-		   source, 
-		   new String[] {
-			 "baseType", "http://www.eclipse.org/emf/2002/Ecore#EDouble",
-			 "minInclusive", "0",
-			 "maxInclusive", "1"
-		   });	
-		addAnnotation
-		  (probaDoubleNotNullEDataType, 
-		   source, 
-		   new String[] {
-			 "baseType", "http://www.eclipse.org/emf/2002/Ecore#EDouble",
-			 "maxInclusive", "1",
-			 "minExclusive", "0"
 		   });
 	}
 

@@ -110,30 +110,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Probability" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Distribution" abstract="true" eSuperTypes="#//Probability"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Cauchy" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Binomial" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nbrOfTrial" eType="#//PositiveIntNotNull"
-        defaultValueLiteral="1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="probaOfSuccess" eType="#//ProbaDouble"
-        defaultValueLiteral="0.0"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Beta" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="freedomDegreeA" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="freedomDegreeB" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scalar" eSuperTypes="#//Probability">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//PositiveInt"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ChiSquare" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="degreeOfFreedom" eType="#//PositiveIntNotNull"
         defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Percent" instanceClassName="java.lang.Double">
@@ -162,34 +140,6 @@
       <details key="minInclusive" value="1"/>
     </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Exponential" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FDistribution" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="freedomDegreeA" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1">
-      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-        <details key="name" value="freedomDegreeA"/>
-      </eAnnotations>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="freedomDegreeB" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Gamma" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shape" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Geometric" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="probaOfSuccess" eType="#//ProbaDoubleNotNull"
-        defaultValueLiteral="0.1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LogNormal" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
-        defaultValueLiteral="0.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="PositiveDoubleNotNull" instanceClassName="java.lang.Double">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="PositiveDoubleNotNull"/>
@@ -203,18 +153,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDoubleNotNull"
         defaultValueLiteral="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Pareto" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shape" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Poisson" eSuperTypes="#//Distribution">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="interval" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StudentsT" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="degreeOfFreedom" eType="#//PositiveDoubleNotNull"
         defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Uniform" eSuperTypes="#//Distribution">
@@ -222,26 +162,6 @@
         defaultValueLiteral="0.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
         defaultValueLiteral="0.0"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Weibull" eSuperTypes="#//Distribution">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="shape" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scale" eType="#//PositiveDoubleNotNull"
-        defaultValueLiteral="1.0"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="ProbaDouble" instanceClassName="java.lang.Double">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="baseType" value="http://www.eclipse.org/emf/2002/Ecore#EDouble"/>
-      <details key="minInclusive" value="0"/>
-      <details key="maxInclusive" value="1"/>
-    </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EDataType" name="ProbaDoubleNotNull" instanceClassName="java.lang.Double">
-    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="baseType" value="http://www.eclipse.org/emf/2002/Ecore#EDouble"/>
-      <details key="maxInclusive" value="1"/>
-      <details key="minExclusive" value="0"/>
-    </eAnnotations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConveyorBelt" eSuperTypes="#//Process">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimalSeparationBetweenBatches"

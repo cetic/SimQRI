@@ -121,63 +121,9 @@
                tab="Base">
          </propertySection>
          <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.CauchyPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.CauchyPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.Cauchy"
-               tab="Base">
-         </propertySection>
-         <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.BinomialPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.BinomialPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.Binomial"
-               tab="Base">
-         </propertySection>
-         <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.BetaPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.BetaPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.Beta"
-               tab="Base">
-         </propertySection>
-         <propertySection
                class="be.cetic.simqri.metamodel.parts.forms.ScalarPropertiesEditionPartForm"
                filter="be.cetic.simqri.metamodel.providers.ScalarPropertiesEditionProvider$EditionFilter"
                id="be.cetic.simqri.metamodel.section.Scalar"
-               tab="Base">
-         </propertySection>
-         <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.ChiSquarePropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.ChiSquarePropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.ChiSquare"
-               tab="Base">
-         </propertySection>
-         <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.ExponentialPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.ExponentialPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.Exponential"
-               tab="Base">
-         </propertySection>
-         <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.FDistributionPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.FDistributionPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.FDistribution"
-               tab="Base">
-         </propertySection>
-         <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.GammaPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.GammaPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.Gamma"
-               tab="Base">
-         </propertySection>
-         <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.GeometricPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.GeometricPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.Geometric"
-               tab="Base">
-         </propertySection>
-         <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.LogNormalPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.LogNormalPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.LogNormal"
                tab="Base">
          </propertySection>
          <propertySection
@@ -187,33 +133,15 @@
                tab="Base">
          </propertySection>
          <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.ParetoPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.ParetoPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.Pareto"
-               tab="Base">
-         </propertySection>
-         <propertySection
                class="be.cetic.simqri.metamodel.parts.forms.PoissonPropertiesEditionPartForm"
                filter="be.cetic.simqri.metamodel.providers.PoissonPropertiesEditionProvider$EditionFilter"
                id="be.cetic.simqri.metamodel.section.Poisson"
                tab="Base">
          </propertySection>
          <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.StudentsTPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.StudentsTPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.StudentsT"
-               tab="Base">
-         </propertySection>
-         <propertySection
                class="be.cetic.simqri.metamodel.parts.forms.UniformPropertiesEditionPartForm"
                filter="be.cetic.simqri.metamodel.providers.UniformPropertiesEditionProvider$EditionFilter"
                id="be.cetic.simqri.metamodel.section.Uniform"
-               tab="Base">
-         </propertySection>
-         <propertySection
-               class="be.cetic.simqri.metamodel.parts.forms.WeibullPropertiesEditionPartForm"
-               filter="be.cetic.simqri.metamodel.providers.WeibullPropertiesEditionProvider$EditionFilter"
-               id="be.cetic.simqri.metamodel.section.Weibull"
                tab="Base">
          </propertySection>
          <propertySection

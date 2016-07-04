@@ -112,33 +112,6 @@ public interface MetamodelFactory extends EFactory {
 	OrderOnStockThreshold createOrderOnStockThreshold();
 
 	/**
-	 * Returns a new object of class '<em>Cauchy</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cauchy</em>'.
-	 * @generated
-	 */
-	Cauchy createCauchy();
-
-	/**
-	 * Returns a new object of class '<em>Binomial</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Binomial</em>'.
-	 * @generated
-	 */
-	Binomial createBinomial();
-
-	/**
-	 * Returns a new object of class '<em>Beta</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Beta</em>'.
-	 * @generated
-	 */
-	Beta createBeta();
-
-	/**
 	 * Returns a new object of class '<em>Scalar</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,60 +119,6 @@ public interface MetamodelFactory extends EFactory {
 	 * @generated
 	 */
 	Scalar createScalar();
-
-	/**
-	 * Returns a new object of class '<em>Chi Square</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Chi Square</em>'.
-	 * @generated
-	 */
-	ChiSquare createChiSquare();
-
-	/**
-	 * Returns a new object of class '<em>Exponential</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Exponential</em>'.
-	 * @generated
-	 */
-	Exponential createExponential();
-
-	/**
-	 * Returns a new object of class '<em>FDistribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>FDistribution</em>'.
-	 * @generated
-	 */
-	FDistribution createFDistribution();
-
-	/**
-	 * Returns a new object of class '<em>Gamma</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Gamma</em>'.
-	 * @generated
-	 */
-	Gamma createGamma();
-
-	/**
-	 * Returns a new object of class '<em>Geometric</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Geometric</em>'.
-	 * @generated
-	 */
-	Geometric createGeometric();
-
-	/**
-	 * Returns a new object of class '<em>Log Normal</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Log Normal</em>'.
-	 * @generated
-	 */
-	LogNormal createLogNormal();
 
 	/**
 	 * Returns a new object of class '<em>Gaussian</em>'.
@@ -211,15 +130,6 @@ public interface MetamodelFactory extends EFactory {
 	Gaussian createGaussian();
 
 	/**
-	 * Returns a new object of class '<em>Pareto</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Pareto</em>'.
-	 * @generated
-	 */
-	Pareto createPareto();
-
-	/**
 	 * Returns a new object of class '<em>Poisson</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,15 +139,6 @@ public interface MetamodelFactory extends EFactory {
 	Poisson createPoisson();
 
 	/**
-	 * Returns a new object of class '<em>Students T</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Students T</em>'.
-	 * @generated
-	 */
-	StudentsT createStudentsT();
-
-	/**
 	 * Returns a new object of class '<em>Uniform</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -245,15 +146,6 @@ public interface MetamodelFactory extends EFactory {
 	 * @generated
 	 */
 	Uniform createUniform();
-
-	/**
-	 * Returns a new object of class '<em>Weibull</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Weibull</em>'.
-	 * @generated
-	 */
-	Weibull createWeibull();
 
 	/**
 	 * Returns the package supported by this factory.

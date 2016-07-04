@@ -22,8 +22,6 @@
     <genDataTypes ecoreDataType="metamodel.ecore#//PositiveDouble"/>
     <genDataTypes ecoreDataType="metamodel.ecore#//PositiveIntNotNull"/>
     <genDataTypes ecoreDataType="metamodel.ecore#//PositiveDoubleNotNull"/>
-    <genDataTypes ecoreDataType="metamodel.ecore#//ProbaDouble"/>
-    <genDataTypes ecoreDataType="metamodel.ecore#//ProbaDoubleNotNull"/>
     <genClasses ecoreClass="metamodel.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Model/name"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference metamodel.ecore#//Model/query"/>
@@ -93,62 +91,19 @@
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Probability"/>
     <genClasses ecoreClass="metamodel.ecore#//Distribution"/>
-    <genClasses ecoreClass="metamodel.ecore#//Cauchy">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Cauchy/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Cauchy/scale"/>
-    </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//Binomial">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Binomial/nbrOfTrial"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Binomial/probaOfSuccess"/>
-    </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//Beta">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Beta/freedomDegreeA"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Beta/freedomDegreeB"/>
-    </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Scalar">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Scalar/value"/>
-    </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//ChiSquare">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ChiSquare/degreeOfFreedom"/>
-    </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//Exponential">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Exponential/scale"/>
-    </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//FDistribution">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//FDistribution/freedomDegreeA"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//FDistribution/freedomDegreeB"/>
-    </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//Gamma">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Gamma/shape"/>
-    </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//Geometric">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Geometric/probaOfSuccess"/>
-    </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//LogNormal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//LogNormal/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//LogNormal/scale"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Gaussian">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Gaussian/location"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Gaussian/scale"/>
     </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//Pareto">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Pareto/shape"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Pareto/scale"/>
-    </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Poisson">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Poisson/interval"/>
-    </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//StudentsT">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//StudentsT/degreeOfFreedom"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Uniform">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Uniform/minimum"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Uniform/maximum"/>
-    </genClasses>
-    <genClasses ecoreClass="metamodel.ecore#//Weibull">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Weibull/shape"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Weibull/scale"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//ConveyorBelt">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//ConveyorBelt/minimalSeparationBetweenBatches"/>

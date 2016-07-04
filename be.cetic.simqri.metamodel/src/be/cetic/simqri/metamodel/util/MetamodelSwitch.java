@@ -3,26 +3,15 @@
 package be.cetic.simqri.metamodel.util;
 
 import be.cetic.simqri.metamodel.BatchProcess;
-
-import be.cetic.simqri.metamodel.Beta;
-import be.cetic.simqri.metamodel.Binomial;
-import be.cetic.simqri.metamodel.Cauchy;
-import be.cetic.simqri.metamodel.ChiSquare;
 import be.cetic.simqri.metamodel.Component;
 import be.cetic.simqri.metamodel.ConveyorBelt;
 import be.cetic.simqri.metamodel.Distribution;
-import be.cetic.simqri.metamodel.Exponential;
-import be.cetic.simqri.metamodel.FDistribution;
 import be.cetic.simqri.metamodel.Flow;
-import be.cetic.simqri.metamodel.Gamma;
 import be.cetic.simqri.metamodel.Gaussian;
-import be.cetic.simqri.metamodel.Geometric;
-import be.cetic.simqri.metamodel.LogNormal;
 import be.cetic.simqri.metamodel.MetamodelPackage;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.OrderOnStockThreshold;
 import be.cetic.simqri.metamodel.Output;
-import be.cetic.simqri.metamodel.Pareto;
 import be.cetic.simqri.metamodel.Poisson;
 import be.cetic.simqri.metamodel.Probability;
 import be.cetic.simqri.metamodel.ProcessOutputFlow;
@@ -30,11 +19,8 @@ import be.cetic.simqri.metamodel.Query;
 import be.cetic.simqri.metamodel.Scalar;
 import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
-import be.cetic.simqri.metamodel.StudentsT;
 import be.cetic.simqri.metamodel.Supplier;
 import be.cetic.simqri.metamodel.Uniform;
-import be.cetic.simqri.metamodel.Weibull;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -189,82 +175,10 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MetamodelPackage.CAUCHY: {
-				Cauchy cauchy = (Cauchy)theEObject;
-				T result = caseCauchy(cauchy);
-				if (result == null) result = caseDistribution(cauchy);
-				if (result == null) result = caseProbability(cauchy);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MetamodelPackage.BINOMIAL: {
-				Binomial binomial = (Binomial)theEObject;
-				T result = caseBinomial(binomial);
-				if (result == null) result = caseDistribution(binomial);
-				if (result == null) result = caseProbability(binomial);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MetamodelPackage.BETA: {
-				Beta beta = (Beta)theEObject;
-				T result = caseBeta(beta);
-				if (result == null) result = caseDistribution(beta);
-				if (result == null) result = caseProbability(beta);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MetamodelPackage.SCALAR: {
 				Scalar scalar = (Scalar)theEObject;
 				T result = caseScalar(scalar);
 				if (result == null) result = caseProbability(scalar);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MetamodelPackage.CHI_SQUARE: {
-				ChiSquare chiSquare = (ChiSquare)theEObject;
-				T result = caseChiSquare(chiSquare);
-				if (result == null) result = caseDistribution(chiSquare);
-				if (result == null) result = caseProbability(chiSquare);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MetamodelPackage.EXPONENTIAL: {
-				Exponential exponential = (Exponential)theEObject;
-				T result = caseExponential(exponential);
-				if (result == null) result = caseDistribution(exponential);
-				if (result == null) result = caseProbability(exponential);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MetamodelPackage.FDISTRIBUTION: {
-				FDistribution fDistribution = (FDistribution)theEObject;
-				T result = caseFDistribution(fDistribution);
-				if (result == null) result = caseDistribution(fDistribution);
-				if (result == null) result = caseProbability(fDistribution);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MetamodelPackage.GAMMA: {
-				Gamma gamma = (Gamma)theEObject;
-				T result = caseGamma(gamma);
-				if (result == null) result = caseDistribution(gamma);
-				if (result == null) result = caseProbability(gamma);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MetamodelPackage.GEOMETRIC: {
-				Geometric geometric = (Geometric)theEObject;
-				T result = caseGeometric(geometric);
-				if (result == null) result = caseDistribution(geometric);
-				if (result == null) result = caseProbability(geometric);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MetamodelPackage.LOG_NORMAL: {
-				LogNormal logNormal = (LogNormal)theEObject;
-				T result = caseLogNormal(logNormal);
-				if (result == null) result = caseDistribution(logNormal);
-				if (result == null) result = caseProbability(logNormal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -276,14 +190,6 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MetamodelPackage.PARETO: {
-				Pareto pareto = (Pareto)theEObject;
-				T result = casePareto(pareto);
-				if (result == null) result = caseDistribution(pareto);
-				if (result == null) result = caseProbability(pareto);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MetamodelPackage.POISSON: {
 				Poisson poisson = (Poisson)theEObject;
 				T result = casePoisson(poisson);
@@ -292,27 +198,11 @@ public class MetamodelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MetamodelPackage.STUDENTS_T: {
-				StudentsT studentsT = (StudentsT)theEObject;
-				T result = caseStudentsT(studentsT);
-				if (result == null) result = caseDistribution(studentsT);
-				if (result == null) result = caseProbability(studentsT);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case MetamodelPackage.UNIFORM: {
 				Uniform uniform = (Uniform)theEObject;
 				T result = caseUniform(uniform);
 				if (result == null) result = caseDistribution(uniform);
 				if (result == null) result = caseProbability(uniform);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case MetamodelPackage.WEIBULL: {
-				Weibull weibull = (Weibull)theEObject;
-				T result = caseWeibull(weibull);
-				if (result == null) result = caseDistribution(weibull);
-				if (result == null) result = caseProbability(weibull);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -554,51 +444,6 @@ public class MetamodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Cauchy</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Cauchy</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCauchy(Cauchy object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Binomial</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Binomial</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBinomial(Binomial object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Beta</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Beta</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBeta(Beta object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Scalar</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -610,96 +455,6 @@ public class MetamodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseScalar(Scalar object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Chi Square</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Chi Square</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseChiSquare(ChiSquare object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Exponential</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Exponential</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseExponential(Exponential object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>FDistribution</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>FDistribution</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseFDistribution(FDistribution object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Gamma</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Gamma</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGamma(Gamma object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Geometric</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Geometric</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseGeometric(Geometric object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Log Normal</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Log Normal</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseLogNormal(LogNormal object) {
 		return null;
 	}
 
@@ -719,21 +474,6 @@ public class MetamodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Pareto</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pareto</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePareto(Pareto object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Poisson</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -749,21 +489,6 @@ public class MetamodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Students T</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Students T</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseStudentsT(StudentsT object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Uniform</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -775,21 +500,6 @@ public class MetamodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseUniform(Uniform object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Weibull</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Weibull</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseWeibull(Weibull object) {
 		return null;
 	}
 

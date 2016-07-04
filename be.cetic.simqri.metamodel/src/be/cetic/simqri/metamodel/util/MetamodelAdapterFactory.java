@@ -3,26 +3,15 @@
 package be.cetic.simqri.metamodel.util;
 
 import be.cetic.simqri.metamodel.BatchProcess;
-
-import be.cetic.simqri.metamodel.Beta;
-import be.cetic.simqri.metamodel.Binomial;
-import be.cetic.simqri.metamodel.Cauchy;
-import be.cetic.simqri.metamodel.ChiSquare;
 import be.cetic.simqri.metamodel.Component;
 import be.cetic.simqri.metamodel.ConveyorBelt;
 import be.cetic.simqri.metamodel.Distribution;
-import be.cetic.simqri.metamodel.Exponential;
-import be.cetic.simqri.metamodel.FDistribution;
 import be.cetic.simqri.metamodel.Flow;
-import be.cetic.simqri.metamodel.Gamma;
 import be.cetic.simqri.metamodel.Gaussian;
-import be.cetic.simqri.metamodel.Geometric;
-import be.cetic.simqri.metamodel.LogNormal;
 import be.cetic.simqri.metamodel.MetamodelPackage;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.OrderOnStockThreshold;
 import be.cetic.simqri.metamodel.Output;
-import be.cetic.simqri.metamodel.Pareto;
 import be.cetic.simqri.metamodel.Poisson;
 import be.cetic.simqri.metamodel.Probability;
 import be.cetic.simqri.metamodel.ProcessOutputFlow;
@@ -30,11 +19,8 @@ import be.cetic.simqri.metamodel.Query;
 import be.cetic.simqri.metamodel.Scalar;
 import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
-import be.cetic.simqri.metamodel.StudentsT;
 import be.cetic.simqri.metamodel.Supplier;
 import be.cetic.simqri.metamodel.Uniform;
-import be.cetic.simqri.metamodel.Weibull;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -155,68 +141,20 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 				return createDistributionAdapter();
 			}
 			@Override
-			public Adapter caseCauchy(Cauchy object) {
-				return createCauchyAdapter();
-			}
-			@Override
-			public Adapter caseBinomial(Binomial object) {
-				return createBinomialAdapter();
-			}
-			@Override
-			public Adapter caseBeta(Beta object) {
-				return createBetaAdapter();
-			}
-			@Override
 			public Adapter caseScalar(Scalar object) {
 				return createScalarAdapter();
-			}
-			@Override
-			public Adapter caseChiSquare(ChiSquare object) {
-				return createChiSquareAdapter();
-			}
-			@Override
-			public Adapter caseExponential(Exponential object) {
-				return createExponentialAdapter();
-			}
-			@Override
-			public Adapter caseFDistribution(FDistribution object) {
-				return createFDistributionAdapter();
-			}
-			@Override
-			public Adapter caseGamma(Gamma object) {
-				return createGammaAdapter();
-			}
-			@Override
-			public Adapter caseGeometric(Geometric object) {
-				return createGeometricAdapter();
-			}
-			@Override
-			public Adapter caseLogNormal(LogNormal object) {
-				return createLogNormalAdapter();
 			}
 			@Override
 			public Adapter caseGaussian(Gaussian object) {
 				return createGaussianAdapter();
 			}
 			@Override
-			public Adapter casePareto(Pareto object) {
-				return createParetoAdapter();
-			}
-			@Override
 			public Adapter casePoisson(Poisson object) {
 				return createPoissonAdapter();
 			}
 			@Override
-			public Adapter caseStudentsT(StudentsT object) {
-				return createStudentsTAdapter();
-			}
-			@Override
 			public Adapter caseUniform(Uniform object) {
 				return createUniformAdapter();
-			}
-			@Override
-			public Adapter caseWeibull(Weibull object) {
-				return createWeibullAdapter();
 			}
 			@Override
 			public Adapter caseConveyorBelt(ConveyorBelt object) {
@@ -453,48 +391,6 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Cauchy <em>Cauchy</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.Cauchy
-	 * @generated
-	 */
-	public Adapter createCauchyAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Binomial <em>Binomial</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.Binomial
-	 * @generated
-	 */
-	public Adapter createBinomialAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Beta <em>Beta</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.Beta
-	 * @generated
-	 */
-	public Adapter createBetaAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Scalar <em>Scalar</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -505,90 +401,6 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createScalarAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.ChiSquare <em>Chi Square</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.ChiSquare
-	 * @generated
-	 */
-	public Adapter createChiSquareAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Exponential <em>Exponential</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.Exponential
-	 * @generated
-	 */
-	public Adapter createExponentialAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.FDistribution <em>FDistribution</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.FDistribution
-	 * @generated
-	 */
-	public Adapter createFDistributionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Gamma <em>Gamma</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.Gamma
-	 * @generated
-	 */
-	public Adapter createGammaAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Geometric <em>Geometric</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.Geometric
-	 * @generated
-	 */
-	public Adapter createGeometricAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.LogNormal <em>Log Normal</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.LogNormal
-	 * @generated
-	 */
-	public Adapter createLogNormalAdapter() {
 		return null;
 	}
 
@@ -607,20 +419,6 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Pareto <em>Pareto</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.Pareto
-	 * @generated
-	 */
-	public Adapter createParetoAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Poisson <em>Poisson</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -635,20 +433,6 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.StudentsT <em>Students T</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.StudentsT
-	 * @generated
-	 */
-	public Adapter createStudentsTAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Uniform <em>Uniform</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -659,20 +443,6 @@ public class MetamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUniformAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.cetic.simqri.metamodel.Weibull <em>Weibull</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.cetic.simqri.metamodel.Weibull
-	 * @generated
-	 */
-	public Adapter createWeibullAdapter() {
 		return null;
 	}
 

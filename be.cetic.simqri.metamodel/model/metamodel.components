@@ -150,31 +150,16 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//OrderOnStockThreshold"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z8zfGlEeWjQNaciI-lWA" name="Cauchy" views="_E6z9NfGlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z8zvGlEeWjQNaciI-lWA" name="location" views="_E6z9N_GlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Cauchy/location"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z8z_GlEeWjQNaciI-lWA" name="scale" views="_E6z9OPGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Cauchy/scale"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Cauchy"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z8zvGlEeWjQNaciI-lWA" name="location" views="_E6z9N_GlEeWjQNaciI-lWA"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z8z_GlEeWjQNaciI-lWA" name="scale" views="_E6z9OPGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z80PGlEeWjQNaciI-lWA" name="Binomial" views="_E6z9OfGlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z80fGlEeWjQNaciI-lWA" name="nbrOfTrial" views="_E6z9O_GlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Binomial/nbrOfTrial"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z80vGlEeWjQNaciI-lWA" name="probaOfSuccess" views="_E6z9PPGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Binomial/probaOfSuccess"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Binomial"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z80fGlEeWjQNaciI-lWA" name="nbrOfTrial" views="_E6z9O_GlEeWjQNaciI-lWA"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z80vGlEeWjQNaciI-lWA" name="probaOfSuccess" views="_E6z9PPGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z80_GlEeWjQNaciI-lWA" name="Beta" views="_E6z9PfGlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z81PGlEeWjQNaciI-lWA" name="freedomDegreeA" views="_E6z9P_GlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Beta/freedomDegreeA"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z81fGlEeWjQNaciI-lWA" name="freedomDegreeB" views="_E6z9QPGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Beta/freedomDegreeB"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Beta"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z81PGlEeWjQNaciI-lWA" name="freedomDegreeA" views="_E6z9P_GlEeWjQNaciI-lWA"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z81fGlEeWjQNaciI-lWA" name="freedomDegreeB" views="_E6z9QPGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z81vGlEeWjQNaciI-lWA" name="Scalar" views="_E6z9QfGlEeWjQNaciI-lWA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z81_GlEeWjQNaciI-lWA" name="value" views="_E6z9Q_GlEeWjQNaciI-lWA">
@@ -183,46 +168,24 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Scalar"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z82PGlEeWjQNaciI-lWA" name="ChiSquare" views="_E6z9RPGlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z82fGlEeWjQNaciI-lWA" name="degreeOfFreedom" views="_E6z9RvGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ChiSquare/degreeOfFreedom"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//ChiSquare"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z82fGlEeWjQNaciI-lWA" name="degreeOfFreedom" views="_E6z9RvGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z83PGlEeWjQNaciI-lWA" name="Exponential" views="_E6z9SvGlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z83fGlEeWjQNaciI-lWA" name="scale" views="_E6z9TPGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Exponential/scale"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Exponential"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z83fGlEeWjQNaciI-lWA" name="scale" views="_E6z9TPGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z83vGlEeWjQNaciI-lWA" name="FDistribution" views="_E6z9TfGlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z83_GlEeWjQNaciI-lWA" name="freedomDegreeA" views="_E6z9T_GlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//FDistribution/freedomDegreeA"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z84PGlEeWjQNaciI-lWA" name="freedomDegreeB" views="_E6z9UPGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//FDistribution/freedomDegreeB"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//FDistribution"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z83_GlEeWjQNaciI-lWA" name="freedomDegreeA" views="_E6z9T_GlEeWjQNaciI-lWA"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z84PGlEeWjQNaciI-lWA" name="freedomDegreeB" views="_E6z9UPGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z84fGlEeWjQNaciI-lWA" name="Gamma" views="_E6z9UfGlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z84vGlEeWjQNaciI-lWA" name="shape" views="_E6z9U_GlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Gamma/shape"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Gamma"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z84vGlEeWjQNaciI-lWA" name="shape" views="_E6z9U_GlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z84_GlEeWjQNaciI-lWA" name="Geometric" views="_E6z9VPGlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z85PGlEeWjQNaciI-lWA" name="probaOfSuccess" views="_E6z9VvGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Geometric/probaOfSuccess"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Geometric"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z85PGlEeWjQNaciI-lWA" name="probaOfSuccess" views="_E6z9VvGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z85fGlEeWjQNaciI-lWA" name="LogNormal" views="_E6z9V_GlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z85vGlEeWjQNaciI-lWA" name="location" views="_E6z9WfGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//LogNormal/location"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z85_GlEeWjQNaciI-lWA" name="scale" views="_E6z9WvGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//LogNormal/scale"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//LogNormal"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z85vGlEeWjQNaciI-lWA" name="location" views="_E6z9WfGlEeWjQNaciI-lWA"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z85_GlEeWjQNaciI-lWA" name="scale" views="_E6z9WvGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z86PGlEeWjQNaciI-lWA" name="Gaussian" views="_E6z9W_GlEeWjQNaciI-lWA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z86fGlEeWjQNaciI-lWA" name="location" views="_E6z9XfGlEeWjQNaciI-lWA">
@@ -234,13 +197,8 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Gaussian"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z86_GlEeWjQNaciI-lWA" name="Pareto" views="_E6z9X_GlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z87PGlEeWjQNaciI-lWA" name="shape" views="_E6z9YfGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Pareto/shape"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z87fGlEeWjQNaciI-lWA" name="scale" views="_E6z9YvGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Pareto/scale"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Pareto"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z87PGlEeWjQNaciI-lWA" name="shape" views="_E6z9YfGlEeWjQNaciI-lWA"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z87fGlEeWjQNaciI-lWA" name="scale" views="_E6z9YvGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z87vGlEeWjQNaciI-lWA" name="Poisson" views="_E6z9Y_GlEeWjQNaciI-lWA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z87_GlEeWjQNaciI-lWA" name="interval" views="_E6z9ZfGlEeWjQNaciI-lWA">
@@ -249,10 +207,7 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Poisson"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z88PGlEeWjQNaciI-lWA" name="StudentsT" views="_E6z9ZvGlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z88fGlEeWjQNaciI-lWA" name="degreeOfFreedom" views="_E6z9aPGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//StudentsT/degreeOfFreedom"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//StudentsT"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z88fGlEeWjQNaciI-lWA" name="degreeOfFreedom" views="_E6z9aPGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z88vGlEeWjQNaciI-lWA" name="Uniform" views="_E6z9afGlEeWjQNaciI-lWA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z88_GlEeWjQNaciI-lWA" name="minimum" views="_E6z9a_GlEeWjQNaciI-lWA">
@@ -264,13 +219,8 @@
         <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Uniform"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z89fGlEeWjQNaciI-lWA" name="Weibull" views="_E6z9bfGlEeWjQNaciI-lWA">
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z89vGlEeWjQNaciI-lWA" name="shape" views="_E6z9b_GlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Weibull/shape"/>
-        </properties>
-        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z89_GlEeWjQNaciI-lWA" name="scale" views="_E6z9cPGlEeWjQNaciI-lWA">
-          <model xsi:type="ecore:EAttribute" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Weibull/scale"/>
-        </properties>
-        <model xsi:type="ecore:EClass" href="platform:/resource/be.cetic.simqri.metamodel/model/metamodel.ecore#//Weibull"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z89vGlEeWjQNaciI-lWA" name="shape" views="_E6z9b_GlEeWjQNaciI-lWA"/>
+        <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z89_GlEeWjQNaciI-lWA" name="scale" views="_E6z9cPGlEeWjQNaciI-lWA"/>
       </bindings>
       <bindings xsi:type="eef-components:PropertiesEditionComponent" xmi:id="_E6z8-PGlEeWjQNaciI-lWA" name="ConveyorBelt" views="_E6z9cfGlEeWjQNaciI-lWA">
         <properties xsi:type="eef-components:PropertiesEditionElement" xmi:id="_E6z8-fGlEeWjQNaciI-lWA" name="name" views="_E6z9c_GlEeWjQNaciI-lWA">

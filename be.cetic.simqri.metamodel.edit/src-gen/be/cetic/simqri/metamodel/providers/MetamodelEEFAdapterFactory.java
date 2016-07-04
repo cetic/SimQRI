@@ -87,83 +87,11 @@ public class MetamodelEEFAdapterFactory extends MetamodelAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createCauchyAdapter()
-	 * 
-	 */
-	public Adapter createCauchyAdapter() {
-		return new CauchyPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createBinomialAdapter()
-	 * 
-	 */
-	public Adapter createBinomialAdapter() {
-		return new BinomialPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createBetaAdapter()
-	 * 
-	 */
-	public Adapter createBetaAdapter() {
-		return new BetaPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
 	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createScalarAdapter()
 	 * 
 	 */
 	public Adapter createScalarAdapter() {
 		return new ScalarPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createChiSquareAdapter()
-	 * 
-	 */
-	public Adapter createChiSquareAdapter() {
-		return new ChiSquarePropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createExponentialAdapter()
-	 * 
-	 */
-	public Adapter createExponentialAdapter() {
-		return new ExponentialPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createFDistributionAdapter()
-	 * 
-	 */
-	public Adapter createFDistributionAdapter() {
-		return new FDistributionPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createGammaAdapter()
-	 * 
-	 */
-	public Adapter createGammaAdapter() {
-		return new GammaPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createGeometricAdapter()
-	 * 
-	 */
-	public Adapter createGeometricAdapter() {
-		return new GeometricPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createLogNormalAdapter()
-	 * 
-	 */
-	public Adapter createLogNormalAdapter() {
-		return new LogNormalPropertiesEditionProvider();
 	}
 	/**
 	 * {@inheritDoc}
@@ -175,14 +103,6 @@ public class MetamodelEEFAdapterFactory extends MetamodelAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createParetoAdapter()
-	 * 
-	 */
-	public Adapter createParetoAdapter() {
-		return new ParetoPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
 	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createPoissonAdapter()
 	 * 
 	 */
@@ -191,27 +111,11 @@ public class MetamodelEEFAdapterFactory extends MetamodelAdapterFactory {
 	}
 	/**
 	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createStudentsTAdapter()
-	 * 
-	 */
-	public Adapter createStudentsTAdapter() {
-		return new StudentsTPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
 	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createUniformAdapter()
 	 * 
 	 */
 	public Adapter createUniformAdapter() {
 		return new UniformPropertiesEditionProvider();
-	}
-	/**
-	 * {@inheritDoc}
-	 * @see be.cetic.simqri.metamodel.util.MetamodelAdapterFactory#createWeibullAdapter()
-	 * 
-	 */
-	public Adapter createWeibullAdapter() {
-		return new WeibullPropertiesEditionProvider();
 	}
 	/**
 	 * {@inheritDoc}
