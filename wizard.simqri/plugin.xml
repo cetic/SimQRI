@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="simqri.wizard.category"
+            name="SimQRi &quot;Ready to use&quot;">
+      </category>
+      <wizard
+            category="simqri.wizard.category"
+            class="be.cetic.simqri.wizard.emptyproject.SimQRiProjectWizard"
+            icon="images/BatchProcess.gif"
+            id="simqri.empty.wizard"
+            name="Empty SimQRi Project"
+            project="true">
+      </wizard>
+   </extension>
+
+</plugin>
