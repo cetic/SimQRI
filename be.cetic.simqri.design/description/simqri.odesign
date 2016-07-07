@@ -116,6 +116,10 @@
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.ConveyorBelt" referenceName="component">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_conveyor_belt '+self.eContainer().component->filter(metamodel::ConveyorBelt)->size()"/>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="output">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -130,6 +134,10 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
                       <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -146,6 +154,10 @@
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
                       <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
                     </subModelOperations>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
@@ -160,6 +172,10 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="percentageOfSuccess" valueExpression="99.0"/>
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
                       <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -176,6 +192,10 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="percentageOfSuccess" valueExpression="99.0"/>
                     <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
                       <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
+                      <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -213,11 +233,11 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(metamodel::ConveyorBelt) and self.eContents()->size()=0">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="output"/>
+                </subModelOperations>
                 <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(metamodel::BatchProcess)">
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="outputs"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(metamodel::ConveyorBelt)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="output"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -337,30 +357,86 @@
       <additionalLayers name="SD_edges" activeByDefault="true">
         <edgeMappings name="SD_storageoutputflow" semanticElements="aql:self->including(self.quantity)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']" targetFinderExpression="feature:destination" sourceFinderExpression="feature:source" domainClass="metamodel.StorageOutputFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Target_StorageOutputFlow'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Source_StorageOutputFlow']">
           <style sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
             <centerLabelStyleDescription labelSize="10">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
+          <conditionnalStyles predicateExpression="aql:self.source.storageOutputFlow->select(i|i.destination=self.destination)->size()>1 and self.source.storageOutputFlow->first()&lt;>self">
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.source.overflow=true">
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
         </edgeMappings>
         <edgeMappings name="SD_processoutputflow" semanticElements="aql:self->including(self.quantity and self.processOutputFlowDelay)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']/@borderedNodeMappings[name='SD_output_cb']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetFinderExpression="feature:destination" sourceFinderExpression="feature:source" domainClass="metamodel.ProcessOutputFlow" useDomainElement="true" reconnections="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Target_ProcessOutputFlow'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Source_ProcessOutputFlow']">
           <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             <centerLabelStyleDescription labelSize="10">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
+          <conditionnalStyles predicateExpression="aql:self.source.processOutputFlow->select(i|i.destination=self.destination)->size()>1 and self.source.processOutputFlow->first()&lt;>self">
+            <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.source.type=metamodel::OutputType::FAILURE">
+            <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.source.type=metamodel::OutputType::LOWER_QUALITY">
+            <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="aql:self.source.type=metamodel::OutputType::TRASH">
+            <style targetArrow="InputClosedArrow" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
         </edgeMappings>
         <edgeMappings name="SD_oost" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" sourceMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']" targetMapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" targetFinderExpression="feature:storage" sourceFinderExpression="feature:supplier" domainClass="metamodel.OrderOnStockThreshold" useDomainElement="true" reconnections="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Target_Oost'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@toolSections.1/@ownedTools[name='SD_Reconnect_Source_Oost']">
           <style targetArrow="InputFillClosedArrow" sizeComputationExpression="2">
-            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             <centerLabelStyleDescription labelSize="10" labelExpression="[if (self.period>0) then self.name+' with tick '+' ('+self.orderType+')' else self.name+' ('+self.orderType+')' endif /]">
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
             </centerLabelStyleDescription>
           </style>
+          <conditionnalStyles predicateExpression="aql:self.supplier.refillPolicy->select(i|i.storage=self.storage)->size()>1 and self.supplier.refillPolicy->first()&lt;>self">
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <centerLabelStyleDescription>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
         </edgeMappings>
         <toolSections name="Edges">
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Link a storage to a process" name="SD_storageoutputflow" label="New Storage output flow" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Link a storage to a process" name="SD_storageoutputflow" label="Storage -> Process" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -373,11 +449,16 @@
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="quantity">
                     <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
                   </subModelOperations>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.source.storageOutputFlow->select(i|i.destination=self.destination)->size()>1 and self.source.storageOutputFlow->first()&lt;>self">
+                    <subModelOperations xsi:type="tool:Unset" featureName="source" elementExpression="var:source"/>
+                    <subModelOperations xsi:type="tool:Unset" featureName="destination" elementExpression="var:target"/>
+                    <subModelOperations xsi:type="tool:RemoveElement"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Link an output port of a process to a storage" name="SD_processoutputflow" label="New Process output flow" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Link an output port of a process to a storage" name="SD_processoutputflow" label="Process Output Port -> Storage" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -393,11 +474,16 @@
                   <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="processOutputFlowDelay">
                     <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="0"/>
                   </subModelOperations>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.source.processOutputFlow->select(i|i.destination=self.destination)->size()>1 and self.source.processOutputFlow->first()&lt;>self">
+                    <subModelOperations xsi:type="tool:Unset" featureName="source" elementExpression="var:source"/>
+                    <subModelOperations xsi:type="tool:Unset" featureName="destination" elementExpression="var:target"/>
+                    <subModelOperations xsi:type="tool:RemoveElement"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Link a Supplier to a storage" name="SD_oost" label="New Order on stock threshold" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost']">
+          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Link a Supplier to a storage" name="SD_oost" label="Supplier -> Storage" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -409,6 +495,11 @@
                   <subModelOperations xsi:type="tool:SetValue" featureName="storage" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'oost '+self.eContainer().orderOnStockThreshold->size()"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="period" valueExpression="0.0"/>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.supplier.refillPolicy->select(i|i.storage=self.storage)->size()>1 and self.supplier.refillPolicy->first()&lt;>self">
+                    <subModelOperations xsi:type="tool:Unset" featureName="supplier" elementExpression="var:source"/>
+                    <subModelOperations xsi:type="tool:Unset" featureName="storage" elementExpression="var:target"/>
+                    <subModelOperations xsi:type="tool:RemoveElement"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -531,14 +622,21 @@
         </firstModelOperation>
       </ownedCreateLine>
       <ownedColumnMappings name="QT_Name" label="Name" headerLabelExpression="Name" canEdit="aql:true" featureName="name" labelExpression="feature:name"/>
-      <ownedColumnMappings name="QT_Value" label="Value" headerLabelExpression="Value" canEdit="aql:true" featureName="value" labelExpression="feature:value"/>
+      <ownedColumnMappings name="QT_Value" label="Value" headerLabelExpression="Value" canEdit="aql:true" featureName="value" labelExpression="feature:value">
+        <backgroundConditionalStyle predicateExpression="aql:self.eContainer().thisQueryIsValid().toString().contains(self.name)">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
       <ownedColumnMappings name="QT_Result" label="Result" semanticElements="feature:result" headerLabelExpression="&quot;One Shot&quot; results" canEdit="aql:false" featureName="result" labelExpression="feature:result"/>
-      <ownedColumnMappings name="QT_Max" label="Max" semanticElements="feature:max" headerLabelExpression="Maximum" canEdit="aql:false" featureName="max" labelExpression="feature:max"/>
-      <ownedColumnMappings name="QT_Min" label="Min" semanticElements="feature:min" headerLabelExpression="Minimum" canEdit="aql:false" featureName="min" labelExpression="feature:min"/>
-      <ownedColumnMappings name="QT_Mean" label="Mean" semanticElements="feature:mean" headerLabelExpression="Mean" canEdit="aql:false" featureName="mean" labelExpression="feature:mean"/>
-      <ownedColumnMappings name="QT_Variance" label="Variance" semanticElements="feature:variance" headerLabelExpression="Variance" canEdit="aql:false" featureName="variance" labelExpression="feature:variance"/>
+      <ownedColumnMappings name="QT_Max" label="Max" semanticElements="feature:max" headerLabelExpression="Maximum (MC)" canEdit="aql:false" featureName="max" labelExpression="feature:max"/>
+      <ownedColumnMappings name="QT_Min" label="Min" semanticElements="feature:min" headerLabelExpression="Minimum (MC)" canEdit="aql:false" featureName="min" labelExpression="feature:min"/>
+      <ownedColumnMappings name="QT_Mean" label="Mean" semanticElements="feature:mean" headerLabelExpression="Mean (MC)" canEdit="aql:false" featureName="mean" labelExpression="feature:mean"/>
+      <ownedColumnMappings name="QT_Variance" label="Variance" semanticElements="feature:variance" headerLabelExpression="Variance (MC)" canEdit="aql:false" featureName="variance" labelExpression="feature:variance"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckFlows"/>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckOutputs"/>
+    <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckQuery"/>
   </ownedViewpoints>
 </description:Group>

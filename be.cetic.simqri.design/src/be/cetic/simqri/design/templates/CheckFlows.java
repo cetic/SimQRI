@@ -8,7 +8,7 @@ import be.cetic.simqri.metamodel.Process;
 
 /**
  * 
- * @author François Kouptchinsky
+ * @author Francois Kouptchinsky
  * @since 24/03/2016
  * @version 2.0
  * 

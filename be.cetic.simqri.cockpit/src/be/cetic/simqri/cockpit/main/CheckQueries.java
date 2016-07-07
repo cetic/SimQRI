@@ -30,7 +30,7 @@ public class CheckQueries {
 			return;
 		}
 		Logger<String> logger = new TraceLogger();
-		
+		 
 		// Check the conversion of the model and the validity of queries
 		SimQRiSirius sim = new SimQRiSirius(100, true, logger, true);
 		String errors =  sim.fillModelWithSiriusData(model);
@@ -38,6 +38,20 @@ public class CheckQueries {
 			showMessage("All your queries are valid !", false);
 		else 
 			showMessage(errors, true);
+	}
+	
+	/**
+	 * This method is used by a java extension which is called every time a query value is updated in the queries table
+	 * @param model The instance drawn in the Sirius diagram
+	 * @return errors The String of all error messages related to the queries parsing. Empty if no errors...
+	 */
+	public static String dynamicCheck(Model model) {
+		String errors = "";
+		Logger<String> logger = new TraceLogger();
+		// Check the conversion of the model and the validity of queries
+		SimQRiSirius sim = new SimQRiSirius(100, true, logger, true);
+		errors =  sim.fillModelWithSiriusData(model);
+		return errors;
 	}
 	
 	private static void showMessage(String message, boolean error) {
