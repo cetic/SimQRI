@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<title>SimQRi User Manual</title>
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+<h1><a href="#">SimQRi Toolkit</a></h1>
+</div>
+
+<div id="menu">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="toolkit.html">SimQRi toolkit</a></li>
+<li><a href="createProject.html">Create a project</a></li>
+<li><a href="graphical.html">Graphical modeling tools</a></li>
+<li><a href="queriesTable.html">Queries Edition Table</a></li>
+<li><a href="simulation.html">Simulation management</a></li>
+<li><a href="results.html">Results analysis</a></li>
+</ul>
+</div>
+
+<div id="contentwrap">
+
+<div id="content">
+
+<h2>Elements of the model and their relationships</h2>
+
+<p>
+<table>
+<tr>
+<td><a href="#PartSupplier"><img src="images/elements/PartSupplier.png"></img></a></td>
+<td><a href="#Storage"><img src="images/elements/Storage.png"></img></a></td>
+<td><a href="#OverflowStorage"><img src="images/elements/OverflowStorage.png"></img></a></td>
+<td><a href="#SingleBatchProcess"><img src="images/elements/SingleBatchProcess.png"></img></a></td></tr>
+<tr>
+<td><a href="#BatchProcess"><img src="images/elements/BatchProcess.png"></img></a></td>
+<td><a href="#FailingSingleBatchProcess"><img src="images/elements/FailingSingleBatchProcess.png"></img></a></td>
+<td><a href="#FailingBatchProcess"><img src="images/elements/FailingBatchProcess.png"></img></a></td>
+<td><a href="#ConveyorBeltProcess"><img src="images/elements/ConveyorBeltProcess.png"></img></a></td>
+</tr>
+<tr>
+<td><a href="#Output"><img height="34" width="24" src="images/elements/output.PNG"></img></a></td>
+<td><a href="#OrderOnStockThreshold"><img height="34" width="144" src="images/elements/oost.PNG"></img></a></td>
+<td><a href="#StorageOutputFlow"><img height="34" width="124" src="images/elements/sof.PNG"></img></a></td>
+<td><a href="#ProcessOutputFlow"><img height="34" width="124" src="images/elements/pof.PNG"></img></a></td>
+</tr>
+</table>
+</p>
+
+
+<p>
+Click on an element to have a look at its description !
+</p>
+
+<h2 id="PartSupplier">Part Supplier</h2>
+
+<p><img src="images/elements/PartSupplier.png"></img></p>
+<p>
+Represents a supplier that supply a storage.
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">name</td>
+        <td>The name of the supplier</td>
+    </tr>
+    <tr>
+        <td>Supplier Delay</td>
+        <td>Probability distribution used to generate a random variable in order to determinate a delay for the supplier</td>
+    </tr>
+    <tr>
+        <td>Delivered percentage</td>
+        <td>The delivered percentage of a placed order</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="Storage">Storage</h2>
+
+<p><img src="images/elements/Storage.png"></img></p>
+<p>
+It represents storages or a stock as you name it. When this stock is full, all process that try to output new parts into it are blocked, until sufficient space is made free.
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">name</td>
+        <td>The name of the storage</td>
+    </tr>
+    <tr>
+        <td>Size</td>
+        <td>The maximal content of the stock. Attempting to put more items will lead block the input processes</td>
+    </tr>
+    <tr>
+        <td>Initial Content</td>
+        <td>The initial content of the stock</td>
+    </tr>
+    <tr>
+        <td>overflow</td>
+        <td>A boolean. False for "classic" storages.</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="OverflowStorage">Overflow Storage</h2>
+
+<p><img src="images/elements/OverflowStorage.png"></img></p>
+<p>
+It represents storages or a stock as you name it. This storage overflows when it is too much filled in.
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">name</td>
+        <td>The name of the storage</td>
+    </tr>
+    <tr>
+        <td>Size</td>
+        <td>The maximal content of the stock. Attempting to put more items will lead to an overflow, with loss of stock content</td>
+    </tr>
+    <tr>
+        <td>Initial Content</td>
+        <td>The initial content of the stock</td>
+    </tr>
+     <tr>
+        <td>overflow</td>
+        <td>A boolean. True for "overflow" storages.</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="SingleBatchProcess">Single Batch Process</h2>
+
+<p><img src="images/elements/SingleBatchProcess.png"></img></p>
+<p>
+A batch process inputs some parts from a specified set of inputs, runs and outputs some parts to a set of specified output
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">name</td>
+        <td>The name of the process</td>
+    </tr>
+    <tr>
+        <td>Batch Duration</td>
+        <td>Probability distribution used to generate a random variable in order to determinate the duration of the batch process. This duration starts from all inputs being inputted and ends with the beginning of the outputting.</td>
+    </tr>
+    <tr>
+        <td>Percentage of success</td>
+        <td>The percentage of success of a performed batch. Equals to 100 if the process is not a "failing" process</td>
+    </tr>
+    <tr>
+        <td>Number of lines</td>
+        <td>The number of simultaneous processes. Equals to 1 for "single" batch processes</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="BatchProcess">Batch Process</h2>
+
+<p><img src="images/elements/BatchProcess.png"></img></p>
+<p>
+This is an abstraction for a set of Single Batch Processes running in parallel. This supports one more parameter that is the number of such batches.
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">name</td>
+        <td>The name of the process</td>
+    </tr>
+    <tr>
+        <td>Batch Duration</td>
+        <td>Probability distribution used to generate a random variable in order to determinate the duration of the batch process. This duration starts from all inputs being inputted and ends with the beginning of the outputting.</td>
+    </tr>
+    <tr>
+        <td>Percentage of success</td>
+        <td>The percentage of success of a performed batch. Equals to 100 if the process is not a "failing" process</td>
+    </tr>
+    <tr>
+        <td>Number of lines</td>
+        <td>The number of simultaneous processes. Greater than 1 for "non single" batch processes</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="FailingSingleBatchProcess">Failing Single Batch Process</h2>
+
+<p><img src="images/elements/FailingSingleBatchProcess.png"></img></p>
+<p>
+The failing single batch process might fail. In this case, failure is assessed at the end of the batch duration, and produces so-called failure outputs (which can be trash items, or lower-quality parts for other specific usages.
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">name</td>
+        <td>The name of the process</td>
+    </tr>
+    <tr>
+        <td>Batch Duration</td>
+        <td>Probability distribution used to generate a random variable in order to determinate the duration of the batch process. This duration starts from all inputs being inputted and ends with the beginning of the outputting.</td>
+    </tr>
+    <tr>
+        <td>Percentage of success</td>
+        <td>The percentage of success of a performed batch. Lower than 100 if the process is a "failing" process</td>
+    </tr>
+    <tr>
+        <td>Number of lines</td>
+        <td>The number of simultaneous processes. Equals to 1 for "single" batch processes</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="FailingBatchProcess">Failing Batch Process</h2>
+
+<p><img src="images/elements/FailingBatchProcess.png"></img></p>
+<p>
+A part of the set of single batch processes might fail. In this case, failure is assessed at the end of the batch duration, and produces so-called failure outputs (which can be trash items, or lower-quality parts for other specific usages
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">name</td>
+        <td>The name of the process</td>
+    </tr>
+    <tr>
+        <td>Batch Duration</td>
+        <td>Probability distribution used to generate a random variable in order to determinate the duration of the batch process. This duration starts from all inputs being inputted and ends with the beginning of the outputting.</td>
+    </tr>
+    <tr>
+        <td>Percentage of success</td>
+        <td>The percentage of success of a performed batch. Lower than 100 if the process is a "failing" process</td>
+    </tr>
+    <tr>
+        <td>Number of lines</td>
+        <td>The number of simultaneous processes. Greater than 1 for "non single" batch processes</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="ConveyorBeltProcess">Conveyor Belt Process</h2>
+<p><img src="images/elements/ConveyorBeltProcess.png"></img></p>
+<p>
+This is a process that runs on a conveyer belt. If the output is blocked, no new batch is started, and if the input is blocked, the output still proceeds.
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">name</td>
+        <td>The name of the process</td>
+    </tr>
+    <tr>
+        <td>Process Duration</td>
+        <td>Probability distribution used to generate a random variable in order to determinate the duration of the process. This duration starts from all inputs being inputted and ends with the beginning of the outputting.</td>
+    </tr>
+    <tr>
+        <td>Minimal separation between batches</td>
+        <td>The minimal separation between two consecutive batches</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="Output">Output Port</h2>
+
+<p><img height="34" width="24" src="images/elements/output.PNG"></img></p>
+<p>
+A small square that represents an output of a process. Conveyor belts can only have one port (which has to be a "success" port) and batch process can have several ports. However, only "success" ports will be used on non-failing batch processes.
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">type</td>
+        <td>The type of the output ("success", "failure", "lower quality" or "trash")</td>
+    </tr>
+    <tr>
+        <td>Description</td>
+        <td>Any text you wish to type</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="OrderOnStockThreshold">Supplier -> Storage Link (Order on Stock Threshold)</h2>
+
+<p><img height="34" width="144" src="images/elements/oost.PNG"></img></p>
+<p>
+Represents the flow of goods delivered by a supplier to a storage .
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">name</td>
+        <td>The name of the relation</td>
+    </tr>
+    <tr>
+        <td>Order type</td>
+        <td>The type of order made to the supplier. There are 2 types of order : "fixed" (always the same amount of goods defined by the "order quantity" parameter) and "refill" (the storage is refilled by the system every time an order is executed).</td>
+    </tr>
+    <tr>
+        <td>Order Quantity</td>
+        <td>The quantity of goods delivered by the supplier. Only necessary for "fixed" order types</td>
+    </tr>
+    <tr>
+        <td>Threshold</td>
+        <td>The order is placed when the stock gets below this threshold</td>
+    </tr>
+    <tr>
+        <td>Period</td>
+        <td>The period of time after which the stock is checked by the system. If the period is greater than 0, the refill policy is called "Order on Stock Threshold With Tick". Otherwise, there are no checks made by the system</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="StorageOutputFlow">Storage -> Batch Process / Conveyor Belt Link (Storage Output Flow)</h2>
+
+<p><img height="34" width="124" src="images/elements/sof.PNG"></img></p>
+<p>
+Represents the flow of goods sent by a storage to a process.
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">Quantity</td>
+        <td>Probability distribution used to generate a random variable in order to determinate the quantity of goods sent from the storage to the process</td>
+    </tr>
+</table>
+</p>
+
+<h2 id="ProcessOutputFlow">Process / Conveyor Belt output port -> Storage Link (Process Output Flow)</h2>
+
+<p><img height="34" width="124" src="images/elements/pof.PNG"></img></p>
+<p>
+Represents the flow of outputs sent by a process to a storage.
+<table>
+   <th colspan="2">Parameters</th>
+    <tr>
+        <td width="25%">Quantity</td>
+        <td>Probability distribution used to generate a random variable in order to determinate the quantity of goods sent from the storage to the process</td>
+    </tr>
+    <tr>
+        <td>Delay</td>
+        <td>Probability distribution used to generate a random variable in order to determinate the possible delay in the transfer of goods to the storage</td>
+    </tr>
+</table>
+</p>
+
+</div>
+
+<div id="sidebar">
+<h3>Menu Navigation</h3>
+<ul>
+<li><a href="#PartSupplier">Part Supplier</a></li>
+<li><a href="#Storage">Storage</a></li>
+<li><a href="#OverflowStorage">Overflow Storage</a></li>
+<li><a href="#SingleBatchProcess">Single Batch Process</a></li>
+<li><a href="#BatchProcess">Batch Process</a></li>
+<li><a href="#FailingSingleBatchProcess">Failing Single Batch Process</a></li>
+<li><a href="#FailingBatchProcess">Failing Batch Process</a></li>
+<li><a href="#ConveyorBeltProcess">Conveyor Belt Process</a></li>
+<li><a href="#Output">Output Port</a></li>
+<li><a href="#OrderOnStockThreshold">Order on Stock Threshold</a></li>
+<li><a href="#StorageOutputFlow">Storage Output Flow</a></li>
+<li><a href="#ProcessOutputFlow">Process Output Flow</a></li>
+</ul>
+<table><tr><td><img src="images/logo.PNG"></img></td></tr></table>
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+
+<div id="footer">
+<p>&copy; Copyright 2016 CETIC | Design by <a href="http://www.webdesign-berlin.name/">Webdesign Berlin</a></p>
+</div>
+
+</div>
+
+</body>
+</html>
