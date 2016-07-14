@@ -20,7 +20,7 @@ import be.cetic.simqri.cockpit.util.IntFilter;
 import be.cetic.simqri.metamodel.Model;
 
 /**
- * 
+ * @deprecated
  * @author FK
  * This class is the management window of a new simulation.
  * It is displayed after a right-click on the back of the Sirius tool and select "New Simulation".

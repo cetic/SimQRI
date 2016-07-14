@@ -14,7 +14,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: be.cetic.simqri.cockpit,
  be.cetic.simqri.cockpit.main,
- be.cetic.simqri.cockpit.util
+ be.cetic.simqri.cockpit.util,
+ be.cetic.simqri.cockpit.views
 Bundle-ClassPath: .,
  lib/oscar.jar,
  lib/scala-library-2.10.6.jar,

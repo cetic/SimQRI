@@ -9,7 +9,7 @@ import be.cetic.simqri.metamodel.Model;
  * @since 06/07/2016
  * @version 1.0
  * 
- * Contains checks about queries written by the user in the Queries Table
+ * Java extension that executes a dynamic check for all queries written by the user in the Queries Table
  */
 public class CheckQuery {
 	

@@ -2,12 +2,15 @@ package be.cetic.simqri.design.actions;
 
 import java.util.Collection;
 
+
 import java.util.Map;
+
+import javax.swing.JOptionPane;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
-import be.cetic.simqri.cockpit.main.Simulation;
+import be.cetic.simqri.cockpit.views.NewSimulationManagementWindow;
 import be.cetic.simqri.design.templates.CheckFlows;
 import be.cetic.simqri.design.templates.CheckOutputs;
 import be.cetic.simqri.metamodel.Model;
@@ -32,7 +35,12 @@ public class ActionSimulation implements IExternalJavaAction {
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
 		Model model = (Model) parameters.get("model");
 		String errMessages = checkModelValidity(model);
-		Simulation.displaySimulationWindow(model, errMessages);
+		if(errMessages.isEmpty())
+			new NewSimulationManagementWindow(model);
+		else
+			JOptionPane.showMessageDialog(null, "The simulation will not be launchable due to some modeling errors in your diagram : \n"
+					+ errMessages, "Error", JOptionPane.ERROR_MESSAGE);
+		// Simulation.displaySimulationWindow(model, errMessages); // Former simulation launch cockpit
 	}
 	
 	private String checkModelValidity(Model model) {

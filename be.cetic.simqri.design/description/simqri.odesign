@@ -120,6 +120,9 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
                   </subModelOperations>
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                  </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>

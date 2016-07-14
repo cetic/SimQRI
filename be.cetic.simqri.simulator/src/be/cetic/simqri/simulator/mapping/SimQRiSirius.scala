@@ -1,6 +1,7 @@
 package be.cetic.simqri.simulator.mapping
 
 import oscar.des.flow.core.{DiscreteChoice, Putable, Fetchable}
+import oscar.des.engine.SimControl
 
 import oscar.des.flow.lib._
 import oscar.des.flow.modeling._
@@ -30,6 +31,8 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
   // val m = new Model
   private val verboseFunc = if (verbose) sqlogger.loggerFunc else null
   var runTime = 0L
+  var loading = 0 // NEW (MC loop status)
+  var mcAborted = false
   val factoryModel = if (mcSim) new FactoryModel(null) else new FactoryModel(verboseFunc)
   var simQRiComponents : Array[SimQRiComponent] = new Array[SimQRiComponent](0)
   // val standardItemClass = zeroItemClass
@@ -323,9 +326,9 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
   }
   
   // Main function for creating the model (with OscaR-DES-Flow) and simulating it.
-  def simulateOneShot(): Unit = {
+  def simulateOneShot(simControl:SimControl): Unit = {
     val time0 = System.nanoTime()
-    factoryModel.simulate(duration)
+    factoryModel.simulate(duration, simControl)
     val time1 = System.nanoTime()
     runTime = time1 - time0
     sqlogger.log("probe", "Elapsed time in nanoseconds", runTime.toString)
@@ -340,7 +343,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
   }
   
     // Main function for MC simulation
-  def simulateMonteCarlo(numIterations : Int): Unit = {
+  def simulateMonteCarlo(numIterations : Int, simControl:SimControl): Unit = {
     var samplingMap : Map[String, Map[String,DataSampling]] = null
     var singleProbesSamplingMap : Map[String,DataSampling] = null
     var historyProbesMap : Map[String,List[(Double,List[Double])]] = null
@@ -348,8 +351,10 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
     var i = 0
     var currentFM = factoryModel
     while (i < numIterations) {
+      if(mcAborted) 
+        return
       val time0 = System.nanoTime()
-      currentFM.simulate(duration)
+      currentFM.simulate(duration, simControl)
       val time1 = System.nanoTime()
       runTime = time1 - time0
       val mapsTup = if (singleProbesSamplingMap == null)
@@ -367,6 +372,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
       }
       currentFM = factoryModel.cloneReset
       i += 1
+      loading += 1;
     }
     // Log elements infos
     samplingMap.foreach((samplings) => {

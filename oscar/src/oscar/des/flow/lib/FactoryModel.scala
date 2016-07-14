@@ -1,6 +1,7 @@
 package oscar.des.flow.lib
 
 import oscar.des.engine.Model
+import oscar.des.engine.SimControl
 import oscar.des.flow.core.ItemClassHelper._
 import oscar.des.flow.core.{ItemClassTransformWitAdditionalOutput, ItemClassTransformFunction, Putable, Fetchable}
 import oscar.des.flow.modeling.{MultipleParsingError, MultipleParsingSuccess, ListenerParser}
@@ -38,8 +39,8 @@ class FactoryModel(verbosity:(String*)=>Unit,
   def getStorages:List[Storage] = storages
   def getProcesses:List[ActivableProcess] = processes
 
-  def simulate(horizon:Float, abort:()=>Boolean = ()=>false){
-    m.simulate(horizon,verbosity,()=>{ms.updateMetricsIfNeeded(m.clock());abort()})
+  def simulate(horizon:Float, simControl:SimControl, abort:()=>Boolean = ()=>false){
+    m.simulate(horizon, simControl, verbosity,()=>{ms.updateMetricsIfNeeded(m.clock());abort()})
 
     ms.finish(m.clock())
     //if(verbosity != null) println(this)

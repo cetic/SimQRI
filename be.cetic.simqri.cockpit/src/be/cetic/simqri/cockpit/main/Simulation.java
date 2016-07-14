@@ -16,13 +16,14 @@ import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.Query;
 import be.cetic.simqri.simulator.mapping.SimQRiSirius;
 import be.cetic.simqri.simulator.mapping.Tools;
+import oscar.des.engine.SimControl;
 import oscar.des.logger.SamplingTuple;
 import oscar.des.logger.TraceLogger;
 import scala.Tuple2;
 import scala.collection.Iterator;
 
 /**
- * 
+ * @deprecated
  * @author FK
  * @version 2.0
  * 
@@ -66,7 +67,7 @@ public class Simulation {
 			SimQRiSirius sim = new SimQRiSirius(timeUnits, true, sqlogger, false);
 			String errQueries = sim.fillModelWithSiriusData(model);
 			if(errQueries.isEmpty()) {
-				sim.simulateOneShot();
+				sim.simulateOneShot(new SimControl());
 				
 				// Instance of the object that will store "One Shot" simulation results and transphorm them to strings for the display
 				OneShotTracer ost = new OneShotTracer();
@@ -90,7 +91,7 @@ public class Simulation {
 			SimQRiSirius sim = new SimQRiSirius(timeUnits, true, sqlogger, true);
 			String errQueries = sim.fillModelWithSiriusData(model);
 			if(errQueries.isEmpty()) {
-				sim.simulateMonteCarlo(maxIterations);
+				sim.simulateMonteCarlo(maxIterations, new SimControl());
 				
 				MonteCarloTracer mct = new MonteCarloTracer();
 				mct.setElementsSampling(t.elementsSamplingsToJavaMap(sqlogger));

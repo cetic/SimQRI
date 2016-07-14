@@ -21,6 +21,12 @@ import scala.collection.mutable._
  * Every Process in the simulation should wait, require resource ... on an instance of this class.
  * @author pschaus
  */
+
+class SimControl {
+  var aborted = false
+  var curTime = 0.0
+}
+
 class Model {
 
   private val eventQueue = new PriorityQueue[SimEvent]()
@@ -38,9 +44,11 @@ class Model {
    * @param abort is called after every progress in time. if returns true, the simulation is aborted.
    *              You can also use it to update some trace analysis functions.
    */
-  def simulate(horizon:Float, verbosity:(String*)=>Unit, abort:()=>Boolean = ()=>false) {
+  def simulate(horizon:Float, simControl:SimControl, verbosity:(String*)=>Unit, abort:()=>Boolean = ()=>false) {
     while (eventQueue.nonEmpty) {
       steps +=1
+      if(simControl.aborted)
+        return
       val e = eventQueue.dequeue()
       require(e.time >= currentTime)
       if(e.time <= horizon){
@@ -55,6 +63,7 @@ class Model {
           if(verbosity!=null) verbosity("time", e.time.toString)
         }
         currentTime = e.time
+        simControl.curTime = currentTime
         e.process()
       }else{
         // we are after the horizon, so event is pushed back into queue, and simulation stops
@@ -62,12 +71,14 @@ class Model {
         if(horizon != currentTime) abort() //we call it, since we re at the end, and it is a new state
         if(verbosity!=null) verbosity("time", horizon.toString)
         currentTime = horizon
+        simControl.curTime = horizon
         return
       }
     }
 
     //no more event to process, but time runs to the horizon
     if(horizon != currentTime) {
+      simControl.curTime = horizon
       abort()
       if (verbosity!=null) verbosity("time", horizon.toString)
     }
