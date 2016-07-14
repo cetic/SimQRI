@@ -30,42 +30,61 @@
 
 <div id="content">
 
-<h2>Example Article #1 - This is H2 Heading</h2>
+<h2 id="step1">Step 1 : Open the simulation management cockpit</h2>
 
 <p>
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas dignissim consectetur porttitor. Integer sed condimentum orci. Aenean id quam a ipsum convallis tincidunt vitae quis lectus. Donec eros sapien, ultrices quis interdum eget, pulvinar et sem. Praesent vel felis nisl, eget volutpat dui. Vestibulum ac lorem massa, vitae blandit mauris.
+    In order to set and launch a new simulation, you have to open the simulation management cockpit. To open this tool, make a <b>right-click on the background of the modeling area and select "New Simulation" option</b>. After that, a similar window will be open :
+</p>
+<p>
+    <img src="images/simulation/simu1.PNG"></img>
 </p>
 
+<h2 id="step2">Step 2 : Choose the kind of simulation</h2>
+
+<p>
+You have then to choose a kind of simulation.
 <ul>
-<li>Aliquam hendrerit elit in leo tempor eu molestie orci molestie. Morbi in dolor dolor</li>
-<li>Class aptent taciti sociosqu ad litora torquent per conubia nostra</li>
-<li>Integer sed condimentum orci. Aenean id quam a ipsum convallis tincidunt vitae quis</li>
+    <li><b>One Shot</b> : only one scenario is executed. "One Shot" simulations are fast but less accurate than "Monte-Carlo" simulations.</li><br/>
+    <li><b>Monte-Carlo</b> : a huge quantity of scenarios are executed following the "Monte-Carlo" probabilistic methods in order to produce more accurate results. "Monte-Carlo" simulations are slowler than "One Shot" simulations. That's why, they can be aborted.</li>
 </ul>
-
-<p>
-Proin at sapien arcu. Integer ut fermentum erat. Suspendisse potenti. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam odio quam, bibendum vitae lacinia ut, sodales ut turpis. Nullam dignissim urna vel risus condimentum in posuere nunc fermentum. 
 </p>
 
-<h2>Example Article #1 - This is H2 Heading</h2>
+<h2 id="step3">Step 3 : Set simulation parameters</h2>
 
 <p>
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas dignissim consectetur porttitor. Integer sed condimentum orci. Aenean id quam a ipsum convallis tincidunt vitae quis lectus. Donec eros sapien, ultrices quis interdum eget, pulvinar et sem. Praesent vel felis nisl, eget volutpat dui. Vestibulum ac lorem massa, vitae blandit mauris.
+Depending the kind of simulation choosen previously, you will have to set one or two parameter(s). 
+<ul>
+    <li><b>Time units</b> : the max number of time units for the execution of the simulation. </li><br/>
+    <li><b>Max iterations</b> (only for "Monte-Carlo" simulations) : the max number of iterations. An iteration is a scenario of the simulation execution. A huge number implies a huge duration !</li>
+</ul>
+</p>
+
+<h2 id="step4">Step 4 : Launch and abort a simulation</h2>
+
+<p>
+    You are now ready to launch a new simulation ! If the simulation progress too slowly, you will always be able to abort it by clicking on the "stop" button.
+</p>
+<p>
+    <img src="images/simulation/simu2.PNG"></img>
+</p>
+<p>
+    In case of Monte-Carlo simulations with a huge number of iterations, the process of the results will take some <b>additional time</b>. That's why, you may sometimes be face to face with a similar display :
+</p>
+<p>
+    <img src="images/simulation/simu3.PNG"></img>
 </p>
 </div>
 
 <div id="sidebar">
 <h3>Menu Navigation</h3>
 <ul>
-<li><a href="#">Proin at</a></li>
-<li><a href="#">Class aptent taciti</a></li>
-<li><a href="#">Morbi in dolor</a></li>
-<li><a href="#">Praesent ultricies</a></li>
-<li><a href="#">Aenean euismod</a></li>
-<li><a href="#">Donec sempe</a></li>
-<li><a href="#">Suspendisse potenti</a></li>
+<li><a href="#step1">Step 1 : Open the simulation management cockpit</a></li>
+<li><a href="#step2">Step 2 : Choose the kind of simulation</a></li>
+<li><a href="#step3">Step 3 : Set simulation parameters</a></li>
+<li><a href="#step4">Step 4 : Launch and abort a simulation</a></li>
 </ul>
 
-<table><tr><td><img src="images/logo.PNG"></img></td></tr></table>
+<table><tr><td><a href="http://www.simqri.com/"><img src="images/logo.PNG" alt="SimQRi"></img></a></td></tr></table>
 
 </div>
 
@@ -75,7 +94,7 @@ Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac tu
 
 
 <div id="footer">
-<p>&copy; Copyright 2010 You | Design by <a href="http://www.webdesign-berlin.name/">Webdesign Berlin</a></p>
+<p>&copy; Copyright 2016 CETIC | Design by <a href="http://www.webdesign-berlin.name/">Webdesign Berlin</a></p>
 </div>
 
 </div>
