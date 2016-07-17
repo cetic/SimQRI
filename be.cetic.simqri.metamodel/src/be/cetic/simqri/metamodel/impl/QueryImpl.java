@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getMin <em>Min</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getMean <em>Mean</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getVariance <em>Variance</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getError <em>Error</em>}</li>
  * </ul>
  *
  * @generated
@@ -171,6 +172,26 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 	 * @ordered
 	 */
 	protected String variance = VARIANCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getError() <em>Error</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getError()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ERROR_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getError() <em>Error</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getError()
+	 * @generated
+	 * @ordered
+	 */
+	protected String error = ERROR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -343,6 +364,27 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getError() {
+		return error;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setError(String newError) {
+		String oldError = error;
+		error = newError;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.QUERY__ERROR, oldError, error));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -360,6 +402,8 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return getMean();
 			case MetamodelPackage.QUERY__VARIANCE:
 				return getVariance();
+			case MetamodelPackage.QUERY__ERROR:
+				return getError();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -392,6 +436,9 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return;
 			case MetamodelPackage.QUERY__VARIANCE:
 				setVariance((String)newValue);
+				return;
+			case MetamodelPackage.QUERY__ERROR:
+				setError((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -426,6 +473,9 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 			case MetamodelPackage.QUERY__VARIANCE:
 				setVariance(VARIANCE_EDEFAULT);
 				return;
+			case MetamodelPackage.QUERY__ERROR:
+				setError(ERROR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -452,6 +502,8 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return MEAN_EDEFAULT == null ? mean != null : !MEAN_EDEFAULT.equals(mean);
 			case MetamodelPackage.QUERY__VARIANCE:
 				return VARIANCE_EDEFAULT == null ? variance != null : !VARIANCE_EDEFAULT.equals(variance);
+			case MetamodelPackage.QUERY__ERROR:
+				return ERROR_EDEFAULT == null ? error != null : !ERROR_EDEFAULT.equals(error);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -480,6 +532,8 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 		result.append(mean);
 		result.append(", variance: ");
 		result.append(variance);
+		result.append(", error: ");
+		result.append(error);
 		result.append(')');
 		return result.toString();
 	}

@@ -1,83 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metamodel:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metamodel="http://www.example.org/metamodel">
-  <query name="Number of time units plus 1" value="plus(time,1)" result="1001,00" max="11,00" min="11,00" mean="11,00" variance="0.0"/>
-  <query name="new_storage 1 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" result="1,00" max="1,00" min="0,91" mean="0,98" variance="3.6032059481966634E-8"/>
-  <query name="new_storage 1 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" result="0,00" max="0,97" min="0,58" mean="0,78" variance="1.4470434604598857E-6"/>
-  <query name="new_storage 1 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" result="0,02" max="0,89" min="0,64" mean="0,79" variance="5.810830880776089E-7"/>
-  <query name="new_supplier 1 : Number of started batches" value="startedBatchCount(&quot;new_supplier 1&quot;)" result="2,00" max="1,00" min="1,00" mean="1,00" variance="0.0"/>
-  <query name="new_supplier 1 : Number of completed batches" value="completedBatchCount(&quot;new_supplier 1&quot;)" result="2,00" max="1,00" min="1,00" mean="1,00" variance="0.0"/>
-  <query name="new_supplier 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_supplier 1&quot;), time)" result="0,99" max="0,80" min="0,60" mean="0,70" variance="2.8156542483355102E-6"/>
-  <query name="new_batch_process 1 : Number of started batches" value="startedBatchCount(&quot;new_batch_process 1&quot;)" result="151,00" max="62,00" min="17,00" mean="34,57" variance="6.076268293674816E-5"/>
-  <query name="new_batch_process 1 : Number of completed batches" value="completedBatchCount(&quot;new_batch_process 1&quot;)" result="151,00" max="59,00" min="14,00" mean="31,57" variance="6.076268293675574E-5"/>
-  <query name="new_batch_process 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_batch_process 1&quot;), time)" result="2,86" max="0,00" min="0,00" mean="0,00" variance="0.0"/>
-  <query name="new_storage 2 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" result="1,00" max="1,00" min="1,00" mean="1,00" variance="0.0"/>
-  <query name="new_storage 2 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" result="0,15" max="0,90" min="0,89" mean="0,90" variance="4.539081823048819E-11"/>
-  <query name="new_storage 2 : Total lost by overflow" value="totalLostByOverflow(&quot;new_storage 2&quot;)" result="251,00" max="31,00" min="11,00" mean="19,20" variance="4.819770076383139E-4"/>
+  <query name="Number of time units plus 1" value="plus(time,1)" result="1001,00" max="1001,00" min="1001,00" mean="1001,00" variance="0.0" error=""/>
+  <query name="new_storage 1 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" result="0,99" max="1,00" min="0,93" mean="0,98" variance="3.76313913147846E-7" error=""/>
+  <query name="new_storage 1 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" result="0,00" max="0,00" min="0,00" mean="0,00" variance="0.0" error=""/>
+  <query name="new_storage 1 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" result="0,11" max="0,17" min="0,08" mean="0,11" variance="7.441900898610708E-7" error=""/>
+  <query name="new_supplier 1 : Number of started batches" value="startedBatchCount(&quot;new_supplier 1&quot;)" result="2,00" max="2,00" min="2,00" mean="2,00" variance="0.0" error=""/>
+  <query name="new_supplier 1 : Number of completed batches" value="completedBatchCount(&quot;new_supplier 1&quot;)" result="2,00" max="2,00" min="2,00" mean="2,00" variance="0.0" error=""/>
+  <query name="new_supplier 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_supplier 1&quot;), time)" result="0,99" max="1,00" min="0,99" mean="0,99" variance="2.9303138664945447E-9" error=""/>
+  <query name="new_batch_process 1 : Number of started batches" value="startedBatchCount(&quot;new_batch_process 1&quot;)" result="143,00" max="208,00" min="109,00" mean="147,52" variance="0.4202496354972033" error=""/>
+  <query name="new_batch_process 1 : Number of completed batches" value="completedBatchCount(&quot;new_batch_process 1&quot;)" result="143,00" max="208,00" min="109,00" mean="147,52" variance="0.4202496354972033" error=""/>
+  <query name="new_batch_process 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_batch_process 1&quot;), time)" result="2,88" max="2,90" min="2,78" mean="2,85" variance="5.785442890338134E-8" error=""/>
   <orderOnStockThreshold name="oost 1" supplier="//@component.1" storage="//@component.0"/>
-  <orderOnStockThreshold name="oost 2" supplier="//@component.1" storage="//@component.5"/>
-  <orderOnStockThreshold name="oost 3" supplier="//@component.1" storage="//@component.4"/>
-  <orderOnStockThreshold name="oost 4" supplier="//@component.10" storage="//@component.5"/>
-  <orderOnStockThreshold name="oost 5" supplier="//@component.9" storage="//@component.3"/>
+  <orderOnStockThreshold name="oost 2" supplier="//@component.1" storage="//@component.4"/>
+  <orderOnStockThreshold name="oost 3" supplier="//@component.1" storage="//@component.3"/>
+  <orderOnStockThreshold name="oost 4" supplier="//@component.8" storage="//@component.4"/>
+  <orderOnStockThreshold name="oost 6" supplier="//@component.10" storage="//@component.11"/>
   <component xsi:type="metamodel:Storage" name="new_storage 1" storageOutputFlow="//@flow.0" orderOnStockThreshold="//@orderOnStockThreshold.0"/>
   <component xsi:type="metamodel:Supplier" name="new_supplier 1" refillPolicy="//@orderOnStockThreshold.0 //@orderOnStockThreshold.1 //@orderOnStockThreshold.2">
     <supplierDelay xsi:type="metamodel:Uniform" minimum="2.0" maximum="4.0"/>
   </component>
   <component xsi:type="metamodel:BatchProcess" name="new_batch_process 1" storageOutputFlow="//@flow.0">
     <duration xsi:type="metamodel:Poisson"/>
-    <outputs processOutputFlow="//@flow.1"/>
+    <outputs processOutputFlow="//@flow.5"/>
   </component>
-  <component xsi:type="metamodel:Storage" name="new_storage 2" overflow="true" storageOutputFlow="//@flow.4" orderOnStockThreshold="//@orderOnStockThreshold.4" processOutputFlow="//@flow.1 //@flow.2 //@flow.3 //@flow.8"/>
-  <component xsi:type="metamodel:Storage" name="new_storage 3" storageOutputFlow="//@flow.7" orderOnStockThreshold="//@orderOnStockThreshold.2"/>
-  <component xsi:type="metamodel:Storage" name="new_storage 4" storageOutputFlow="//@flow.6" orderOnStockThreshold="//@orderOnStockThreshold.1 //@orderOnStockThreshold.3"/>
-  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 2" storageOutputFlow="//@flow.4" percentageOfSuccess="99.0" numberOfChains="1">
+  <component xsi:type="metamodel:Storage" name="new_storage 3" storageOutputFlow="//@flow.3" orderOnStockThreshold="//@orderOnStockThreshold.2"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 4" storageOutputFlow="//@flow.2" orderOnStockThreshold="//@orderOnStockThreshold.1 //@orderOnStockThreshold.3"/>
+  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 2" storageOutputFlow="//@flow.7" percentageOfSuccess="99.0" numberOfChains="1">
     <duration xsi:type="metamodel:Scalar"/>
-    <outputs processOutputFlow="//@flow.5" description="Default Success Port"/>
+    <outputs processOutputFlow="//@flow.1" description="Default Success Port"/>
   </component>
-  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 3" storageOutputFlow="//@flow.6" numberOfChains="1">
+  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 3" storageOutputFlow="//@flow.2" numberOfChains="1">
     <duration xsi:type="metamodel:Scalar"/>
-    <outputs processOutputFlow="//@flow.3" description="Default Success Port"/>
+    <outputs processOutputFlow="//@flow.6" description="Default Success Port"/>
   </component>
-  <component xsi:type="metamodel:Storage" name="new_storage 5" overflow="true" processOutputFlow="//@flow.5"/>
-  <component xsi:type="metamodel:Supplier" name="new_supplier 2" refillPolicy="//@orderOnStockThreshold.4">
-    <supplierDelay xsi:type="metamodel:Scalar" value="0"/>
-  </component>
+  <component xsi:type="metamodel:Storage" name="new_storage 5" overflow="true" processOutputFlow="//@flow.1"/>
   <component xsi:type="metamodel:Supplier" name="new_supplier 3" refillPolicy="//@orderOnStockThreshold.3">
     <supplierDelay xsi:type="metamodel:Scalar" value="0"/>
   </component>
-  <component xsi:type="metamodel:ConveyorBelt" name="new_conveyor_belt 1" storageOutputFlow="//@flow.7">
+  <component xsi:type="metamodel:ConveyorBelt" name="new_conveyor_belt 1" storageOutputFlow="//@flow.3">
     <duration xsi:type="metamodel:Scalar"/>
-    <output processOutputFlow="//@flow.8" description="Default Success Port"/>
+    <output processOutputFlow="//@flow.4" description="Default Success Port"/>
   </component>
+  <component xsi:type="metamodel:Supplier" name="new_supplier 4" refillPolicy="//@orderOnStockThreshold.4">
+    <supplierDelay xsi:type="metamodel:Scalar" value="0"/>
+  </component>
+  <component xsi:type="metamodel:Storage" name="new_storage 6" orderOnStockThreshold="//@orderOnStockThreshold.4"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 6" storageOutputFlow="//@flow.7" processOutputFlow="//@flow.4 //@flow.5 //@flow.6"/>
   <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.0" destination="//@component.2">
     <quantity xsi:type="metamodel:Gaussian"/>
   </flow>
-  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.0" destination="//@component.3">
-    <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Poisson"/>
-  </flow>
-  <flow xsi:type="metamodel:ProcessOutputFlow" destination="//@component.3">
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.5/@outputs.0" destination="//@component.7">
     <quantity xsi:type="metamodel:Scalar"/>
     <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
   </flow>
-  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.7/@outputs.0" destination="//@component.3">
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.4" destination="//@component.6">
+    <quantity xsi:type="metamodel:Scalar"/>
+  </flow>
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.3" destination="//@component.9">
+    <quantity xsi:type="metamodel:Scalar"/>
+  </flow>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.9/@output" destination="//@component.12">
     <quantity xsi:type="metamodel:Scalar"/>
     <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
   </flow>
-  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.3" destination="//@component.6">
-    <quantity xsi:type="metamodel:Scalar"/>
-  </flow>
-  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.6/@outputs.0" destination="//@component.8">
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.0" destination="//@component.12">
     <quantity xsi:type="metamodel:Scalar"/>
     <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
   </flow>
-  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.5" destination="//@component.7">
-    <quantity xsi:type="metamodel:Scalar"/>
-  </flow>
-  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.4" destination="//@component.11">
-    <quantity xsi:type="metamodel:Scalar"/>
-  </flow>
-  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.11/@output" destination="//@component.3">
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.6/@outputs.0" destination="//@component.12">
     <quantity xsi:type="metamodel:Scalar"/>
     <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+  </flow>
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.12" destination="//@component.5">
+    <quantity xsi:type="metamodel:Scalar"/>
   </flow>
 </metamodel:Model>

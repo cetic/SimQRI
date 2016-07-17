@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link be.cetic.simqri.metamodel.Query#getMin <em>Min</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Query#getMean <em>Mean</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Query#getVariance <em>Variance</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.Query#getError <em>Error</em>}</li>
  * </ul>
  *
  * @see be.cetic.simqri.metamodel.MetamodelPackage#getQuery()
@@ -209,5 +210,31 @@ public interface Query extends EObject {
 	 * @generated
 	 */
 	void setVariance(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Error</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Error</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Error</em>' attribute.
+	 * @see #setError(String)
+	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getQuery_Error()
+	 * @model
+	 * @generated
+	 */
+	String getError();
+
+	/**
+	 * Sets the value of the '{@link be.cetic.simqri.metamodel.Query#getError <em>Error</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Error</em>' attribute.
+	 * @see #getError()
+	 * @generated
+	 */
+	void setError(String value);
 
 } // Query

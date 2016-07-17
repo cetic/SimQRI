@@ -1,9 +1,17 @@
 package be.cetic.simqri.cockpit.main;
 
 import java.awt.EventQueue;
+
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
+
 import be.cetic.simqri.metamodel.Model;
+import be.cetic.simqri.metamodel.Query;
 import be.cetic.simqri.simulator.mapping.SimQRiSirius;
 import oscar.des.logger.Logger;
 import oscar.des.logger.TraceLogger;
@@ -33,11 +41,12 @@ public class CheckQueries {
 		 
 		// Check the conversion of the model and the validity of queries
 		SimQRiSirius sim = new SimQRiSirius(100, true, logger, true);
-		String errors =  sim.fillModelWithSiriusData(model);
-		if(errors.isEmpty() && errMessages.isEmpty()) 
+		ArrayList<String> errors =  sim.fillModelWithSiriusData(model);
+		if(errors.isEmpty()) 
 			showMessage("All your queries are valid !", false);
-		else 
-			showMessage(errors, true);
+		else {
+			showMessage("There are still some syntaxic or semantic errors in your queries ! \nPlease check the queries Table for more informations.", true);
+		}
 	}
 	
 	/**
@@ -45,12 +54,30 @@ public class CheckQueries {
 	 * @param model The instance drawn in the Sirius diagram
 	 * @return errors The String of all error messages related to the queries parsing. Empty if no errors...
 	 */
-	public static String dynamicCheck(Model model) {
-		String errors = "";
+	public static ArrayList<String> dynamicCheck(Model model) {
+		ArrayList<String> errors;
 		Logger<String> logger = new TraceLogger();
 		// Check the conversion of the model and the validity of queries
 		SimQRiSirius sim = new SimQRiSirius(100, true, logger, true);
 		errors =  sim.fillModelWithSiriusData(model);
+		// Metamodel transaction in order to set queries error into the Queries Table
+		boolean hasError;
+		for(Query q : model.getQuery()) {
+			hasError = false;
+			for(String error : errors) {
+				if(error.contains(q.getValue())) {
+					TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(q);
+					domain.getCommandStack().execute(new RecordingCommand(domain) {
+					   public void doExecute() {
+						   String[] errSplit = error.split("]");
+						  q.setError(errSplit[1]);
+					   }
+					});
+					hasError = true;
+				}
+			}
+			if(!hasError) q.setError("");
+		}
 		return errors;
 	}
 	
@@ -58,10 +85,10 @@ public class CheckQueries {
 	    EventQueue.invokeLater(new Runnable() {
 	        @Override
 	        public void run() {
-	        		if(!error)
-	        			JOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
-	        		else
-	        			JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
+	        	if(!error)
+	        		JOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
+	        	else
+	        		JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
 	        }
 	    });
 	}

@@ -80,7 +80,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
    * Main function for create the model (with OscaR-DES-Flow)
    * Returns a String which is empty if all queries are valid. It will contain the error message(s) otherwise
    */
-  def fillModelWithSiriusData(model : be.cetic.simqri.metamodel.Model) : String = {
+  def fillModelWithSiriusData(model : be.cetic.simqri.metamodel.Model) : java.util.ArrayList[String] = {
     
     // Retrieve Processes (BP & CB), Storages & Suppliers from the 'sirius' model
     val components = model.getComponent.toList
@@ -289,7 +289,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
     // The final loop is on the probes. We will parse and add them to the probes list
     var probesList : List[(String,Expression)] = Nil
     val probeParser = ListenerParser.apply(mapStorages.values, activableProcesses)
-    var message = "" // check if all queries are valid
+    var message : java.util.ArrayList[String] = new java.util.ArrayList // check if all queries are valid
     // The model is now complete! We can now simulate it.
     for(query <- model.getQuery) {
       probeParser.apply(query.getValue) match { // probesList :+= (s"${query.getName} $query.getType", boolExpr) add a type to probes ?
@@ -303,7 +303,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
           probesList :+= (s"${query.getName}", dblHistExpr)
         case ParsingError(errStr) =>
           if(verbose)
-            message += "The probe "+query.getName+" cannot be parsed. This is the error : "+errStr+"\n"
+            message.add("The probe "+query.getName+" cannot be parsed. This is the error : "+errStr)
         case _ =>
       }
     }
@@ -350,9 +350,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
     val samplingRuntime = new DataSampling
     var i = 0
     var currentFM = factoryModel
-    while (i < numIterations) {
-      if(mcAborted) 
-        return
+    while (i < numIterations && !mcAborted) {
       val time0 = System.nanoTime()
       currentFM.simulate(duration, simControl)
       val time1 = System.nanoTime()

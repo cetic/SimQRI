@@ -1,6 +1,9 @@
 package be.cetic.simqri.design.templates;
 
+import java.util.ArrayList;
+
 import be.cetic.simqri.cockpit.main.CheckQueries;
+
 import be.cetic.simqri.metamodel.Model;
 
 /**
@@ -13,7 +16,7 @@ import be.cetic.simqri.metamodel.Model;
  */
 public class CheckQuery {
 	
-	public static String errMessages;
+	public static ArrayList<String> errMessages;
 	
 	/** 
 	 * 
@@ -22,6 +25,10 @@ public class CheckQuery {
 	 */
 	public String thisQueryIsValid(Model model) {
 		errMessages = CheckQueries.dynamicCheck(model);
-		return errMessages;
+		String str = "";
+		for(String error : errMessages) {
+			str += error+"\n";
+		}
+		return str;
 	}
 }

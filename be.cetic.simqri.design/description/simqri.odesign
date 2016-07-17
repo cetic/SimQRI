@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="simqri" version="10.1.3.201511131800">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="simqri" version="10.1.3.201511131800">
   <ownedViewpoints name="SimQRi Design" modelFileExtension="simqri">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SimQRi Diagram" domainClass="metamodel.Model" enablePopupBars="true">
       <metamodel href="http://www.example.org/metamodel#/"/>
@@ -7,28 +7,23 @@
         <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']"/>
       </filters>
       <validationSet name="Validate Diagram">
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromStorages" level="ERROR" message="Each process can only have one flow from the same storage !" targetClass="metamodel.Model">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromStorages" level="ERROR" message="aql:self.hasOneFlowFromThatStorage().toString()" targetClass="metamodel.Model">
           <audits auditExpression="aql:self.hasOneFlowFromThatStorage().toString().size()=0"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkOutputsFromBatchProcesses" level="ERROR" message="Some of your processes have at least 2 outputs of the same type or miss a &quot;success&quot; output !" targetClass="metamodel.Model">
-          <audits auditExpression="aql:self.hasNotTwoOutputsOfSameType().toString().size()=0"/>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkOutputsFromBatchProcesses" level="WARNING" message="aql:self.hasAtLeastASuccessOutput.toString()" targetClass="metamodel.Model">
+          <audits auditExpression="aql:self.hasAtLeastASuccessOutput.toString().size()=0"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkOutputFromConveyorBelt" level="WARNING" message="There is at least an output port of your conveyor belts that is not a &quot;SUCCESS&quot; output. However, it will be considered as such." targetClass="metamodel.Model">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkOutputFromConveyorBelt" level="WARNING" message="aql:self.hasAnOutputOfSuccessType().toString()" targetClass="metamodel.Model">
           <audits auditExpression="aql:self.hasAnOutputOfSuccessType().toString().size()=0"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromSuppliers" level="ERROR" message="Storages can not have several flows from the same supplier !" targetClass="metamodel.Model">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromSuppliers" level="ERROR" message="aql:self.hasOneFlowFromThatSupplier().toString()" targetClass="metamodel.Model">
           <audits auditExpression="aql:self.hasOneFlowFromThatSupplier().toString().size()=0"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromOutputs" level="ERROR" message="Storages can not have several flows from the same output !" targetClass="metamodel.Model">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromOutputs" level="ERROR" message="aql:self.hasOneFlowFromThatPort().toString()" targetClass="metamodel.Model">
           <audits auditExpression="aql:self.hasOneFlowFromThatPort().toString().size()=0"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkUniformDistribution" level="ERROR" message="The &quot;maximum&quot; parameter of the Uniform distribution has to be greater than &quot;minimum&quot; parameter !" targetClass="metamodel.Uniform">
-          <audits auditExpression="aql:self.minimum&lt;self.maximum"/>
-          <fixes name="Set maximum to &quot;minimum + 1&quot;">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:SetValue" featureName="maximum" valueExpression="aql:self.minimum+1"/>
-            </initialOperation>
-          </fixes>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromElements" level="WARNING" message="aql:self.isLinkedToFlow().toString()" targetClass="metamodel.Model">
+          <audits auditExpression="aql:self.isLinkedToFlow().toString().size()=0"/>
         </ownedRules>
       </validationSet>
       <defaultLayer name="Default">
@@ -95,244 +90,244 @@
           </style>
         </nodeMappings>
         <toolSections name="Elements">
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="SD_Supplier" label="New Supplier" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']" iconPath="/be.cetic.simqri.design/gifs/Supplier.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SD_Supplier" label="New Supplier" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']" iconPath="/be.cetic.simqri.design/gifs/Supplier.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Supplier" referenceName="component">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_supplier '+self.eContainer().component->filter(metamodel::Supplier)->size()"/>
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="supplierDelay">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="0"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Supplier" referenceName="component">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_supplier '+self.eContainer().component->filter(metamodel::Supplier)->size()"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="supplierDelay">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="0"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="SD_conveyorbelt" label="New Conveyor belt" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']" iconPath="/be.cetic.simqri.design/gifs/ConveyorBelt.gif">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="SD_conveyorbelt" label="New Conveyor belt" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']" iconPath="/be.cetic.simqri.design/gifs/ConveyorBelt.gif">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.ConveyorBelt" referenceName="component">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_conveyor_belt '+self.eContainer().component->filter(metamodel::ConveyorBelt)->size()"/>
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="output">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.ConveyorBelt" referenceName="component">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_conveyor_belt '+self.eContainer().component->filter(metamodel::ConveyorBelt)->size()"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="output">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="Default Success Port"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolGroup" name="Batch Process">
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_batchprocess" label="New Batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/BatchProcess.gif">
+          <ownedTools xsi:type="tool:ToolGroup" name="Batch Process">
+            <tools xsi:type="tool:NodeCreationDescription" name="SD_batchprocess" label="New Batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/BatchProcess.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="Default Success Port"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_singlebatchprocess" label="New Single batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/sbp.gif">
+            <tools xsi:type="tool:NodeCreationDescription" name="SD_singlebatchprocess" label="New Single batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/sbp.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="numberOfChains" valueExpression="1"/>
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="numberOfChains" valueExpression="1"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="Default Success Port"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_failingbatchprocess" label="New Failing batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/fbp.gif">
+            <tools xsi:type="tool:NodeCreationDescription" name="SD_failingbatchprocess" label="New Failing batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/fbp.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="percentageOfSuccess" valueExpression="99.0"/>
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="percentageOfSuccess" valueExpression="99.0"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
                     </subModelOperations>
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </tools>
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_singlefailingbatchprocess" label="New Single failing batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/sfbp.gif">
-              <variable name="container"/>
-              <viewVariable name="containerView"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="numberOfChains" valueExpression="1"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="percentageOfSuccess" valueExpression="99.0"/>
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
-                    </subModelOperations>
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="description" valueExpression="Default Success Port"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="Default Success Port"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </tools>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolGroup" name="Storages">
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_Storage" label="New Storage" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" iconPath="/be.cetic.simqri.design/gifs/Storage.gif">
+            <tools xsi:type="tool:NodeCreationDescription" name="SD_singlefailingbatchprocess" label="New Single failing batch process" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']" iconPath="/be.cetic.simqri.design/gifs/sfbp.gif">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Storage" referenceName="component">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_storage '+self.eContainer().component->filter(metamodel::Storage)->size()"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="overflow" valueExpression="aql:false"/>
-                  </subModelOperations>
-                </firstModelOperations>
-              </initialOperation>
-            </tools>
-            <tools xsi:type="tool_1:NodeCreationDescription" name="SD_overflow_storage" label="New Overflow storage" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" iconPath="/be.cetic.simqri.design/gifs/overflow-storage.gif">
-              <variable name="container"/>
-              <viewVariable name="containerView"/>
-              <initialOperation>
-                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Storage" referenceName="component">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'new_storage '+self.eContainer().component->filter(metamodel::Storage)->size()"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="overflow" valueExpression="aql:true"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="numberOfChains" valueExpression="1"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="percentageOfSuccess" valueExpression="99.0"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="Default Success Port"/>
+                    </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
               </initialOperation>
             </tools>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" documentation="Output ports have to be placed on a batch process object" name="SD_output" label="New Output port" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']/@borderedNodeMappings[name='SD_output_cb']">
+          <ownedTools xsi:type="tool:ToolGroup" name="Storages">
+            <tools xsi:type="tool:NodeCreationDescription" name="SD_Storage" label="New Storage" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" iconPath="/be.cetic.simqri.design/gifs/Storage.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Storage" referenceName="component">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_storage '+self.eContainer().component->filter(metamodel::Storage)->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="overflow" valueExpression="aql:false"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="SD_overflow_storage" label="New Overflow storage" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']" iconPath="/be.cetic.simqri.design/gifs/overflow-storage.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Storage" referenceName="component">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_storage '+self.eContainer().component->filter(metamodel::Storage)->size()"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="overflow" valueExpression="aql:true"/>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" documentation="Output ports have to be placed on a batch process object" name="SD_output" label="New Output port" nodeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt']/@borderedNodeMappings[name='SD_output_cb']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(metamodel::ConveyorBelt) and self.eContents()->size()=0">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="output"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(metamodel::ConveyorBelt) and self.eContents()->size()=0">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="output"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.oclIsKindOf(metamodel::BatchProcess)">
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Output" referenceName="outputs"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(metamodel::BatchProcess)">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="outputs"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Remove Supplier" forceRefresh="true" elementsToSelect="aql:self.refillPolicy">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Remove Supplier" forceRefresh="true" elementsToSelect="aql:self.refillPolicy">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:For" expression="aql:self.refillPolicy">
-                  <subModelOperations xsi:type="tool:RemoveElement"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.refillPolicy">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Remove Process" forceRefresh="true" elementsToSelect="aql:self.storageOutputFlow">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Remove Process" forceRefresh="true" elementsToSelect="aql:self.storageOutputFlow">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:For" expression="aql:self.storageOutputFlow">
-                  <subModelOperations xsi:type="tool:RemoveElement"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.storageOutputFlow">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Remove Storage" forceRefresh="true">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Remove Storage" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:For" expression="aql:self.storageOutputFlow">
-                  <subModelOperations xsi:type="tool:RemoveElement"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.storageOutputFlow">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:For" expression="aql:self.processOutputFlow">
-                  <subModelOperations xsi:type="tool:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.processOutputFlow">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:For" expression="aql:self.orderOnStockThreshold">
-                  <subModelOperations xsi:type="tool:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.orderOnStockThreshold">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Remove Output Port" forceRefresh="true">
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Remove Output Port" forceRefresh="true">
             <element name="element"/>
             <elementView name="elementView"/>
             <containerView name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:For" expression="aql:self.processOutputFlow">
-                  <subModelOperations xsi:type="tool:RemoveElement"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:For" expression="aql:self.processOutputFlow">
+                  <subModelOperations xsi:type="tool_1:RemoveElement"/>
                 </subModelOperations>
-                <subModelOperations xsi:type="tool:RemoveElement"/>
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="Usability">
-          <ownedTools xsi:type="tool_1:DoubleClickDescription" name="Open EEF Wizard" mappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Open EEF Wizard" mappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_conveyorbelt'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow'] //@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ExternalJavaAction" name="Open EEF Wizard Action" id="org.eclipse.sirius.eef.actions.openPropertiesWizard"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="Open EEF Wizard Action" id="org.eclipse.sirius.eef.actions.openPropertiesWizard"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:DirectEditLabel" name="SD_DirectEditLabel" inputLabelExpression="aql:self.name">
+          <ownedTools xsi:type="tool:DirectEditLabel" name="SD_DirectEditLabel" inputLabelExpression="aql:self.name">
             <mask mask="{0}"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:arg0"/>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:arg0"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:OperationAction" documentation="Will check the syntax &amp; semantic content of your queries" name="Check Queries" precondition="aql:self.oclIsKindOf(metamodel::Model)">
+          <ownedTools xsi:type="tool_1:OperationAction" documentation="Will check the syntax &amp; semantic content of your queries" name="Check Queries" precondition="aql:self.oclIsKindOf(metamodel::Model)">
             <view name="views"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:ExternalJavaAction" name="SD_CheckQueries" id="actionCheckQueries">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SD_CheckQueries" id="actionCheckQueries">
                   <parameters name="model" value="aql:self"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:OperationAction" documentation="Will allow you to launch a new simulation" name="New Simulation" precondition="aql:self.oclIsKindOf(metamodel::Model)">
+          <ownedTools xsi:type="tool_1:OperationAction" documentation="Will allow you to launch a new simulation" name="New Simulation" precondition="aql:self.oclIsKindOf(metamodel::Model)">
             <view name="views"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:ExternalJavaAction" name="SD_NewSimulation" id="actionSimulation">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="SD_NewSimulation" id="actionSimulation">
                   <parameters name="model" value="aql:self"/>
                 </subModelOperations>
               </firstModelOperations>
@@ -439,69 +434,69 @@
           </conditionnalStyles>
         </edgeMappings>
         <toolSections name="Edges">
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Link a storage to a process" name="SD_storageoutputflow" label="Storage -> Process" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Link a storage to a process" name="SD_storageoutputflow" label="Storage -> Process" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.eContainer()">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.StorageOutputFlow" referenceName="flow">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="destination" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="quantity">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.StorageOutputFlow" referenceName="flow">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="destination" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="quantity">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.source.storageOutputFlow->select(i|i.destination=self.destination)->size()>1 and self.source.storageOutputFlow->first()&lt;>self">
-                    <subModelOperations xsi:type="tool:Unset" featureName="source" elementExpression="var:source"/>
-                    <subModelOperations xsi:type="tool:Unset" featureName="destination" elementExpression="var:target"/>
-                    <subModelOperations xsi:type="tool:RemoveElement"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.source.storageOutputFlow->select(i|i.destination=self.destination)->size()>1 and self.source.storageOutputFlow->first()&lt;>self">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="source" elementExpression="var:source"/>
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="destination" elementExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Link an output port of a process to a storage" name="SD_processoutputflow" label="Process Output Port -> Storage" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Link an output port of a process to a storage" name="SD_processoutputflow" label="Process Output Port -> Storage" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.eContainer().eContainer()">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.ProcessOutputFlow" referenceName="flow">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="source" valueExpression="var:source"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="destination" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="quantity">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="1"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer().eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.ProcessOutputFlow" referenceName="flow">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="destination" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="quantity">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.Scalar" referenceName="processOutputFlowDelay">
-                    <subModelOperations xsi:type="tool:SetValue" featureName="value" valueExpression="0"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="processOutputFlowDelay">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="0"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.source.processOutputFlow->select(i|i.destination=self.destination)->size()>1 and self.source.processOutputFlow->first()&lt;>self">
-                    <subModelOperations xsi:type="tool:Unset" featureName="source" elementExpression="var:source"/>
-                    <subModelOperations xsi:type="tool:Unset" featureName="destination" elementExpression="var:target"/>
-                    <subModelOperations xsi:type="tool:RemoveElement"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.source.processOutputFlow->select(i|i.destination=self.destination)->size()>1 and self.source.processOutputFlow->first()&lt;>self">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="source" elementExpression="var:source"/>
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="destination" elementExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" documentation="Link a Supplier to a storage" name="SD_oost" label="Supplier -> Storage" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost']">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" documentation="Link a Supplier to a storage" name="SD_oost" label="Supplier -> Storage" edgeMappings="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost']">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.eContainer()">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="metamodel.OrderOnStockThreshold" referenceName="orderOnStockThreshold">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="supplier" valueExpression="var:source"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="storage" valueExpression="var:target"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:'oost '+self.eContainer().orderOnStockThreshold->size()"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="period" valueExpression="0.0"/>
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:self.supplier.refillPolicy->select(i|i.storage=self.storage)->size()>1 and self.supplier.refillPolicy->first()&lt;>self">
-                    <subModelOperations xsi:type="tool:Unset" featureName="supplier" elementExpression="var:source"/>
-                    <subModelOperations xsi:type="tool:Unset" featureName="storage" elementExpression="var:target"/>
-                    <subModelOperations xsi:type="tool:RemoveElement"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.eContainer()">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.OrderOnStockThreshold" referenceName="orderOnStockThreshold">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="supplier" valueExpression="var:source"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="storage" valueExpression="var:target"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'oost '+self.eContainer().orderOnStockThreshold->size()"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="period" valueExpression="0.0"/>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.supplier.refillPolicy->select(i|i.storage=self.storage)->size()>1 and self.supplier.refillPolicy->first()&lt;>self">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="supplier" elementExpression="var:source"/>
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="storage" elementExpression="var:target"/>
+                    <subModelOperations xsi:type="tool_1:RemoveElement"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -509,93 +504,93 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Usability">
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="SD_Reconnect_Target_ProcessOutputFlow">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Target_ProcessOutputFlow">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Unset" featureName="destination" elementExpression="feature:destination"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="destination" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="destination" elementExpression="feature:destination"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="destination" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="SD_Reconnect_Source_ProcessOutputFlow" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Source_ProcessOutputFlow" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
-                <subModelOperations xsi:type="tool:SetValue" featureName="processOutputFlow" valueExpression="aql:source.processOutputFlow">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
-                    <subModelOperations xsi:type="tool:Unset" featureName="processOutputFlow"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="processOutputFlow" valueExpression="aql:source.processOutputFlow">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="processOutputFlow"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="SD_Reconnect_Target_StorageOutputFlow">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Target_StorageOutputFlow">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Unset" featureName="destination" elementExpression="feature:destination"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="destination" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="destination" elementExpression="feature:destination"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="destination" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="SD_Reconnect_Source_StorageOutputFlow" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Source_StorageOutputFlow" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
-                <subModelOperations xsi:type="tool:SetValue" featureName="storageOutputFlow" valueExpression="aql:source.storageOutputFlow">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
-                    <subModelOperations xsi:type="tool:Unset" featureName="storageOutputFlow"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="storageOutputFlow" valueExpression="aql:source.storageOutputFlow">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="storageOutputFlow"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="SD_Reconnect_Target_Oost">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Target_Oost">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool:Unset" featureName="storage" elementExpression="feature:storage"/>
-                <subModelOperations xsi:type="tool:SetValue" featureName="storage" valueExpression="var:target"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="storage" elementExpression="feature:storage"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="storage" valueExpression="var:target"/>
               </firstModelOperations>
             </initialOperation>
             <edgeView name="edgeView"/>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ReconnectEdgeDescription" name="SD_Reconnect_Source_Oost" reconnectionKind="RECONNECT_SOURCE">
+          <ownedTools xsi:type="tool:ReconnectEdgeDescription" name="SD_Reconnect_Source_Oost" reconnectionKind="RECONNECT_SOURCE">
             <source name="source"/>
             <target name="target"/>
             <sourceView name="sourceView"/>
             <targetView name="targetView"/>
             <element name="element"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:target">
-                <subModelOperations xsi:type="tool:SetValue" featureName="refillPolicy" valueExpression="aql:source.refillPolicy">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:source">
-                    <subModelOperations xsi:type="tool:Unset" featureName="refillPolicy"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="refillPolicy" valueExpression="aql:source.refillPolicy">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                    <subModelOperations xsi:type="tool_1:Unset" featureName="refillPolicy"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -612,14 +607,14 @@
         <variables name="root" documentation="The semantic root element of the table."/>
         <variables name="element" documentation="The semantic currently edited element."/>
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
-        <firstModelOperation xsi:type="tool:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewQuery"/>
+        <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewQuery"/>
       </ownedCreateLine>
       <ownedCreateLine name="Add basic queries" forceRefresh="true" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
         <variables name="root" documentation="The semantic root element of the table."/>
         <variables name="element" documentation="The semantic currently edited element."/>
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
-        <firstModelOperation xsi:type="tool:ChangeContext" browseExpression="var:container">
-          <subModelOperations xsi:type="tool:ExternalJavaAction" name="QT_DefaultQueries" id="basicQueries">
+        <firstModelOperation xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+          <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="QT_DefaultQueries" id="basicQueries">
             <parameters name="model" value="aql:self"/>
           </subModelOperations>
         </firstModelOperation>
@@ -637,9 +632,14 @@
       <ownedColumnMappings name="QT_Min" label="Min" semanticElements="feature:min" headerLabelExpression="Minimum (MC)" canEdit="aql:false" featureName="min" labelExpression="feature:min"/>
       <ownedColumnMappings name="QT_Mean" label="Mean" semanticElements="feature:mean" headerLabelExpression="Mean (MC)" canEdit="aql:false" featureName="mean" labelExpression="feature:mean"/>
       <ownedColumnMappings name="QT_Variance" label="Variance" semanticElements="feature:variance" headerLabelExpression="Variance (MC)" canEdit="aql:false" featureName="variance" labelExpression="feature:variance"/>
+      <ownedColumnMappings name="QT_Error" label="Error" semanticElements="feature:error" headerLabelExpression="Error Message" canEdit="aql:false" featureName="error" labelExpression="feature:error">
+        <defaultForeground labelSize="10">
+          <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+        </defaultForeground>
+      </ownedColumnMappings>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckFlows"/>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckOutputs"/>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckQuery"/>
+    <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckFlows"/>
   </ownedViewpoints>
 </description:Group>

@@ -37,6 +37,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/min"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/mean"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/variance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/error"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Storage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Storage/size"/>

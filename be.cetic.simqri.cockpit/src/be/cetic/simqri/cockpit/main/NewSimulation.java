@@ -1,5 +1,8 @@
 package be.cetic.simqri.cockpit.main;
 
+import java.util.ArrayList;
+
+
 import javax.swing.JOptionPane;
 
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -112,7 +115,7 @@ public class NewSimulation implements Runnable {
 		Tools t = new Tools();
 		if(type.equals("One Shot")) {
 			this.setSimulation(new SimQRiSirius(timeUnits, true, sqlogger, false)); 
-			String errQueries = simulation.fillModelWithSiriusData(model);
+			ArrayList<String> errQueries = simulation.fillModelWithSiriusData(model);
 			if(errQueries.isEmpty()) {
 				simulation.simulateOneShot(this.simControl);
 				if(!this.isAborded()) {
@@ -136,7 +139,7 @@ public class NewSimulation implements Runnable {
 		}
 		else if(type.equals("Monte-Carlo")) {
 			this.setSimulation(new SimQRiSirius(timeUnits, true, sqlogger, true));
-			String errQueries = simulation.fillModelWithSiriusData(model);
+			ArrayList<String> errQueries = simulation.fillModelWithSiriusData(model);
 			if(errQueries.isEmpty()) {
 				simulation.simulateMonteCarlo(maxIterations, this.simControl); // simControl useless here... For the moment ?
 				if(!this.isAborded()) {

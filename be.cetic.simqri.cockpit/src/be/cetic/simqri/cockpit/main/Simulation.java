@@ -1,6 +1,7 @@
 package be.cetic.simqri.cockpit.main;
 
 import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -65,7 +66,7 @@ public class Simulation {
 		Tools t = new Tools(); // Tools : Scala class of the "simulator" project that provides auxiliary functions
 		if(type.equals("One Shot")) {
 			SimQRiSirius sim = new SimQRiSirius(timeUnits, true, sqlogger, false);
-			String errQueries = sim.fillModelWithSiriusData(model);
+			ArrayList<String> errQueries = sim.fillModelWithSiriusData(model);
 			if(errQueries.isEmpty()) {
 				sim.simulateOneShot(new SimControl());
 				
@@ -89,7 +90,7 @@ public class Simulation {
 		}
 		else if(type.equals("Monte-Carlo")) {
 			SimQRiSirius sim = new SimQRiSirius(timeUnits, true, sqlogger, true);
-			String errQueries = sim.fillModelWithSiriusData(model);
+			ArrayList<String> errQueries = sim.fillModelWithSiriusData(model);
 			if(errQueries.isEmpty()) {
 				sim.simulateMonteCarlo(maxIterations, new SimControl());
 				

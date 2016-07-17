@@ -16,17 +16,16 @@ package oscar.des.engine
 
 import scala.collection.mutable._
 
-/**
- * This is the main engine of the simulation.
- * Every Process in the simulation should wait, require resource ... on an instance of this class.
- * @author pschaus
- */
-
 class SimControl {
   var aborted = false
   var curTime = 0.0
 }
 
+/**
+ * This is the main engine of the simulation.
+ * Every Process in the simulation should wait, require resource ... on an instance of this class.
+ * @author pschaus
+ */
 class Model {
 
   private val eventQueue = new PriorityQueue[SimEvent]()
@@ -45,10 +44,8 @@ class Model {
    *              You can also use it to update some trace analysis functions.
    */
   def simulate(horizon:Float, simControl:SimControl, verbosity:(String*)=>Unit, abort:()=>Boolean = ()=>false) {
-    while (eventQueue.nonEmpty) {
+    while (eventQueue.nonEmpty && !simControl.aborted) {
       steps +=1
-      if(simControl.aborted)
-        return
       val e = eventQueue.dequeue()
       require(e.time >= currentTime)
       if(e.time <= horizon){
@@ -77,7 +74,7 @@ class Model {
     }
 
     //no more event to process, but time runs to the horizon
-    if(horizon != currentTime) {
+    if(horizon != currentTime && !simControl.aborted) {
       simControl.curTime = horizon
       abort()
       if (verbosity!=null) verbosity("time", horizon.toString)

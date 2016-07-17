@@ -67,6 +67,7 @@ public class QueryItemProvider
 			addMinPropertyDescriptor(object);
 			addMeanPropertyDescriptor(object);
 			addVariancePropertyDescriptor(object);
+			addErrorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -226,6 +227,28 @@ public class QueryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Error feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addErrorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Query_error_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Query_error_feature", "_UI_Query_type"),
+				 MetamodelPackage.Literals.QUERY__ERROR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Query.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -270,6 +293,7 @@ public class QueryItemProvider
 			case MetamodelPackage.QUERY__MIN:
 			case MetamodelPackage.QUERY__MEAN:
 			case MetamodelPackage.QUERY__VARIANCE:
+			case MetamodelPackage.QUERY__ERROR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

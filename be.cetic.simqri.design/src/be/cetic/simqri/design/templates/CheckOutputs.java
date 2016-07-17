@@ -27,7 +27,7 @@ public class CheckOutputs {
 	 * @param The root model of the diagram
 	 * @return An error message if there is at least one process of the model that has two outputs of the same type. An empty string otherwise.
 	 */
-	public String hasNotTwoOutputsOfSameType(Model model) {
+	public String hasAtLeastASuccessOutput(Model model) {
 		String errMessage = "";
 		BatchProcess bp = null;
 		OutputType  outputType = null;
@@ -38,8 +38,6 @@ public class CheckOutputs {
 					outputType = output.getType();
 					if(!outputTypes.contains(outputType)) 
 						outputTypes.add(outputType);
-					else 
-						errMessage += "> Process "+bp.getName()+" has two outputs of the same type ("+outputType+" here)\n";
 				}
 				// Check if the process contains at least one "success" output if he contains some outputs
 				if(!outputTypes.isEmpty() && !outputTypes.contains(OutputType.SUCCESS)) {

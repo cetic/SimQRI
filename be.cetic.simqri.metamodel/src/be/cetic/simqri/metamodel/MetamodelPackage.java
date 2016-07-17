@@ -205,13 +205,22 @@ public interface MetamodelPackage extends EPackage {
 	int QUERY__VARIANCE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Error</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY__ERROR = 7;
+
+	/**
 	 * The number of structural features of the '<em>Query</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_FEATURE_COUNT = 7;
+	int QUERY_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Query</em>' class.
@@ -1371,6 +1380,17 @@ public interface MetamodelPackage extends EPackage {
 	EAttribute getQuery_Variance();
 
 	/**
+	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Query#getError <em>Error</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Error</em>'.
+	 * @see be.cetic.simqri.metamodel.Query#getError()
+	 * @see #getQuery()
+	 * @generated
+	 */
+	EAttribute getQuery_Error();
+
+	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Storage <em>Storage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2187,6 +2207,14 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUERY__VARIANCE = eINSTANCE.getQuery_Variance();
+
+		/**
+		 * The meta object literal for the '<em><b>Error</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY__ERROR = eINSTANCE.getQuery_Error();
 
 		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.StorageImpl <em>Storage</em>}' class.
