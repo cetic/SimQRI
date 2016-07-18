@@ -7,7 +7,7 @@
 	<property name="basearch" value="${arch}"/>
 	<property name="basenl" value="${nl}"/>
 	<property name="bundleId" value="be.cetic.simqri.metamodel"/>
-	<property name="bundleVersion" value="0.1.0.201605221300"/>
+	<property name="bundleVersion" value="0.1.0.201607181646"/>
 	<property name="p2.publishonerror" value="false"/>
 
 	<!-- Compiler settings. -->
@@ -50,7 +50,7 @@
 			<isset property="buildTempFolder"/>
 		</condition>
 		<property name="pluginTemp" value="${basedir}"/>
-		<condition property="build.result.folder" value="${pluginTemp}/be.cetic.simqri.metamodel_0.1.0.201605221300"		>
+		<condition property="build.result.folder" value="${pluginTemp}/be.cetic.simqri.metamodel_0.1.0.201607181646"		>
 			<isset property="buildTempFolder"/>
 		</condition>
 		<property name="build.result.folder" value="${basedir}"/>
@@ -80,13 +80,13 @@
 		<antcall target="gather.bin.parts">
 			<param name="destination.temp.folder" value="${temp.folder}/"/>
 		</antcall>
-		<jar destfile="${plugin.destination}/be.cetic.simqri.metamodel_0.1.0.201605221300.jar" basedir="${temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300" filesetmanifest="merge"/>
+		<jar destfile="${plugin.destination}/be.cetic.simqri.metamodel_0.1.0.201607181646.jar" basedir="${temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646" filesetmanifest="merge"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 
 	<target name="@dot.nestedJars">
 		<mkdir dir="${buildDirectory}/nestedJars/org.eclipse.equinox.registry_3.6.0.v20150318-1503"/>
-		<unzip src="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.equinox.registry_3.6.0.v20150318-1503.jar" dest="${buildDirectory}/nestedJars/org.eclipse.equinox.registry_3.6.0.v20150318-1503" overwrite="false">
+		<unzip src="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.equinox.registry_3.6.0.v20150318-1503.jar" dest="${buildDirectory}/nestedJars/org.eclipse.equinox.registry_3.6.0.v20150318-1503" overwrite="false">
 			<patternset includes="runtime_registry_compatibility.jar"/>
 		</unzip>
 	</target>
@@ -94,34 +94,35 @@
 		<delete dir="${build.result.folder}/@dot"/>
 		<mkdir dir="${build.result.folder}/@dot"/>
 		<path id="@dot.classpath">
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.runtime_3.11.1.v20150903-1804.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/javax.annotation_1.2.0.v201401042248.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/javax.inject_1.0.0.v20091030.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.osgi_3.10.101.v20150820-1432.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.osgi.compatibility.state_1.0.100.v20150402-1551.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.equinox.common_3.7.0.v20150402-1709.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.jobs_3.7.0.v20150330-2103.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.runtime.compatibility.registry_3.6.0.v20150318-1505/runtime_registry_compatibility.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.runtime.compatibility.registry_3.6.0.v20150318-1505"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.runtime_3.11.1.v20150903-1804.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/javax.annotation_1.2.0.v201401042248.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/javax.inject_1.0.0.v20091030.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.osgi_3.10.101.v20150820-1432.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.osgi.compatibility.state_1.0.100.v20150402-1551.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.equinox.common_3.7.0.v20150402-1709.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.jobs_3.7.0.v20150330-2103.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.runtime.compatibility.registry_3.6.0.v20150318-1505/runtime_registry_compatibility.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.runtime.compatibility.registry_3.6.0.v20150318-1505"/>
 			<pathelement path="${buildDirectory}/nestedJars/org.eclipse.equinox.registry_3.6.0.v20150318-1503/runtime_registry_compatibility.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.equinox.registry_3.6.0.v20150318-1503.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/javax.xml_1.3.4.v201005080400.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.equinox.preferences_3.5.300.v20150408-1437.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.contenttype_3.5.0.v20150421-2214.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.equinox.app_1.3.300.v20150423-1356.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.osgi.services_3.5.0.v20150519-2006.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/javax.servlet_3.1.0.v201410161800.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.emf.ecore_2.11.1.v20150805-0538.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.emf.common_2.11.0.v20150805-0538.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.resources_3.10.1.v20150725-1910.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.ant.core_3.4.0.v20150428-1928.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.variables_3.2.800.v20130819-1716.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.expressions_3.5.0.v20150421-2214.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.filesystem_1.5.0.v20150725-1910.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.filesystem.java7_1.0.100.v20150423-0754.jar"/>
-			<pathelement path="../../../../../Applications/ObeoDesigner-Community.app/Contents/Eclipse/plugins/org.eclipse.core.filesystem.macosx_1.3.0.v20140124-1940.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.equinox.registry_3.6.0.v20150318-1503.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/javax.xml_1.3.4.v201005080400.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.equinox.preferences_3.5.300.v20150408-1437.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.contenttype_3.5.0.v20150421-2214.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.equinox.app_1.3.300.v20150423-1356.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.osgi.services_3.5.0.v20150519-2006.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/javax.servlet_3.1.0.v201410161800.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.emf.ecore_2.11.1.v20150805-0538.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.emf.common_2.11.0.v20150805-0538.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.resources_3.10.1.v20150725-1910.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.resources.win32.x86_64_3.5.0.v20140124-1940.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.ant.core_3.4.0.v20150428-1928.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.variables_3.2.800.v20130819-1716.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.expressions_3.5.0.v20150421-2214.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.filesystem_1.5.0.v20150725-1910.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.filesystem.java7_1.0.100.v20150423-0754.jar"/>
+			<pathelement path="../../../Documents/ObeoDesigner-Community-8.1-win32.win32.x86_64/ObeoDesigner-Community/plugins/org.eclipse.core.filesystem.win32.x86_64_1.4.0.v20140124-1940.jar"/>
 			<pathelement path="bin"/>
-			<pathelement path="${build.result.folder}/../be.cetic.simqri.metamodel_0.1.0.201605221300/bin"/>
+			<pathelement path="${build.result.folder}/../be.cetic.simqri.metamodel_0.1.0.201607181646/bin"/>
 		</path>
 		<!-- compile the source code -->
 		<javac destdir="${build.result.folder}/@dot" failonerror="${javacFailOnError}" verbose="${javacVerbose}" debug="${javacDebugInfo}" includeAntRuntime="no" bootclasspath="${bundleBootClasspath}" source="${bundleJavacSource}" target="${bundleJavacTarget}"		>
@@ -167,8 +168,8 @@
 	</target>
 
 	<target name="checkCompilationResults" if="compilation.error.occured">
-		<echo file="${compilation.problem.marker}" message="be.cetic.simqri.metamodel_0.1.0.201605221300${line.separator}compilation.error.occured=${compilation.error.occured}"/>
-		<eclipse.logCompileError log="${compilation.prereq.log}" bundle="be.cetic.simqri.metamodel_0.1.0.201605221300">
+		<echo file="${compilation.problem.marker}" message="be.cetic.simqri.metamodel_0.1.0.201607181646${line.separator}compilation.error.occured=${compilation.error.occured}"/>
+		<eclipse.logCompileError log="${compilation.prereq.log}" bundle="be.cetic.simqri.metamodel_0.1.0.201607181646">
 		</eclipse.logCompileError>
 	</target>
 
@@ -178,7 +179,7 @@
 	</target>
 
 	<target name="publish.bin.parts" depends="init" if="p2.publish.parts" unless="compilation.problem.marker.exists">
-		<mkdir dir="${build.result.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300"/>
+		<mkdir dir="${build.result.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646"/>
 		<copy todir="${build.result.folder}" failonerror="true" overwrite="true">
 			<fileset dir="${basedir}">
 				<include name="META-INF/MANIFEST.MF"/>
@@ -186,10 +187,10 @@
 				<include name="fragment.xml"/>
 			</fileset>
 		</copy>
-		<eclipse.versionReplacer path="${build.result.folder}" version="0.1.0.201605221300"/>
+		<eclipse.versionReplacer path="${build.result.folder}" version="0.1.0.201607181646"/>
 		<antcall target="apitools.generation">
 			<param name="projectLocation" value="${basedir}"/>
-			<param name="binary.folders" value="${build.result.folder}/@dot:/Users/francois/git/SimQRiSirius/be.cetic.simqri.metamodel/bin"/>
+			<param name="binary.folders" value="${build.result.folder}/@dot;C:\Users\François\git\SimQRiSirius\be.cetic.simqri.metamodel/bin"/>
 			<param name="projectName" value="${bundleId}_${bundleVersion}"/>
 			<param name="target.folder" value="${build.result.folder}"/>
 		</antcall>
@@ -203,13 +204,13 @@
 	</target>
 
 	<target name="gather.bin.parts" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300"/>
-		<copy todir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300" failonerror="true" overwrite="false">
+		<mkdir dir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646"/>
+		<copy todir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646" failonerror="true" overwrite="false">
 			<fileset dir="${build.result.folder}/@dot">
 				<include name="**"/>
 			</fileset>
 		</copy>
-		<copy todir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300" failonerror="true" overwrite="true">
+		<copy todir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646" failonerror="true" overwrite="true">
 			<fileset dir="${basedir}">
 				<include name="model/"/>
 				<include name="META-INF/"/>
@@ -217,12 +218,12 @@
 				<include name="plugin.properties"/>
 			</fileset>
 		</copy>
-		<eclipse.versionReplacer path="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300" version="0.1.0.201605221300"/>
+		<eclipse.versionReplacer path="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646" version="0.1.0.201607181646"/>
 		<antcall target="apitools.generation">
 			<param name="projectLocation" value="${basedir}"/>
-			<param name="binary.folders" value="${build.result.folder}/@dot:/Users/francois/git/SimQRiSirius/be.cetic.simqri.metamodel/bin"/>
+			<param name="binary.folders" value="${build.result.folder}/@dot;C:\Users\François\git\SimQRiSirius\be.cetic.simqri.metamodel/bin"/>
 			<param name="projectName" value="${bundleId}_${bundleVersion}"/>
-			<param name="target.folder" value="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300"/>
+			<param name="target.folder" value="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646"/>
 		</antcall>
 	</target>
 
@@ -230,10 +231,10 @@
 	</target>
 
 	<target name="gather.sources" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300"/>
-		<copy file="${build.result.folder}/src.zip" todir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300" failonerror="false" overwrite="false"/>
+		<mkdir dir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646"/>
+		<copy file="${build.result.folder}/src.zip" todir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646" failonerror="false" overwrite="false"/>
 		<antcall target="copy.src.includes">
-			<param name="source.destination.folder" value="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300"/>
+			<param name="source.destination.folder" value="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646"/>
 		</antcall>
 	</target>
 
@@ -250,8 +251,8 @@
 	</target>
 
 	<target name="gather.logs" depends="init" if="destination.temp.folder">
-		<mkdir dir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300"/>
-		<copy todir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201605221300" failonerror="false" overwrite="false">
+		<mkdir dir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646"/>
+		<copy todir="${destination.temp.folder}/be.cetic.simqri.metamodel_0.1.0.201607181646" failonerror="false" overwrite="false">
 			<fileset dir="${build.result.folder}">
 				<include name="@dot${logExtension}"/>
 			</fileset>
@@ -261,14 +262,14 @@
 	<target name="clean" depends="init" description="Clean the plug-in: be.cetic.simqri.metamodel of all the zips, jars and logs created.">
 		<delete dir="${build.result.folder}/@dot"/>
 		<delete file="${build.result.folder}/src.zip"/>
-		<delete file="${plugin.destination}/be.cetic.simqri.metamodel_0.1.0.201605221300.jar"/>
-		<delete file="${plugin.destination}/be.cetic.simqri.metamodel_0.1.0.201605221300.zip"/>
+		<delete file="${plugin.destination}/be.cetic.simqri.metamodel_0.1.0.201607181646.jar"/>
+		<delete file="${plugin.destination}/be.cetic.simqri.metamodel_0.1.0.201607181646.zip"/>
 		<delete dir="${temp.folder}"/>
 		<delete file="${compilation.problem.marker}" quiet="true"/>
 	</target>
 
 	<target name="refresh" depends="init" if="eclipse.running" description="Refresh this folder.">
-		<eclipse.convertPath fileSystemPath="/Users/francois/git/SimQRiSirius/be.cetic.simqri.metamodel" property="resourcePath"/>
+		<eclipse.convertPath fileSystemPath="C:/Users/François/git/SimQRiSirius/be.cetic.simqri.metamodel" property="resourcePath"/>
 		<eclipse.refreshLocal resource="${resourcePath}" depth="infinite"/>
 	</target>
 
@@ -288,7 +289,7 @@
 				<include name="**/*.bin${logExtension}"/>
 			</fileset>
 		</delete>
-		<zip destfile="${plugin.destination}/be.cetic.simqri.metamodel_0.1.0.201605221300.zip" basedir="${temp.folder}" filesonly="true" whenempty="skip" update="false"/>
+		<zip destfile="${plugin.destination}/be.cetic.simqri.metamodel_0.1.0.201607181646.zip" basedir="${temp.folder}" filesonly="true" whenempty="skip" update="false"/>
 		<delete dir="${temp.folder}"/>
 	</target>
 
