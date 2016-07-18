@@ -41,7 +41,7 @@ public class CheckOutputs {
 				}
 				// Check if the process contains at least one "success" output if he contains some outputs
 				if(!outputTypes.isEmpty() && !outputTypes.contains(OutputType.SUCCESS)) {
-					errMessage += "> Process "+bp.getName()+" need a \"success\" output\n";
+					errMessage += "> Process "+bp.getName()+" needs a [SUCCESS] output\n";
 				}
 			}
 			outputTypes.clear();

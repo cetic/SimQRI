@@ -45,7 +45,11 @@ public class CheckQueries {
 		if(errors.isEmpty()) 
 			showMessage("All your queries are valid !", false);
 		else {
-			showMessage("There are still some syntaxic or semantic errors in your queries ! \nPlease check the queries Table for more informations.", true);
+			String showedMessage = "";
+			for(String error : errors) {
+				showedMessage += error+"\n";
+			}
+			showMessage(showedMessage, true);
 		}
 	}
 	

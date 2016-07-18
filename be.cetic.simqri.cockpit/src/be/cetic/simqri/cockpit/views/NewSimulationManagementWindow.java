@@ -203,7 +203,6 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 			else if(e.getSource() == this.jbStop) {
 				if(simulationThread != null && loadingBarThread != null && !simulationThread.isInterrupted() && !loadingBarThread.isInterrupted()) {
 					newSimulation.setAborded(true);
-					JOptionPane.showMessageDialog(null, "Simulation cancelled !", "Warning", JOptionPane.WARNING_MESSAGE);
 					jbStart.setText("Restart");
 					loader.setValue(0);
 				}

@@ -47,7 +47,7 @@ public class ActionSimulation implements IExternalJavaAction {
 		CheckOutputs co = new CheckOutputs();
 		CheckFlows cf = new CheckFlows();
 		String errMessages = "";
-		// errMessages += cf.isLinkedToFlow(model);
+		errMessages += cf.isLinkedToFlow(model);
 		errMessages += co.hasAtLeastASuccessOutput(model);
 		errMessages += cf.hasOneFlowFromThatPort(model);
 		errMessages += cf.hasOneFlowFromThatStorage(model);

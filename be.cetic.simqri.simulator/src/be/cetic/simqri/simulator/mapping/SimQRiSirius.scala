@@ -303,7 +303,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
           probesList :+= (s"${query.getName}", dblHistExpr)
         case ParsingError(errStr) =>
           if(verbose)
-            message.add("The probe "+query.getName+" cannot be parsed. This is the error : "+errStr)
+            message.add("The probe "+query.getName+" cannot be parsed. This is the error : \n"+errStr)
         case _ =>
       }
     }

@@ -118,7 +118,10 @@ public class NewSimulation implements Runnable {
 			ArrayList<String> errQueries = simulation.fillModelWithSiriusData(model);
 			if(errQueries.isEmpty()) {
 				simulation.simulateOneShot(this.simControl);
-				if(!this.isAborded()) {
+				int showResults = JOptionPane.YES_OPTION;
+				if(this.isAborded())
+					showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to consult intermediate results ?");
+				if(showResults == JOptionPane.YES_OPTION) {
 					// Instance of the object that will store "One Shot" simulation results and transphorm them to strings for the display
 					OneShotTracer ost = new OneShotTracer();
 					// Passing simulation results to our own tracer
@@ -135,6 +138,7 @@ public class NewSimulation implements Runnable {
 			else {
 				JOptionPane.showMessageDialog(null, "The simulation will not be launchable due to some errors in your queries : \n", 
 						"Error", JOptionPane.ERROR_MESSAGE);
+				this.setAborded(true);
 			}
 		}
 		else if(type.equals("Monte-Carlo")) {
@@ -142,7 +146,10 @@ public class NewSimulation implements Runnable {
 			ArrayList<String> errQueries = simulation.fillModelWithSiriusData(model);
 			if(errQueries.isEmpty()) {
 				simulation.simulateMonteCarlo(maxIterations, this.simControl); // simControl useless here... For the moment ?
-				if(!this.isAborded()) {
+				int showResults = JOptionPane.YES_OPTION;
+				if(this.isAborded())
+					showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to consult intermediate results ?");
+				if(showResults == JOptionPane.YES_OPTION) {
 					MonteCarloTracer mct = new MonteCarloTracer();
 					mct.setElementsSampling(t.elementsSamplingsToJavaMap(sqlogger));
 					mct.setRuntimeSampling(sqlogger.logs().mcSamplings().runtimeSampling());
@@ -156,6 +163,7 @@ public class NewSimulation implements Runnable {
 			else {
 				JOptionPane.showMessageDialog(null, "The simulation will not be launchable due to some errors in your queries : \n", 
 						"Error", JOptionPane.ERROR_MESSAGE);
+				this.setAborded(true);
 			}
 		}
 	}
