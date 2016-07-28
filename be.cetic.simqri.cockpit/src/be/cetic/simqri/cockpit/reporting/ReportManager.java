@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 
 
 
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -22,7 +23,6 @@ import org.eclipse.birt.report.engine.api.IReportEngineFactory;
 import org.eclipse.birt.report.engine.api.IReportRunnable;
 import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
 import org.eclipse.birt.report.engine.api.PDFRenderOption;
-import org.eclipse.core.internal.registry.RegistryProviderFactory;
 
 import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
@@ -85,7 +85,7 @@ public class ReportManager {
 	    	config = new EngineConfig();                   
 	        config.setLogConfig("simqri-reports/logs", java.util.logging.Level.WARNING);
 	        // config.setBIRTHome("simqri-reports/ReportEngine");
-	        config.setEngineHome("simqri-reports/ReportEngine");
+	        // config.setEngineHome("simqri-reports/ReportEngine");
 	        Platform.startup(config);
 	        IReportEngineFactory factory = (IReportEngineFactory) Platform.createFactoryObject( IReportEngineFactory.EXTENSION_REPORT_ENGINE_FACTORY );
 	        System.out.println(factory);
@@ -95,7 +95,6 @@ public class ReportManager {
 	        	reportFilepath = "simqri-reports/oneshot.rptdesign";
 	        else
 	        	reportFilepath = "simqri-reports/montecarlo.rptdesign";
-	        
 	        try {
 	         	report = engine.openReportDesign(reportFilepath);
 	         	// TODO do while the report design file is not found
@@ -118,7 +117,6 @@ public class ReportManager {
 	        // TODO Destroy XMLs
 	        engine.destroy( );
 	        Platform.shutdown();
-	        RegistryProviderFactory.releaseDefault(); 
 	        engine = null;
 	        return;
 	    }

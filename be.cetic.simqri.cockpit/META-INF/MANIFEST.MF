@@ -5,11 +5,14 @@ Bundle-SymbolicName: be.cetic.simqri.cockpit
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: be.cetic.simqri.cockpit.Activator
 Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.birt.core;bundle-version="4.4.2",
+ org.eclipse.core.runtime.compatibility;bundle-version="3.2.300",
+ org.eclipse.birt.report.engine;bundle-version="4.4.2",
  be.cetic.simqri.metamodel;bundle-version="0.1.0",
  org.eclipse.emf.transaction;bundle-version="1.9.0",
  org.eclipse.emf.common,
- org.eclipse.sirius,
- org.eclipse.core.runtime
+ org.eclipse.sirius
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: be.cetic.simqri.cockpit,
