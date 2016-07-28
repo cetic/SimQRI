@@ -77,7 +77,7 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		super("New Simulation");
 		this.model = model;
 		this.setResizable(false);
-		this.setSize(new Dimension(400, 350));
+		this.setSize(new Dimension(350, 350));
 		this.setLayout(new GridLayout(11, 1));
 		
 		initComponents();
@@ -93,7 +93,7 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		JPanel line5 = new JPanel();
 		line5.setLayout(new FlowLayout());
 		JPanel line6 = new JPanel();
-		line6.setLayout(new FlowLayout());
+		line6.setLayout(new GridLayout(1, 2));
 		JPanel line7 = new JPanel();
 		line7.setLayout(new FlowLayout());
 		JPanel line8 = new JPanel();
@@ -190,10 +190,10 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 				
 			if(!newSimulation.isAborded()) {
 				loader.setValue(loader.getMaximum());
-				if(maxIterations >= 1000) {
+				/*if(maxIterations >= 1000) {
 					JOptionPane.showMessageDialog(NewSimulationManagementWindow.this, "The simulation is now completed. \n"
 							+ "Results are being processed and will be displayed in a few moments. \n", "Completed" ,JOptionPane.INFORMATION_MESSAGE);
-				}
+				}*/
 				dispose();
 			}
 		    jbStart.setEnabled(true);

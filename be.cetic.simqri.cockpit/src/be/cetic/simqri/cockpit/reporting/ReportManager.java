@@ -2,10 +2,6 @@ package be.cetic.simqri.cockpit.reporting;
 
 import java.io.BufferedWriter;
 
-
-
-
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -88,7 +84,6 @@ public class ReportManager {
 	        // config.setEngineHome("simqri-reports/ReportEngine");
 	        Platform.startup(config);
 	        IReportEngineFactory factory = (IReportEngineFactory) Platform.createFactoryObject( IReportEngineFactory.EXTENSION_REPORT_ENGINE_FACTORY );
-	        System.out.println(factory);
 	        engine = factory.createReportEngine( config );
 	        String reportFilepath = null;
 	        if(type.equals("One Shot"))
@@ -101,18 +96,28 @@ public class ReportManager {
 	        }
 	        catch(Exception e)
 	        {
-	        	JOptionPane.showMessageDialog(null, ".rptdesign file " + reportFilepath + " not found!\n"
+	        	JOptionPane.showMessageDialog(null, reportFilepath + " not found!\n"
 	        			+ "Make sure you have properly configured your \"simqri-reports\" folder as it is explained in the installation guide ! ", "REPORT DESIGN FILE NOT FOUND", JOptionPane.ERROR_MESSAGE);
 	            engine.destroy( );
 	            return;
 	        }
 	        
-	        // choose the path for saving file(s) AND saving formats !
+	        // choose the path for saving file(s)
 	        String path = selectDirectoryPath();
-	        
-	        for(String extension : extensions) {
+	        if(path.isEmpty()) {
+	        	JOptionPane.showMessageDialog(null,  "The choice of the directory is aborted !", "Warning", JOptionPane.WARNING_MESSAGE);
+	        	return;
+	        }
+			Thread t = new Thread(new Runnable(){
+		        public void run(){
+		            JOptionPane.showMessageDialog(null,  "Results reports are now processed.\nThis operation may take a while...", "Simulation succeeded", JOptionPane.INFORMATION_MESSAGE);
+		        }
+		    });
+			t.start();
+			for(String extension : extensions) {
 	        	createReport(path, extension);
 	        }
+			t.interrupt();
 	        JOptionPane.showMessageDialog(null,  "Your reports are now available in the selected directory !", "Simulation succeded", JOptionPane.INFORMATION_MESSAGE);
 	        // TODO Destroy XMLs
 	        engine.destroy( );
@@ -167,6 +172,8 @@ public class ReportManager {
 
 	    if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION)
 	    	path = chooser.getSelectedFile().toString();
+	    else
+	    	path = "";
 	    return path;
 	}
 

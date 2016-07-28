@@ -123,7 +123,7 @@ public class NewSimulation implements Runnable {
 				simulation.simulateOneShot(this.simControl);
 				int showResults = JOptionPane.YES_OPTION;
 				if(this.isAborded())
-					showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to consult intermediate results ?");
+					showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to retrieve intermediate reports ?");
 				if(showResults == JOptionPane.YES_OPTION) {
 					// Instance of the object that will store "One Shot" simulation results and transphorm them to strings for the display
 					OneShotTracer ost = new OneShotTracer();
