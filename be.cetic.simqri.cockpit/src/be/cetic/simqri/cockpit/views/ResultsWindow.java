@@ -89,7 +89,6 @@ public class ResultsWindow extends JFrame implements ActionListener {
 			this.jtpResults.addTab("Runtime", null, panelRuntime, "Check the simulation runtime");
 			elements = mct.getStringElements();
 			queries = mct.getStringProbes();
-			
 		}
 		
 		this.panelElements = new PanelResults(elements); 
@@ -105,7 +104,7 @@ public class ResultsWindow extends JFrame implements ActionListener {
 		
 		this.jpButtons = new JPanel();
 		this.jpButtons.add(jbSave);
-		this.jpButtons.add(jbExit);
+		this.jpButtons.add(jbExit);		
 	}
 
 	@Override

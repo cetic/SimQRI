@@ -1,18 +1,19 @@
 package be.cetic.simqri.cockpit.main;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import org.eclipse.birt.report.engine.api.EngineException;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 
+import be.cetic.simqri.cockpit.reporting.ReportManager;
 import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
 import be.cetic.simqri.cockpit.util.JsonFormat;
-import be.cetic.simqri.cockpit.views.ResultsWindow;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.Query;
 import be.cetic.simqri.simulator.mapping.SimQRiSirius;
@@ -37,14 +38,16 @@ public class NewSimulation implements Runnable {
 	private int timeUnits;
 	private int maxIterations;
 	private SimControl simControl;
+	private List<String> extensions;
 	
-	public NewSimulation(String type, int timeUnits, int maxIterations, Model model) {
+	public NewSimulation(String type, int timeUnits, int maxIterations, Model model, List<String> extensions) {
 		super();
 		this.type = type;
 		this.timeUnits = timeUnits;
 		this.maxIterations = maxIterations;
 		this.model = model;
 		this.simControl = new SimControl();
+		this.extensions = extensions;
 	}
 
 	public Model getModel() {
@@ -131,8 +134,15 @@ public class NewSimulation implements Runnable {
 					ost.setRawInfos(sqlogger.logs().rawInfos());
 					
 					setQueriesResult(sqlogger, model);
-
-					new ResultsWindow(ost);
+					ReportManager reportManager = new ReportManager(extensions);
+					reportManager.createXMLFile(ost);
+					try {
+						reportManager.executeReport("One Shot");
+					} catch (EngineException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					// new ResultsWindow(ost);
 				}
 			}
 			else {
@@ -157,7 +167,15 @@ public class NewSimulation implements Runnable {
 					mct.setHistorySampling(sqlogger.logs().mcSamplings().historySampling());
 					
 					setQueriesSamples(sqlogger, model);
-					new ResultsWindow(mct);
+					ReportManager reportManager = new ReportManager(extensions);
+					reportManager.createXMLFile(mct);
+					try {
+						reportManager.executeReport("Monte-Carlo");
+					} catch (EngineException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					//new ResultsWindow(mct);
 				}
 			}
 			else {

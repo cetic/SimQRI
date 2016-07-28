@@ -8,9 +8,12 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -55,6 +58,14 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 	private JTextField jtfTimeUnits;
 	private JTextField jtfMaxIterations;
 	// -----------------------------------
+	private JLabel jlSelectExtensions;
+	private JCheckBox jcbPdf;
+	private JCheckBox jcbDocx;
+	private JCheckBox jcbXlsx;
+	private JCheckBox jcbOdt;
+	private JCheckBox jcbHtml;
+	private JCheckBox jcbPptx;
+	// -----------------------------------
 	private JButton jbStart;
 	private JButton jbStop;
 	// -----------------------------------
@@ -66,8 +77,8 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		super("New Simulation");
 		this.model = model;
 		this.setResizable(false);
-		this.setSize(new Dimension(350, 300));
-		this.setLayout(new GridLayout(8, 1));
+		this.setSize(new Dimension(400, 350));
+		this.setLayout(new GridLayout(11, 1));
 		
 		initComponents();
 		
@@ -87,11 +98,21 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		line7.setLayout(new FlowLayout());
 		JPanel line8 = new JPanel();
 		line8.setLayout(new FlowLayout());
+		JPanel line9 = new JPanel();
+		line9.setLayout(new FlowLayout());
+		JPanel line10 = new JPanel();
+		line10.setLayout(new FlowLayout());
+		JPanel line11 = new JPanel();
+		line11.setLayout(new FlowLayout());
 		
 		line1.add(jrbOneShot); line1.add(jrbMonteCarlo); 
 		line2.add(horizontalSeparator());
 		line3.add(jlTimeUnits); line3.add(jtfTimeUnits); 
 		line4.add(jlMaxIterations); line4.add(jtfMaxIterations);
+		line9.add(horizontalSeparator());
+		line11.add(jlSelectExtensions);
+		line10.add(jcbPdf); line10.add(jcbDocx); line10.add(jcbXlsx);
+		line10.add(jcbPptx); line10.add(jcbOdt); line10.add(jcbHtml);
 		line5.add(horizontalSeparator());
 		line6.add(jbStart); line6.add(jbStop);
 		line7.add(horizontalSeparator());
@@ -99,6 +120,8 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		
 		this.add(line1); this.add(line2);
 		this.add(line3); this.add(line4);
+		this.add(line9); this.add(line11);
+		this.add(line10);
 		this.add(line5); this.add(line6);
 		this.add(line7); this.add(line8);
 		
@@ -123,6 +146,16 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		
 		jlTimeUnits = new JLabel("Time units: ");
 		jlMaxIterations = new JLabel("Max iterations: ");
+		
+		jlSelectExtensions = new JLabel("Select your report extension(s)");
+		jcbDocx = new JCheckBox(".docx");
+		jcbHtml = new JCheckBox(".html");
+		jcbXlsx = new JCheckBox(".xlsx");
+		jcbPdf = new JCheckBox(".pdf");
+		jcbPptx = new JCheckBox(".pptx");
+		jcbOdt = new JCheckBox(".odt");
+		
+		jcbPdf.setSelected(true);
 		
 		jtfTimeUnits = new JTextField("1000");
 		PlainDocument docTimeUnits = (PlainDocument) jtfTimeUnits.getDocument();
@@ -193,7 +226,13 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 						type = "One Shot";
 						loader.setMaximum(timeUnits);
 					}
-					newSimulation = new NewSimulation(type, timeUnits, maxIterations, model);
+					
+					// Extensions chosen by the user
+					List<String> extensions = new ArrayList<String>();
+					if(this.jcbDocx.isSelected()) extensions.add("docx"); if(this.jcbPdf.isSelected()) extensions.add("pdf");
+					if(this.jcbPptx.isSelected()) extensions.add("pptx"); if(this.jcbOdt.isSelected()) extensions.add("odt");
+					if(this.jcbXlsx.isSelected()) extensions.add("xlsx"); if(this.jcbHtml.isSelected()) extensions.add("html");
+					newSimulation = new NewSimulation(type, timeUnits, maxIterations, model, extensions);
 					simulationThread = new Thread(newSimulation);
 					loadingBarThread = new Thread(new LoadingBar());
 					simulationThread.start();

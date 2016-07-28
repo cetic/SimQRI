@@ -12,7 +12,7 @@ import scala.collection.immutable.List;
  * 
  * @author FK
  * @since 20/04/2016
- * @version 1.0
+ * @version 2.0
  * 
  * This class stores "Monte-Carlo" simulation results by using appropriates collections.
  * It also transform these collections into more "user-friendly" strings in order 
@@ -43,6 +43,8 @@ public class MonteCarloTracer {
 	}
 	
 	public String getStringElements() {
+		String elementsXML = "";
+		@SuppressWarnings("unused")
 		String elementsString = "\n  ----------------ELEMENTS---------------- \n";
 		for(Map.Entry<String, List<SamplingTuple>> entry : elementsSampling.entrySet()) {
 			String name = entry.getKey();
@@ -58,7 +60,10 @@ public class MonteCarloTracer {
 				String attrMin = String.format("%.2f", JsonFormat.jsonToDouble(jsonDataSampling, "min"));
 				String attrMean = String.format("%.2f", JsonFormat.jsonToDouble(jsonDataSampling, "mean"));
 				double attrVariance = JsonFormat.jsonToDouble(jsonDataSampling, "variance");
-				
+				elementsXML += "<element>";
+				elementsXML += "<name>"+name+"</name>";
+				elementsXML += "<attribute>"+attrName+"</attribute><max>"+attrMax+"</max><min>"+attrMin+"</min>";
+				elementsXML += "<mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance></element>";
 				elementsString += "  * "+attrName+" : \n";
 				elementsString += "    - Max : "+attrMax+" \n";
 				elementsString += "    - Min : "+attrMin+" \n";
@@ -68,10 +73,13 @@ public class MonteCarloTracer {
 			elementsString += "  ---------------------------------------- \n";
 		}
 		// System.out.println(elementsString);
-		return elementsString;
+		return elementsXML;
+		//return elementsString;
 	}
 	
 	public String getStringRuntime() {
+		String runtimeXML = "<runtime>";
+		@SuppressWarnings("unused")
 		String runtimeString = "\n  ----------------RUNTIME----------------- \n";
 		String jsonRuntime = runtimeSampling.toJSONString();
 		String jsonDataSampling = JsonFormat.getJSonFromJSon(jsonRuntime, "dataSampling");
@@ -81,17 +89,21 @@ public class MonteCarloTracer {
 		double attrMean = JsonFormat.jsonToDouble(jsonDataSampling, "mean");
 		double attrVariance = JsonFormat.jsonToDouble(jsonDataSampling, "variance");
 		
+		runtimeXML += "<max>"+attrMax+"</max><min>"+attrMin+"</min><mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance>";
 		runtimeString += "  * Max : "+attrMax+" \n";
 		runtimeString += "  * Min : "+attrMin+" \n";
 		runtimeString += "  * Mean : "+attrMean+" \n";
 		runtimeString += "  * Variance : "+attrVariance+" \n \n";
 		runtimeString += "  ---------------------------------------- \n";
-		
+		runtimeXML += "</runtime>";
 		// System.out.println(runtimeString);
-		return runtimeString;
+		return runtimeXML;
+		//return runtimeString;
 	}
 	
 	public String getStringProbes() {
+		String probesXML = "";
+		@SuppressWarnings("unused")
 		String probesString = "\n  -----------------QUERIES----------------- \n";
 		Iterator<SamplingTuple> itProbes = probesSampling.iterator();
 		while(itProbes.hasNext()) {
@@ -105,7 +117,9 @@ public class MonteCarloTracer {
 			String attrMin = String.format("%.2f", JsonFormat.jsonToDouble(jsonProbeSampling, "min"));
 			String attrMean = String.format("%.2f", JsonFormat.jsonToDouble(jsonProbeSampling, "mean"));
 			double attrVariance = JsonFormat.jsonToDouble(jsonProbeSampling, "variance");
-			
+			probesXML += "<query>";
+			probesXML += "<name>"+attrName+"</name><max>"+attrMax+"</max><min>"+attrMin+"</min>";
+			probesXML += "<mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance></query>";
 			probesString += "  * "+attrName+" : \n";
 			probesString += "    - Max : "+attrMax+" \n";
 			probesString += "    - Min : "+attrMin+" \n";
@@ -114,7 +128,8 @@ public class MonteCarloTracer {
 		}
 		probesString += "  ----------------------------------------- \n";
 		// System.out.println(probesString);
-		return probesString;
+		return probesXML;
+		//return probesString;
 	}
 	
 	public String getStringHistory() {

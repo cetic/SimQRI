@@ -11,7 +11,7 @@ import scala.collection.immutable.List;
  * 
  * @author FK
  * @since 20/04/2016
- * @version 1.0
+ * @version 2.0
  * 
  * This class stores "One Shot" simulation results by using appropriates collections.
  * It also transform these collections into more "user-friendly" strings in order 
@@ -43,6 +43,8 @@ public class OneShotTracer {
 	}
 	
 	public String getStringEvents() {
+		String eventsXML = "";
+		@SuppressWarnings("unused")
 		String eventsString = "\n  -----------------EVENTS----------------- \n";
 		for(Map.Entry<Object, List<Tuple2<String, String>>> entry : events.entrySet()) {
 			String time = String.valueOf(entry.getKey());
@@ -50,14 +52,21 @@ public class OneShotTracer {
 			Iterator<Tuple2<String, String>> itTraces = entry.getValue().iterator();
 			while(itTraces.hasNext()) {
 				Tuple2<String, String> trace = itTraces.next();
+				eventsXML += "<event>";
+				eventsXML += "<time>"+time+"</time>";
+				eventsXML += "<element>"+trace._1+"</element><action>"+trace._2+"</action>";
+				eventsXML += "</event>";
 				eventsString += "  * "+trace._1+" : "+trace._2+" \n";
 			}
 			eventsString += "  ---------------------------------------- \n";
 		}
-		return eventsString;
+		return eventsXML;
+		//return eventsString;
 	}
 	
 	public String getStringElements() {
+		String elementsXML = "";
+		@SuppressWarnings("unused")
 		String elementsString = "\n  ----------------ELEMENTS---------------- \n";
 		for(Map.Entry<String, Tuple2<String, List<Tuple2<String, Object>>>> entry : mapInfos.entrySet()) {
 			String name = entry.getKey();
@@ -68,17 +77,25 @@ public class OneShotTracer {
 			List<Tuple2<String, Object>> listInfos = (List<Tuple2<String, Object>>) typeAndInfos._2;
 			Iterator<Tuple2<String, Object>> itInfos = listInfos.iterator();
 			while(itInfos.hasNext()) {
+				elementsXML += "<element>";
+				elementsXML += "<name>"+name+"</name>";
+				elementsXML += "<type>"+type+"</type>";
 				Tuple2<String, Object> infos = itInfos.next();
 				String attribute = infos._1;
 				String value = String.valueOf(infos._2);
+				elementsXML += "<attribute>"+attribute+"</attribute><value>"+value+"</value>";
+				elementsXML += "</element>";
 				elementsString += "  * "+attribute+" : "+value+" \n";
 			}
 			elementsString += "  ---------------------------------------- \n";
 		}
-		return elementsString;
+		return elementsXML;
+		//return elementsString;
 	}
 	
 	public String getStringProbes() {
+		String probesXML = "";
+		@SuppressWarnings("unused")
 		String probesString = "\n  -----------------QUERIES---------------- \n";
 		Iterator<Tuple2<String, String>> itProbes = probes.iterator();
 		while(itProbes.hasNext()) {
@@ -86,10 +103,14 @@ public class OneShotTracer {
 			String query = probe._1;
 			String value = probe._2.replaceAll("[^\\d.]", "");
 			double doubleValue = Double.parseDouble(value);
+			probesXML += "<query>";
+			probesXML += "<name>"+query+"</name><value>"+value+"</value>";
+			probesXML += "</query>";
 			probesString += "  * "+query+" : "+String.format("%.2f", doubleValue)+"\n";
 		}
 		probesString += "  ---------------------------------------- \n";
-		return probesString;
+		return probesXML;
+		//return probesString;
 	}
 	
 	public Map<Object, List<Tuple2<String, String>>> getEvents() {
