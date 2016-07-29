@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="simqri" version="10.1.3.201511131800">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="simqri" version="11.0.0.201601261200">
   <ownedViewpoints name="SimQRi Design" modelFileExtension="simqri">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="SimQRi Diagram" domainClass="metamodel.Model" enablePopupBars="true">
       <metamodel href="http://www.example.org/metamodel#/"/>
@@ -28,18 +28,18 @@
       </validationSet>
       <defaultLayer name="Default">
         <nodeMappings name="SD_supplier" deletionDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Remove%20Supplier']" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" semanticElements="aql:self->including(self.supplierDelay)" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.Supplier">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/supplier.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/supplier.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="SD_storage" deletionDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Remove%20Storage']" labelDirectEdit="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='SD_DirectEditLabel']" semanticCandidatesExpression="feature:component" doubleClickDescription="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Open%20EEF%20Wizard']" domainClass="metamodel.Storage">
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/storage.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/storage.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
           <conditionnalStyles predicateExpression="aql:self.overflow=true">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/overflow-storage.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/overflow-storage.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
@@ -50,27 +50,30 @@
             <style xsi:type="style:SquareDescription" labelExpression="feature:type" hideLabelByDefault="true" sizeComputationExpression="2" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/batch-process.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/batch-process.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
           <conditionnalStyles predicateExpression="aql:(self.percentageOfSuccess&lt;100.0 and self.numberOfChains=1)">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/single-failing-batch-process.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/single-failing-batch-process.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:self.percentageOfSuccess&lt;100.0">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/failing-batch-process.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/failing-batch-process.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="aql:self.numberOfChains=1">
-            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/single-batch-process.png">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/single-batch-process.svg">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
@@ -81,10 +84,13 @@
             <style xsi:type="style:SquareDescription" labelExpression="feature:type" hideLabelByDefault="true" sizeComputationExpression="2" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <forbiddenSides>WEST</forbiddenSides>
+              <forbiddenSides>SOUTH</forbiddenSides>
+              <forbiddenSides>NORTH</forbiddenSides>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
             </style>
           </borderedNodeMappings>
-          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/conveyer-belt.png">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="10" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/be.cetic.simqri.design/images/conveyer-belt.svg">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
