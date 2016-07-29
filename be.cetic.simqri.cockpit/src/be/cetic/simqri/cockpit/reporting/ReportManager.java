@@ -1,12 +1,8 @@
 package be.cetic.simqri.cockpit.reporting;
 
-import java.io.BufferedWriter;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -20,16 +16,23 @@ import org.eclipse.birt.report.engine.api.IReportRunnable;
 import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
 import org.eclipse.birt.report.engine.api.PDFRenderOption;
 
-import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
-import be.cetic.simqri.cockpit.tracer.OneShotTracer;
-
+/**
+ * 
+ * @author FK
+ * @version 1.0
+ * This class manages the process of the BIRT reporting services
+ *
+ */
 public class ReportManager {
 	
-	private File XMLFile;
-	private List<String> extensions;
+	private List<String> extensions; // .pdf, .docx, .html, etc. Retrieved from NewSimulation.java
 	IReportEngine engine;
 	IReportRunnable report;
 
+	public ReportManager(List<String> extensions) {
+		this.extensions = extensions;
+	}
+	
 	public List<String> getExtensions() {
 		return extensions;
 	}
@@ -37,41 +40,15 @@ public class ReportManager {
 	public void setExtensions(List<String> extensions) {
 		this.extensions = extensions;
 	}
-
-	public ReportManager(List<String> extensions) {
-		this.extensions = extensions;
-	}
 	
-	public void createXMLFile(OneShotTracer ost) {
-		String allResults = "<oneshot>"+ost.getStringEvents()+ost.getStringElements()+ost.getStringProbes()+"</oneshot>";
-		this.XMLFile = new File("simqri-reports/oneshot.xml");
-		
-		// Placing results in a XML file
-		BufferedWriter  bf = null;
-		try {
-			bf = new BufferedWriter(new FileWriter(this.XMLFile));
-			bf.write(allResults);
-			bf.close();
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
-		}
-	}
-	
-	public void createXMLFile(MonteCarloTracer mct) {
-		String allResults = "<montecarlo>"+mct.getStringElements()+mct.getStringRuntime()+mct.getStringProbes()+"</montecarlo>";
-		this.XMLFile = new File("simqri-reports/montecarlo.xml");
-		
-		// Placing results in a XML file 
-		BufferedWriter  bf = null;
-		try {
-			bf = new BufferedWriter(new FileWriter(this.XMLFile));
-			bf.write(allResults);
-			bf.close();
-		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
-		}
-	}
-	
+	/**
+	 * 
+	 * @param type the type of the executed simulation
+	 * @throws EngineException
+	 * This method generates the reports by using the rptdesign files (which are using the previously generated XML files) 
+	 * and all the mechanisms provided by the BIRT Report Engine API
+	 * 
+	 */
 	public void executeReport(String type) throws EngineException {
 		EngineConfig config = null;
 		this.engine = null;
@@ -80,8 +57,12 @@ public class ReportManager {
 	    	// Prepare & open the BIRT report design
 	    	config = new EngineConfig();                   
 	        config.setLogConfig("simqri-reports/logs", java.util.logging.Level.WARNING);
+	        
+	        // Set the path that refers to the BIRT ReportEngine. 
+	        // NO MORE USED : plug-ins are directly installed on the Eclipse IDE with the BIRT osgi update site
 	        // config.setBIRTHome("simqri-reports/ReportEngine");
 	        // config.setEngineHome("simqri-reports/ReportEngine");
+	        
 	        Platform.startup(config);
 	        IReportEngineFactory factory = (IReportEngineFactory) Platform.createFactoryObject( IReportEngineFactory.EXTENSION_REPORT_ENGINE_FACTORY );
 	        engine = factory.createReportEngine( config );
@@ -92,25 +73,26 @@ public class ReportManager {
 	        	reportFilepath = "simqri-reports/montecarlo.rptdesign";
 	        try {
 	         	report = engine.openReportDesign(reportFilepath);
-	         	// TODO do while the report design file is not found
 	        }
 	        catch(Exception e)
 	        {
 	        	JOptionPane.showMessageDialog(null, reportFilepath + " not found!\n"
 	        			+ "Make sure you have properly configured your \"simqri-reports\" folder as it is explained in the installation guide ! ", "REPORT DESIGN FILE NOT FOUND", JOptionPane.ERROR_MESSAGE);
 	            engine.destroy( );
+	            Platform.shutdown();
 	            return;
 	        }
 	        
-	        // choose the path for saving file(s)
+	        // the user choose the path of the directory in which we will save report(s) file(s)
 	        String path = selectDirectoryPath();
 	        if(path.isEmpty()) {
 	        	JOptionPane.showMessageDialog(null,  "The choice of the directory is aborted !", "Warning", JOptionPane.WARNING_MESSAGE);
 	        	return;
 	        }
+	        
 			Thread t = new Thread(new Runnable(){
 		        public void run(){
-		            JOptionPane.showMessageDialog(null,  "Results reports are now processed.\nThis operation may take a while...", "Simulation succeeded", JOptionPane.INFORMATION_MESSAGE);
+		            JOptionPane.showMessageDialog(null,  "Results reports are being processed.\nThis operation may also take a while...", "Information", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("simqri-reports/gifs/loader.gif"));
 		        }
 		    });
 			t.start();
@@ -118,6 +100,7 @@ public class ReportManager {
 	        	createReport(path, extension);
 	        }
 			t.interrupt();
+			
 	        JOptionPane.showMessageDialog(null,  "Your reports are now available in the selected directory !", "Simulation succeded", JOptionPane.INFORMATION_MESSAGE);
 	        // TODO Destroy XMLs
 	        engine.destroy( );
@@ -130,9 +113,14 @@ public class ReportManager {
 		    e.printStackTrace();
 		} 
 	}
-	    
+	
+	/**
+	 * 
+	 * @param path the path of the directory in which reports files will be created
+	 * @param extension a file extension selected by the user
+	 */
 	private void createReport(String path, String extension) {
-		// Get the full date to set it as file name
+		// Get the full date to set it in the file name
 		String format = "dd-MM-yyyy-HH-mm-ss"; 
 		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format ); 
 		java.util.Date date = new java.util.Date(); 

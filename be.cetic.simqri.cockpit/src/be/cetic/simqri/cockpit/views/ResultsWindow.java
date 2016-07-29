@@ -28,6 +28,7 @@ import be.cetic.simqri.cockpit.tracer.OneShotTracer;
  * @author FK
  * @since 19/04/2016
  * @version 1.0
+ * @deprecated
  * 
  * This is the main window in which simulation results will be displayed.
  * 
@@ -41,19 +42,15 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	private JTabbedPane jtpResults;
 	private Component panelTrace, panelRuntime, panelElements, panelQueries;
 	private JButton jbSave, jbExit;
-	private OneShotTracer ost = null;
-	private MonteCarloTracer mct = null;
 	
 	public ResultsWindow(OneShotTracer ost) {
 		super("One Shot simulation results");
-		this.ost = ost;
 		initComponents(false);
 		initWindow();
 	}
 	
 	public ResultsWindow(MonteCarloTracer mct) {
 		super("Monte-Carlo simulation results");
-		this.mct = mct;
 		initComponents(true);
 		initWindow();
 	}
@@ -79,16 +76,16 @@ public class ResultsWindow extends JFrame implements ActionListener {
 		String elements, queries;
 		
 		if(!mc) {
-			this.panelTrace = new PanelResults(ost.getStringEvents());
+			this.panelTrace = new PanelResults("");
 			this.jtpResults.addTab("Trace", null, panelTrace, "Check the simulation trace");
-			elements = ost.getStringElements();
-			queries = ost.getStringProbes();
+			elements = "";
+			queries = "";
 		}
 		else {
-			this.panelRuntime = new PanelResults(mct.getStringRuntime());
+			this.panelRuntime = new PanelResults("");
 			this.jtpResults.addTab("Runtime", null, panelRuntime, "Check the simulation runtime");
-			elements = mct.getStringElements();
-			queries = mct.getStringProbes();
+			elements = "";
+			queries = "";
 		}
 		
 		this.panelElements = new PanelResults(elements); 
@@ -111,10 +108,10 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == this.jbSave) {
 			String allResults = "";
-			if(this.ost != null && this.mct == null) 
+			/*if(this.ost != null && this.mct == null) 
 				allResults = ost.getStringEvents()+"\n"+ost.getStringElements()+"\n"+ost.getStringProbes()+"\n";
 			else if(this.ost == null && this.mct != null)
-				allResults = mct.getStringRuntime()+"\n"+mct.getStringElements()+"\n"+mct.getStringProbes()+"\n";
+				allResults = mct.getStringRuntime()+"\n"+mct.getStringElements()+"\n"+mct.getStringProbes()+"\n";*/
 			
 			saveInTextFile(allResults);
 		}

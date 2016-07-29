@@ -33,7 +33,7 @@ import be.cetic.simqri.metamodel.Model;
 /**
  * 
  * @author FK
- * @version 1.0
+ * @version 1.1
  * This class is the new management window of a new simulation.
  * It is displayed after a right-click on the back of the Sirius tool and select "New Simulation".
  * This window contains a loading bar that is updated in a thread.
@@ -180,8 +180,12 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		loader.setStringPainted(true);
 	}
 	
+	/**
+	 * 
+	 * @author FK
+	 * Internal class dedicated to the simulation management (start, stop, loader)
+	 */
 	private class LoadingBar implements Runnable { 
-		// Internal class dedicated to the simulation management (start, stop, loader)
 		@Override
 		public void run() {
 			jbStart.setEnabled(false);
@@ -190,10 +194,6 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 				
 			if(!newSimulation.isAborded()) {
 				loader.setValue(loader.getMaximum());
-				/*if(maxIterations >= 1000) {
-					JOptionPane.showMessageDialog(NewSimulationManagementWindow.this, "The simulation is now completed. \n"
-							+ "Results are being processed and will be displayed in a few moments. \n", "Completed" ,JOptionPane.INFORMATION_MESSAGE);
-				}*/
 				dispose();
 			}
 		    jbStart.setEnabled(true);

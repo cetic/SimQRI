@@ -1,7 +1,13 @@
 package be.cetic.simqri.cockpit.tracer;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
+
+import javax.swing.JOptionPane;
 
 import scala.Tuple2;
 import scala.collection.Iterator;
@@ -11,12 +17,10 @@ import scala.collection.immutable.List;
  * 
  * @author FK
  * @since 20/04/2016
- * @version 2.0
+ * @version 3.0
  * 
  * This class stores "One Shot" simulation results by using appropriates collections.
- * It also transform these collections into more "user-friendly" strings in order 
- * to be displayed to the user.
- * https://forge.cetic.be/projects/stage-maomy/wiki/Format_JSON_Résultats
+ * It also transform these collections into XML structures in order to be placed in a XML file.
  *
  */
 public class OneShotTracer {
@@ -27,9 +31,11 @@ public class OneShotTracer {
 	private Map<String, Tuple2<String, List<Tuple2<String, Object>>>> mapInfos;
 	private List<Tuple2<String, String>> probes;
 	private List<String> rawInfos;
+	private File XMLFile;
+	private BufferedWriter bf;
 	
 	public OneShotTracer() {
-		
+		this.XMLFile = new File("simqri-reports/oneshot.xml");
 	}
 	
 	public OneShotTracer(Map<Object, List<Tuple2<String, String>>> events,
@@ -40,10 +46,36 @@ public class OneShotTracer {
 		this.mapInfos = mapInfos;
 		this.probes = probes;
 		this.rawInfos = rawInfos;
+		this.XMLFile = new File("simqri-reports/oneshot.xml");
 	}
 	
-	public String getStringEvents() {
-		String eventsXML = "";
+	public File getXMLFile() {
+		return this.XMLFile;
+	}
+	
+	public void createOneShotXMLFile() {
+		try {
+			bf = new BufferedWriter(new FileWriter(this.XMLFile));
+			bf.write("<oneshot>");
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+		}
+		this.setXMLEvents();
+		this.setXMLElements();
+		this.setXMLProbes();
+		this.endOfXMLFile();
+	}
+	
+	private void endOfXMLFile() {
+		try {
+			bf.append("</oneshot>");
+			bf.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+		}
+	}
+	
+	private void setXMLEvents() {
 		@SuppressWarnings("unused")
 		String eventsString = "\n  -----------------EVENTS----------------- \n";
 		for(Map.Entry<Object, List<Tuple2<String, String>>> entry : events.entrySet()) {
@@ -52,20 +84,23 @@ public class OneShotTracer {
 			Iterator<Tuple2<String, String>> itTraces = entry.getValue().iterator();
 			while(itTraces.hasNext()) {
 				Tuple2<String, String> trace = itTraces.next();
-				eventsXML += "<event>";
-				eventsXML += "<time>"+time+"</time>";
-				eventsXML += "<element>"+trace._1+"</element><action>"+trace._2+"</action>";
-				eventsXML += "</event>";
+				String eventXML = "<event>";
+				eventXML += "<time>"+time+"</time>";
+				eventXML += "<element>"+trace._1+"</element><action>"+trace._2+"</action>";
+				eventXML += "</event>";
 				eventsString += "  * "+trace._1+" : "+trace._2+" \n";
+				try {
+					bf.append(eventXML);
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+				}
 			}
 			eventsString += "  ---------------------------------------- \n";
 		}
-		return eventsXML;
-		//return eventsString;
+		// return eventsString;
 	}
 	
-	public String getStringElements() {
-		String elementsXML = "";
+	private void setXMLElements() {
 		@SuppressWarnings("unused")
 		String elementsString = "\n  ----------------ELEMENTS---------------- \n";
 		for(Map.Entry<String, Tuple2<String, List<Tuple2<String, Object>>>> entry : mapInfos.entrySet()) {
@@ -77,24 +112,27 @@ public class OneShotTracer {
 			List<Tuple2<String, Object>> listInfos = (List<Tuple2<String, Object>>) typeAndInfos._2;
 			Iterator<Tuple2<String, Object>> itInfos = listInfos.iterator();
 			while(itInfos.hasNext()) {
-				elementsXML += "<element>";
-				elementsXML += "<name>"+name+"</name>";
-				elementsXML += "<type>"+type+"</type>";
+				String elementXML = "<element>";
+				elementXML += "<name>"+name+"</name>";
+				elementXML += "<type>"+type+"</type>";
 				Tuple2<String, Object> infos = itInfos.next();
 				String attribute = infos._1;
 				String value = String.valueOf(infos._2);
-				elementsXML += "<attribute>"+attribute+"</attribute><value>"+value+"</value>";
-				elementsXML += "</element>";
+				elementXML += "<attribute>"+attribute+"</attribute><value>"+value+"</value>";
+				elementXML += "</element>";
+				try {
+					bf.append(elementXML);
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+				}
 				elementsString += "  * "+attribute+" : "+value+" \n";
 			}
 			elementsString += "  ---------------------------------------- \n";
 		}
-		return elementsXML;
-		//return elementsString;
+		// return elementsString;
 	}
 	
-	public String getStringProbes() {
-		String probesXML = "";
+	private void setXMLProbes() {
 		@SuppressWarnings("unused")
 		String probesString = "\n  -----------------QUERIES---------------- \n";
 		Iterator<Tuple2<String, String>> itProbes = probes.iterator();
@@ -103,14 +141,18 @@ public class OneShotTracer {
 			String query = probe._1;
 			String value = probe._2.replaceAll("[^\\d.]", "");
 			double doubleValue = Double.parseDouble(value);
-			probesXML += "<query>";
-			probesXML += "<name>"+query+"</name><value>"+value+"</value>";
-			probesXML += "</query>";
+			String probeXML = "<query>";
+			probeXML += "<name>"+query+"</name><value>"+value+"</value>";
+			probeXML += "</query>";
+			try {
+				bf.append(probeXML);
+			} catch (IOException e) {
+				JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+			}
 			probesString += "  * "+query+" : "+String.format("%.2f", doubleValue)+"\n";
 		}
 		probesString += "  ---------------------------------------- \n";
-		return probesXML;
-		//return probesString;
+		// return probesString;
 	}
 	
 	public Map<Object, List<Tuple2<String, String>>> getEvents() {

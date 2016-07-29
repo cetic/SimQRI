@@ -1,6 +1,12 @@
 package be.cetic.simqri.cockpit.tracer;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Map;
+
+import javax.swing.JOptionPane;
 
 import be.cetic.simqri.cockpit.util.JsonFormat;
 import oscar.des.logger.HistorySampling;
@@ -12,13 +18,10 @@ import scala.collection.immutable.List;
  * 
  * @author FK
  * @since 20/04/2016
- * @version 2.0
+ * @version 3.0
  * 
  * This class stores "Monte-Carlo" simulation results by using appropriates collections.
- * It also transform these collections into more "user-friendly" strings in order 
- * to be displayed to the user.
- * https://forge.cetic.be/projects/stage-maomy/wiki/Format_JSON_Résultats
- *
+ * It also transform these collections into XML structures in order to be placed in a XML file.
  */
 public class MonteCarloTracer {
 	
@@ -28,9 +31,11 @@ public class MonteCarloTracer {
 	private SamplingTuple runtimeSampling;
 	private List<SamplingTuple> probesSampling;
 	private List<HistorySampling> historySampling;
+	private File XMLFile;
+	private BufferedWriter bf;
 	
 	public MonteCarloTracer() {
-		
+		this.XMLFile = new File("simqri-reports/montecarlo.xml");
 	}
 	
 	public MonteCarloTracer(Map<String, List<SamplingTuple>> elementsSampling, SamplingTuple runtimeSampling,
@@ -40,10 +45,36 @@ public class MonteCarloTracer {
 		this.runtimeSampling = runtimeSampling;
 		this.probesSampling = probesSampling;
 		this.historySampling = historySampling;
+		this.XMLFile = new File("simqri-reports/montecarlo.xml");
 	}
 	
-	public String getStringElements() {
-		String elementsXML = "";
+	public File getXMLFile() {
+		return this.XMLFile;
+	}
+	
+	public void createMonteCarloXMLFile() {
+		try {
+			bf = new BufferedWriter(new FileWriter(this.XMLFile));
+			bf.write("<montecarlo>");
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+		}
+		this.setXMLElements();
+		this.setXMLRuntime();
+		this.setXMLProbes();
+		this.endOfXMLFile();
+	}
+	
+	private void endOfXMLFile() {
+		try {
+			bf.append("</montecarlo>");
+			bf.close();
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+		}
+	}
+	
+	private void setXMLElements() {
 		@SuppressWarnings("unused")
 		String elementsString = "\n  ----------------ELEMENTS---------------- \n";
 		for(Map.Entry<String, List<SamplingTuple>> entry : elementsSampling.entrySet()) {
@@ -60,10 +91,15 @@ public class MonteCarloTracer {
 				String attrMin = String.format("%.2f", JsonFormat.jsonToDouble(jsonDataSampling, "min"));
 				String attrMean = String.format("%.2f", JsonFormat.jsonToDouble(jsonDataSampling, "mean"));
 				double attrVariance = JsonFormat.jsonToDouble(jsonDataSampling, "variance");
-				elementsXML += "<element>";
-				elementsXML += "<name>"+name+"</name>";
-				elementsXML += "<attribute>"+attrName+"</attribute><max>"+attrMax+"</max><min>"+attrMin+"</min>";
-				elementsXML += "<mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance></element>";
+				String elementXML = "<element>";
+				elementXML += "<name>"+name+"</name>";
+				elementXML += "<attribute>"+attrName+"</attribute><max>"+attrMax+"</max><min>"+attrMin+"</min>";
+				elementXML += "<mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance></element>";
+				try {
+					bf.append(elementXML);
+				} catch (IOException e) {
+					JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+				}
 				elementsString += "  * "+attrName+" : \n";
 				elementsString += "    - Max : "+attrMax+" \n";
 				elementsString += "    - Min : "+attrMin+" \n";
@@ -72,13 +108,10 @@ public class MonteCarloTracer {
 			}
 			elementsString += "  ---------------------------------------- \n";
 		}
-		// System.out.println(elementsString);
-		return elementsXML;
-		//return elementsString;
+		// return elementsString;
 	}
 	
-	public String getStringRuntime() {
-		String runtimeXML = "<runtime>";
+	private void setXMLRuntime() {
 		@SuppressWarnings("unused")
 		String runtimeString = "\n  ----------------RUNTIME----------------- \n";
 		String jsonRuntime = runtimeSampling.toJSONString();
@@ -89,20 +122,22 @@ public class MonteCarloTracer {
 		double attrMean = JsonFormat.jsonToDouble(jsonDataSampling, "mean");
 		double attrVariance = JsonFormat.jsonToDouble(jsonDataSampling, "variance");
 		
-		runtimeXML += "<max>"+attrMax+"</max><min>"+attrMin+"</min><mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance>";
+		String runtimeXML = "<runtime><max>"+attrMax+"</max><min>"+attrMin+"</min><mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance>";
 		runtimeString += "  * Max : "+attrMax+" \n";
 		runtimeString += "  * Min : "+attrMin+" \n";
 		runtimeString += "  * Mean : "+attrMean+" \n";
 		runtimeString += "  * Variance : "+attrVariance+" \n \n";
 		runtimeString += "  ---------------------------------------- \n";
 		runtimeXML += "</runtime>";
-		// System.out.println(runtimeString);
-		return runtimeXML;
-		//return runtimeString;
+		try {
+			bf.append(runtimeXML);
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+		}
+		// return runtimeString;
 	}
 	
-	public String getStringProbes() {
-		String probesXML = "";
+	private void setXMLProbes() {
 		@SuppressWarnings("unused")
 		String probesString = "\n  -----------------QUERIES----------------- \n";
 		Iterator<SamplingTuple> itProbes = probesSampling.iterator();
@@ -117,9 +152,14 @@ public class MonteCarloTracer {
 			String attrMin = String.format("%.2f", JsonFormat.jsonToDouble(jsonProbeSampling, "min"));
 			String attrMean = String.format("%.2f", JsonFormat.jsonToDouble(jsonProbeSampling, "mean"));
 			double attrVariance = JsonFormat.jsonToDouble(jsonProbeSampling, "variance");
-			probesXML += "<query>";
-			probesXML += "<name>"+attrName+"</name><max>"+attrMax+"</max><min>"+attrMin+"</min>";
-			probesXML += "<mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance></query>";
+			String probeXML = "<query>";
+			probeXML += "<name>"+attrName+"</name><max>"+attrMax+"</max><min>"+attrMin+"</min>";
+			probeXML += "<mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance></query>";
+			try {
+				bf.append(probeXML);
+			} catch (IOException e) {
+				JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+			}
 			probesString += "  * "+attrName+" : \n";
 			probesString += "    - Max : "+attrMax+" \n";
 			probesString += "    - Min : "+attrMin+" \n";
@@ -127,11 +167,12 @@ public class MonteCarloTracer {
 			probesString += "    - Variance : "+attrVariance+" \n \n";
 		}
 		probesString += "  ----------------------------------------- \n";
-		// System.out.println(probesString);
-		return probesXML;
-		//return probesString;
+		// return probesString;
 	}
 	
+	/**
+	 * @deprecated
+	 */
 	public String getStringHistory() {
 		String historyString = "\n  -----------------HISTORY----------------- \n";
 		Iterator<HistorySampling> itHistory = historySampling.iterator();
@@ -147,7 +188,6 @@ public class MonteCarloTracer {
 			historyString += jsonHistorySampling+" \n";
 		}
 		historyString += "  ----------------------------------------- \n";
-		// System.out.println(historyString);
 		return historyString;
 	}
 
