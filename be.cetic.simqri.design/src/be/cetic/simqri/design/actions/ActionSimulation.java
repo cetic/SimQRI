@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
+import be.cetic.simqri.cockpit.main.CheckQueries;
 import be.cetic.simqri.cockpit.views.NewSimulationManagementWindow;
 import be.cetic.simqri.design.templates.CheckFlows;
 import be.cetic.simqri.design.templates.CheckOutputs;
@@ -35,8 +36,11 @@ public class ActionSimulation implements IExternalJavaAction {
 	public void execute(Collection<? extends EObject> selections, Map<String, Object> parameters) {
 		Model model = (Model) parameters.get("model");
 		String errMessages = checkModelValidity(model);
-		if(errMessages.isEmpty())
+		if(errMessages.isEmpty() && CheckQueries.dynamicCheck(model).isEmpty())
 			new NewSimulationManagementWindow(model);
+		else if(!CheckQueries.dynamicCheck(model).isEmpty())
+			JOptionPane.showMessageDialog(null, "A new simulation will not be launchable due to some errors in your queries !\n","Error", 
+					JOptionPane.ERROR_MESSAGE);
 		else
 			JOptionPane.showMessageDialog(null, "The simulation will not be launchable due to some modeling errors in your diagram : \n"
 					+ errMessages, "Error", JOptionPane.ERROR_MESSAGE);
@@ -47,7 +51,7 @@ public class ActionSimulation implements IExternalJavaAction {
 		CheckOutputs co = new CheckOutputs();
 		CheckFlows cf = new CheckFlows();
 		String errMessages = "";
-		errMessages += cf.isLinkedToFlow(model);
+		// errMessages += cf.isLinkedToFlow(model);
 		errMessages += co.hasAtLeastASuccessOutput(model);
 		errMessages += cf.hasOneFlowFromThatPort(model);
 		errMessages += cf.hasOneFlowFromThatStorage(model);

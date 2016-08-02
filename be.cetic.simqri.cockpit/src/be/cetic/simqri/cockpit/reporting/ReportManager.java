@@ -26,8 +26,9 @@ import org.eclipse.birt.report.engine.api.PDFRenderOption;
 public class ReportManager {
 	
 	private List<String> extensions; // .pdf, .docx, .html, etc. Retrieved from NewSimulation.java
-	IReportEngine engine;
-	IReportRunnable report;
+	private IReportEngine engine;
+	private IReportRunnable report;
+	private boolean aborted;
 
 	public ReportManager(List<String> extensions) {
 		this.extensions = extensions;
@@ -39,6 +40,14 @@ public class ReportManager {
 
 	public void setExtensions(List<String> extensions) {
 		this.extensions = extensions;
+	}
+	
+	public boolean isAborted() {
+		return aborted;
+	}
+
+	public void setAborted(boolean aborted) {
+		this.aborted = aborted;
 	}
 	
 	/**
@@ -92,17 +101,22 @@ public class ReportManager {
 	        
 			Thread t = new Thread(new Runnable(){
 		        public void run(){
-		            JOptionPane.showMessageDialog(null,  "Results reports are being processed.\nThis operation may also take a while...", "Information", JOptionPane.INFORMATION_MESSAGE, new ImageIcon("simqri-reports/gifs/loader.gif"));
+		            int abort = JOptionPane.showConfirmDialog(null,  "Results reports are being processed.\nThis operation may also take a while...", "Information", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon("simqri-reports/gifs/loader.gif"));
+		            if(abort == JOptionPane.CANCEL_OPTION) {
+			        	JOptionPane.showMessageDialog(null,  "Process aborted !\nHowever, some reports may have already been generated.", "Warning", JOptionPane.WARNING_MESSAGE);
+		            	setAborted(true);
+		            }
 		        }
 		    });
 			t.start();
 			for(String extension : extensions) {
 	        	createReport(path, extension);
+	        	if(isAborted()) 
+					return;
 	        }
 			t.interrupt();
 			
 	        JOptionPane.showMessageDialog(null,  "Your reports are now available in the selected directory !", "Simulation succeded", JOptionPane.INFORMATION_MESSAGE);
-	        // TODO Destroy XMLs
 	        engine.destroy( );
 	        Platform.shutdown();
 	        engine = null;
@@ -125,7 +139,7 @@ public class ReportManager {
 		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format ); 
 		java.util.Date date = new java.util.Date(); 
 		String strDate = formater.format(date);
-		
+		if(isAborted()) return;
 		IRunAndRenderTask task = engine.createRunAndRenderTask( report );
 		
 		// Particular for .pdf format
@@ -141,6 +155,7 @@ public class ReportManager {
 			options.setOutputFileName(path+"/REPORT_"+strDate+"."+extension);
 			task.setRenderOption(options);
 		}
+		if(isAborted()) return;
 		try {
 			task.run();
 		}
@@ -164,5 +179,4 @@ public class ReportManager {
 	    	path = "";
 	    return path;
 	}
-
 }

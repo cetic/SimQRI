@@ -9,237 +9,198 @@
       </ownedAnnotationEntries>
       <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_7OkYQBIOEeaWrKzNGSHc5g" source="GMF_DIAGRAMS">
         <data xmi:type="notation:Diagram" xmi:id="_7OkYQRIOEeaWrKzNGSHc5g" type="Sirius" element="_7OhU8BIOEeaWrKzNGSHc5g" measurementUnit="Pixel">
-          <children xmi:type="notation:Node" xmi:id="_pwnwwExQEeaUD4tTTJ7O7g" type="2001" element="_pwjfUExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_pwo-4ExQEeaUD4tTTJ7O7g" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_pwo-4UxQEeaUD4tTTJ7O7g" y="-21"/>
+          <children xmi:type="notation:Node" xmi:id="_ck8NUFf7EeaemrhRc-7WTw" type="2001" element="_cj2oMFf7EeaemrhRc-7WTw">
+            <children xmi:type="notation:Node" xmi:id="_clNTEFf7EeaemrhRc-7WTw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_clNTEVf7EeaemrhRc-7WTw" y="-21"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_pwpl8ExQEeaUD4tTTJ7O7g" type="3005" element="_pwjfUUxQEeaUD4tTTJ7O7g">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_pwpl8UxQEeaUD4tTTJ7O7g" fontName="Segoe UI"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pwpl8kxQEeaUD4tTTJ7O7g"/>
+            <children xmi:type="notation:Node" xmi:id="_clb8kFf7EeaemrhRc-7WTw" type="3005" element="_cj3PQFf7EeaemrhRc-7WTw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_clb8kVf7EeaemrhRc-7WTw" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_clcjoFf7EeaemrhRc-7WTw"/>
             </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_pwnwwUxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pwnwwkxQEeaUD4tTTJ7O7g" x="365" y="145" width="77" height="59"/>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_ck8NUVf7EeaemrhRc-7WTw" fontName="Segoe UI" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ck8NUlf7EeaemrhRc-7WTw" x="75" y="100" width="77" height="59"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_qIBkIExQEeaUD4tTTJ7O7g" type="2001" element="_qH8roExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_qIBkI0xQEeaUD4tTTJ7O7g" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_qIBkJExQEeaUD4tTTJ7O7g" y="-21"/>
+          <children xmi:type="notation:Node" xmi:id="__5Ok4Ff8EeaXUMlCe2GCjg" type="2001" element="__4gMIFf8EeaXUMlCe2GCjg">
+            <children xmi:type="notation:Node" xmi:id="__5UEcFf8EeaXUMlCe2GCjg" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="__5UEcVf8EeaXUMlCe2GCjg" y="-21"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_qICLMExQEeaUD4tTTJ7O7g" type="3005" element="_qH9SsExQEeaUD4tTTJ7O7g">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_qICLMUxQEeaUD4tTTJ7O7g" fontName="Segoe UI"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qICLMkxQEeaUD4tTTJ7O7g"/>
+            <children xmi:type="notation:Node" xmi:id="__57IcFf8EeaXUMlCe2GCjg" type="3005" element="__4j2gFf8EeaXUMlCe2GCjg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="__57IcVf8EeaXUMlCe2GCjg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="__57Iclf8EeaXUMlCe2GCjg"/>
             </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_qIBkIUxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qIBkIkxQEeaUD4tTTJ7O7g" x="565" y="145" width="58" height="59"/>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="__5Ok4Vf8EeaXUMlCe2GCjg" fontName="Segoe UI" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="__5Ok4lf8EeaXUMlCe2GCjg" x="275" y="100" width="58" height="59"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_qfBu4ExQEeaUD4tTTJ7O7g" type="2001" element="_qe7BMExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_qfCV8ExQEeaUD4tTTJ7O7g" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_qfCV8UxQEeaUD4tTTJ7O7g" y="-21"/>
+          <children xmi:type="notation:Node" xmi:id="_AO6hAFf9EeaXUMlCe2GCjg" type="2001" element="_ANTXcFf9EeaXUMlCe2GCjg">
+            <children xmi:type="notation:Node" xmi:id="_AO7vIFf9EeaXUMlCe2GCjg" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_AO7vIVf9EeaXUMlCe2GCjg" y="-21"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_qfCV8kxQEeaUD4tTTJ7O7g" type="3001" element="_qe8PUExQEeaUD4tTTJ7O7g">
-              <children xmi:type="notation:Node" xmi:id="_qfC9AExQEeaUD4tTTJ7O7g" visible="false" type="5001">
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_qfC9AUxQEeaUD4tTTJ7O7g" x="21"/>
+            <children xmi:type="notation:Node" xmi:id="_APdTkFf9EeaXUMlCe2GCjg" type="3001" element="_ANtAEFf9EeaXUMlCe2GCjg">
+              <children xmi:type="notation:Node" xmi:id="_APehsFf9EeaXUMlCe2GCjg" visible="false" type="5001">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_APehsVf9EeaXUMlCe2GCjg" x="21"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_qfDkEExQEeaUD4tTTJ7O7g" type="3003" element="_qe8PUUxQEeaUD4tTTJ7O7g">
-                <styles xmi:type="notation:ShapeStyle" xmi:id="_qfDkEUxQEeaUD4tTTJ7O7g" fontName="Segoe UI"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qfDkEkxQEeaUD4tTTJ7O7g"/>
+              <children xmi:type="notation:Node" xmi:id="_APl2cFf9EeaXUMlCe2GCjg" type="3003" element="_ANtAEVf9EeaXUMlCe2GCjg">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_APl2cVf9EeaXUMlCe2GCjg" fontName="Segoe UI"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APl2clf9EeaXUMlCe2GCjg"/>
               </children>
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_qfCV80xQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qfCV9ExQEeaUD4tTTJ7O7g" x="68" y="17" width="20" height="20"/>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_APdTkVf9EeaXUMlCe2GCjg" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APdTklf9EeaXUMlCe2GCjg" x="68" y="21" width="20" height="20"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_EbFBMExREeaUD4tTTJ7O7g" type="3005" element="_EatNwExREeaUD4tTTJ7O7g">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_EbFBMUxREeaUD4tTTJ7O7g" fontName="Segoe UI"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EbFBMkxREeaUD4tTTJ7O7g"/>
+            <children xmi:type="notation:Node" xmi:id="_APjaMFf9EeaXUMlCe2GCjg" type="3005" element="_ANfksFf9EeaXUMlCe2GCjg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_APjaMVf9EeaXUMlCe2GCjg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_APjaMlf9EeaXUMlCe2GCjg"/>
             </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_qfBu4UxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qfBu4kxQEeaUD4tTTJ7O7g" x="735" y="173" width="78" height="62"/>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_AO6hAVf9EeaXUMlCe2GCjg" fontName="Segoe UI" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AO6hAlf9EeaXUMlCe2GCjg" x="480" y="99" width="76" height="62"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_qqTKwExQEeaUD4tTTJ7O7g" type="2001" element="_qqNEIExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_qqTx0ExQEeaUD4tTTJ7O7g" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_qqTx0UxQEeaUD4tTTJ7O7g" y="-21"/>
+          <children xmi:type="notation:Node" xmi:id="_BJ_pMFf9EeaXUMlCe2GCjg" type="2001" element="_BJmnoFf9EeaXUMlCe2GCjg">
+            <children xmi:type="notation:Node" xmi:id="_BKAQQFf9EeaXUMlCe2GCjg" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_BKAQQVf9EeaXUMlCe2GCjg" y="-21"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_ra1P0ExQEeaUD4tTTJ7O7g" type="3005" element="_raw-YExQEeaUD4tTTJ7O7g">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_ra1P0UxQEeaUD4tTTJ7O7g" fontName="Segoe UI"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ra1P0kxQEeaUD4tTTJ7O7g"/>
+            <children xmi:type="notation:Node" xmi:id="_BKVncFf9EeaXUMlCe2GCjg" type="3005" element="_BJn1wFf9EeaXUMlCe2GCjg">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_BKVncVf9EeaXUMlCe2GCjg" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BKVnclf9EeaXUMlCe2GCjg"/>
             </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_qqTKwUxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qqTKwkxQEeaUD4tTTJ7O7g" x="920" y="175" width="58" height="58"/>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_BJ_pMVf9EeaXUMlCe2GCjg" fontName="Segoe UI" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BJ_pMlf9EeaXUMlCe2GCjg" x="745" y="110" width="58" height="58"/>
           </children>
-          <children xmi:type="notation:Node" xmi:id="_vwSNIExQEeaUD4tTTJ7O7g" type="2001" element="_vwIcIExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_vwS0MExQEeaUD4tTTJ7O7g" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_vwS0MUxQEeaUD4tTTJ7O7g" y="-21"/>
+          <children xmi:type="notation:Node" xmi:id="_7pgQIFiAEeauRuhUKDxEjw" type="2001" element="_7lEcEFiAEeauRuhUKDxEjw">
+            <children xmi:type="notation:Node" xmi:id="_7poL8FiAEeauRuhUKDxEjw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7pozAFiAEeauRuhUKDxEjw" y="-21"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_vwTbQExQEeaUD4tTTJ7O7g" type="3005" element="_vwJDMExQEeaUD4tTTJ7O7g">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_vwTbQUxQEeaUD4tTTJ7O7g" fontName="Segoe UI"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vwTbQkxQEeaUD4tTTJ7O7g"/>
-            </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_vwSNIUxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vwSNIkxQEeaUD4tTTJ7O7g" x="960" y="50" width="58" height="59"/>
-          </children>
-          <children xmi:type="notation:Node" xmi:id="_wbRq4ExQEeaUD4tTTJ7O7g" type="2001" element="_wbGrwExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_wbSR8ExQEeaUD4tTTJ7O7g" type="5002">
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_wbSR8UxQEeaUD4tTTJ7O7g" y="-21"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_wbS5AExQEeaUD4tTTJ7O7g" type="3001" element="_wbHS0ExQEeaUD4tTTJ7O7g">
-              <children xmi:type="notation:Node" xmi:id="_wbS5A0xQEeaUD4tTTJ7O7g" visible="false" type="5001">
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_wbS5BExQEeaUD4tTTJ7O7g" x="21"/>
+            <children xmi:type="notation:Node" xmi:id="_7p9jIFiAEeauRuhUKDxEjw" type="3001" element="_7lNmAFiAEeauRuhUKDxEjw">
+              <children xmi:type="notation:Node" xmi:id="_7p-xQFiAEeauRuhUKDxEjw" visible="false" type="5001">
+                <layoutConstraint xmi:type="notation:Location" xmi:id="_7p-xQViAEeauRuhUKDxEjw" x="21"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_wbTgE0xQEeaUD4tTTJ7O7g" type="3003" element="_wbHS0UxQEeaUD4tTTJ7O7g">
-                <styles xmi:type="notation:ShapeStyle" xmi:id="_wbTgFExQEeaUD4tTTJ7O7g" fontName="Segoe UI"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wbTgFUxQEeaUD4tTTJ7O7g"/>
+              <children xmi:type="notation:Node" xmi:id="_7qDpwFiAEeauRuhUKDxEjw" type="3003" element="_7lNmAViAEeauRuhUKDxEjw">
+                <styles xmi:type="notation:ShapeStyle" xmi:id="_7qDpwViAEeauRuhUKDxEjw" fontName="Segoe UI"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7qDpwliAEeauRuhUKDxEjw"/>
               </children>
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_wbS5AUxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="8"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wbS5AkxQEeaUD4tTTJ7O7g" x="68" y="21" width="20" height="20"/>
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7p9jIViAEeauRuhUKDxEjw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7p9jIliAEeauRuhUKDxEjw" x="68" width="20" height="20"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_wbTgEExQEeaUD4tTTJ7O7g" type="3005" element="_wbGrwUxQEeaUD4tTTJ7O7g">
-              <styles xmi:type="notation:ShapeStyle" xmi:id="_wbTgEUxQEeaUD4tTTJ7O7g" fontName="Segoe UI"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wbTgEkxQEeaUD4tTTJ7O7g"/>
+            <children xmi:type="notation:Node" xmi:id="_7qBNgFiAEeauRuhUKDxEjw" type="3005" element="_7lEcEViAEeauRuhUKDxEjw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7qBNgViAEeauRuhUKDxEjw" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7qBNgliAEeauRuhUKDxEjw"/>
             </children>
-            <styles xmi:type="notation:ShapeStyle" xmi:id="_wbRq4UxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wbRq4kxQEeaUD4tTTJ7O7g" x="765" y="265" width="76" height="62"/>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7pgQIViAEeauRuhUKDxEjw" fontName="Segoe UI" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7pgQIliAEeauRuhUKDxEjw" x="555" y="245" width="76" height="62"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_8jBSEFiAEeauRuhUKDxEjw" type="2001" element="_8fnYwFiAEeauRuhUKDxEjw">
+            <children xmi:type="notation:Node" xmi:id="_8jB5IFiAEeauRuhUKDxEjw" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_8jCgMFiAEeauRuhUKDxEjw" y="-21"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_8jLDEFiAEeauRuhUKDxEjw" type="3005" element="_8fxJwFiAEeauRuhUKDxEjw">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_8jLDEViAEeauRuhUKDxEjw" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8jLDEliAEeauRuhUKDxEjw"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_8jBSEViAEeauRuhUKDxEjw" fontName="Segoe UI" fontHeight="10"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8jBSEliAEeauRuhUKDxEjw" x="730" y="255" width="58" height="59"/>
           </children>
           <styles xmi:type="notation:DiagramStyle" xmi:id="_7OkYQhIOEeaWrKzNGSHc5g"/>
-          <edges xmi:type="notation:Edge" xmi:id="_tOXC8ExQEeaUD4tTTJ7O7g" type="4001" element="_tNzpUExQEeaUD4tTTJ7O7g" source="_pwnwwExQEeaUD4tTTJ7O7g" target="_qIBkIExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_tOXqAExQEeaUD4tTTJ7O7g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tOXqAUxQEeaUD4tTTJ7O7g" y="-10"/>
+          <edges xmi:type="notation:Edge" xmi:id="_JFQPkFf9EeaXUMlCe2GCjg" type="4001" element="_I4JAoFf9EeaXUMlCe2GCjg" source="_ck8NUFf7EeaemrhRc-7WTw" target="__5Ok4Ff8EeaXUMlCe2GCjg">
+            <children xmi:type="notation:Node" xmi:id="_JFQPlFf9EeaXUMlCe2GCjg" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JFQPlVf9EeaXUMlCe2GCjg" y="-10"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_tOXqAkxQEeaUD4tTTJ7O7g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tOXqA0xQEeaUD4tTTJ7O7g" y="10"/>
+            <children xmi:type="notation:Node" xmi:id="_JFaAkFf9EeaXUMlCe2GCjg" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JFaAkVf9EeaXUMlCe2GCjg" y="10"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_tOXqBExQEeaUD4tTTJ7O7g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tOXqBUxQEeaUD4tTTJ7O7g" y="10"/>
+            <children xmi:type="notation:Node" xmi:id="_JFaAklf9EeaXUMlCe2GCjg" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JFaAk1f9EeaXUMlCe2GCjg" y="10"/>
             </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_tOXC8UxQEeaUD4tTTJ7O7g"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_tOXC8kxQEeaUD4tTTJ7O7g" fontColor="7490599" fontName="Segoe UI" fontHeight="10"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tOXC80xQEeaUD4tTTJ7O7g" points="[0, 0, -123, 0]$[123, 0, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tOYREExQEeaUD4tTTJ7O7g" id="(1.0,0.4915254237288136)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tOYREUxQEeaUD4tTTJ7O7g" id="(0.0,0.4915254237288136)"/>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_JFQPkVf9EeaXUMlCe2GCjg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_JFQPklf9EeaXUMlCe2GCjg" fontColor="7490599" fontName="Segoe UI" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JFQPk1f9EeaXUMlCe2GCjg" points="[0, 0, -123, 0]$[123, 0, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JFaAlFf9EeaXUMlCe2GCjg" id="(1.0,0.3389830508474576)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JFaAlVf9EeaXUMlCe2GCjg" id="(0.0,0.3389830508474576)"/>
           </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_tplmYExQEeaUD4tTTJ7O7g" type="4001" element="_tpOaAExQEeaUD4tTTJ7O7g" source="_qIBkIExQEeaUD4tTTJ7O7g" target="_qfBu4ExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_tpmNcExQEeaUD4tTTJ7O7g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tpmNcUxQEeaUD4tTTJ7O7g" y="-10"/>
+          <edges xmi:type="notation:Edge" xmi:id="_JwgMAFf9EeaXUMlCe2GCjg" type="4001" element="_JvA-QFf9EeaXUMlCe2GCjg" source="__5Ok4Ff8EeaXUMlCe2GCjg" target="_AO6hAFf9EeaXUMlCe2GCjg">
+            <children xmi:type="notation:Node" xmi:id="_JwgMBFf9EeaXUMlCe2GCjg" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JwgMBVf9EeaXUMlCe2GCjg" y="-10"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_tpmNckxQEeaUD4tTTJ7O7g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tpmNc0xQEeaUD4tTTJ7O7g" y="10"/>
+            <children xmi:type="notation:Node" xmi:id="_JwgMBlf9EeaXUMlCe2GCjg" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JwgMB1f9EeaXUMlCe2GCjg" y="10"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_tpmNdExQEeaUD4tTTJ7O7g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tpmNdUxQEeaUD4tTTJ7O7g" y="10"/>
+            <children xmi:type="notation:Node" xmi:id="_JwgMCFf9EeaXUMlCe2GCjg" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JwgMCVf9EeaXUMlCe2GCjg" y="10"/>
             </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_tplmYUxQEeaUD4tTTJ7O7g"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_tplmYkxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tplmY0xQEeaUD4tTTJ7O7g" points="[0, 0, -112, -29]$[112, 29, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tpm0gExQEeaUD4tTTJ7O7g" id="(1.0,0.5084745762711864)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tpm0gUxQEeaUD4tTTJ7O7g" id="(0.0,0.5)"/>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_JwgMAVf9EeaXUMlCe2GCjg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_JwgMAlf9EeaXUMlCe2GCjg" fontName="Segoe UI" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_JwgMA1f9EeaXUMlCe2GCjg" points="[0, 0, -147, 0]$[147, 0, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JwgMClf9EeaXUMlCe2GCjg" id="(1.0,0.5084745762711864)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_JwgMC1f9EeaXUMlCe2GCjg" id="(0.0,0.5)"/>
           </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_uCiR4ExQEeaUD4tTTJ7O7g" type="4001" element="_uCRMIExQEeaUD4tTTJ7O7g" source="_qfCV8kxQEeaUD4tTTJ7O7g" target="_qqTKwExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_uCiR5ExQEeaUD4tTTJ7O7g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uCiR5UxQEeaUD4tTTJ7O7g" y="-10"/>
+          <edges xmi:type="notation:Edge" xmi:id="_LaQYEFf9EeaXUMlCe2GCjg" type="4001" element="_LY6UQFf9EeaXUMlCe2GCjg" source="_APdTkFf9EeaXUMlCe2GCjg" target="_BJ_pMFf9EeaXUMlCe2GCjg">
+            <children xmi:type="notation:Node" xmi:id="_LaQYFFf9EeaXUMlCe2GCjg" type="6001">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LaQYFVf9EeaXUMlCe2GCjg" y="-10"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_uCi48ExQEeaUD4tTTJ7O7g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uCi48UxQEeaUD4tTTJ7O7g" y="10"/>
+            <children xmi:type="notation:Node" xmi:id="_LaQYFlf9EeaXUMlCe2GCjg" type="6002">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LaQYF1f9EeaXUMlCe2GCjg" y="10"/>
             </children>
-            <children xmi:type="notation:Node" xmi:id="_uCi48kxQEeaUD4tTTJ7O7g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uCi480xQEeaUD4tTTJ7O7g" y="10"/>
+            <children xmi:type="notation:Node" xmi:id="_LaQYGFf9EeaXUMlCe2GCjg" type="6003">
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LaQYGVf9EeaXUMlCe2GCjg" y="10"/>
             </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_uCiR4UxQEeaUD4tTTJ7O7g"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_uCiR4kxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_uCiR40xQEeaUD4tTTJ7O7g" points="[0, 0, -97, 0]$[97, 0, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uCi49ExQEeaUD4tTTJ7O7g" id="(1.0,0.7)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_uCi49UxQEeaUD4tTTJ7O7g" id="(0.0,0.5)"/>
-          </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_w_r_gExQEeaUD4tTTJ7O7g" type="4001" element="_w_bg0ExQEeaUD4tTTJ7O7g" source="_qIBkIExQEeaUD4tTTJ7O7g" target="_wbRq4ExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_w_r_hExQEeaUD4tTTJ7O7g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w_r_hUxQEeaUD4tTTJ7O7g" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_w_smkExQEeaUD4tTTJ7O7g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w_smkUxQEeaUD4tTTJ7O7g" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_w_smkkxQEeaUD4tTTJ7O7g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_w_smk0xQEeaUD4tTTJ7O7g" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_w_r_gUxQEeaUD4tTTJ7O7g"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_w_r_gkxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_w_r_g0xQEeaUD4tTTJ7O7g" points="[0, 0, -142, -135]$[142, 135, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_w_smlExQEeaUD4tTTJ7O7g" id="(1.0,0.5084745762711864)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_w_smlUxQEeaUD4tTTJ7O7g" id="(0.0,0.7258064516129032)"/>
-          </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_yQqfMExQEeaUD4tTTJ7O7g" type="4001" element="_yQankExQEeaUD4tTTJ7O7g" source="_qfCV8kxQEeaUD4tTTJ7O7g" target="_vwSNIExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_yQrGQExQEeaUD4tTTJ7O7g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yQrGQUxQEeaUD4tTTJ7O7g" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_yQrGQkxQEeaUD4tTTJ7O7g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yQrGQ0xQEeaUD4tTTJ7O7g" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_yQrGRExQEeaUD4tTTJ7O7g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yQrGRUxQEeaUD4tTTJ7O7g" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_yQqfMUxQEeaUD4tTTJ7O7g"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_yQqfMkxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yQqfM0xQEeaUD4tTTJ7O7g" points="[0, 0, -150, 95]$[150, -95, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yQrGRkxQEeaUD4tTTJ7O7g" id="(0.35,0.0)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yQrGR0xQEeaUD4tTTJ7O7g" id="(0.0,0.7627118644067796)"/>
-          </edges>
-          <edges xmi:type="notation:Edge" xmi:id="_3TWV8ExQEeaUD4tTTJ7O7g" type="4001" element="_3TFQMExQEeaUD4tTTJ7O7g" source="_wbS5AExQEeaUD4tTTJ7O7g" target="_qqTKwExQEeaUD4tTTJ7O7g">
-            <children xmi:type="notation:Node" xmi:id="_3TWV9ExQEeaUD4tTTJ7O7g" type="6001">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TWV9UxQEeaUD4tTTJ7O7g" y="-10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_3TW9AExQEeaUD4tTTJ7O7g" type="6002">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TW9AUxQEeaUD4tTTJ7O7g" y="10"/>
-            </children>
-            <children xmi:type="notation:Node" xmi:id="_3TW9AkxQEeaUD4tTTJ7O7g" type="6003">
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_3TW9A0xQEeaUD4tTTJ7O7g" y="10"/>
-            </children>
-            <styles xmi:type="notation:ConnectorStyle" xmi:id="_3TWV8UxQEeaUD4tTTJ7O7g"/>
-            <styles xmi:type="notation:FontStyle" xmi:id="_3TWV8kxQEeaUD4tTTJ7O7g" fontName="Segoe UI" fontHeight="10"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3TWV80xQEeaUD4tTTJ7O7g" points="[0, 0, -80, 82]$[80, -82, 0, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3TW9BExQEeaUD4tTTJ7O7g" id="(0.35,0.0)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3TW9BUxQEeaUD4tTTJ7O7g" id="(0.0,0.5)"/>
+            <styles xmi:type="notation:ConnectorStyle" xmi:id="_LaQYEVf9EeaXUMlCe2GCjg"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_LaQYElf9EeaXUMlCe2GCjg" fontName="Segoe UI" fontHeight="10"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LaQYE1f9EeaXUMlCe2GCjg" points="[0, 0, -177, 0]$[177, 0, 0, 0]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LaQYGlf9EeaXUMlCe2GCjg" id="(1.0,0.5)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LaQYG1f9EeaXUMlCe2GCjg" id="(0.0,0.3448275862068966)"/>
           </edges>
         </data>
       </ownedAnnotationEntries>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_pwjfUExQEeaUD4tTTJ7O7g" name="new_supplier 1" outgoingEdges="_tNzpUExQEeaUD4tTTJ7O7g" width="-1" height="-1" resizeKind="NSEW">
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_cj2oMFf7EeaemrhRc-7WTw" name="new_supplier 1" outgoingEdges="_I4JAoFf9EeaXUMlCe2GCjg" width="-1" height="-1" resizeKind="NSEW">
         <target xmi:type="metamodel:Supplier" href="sample.simqri#//@component.0"/>
         <semanticElements xmi:type="metamodel:Supplier" href="sample.simqri#//@component.0"/>
         <semanticElements xmi:type="metamodel:Scalar" href="sample.simqri#//@component.0/@supplierDelay"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_pwjfUUxQEeaUD4tTTJ7O7g" labelSize="10" workspacePath="/be.cetic.simqri.design/images/supplier.png">
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_cj3PQFf7EeaemrhRc-7WTw" labelSize="10" workspacePath="/be.cetic.simqri.design/images/supplier.svg">
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_supplier']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_qH8roExQEeaUD4tTTJ7O7g" name="new_storage 1" outgoingEdges="_tpOaAExQEeaUD4tTTJ7O7g _w_bg0ExQEeaUD4tTTJ7O7g" incomingEdges="_tNzpUExQEeaUD4tTTJ7O7g" width="-1" height="-1" resizeKind="NSEW">
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="__4gMIFf8EeaXUMlCe2GCjg" name="new_storage 1" outgoingEdges="_JvA-QFf9EeaXUMlCe2GCjg" incomingEdges="_I4JAoFf9EeaXUMlCe2GCjg" width="-1" height="-1" resizeKind="NSEW">
         <target xmi:type="metamodel:Storage" href="sample.simqri#//@component.1"/>
         <semanticElements xmi:type="metamodel:Storage" href="sample.simqri#//@component.1"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_qH9SsExQEeaUD4tTTJ7O7g" labelSize="10" workspacePath="/be.cetic.simqri.design/images/storage.png">
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="__4j2gFf8EeaXUMlCe2GCjg" labelSize="10" workspacePath="/be.cetic.simqri.design/images/storage.svg">
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_qqNEIExQEeaUD4tTTJ7O7g" name="new_storage 2" incomingEdges="_uCRMIExQEeaUD4tTTJ7O7g _3TFQMExQEeaUD4tTTJ7O7g" width="-1" height="-1" resizeKind="NSEW">
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_BJmnoFf9EeaXUMlCe2GCjg" name="new_storage 2" incomingEdges="_LY6UQFf9EeaXUMlCe2GCjg" width="-1" height="-1" resizeKind="NSEW">
         <target xmi:type="metamodel:Storage" href="sample.simqri#//@component.3"/>
         <semanticElements xmi:type="metamodel:Storage" href="sample.simqri#//@component.3"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_raw-YExQEeaUD4tTTJ7O7g" labelSize="10" workspacePath="/be.cetic.simqri.design/images/overflow-storage.png">
+        <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
+        <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
+        <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_BJn1wFf9EeaXUMlCe2GCjg" labelSize="10" workspacePath="/be.cetic.simqri.design/images/overflow-storage.svg">
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']/@conditionnalStyles.0/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_vwIcIExQEeaUD4tTTJ7O7g" name="new_storage 3" incomingEdges="_yQankExQEeaUD4tTTJ7O7g" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="metamodel:Storage" href="sample.simqri#//@component.4"/>
-        <semanticElements xmi:type="metamodel:Storage" href="sample.simqri#//@component.4"/>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_vwJDMExQEeaUD4tTTJ7O7g" labelSize="10" workspacePath="/be.cetic.simqri.design/images/storage.png">
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_8fnYwFiAEeauRuhUKDxEjw" name="new_storage 3" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="metamodel:Storage" href="sample.simqri#//@component.5"/>
+        <semanticElements xmi:type="metamodel:Storage" href="sample.simqri#//@component.5"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_8fxJwFiAEeauRuhUKDxEjw" labelSize="10" workspacePath="/be.cetic.simqri.design/images/storage.svg">
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_storage']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_qe7BMExQEeaUD4tTTJ7O7g" name="new_batch_process 1" incomingEdges="_tpOaAExQEeaUD4tTTJ7O7g" width="-1" height="-1" resizeKind="NSEW">
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_ANTXcFf9EeaXUMlCe2GCjg" name="new_batch_process 1" incomingEdges="_JvA-QFf9EeaXUMlCe2GCjg" width="-1" height="-1" resizeKind="NSEW">
         <target xmi:type="metamodel:BatchProcess" href="sample.simqri#//@component.2"/>
         <semanticElements xmi:type="metamodel:BatchProcess" href="sample.simqri#//@component.2"/>
-        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_qe8PUExQEeaUD4tTTJ7O7g" name="SUCCESS" outgoingEdges="_uCRMIExQEeaUD4tTTJ7O7g _yQankExQEeaUD4tTTJ7O7g" width="2" height="2" resizeKind="NSEW">
+        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_ANtAEFf9EeaXUMlCe2GCjg" name="SUCCESS" outgoingEdges="_LY6UQFf9EeaXUMlCe2GCjg" width="2" height="2" resizeKind="NSEW">
           <target xmi:type="metamodel:Output" href="sample.simqri#//@component.2/@outputs.0"/>
           <semanticElements xmi:type="metamodel:Output" href="sample.simqri#//@component.2/@outputs.0"/>
-          <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_qe82YExQEeaUD4tTTJ7O7g"/>
+          <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_ANvcUFf9EeaXUMlCe2GCjg"/>
           <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
           <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
           <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_qe8PUUxQEeaUD4tTTJ7O7g" hideLabelByDefault="true" color="138,226,52">
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_ANtAEVf9EeaXUMlCe2GCjg" hideLabelByDefault="true" color="138,226,52">
             <description xmi:type="style:SquareDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp']/@style"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp']"/>
@@ -247,84 +208,53 @@
         <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
         <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
         <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_EatNwExREeaUD4tTTJ7O7g" labelSize="10" workspacePath="/be.cetic.simqri.design/images/failing-batch-process.png">
-          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@conditionnalStyles.1/@style"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_wbGrwExQEeaUD4tTTJ7O7g" name="new_batch_process 2" incomingEdges="_w_bg0ExQEeaUD4tTTJ7O7g" width="-1" height="-1" resizeKind="NSEW">
-        <target xmi:type="metamodel:BatchProcess" href="sample.simqri#//@component.5"/>
-        <semanticElements xmi:type="metamodel:BatchProcess" href="sample.simqri#//@component.5"/>
-        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_wbHS0ExQEeaUD4tTTJ7O7g" name="SUCCESS" outgoingEdges="_3TFQMExQEeaUD4tTTJ7O7g" width="2" height="2" resizeKind="NSEW">
-          <target xmi:type="metamodel:Output" href="sample.simqri#//@component.5/@outputs.0"/>
-          <semanticElements xmi:type="metamodel:Output" href="sample.simqri#//@component.5/@outputs.0"/>
-          <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_wbH54ExQEeaUD4tTTJ7O7g"/>
-          <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
-          <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
-          <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-          <ownedStyle xmi:type="diagram:Square" xmi:id="_wbHS0UxQEeaUD4tTTJ7O7g" hideLabelByDefault="true" color="138,226,52">
-            <description xmi:type="style:SquareDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp']/@style"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp']"/>
-        </ownedBorderedNodes>
-        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_wbGrwUxQEeaUD4tTTJ7O7g" labelSize="10" workspacePath="/be.cetic.simqri.design/images/batch-process.png">
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_ANfksFf9EeaXUMlCe2GCjg" labelSize="10" workspacePath="/be.cetic.simqri.design/images/batch-process.svg">
           <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_tNzpUExQEeaUD4tTTJ7O7g" name="oost 1 (FIXED)" sourceNode="_pwjfUExQEeaUD4tTTJ7O7g" targetNode="_qH8roExQEeaUD4tTTJ7O7g">
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7lEcEFiAEeauRuhUKDxEjw" name="new_batch_process 2" width="-1" height="-1" resizeKind="NSEW">
+        <target xmi:type="metamodel:BatchProcess" href="sample.simqri#//@component.4"/>
+        <semanticElements xmi:type="metamodel:BatchProcess" href="sample.simqri#//@component.4"/>
+        <ownedBorderedNodes xmi:type="diagram:DNode" xmi:id="_7lNmAFiAEeauRuhUKDxEjw" name="SUCCESS" width="2" height="2" resizeKind="NSEW">
+          <target xmi:type="metamodel:Output" href="sample.simqri#//@component.4/@outputs.0"/>
+          <semanticElements xmi:type="metamodel:Output" href="sample.simqri#//@component.4/@outputs.0"/>
+          <graphicalFilters xmi:type="diagram:HideLabelFilter" xmi:id="_7lNmAliAEeauRuhUKDxEjw"/>
+          <ownedStyle xmi:type="diagram:Square" xmi:id="_7lNmAViAEeauRuhUKDxEjw" hideLabelByDefault="true" color="138,226,52">
+            <description xmi:type="style:SquareDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp']/@style"/>
+          </ownedStyle>
+          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@borderedNodeMappings[name='SD_output_bp']"/>
+        </ownedBorderedNodes>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_7lEcEViAEeauRuhUKDxEjw" labelSize="10" workspacePath="/be.cetic.simqri.design/images/batch-process.svg">
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@defaultLayer/@nodeMappings[name='SD_batchprocess']"/>
+      </ownedDiagramElements>
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_I4JAoFf9EeaXUMlCe2GCjg" name="oost 1 (FIXED)" sourceNode="_cj2oMFf7EeaemrhRc-7WTw" targetNode="__4gMIFf8EeaXUMlCe2GCjg">
         <target xmi:type="metamodel:OrderOnStockThreshold" href="sample.simqri#//@orderOnStockThreshold.0"/>
         <semanticElements xmi:type="metamodel:OrderOnStockThreshold" href="sample.simqri#//@orderOnStockThreshold.0"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_tN0QYExQEeaUD4tTTJ7O7g" targetArrow="InputFillClosedArrow" size="2" strokeColor="39,76,114">
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_I4JAoVf9EeaXUMlCe2GCjg" targetArrow="InputFillClosedArrow" size="2" strokeColor="39,76,114">
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost']/@style"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_tN0QYUxQEeaUD4tTTJ7O7g" labelSize="10" labelColor="39,76,114"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_I4JAolf9EeaXUMlCe2GCjg" labelSize="10" labelColor="39,76,114"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_oost']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_tpOaAExQEeaUD4tTTJ7O7g" sourceNode="_qH8roExQEeaUD4tTTJ7O7g" targetNode="_qe7BMExQEeaUD4tTTJ7O7g">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_JvA-QFf9EeaXUMlCe2GCjg" sourceNode="__4gMIFf8EeaXUMlCe2GCjg" targetNode="_ANTXcFf9EeaXUMlCe2GCjg">
         <target xmi:type="metamodel:StorageOutputFlow" href="sample.simqri#//@flow.0"/>
         <semanticElements xmi:type="metamodel:StorageOutputFlow" href="sample.simqri#//@flow.0"/>
         <semanticElements xmi:type="metamodel:Scalar" href="sample.simqri#//@flow.0/@quantity"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_tpPBEExQEeaUD4tTTJ7O7g" size="2" strokeColor="252,175,62">
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_JvA-QVf9EeaXUMlCe2GCjg" size="2" strokeColor="252,175,62">
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow']/@style"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_tpPBEUxQEeaUD4tTTJ7O7g" labelSize="10"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_JvA-Qlf9EeaXUMlCe2GCjg" labelSize="10"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow']"/>
       </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_uCRMIExQEeaUD4tTTJ7O7g" sourceNode="_qe8PUExQEeaUD4tTTJ7O7g" targetNode="_qqNEIExQEeaUD4tTTJ7O7g">
+      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_LY6UQFf9EeaXUMlCe2GCjg" sourceNode="_ANtAEFf9EeaXUMlCe2GCjg" targetNode="_BJmnoFf9EeaXUMlCe2GCjg">
         <target xmi:type="metamodel:ProcessOutputFlow" href="sample.simqri#//@flow.1"/>
         <semanticElements xmi:type="metamodel:ProcessOutputFlow" href="sample.simqri#//@flow.1"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_uCRzMExQEeaUD4tTTJ7O7g" targetArrow="InputClosedArrow" size="2" strokeColor="138,226,52">
+        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_LZEFQFf9EeaXUMlCe2GCjg" targetArrow="InputClosedArrow" size="2" strokeColor="138,226,52">
           <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']/@style"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_uCRzMUxQEeaUD4tTTJ7O7g" labelSize="10"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_w_bg0ExQEeaUD4tTTJ7O7g" sourceNode="_qH8roExQEeaUD4tTTJ7O7g" targetNode="_wbGrwExQEeaUD4tTTJ7O7g">
-        <target xmi:type="metamodel:StorageOutputFlow" href="sample.simqri#//@flow.2"/>
-        <semanticElements xmi:type="metamodel:StorageOutputFlow" href="sample.simqri#//@flow.2"/>
-        <semanticElements xmi:type="metamodel:Scalar" href="sample.simqri#//@flow.2/@quantity"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_w_cH4ExQEeaUD4tTTJ7O7g" size="2" strokeColor="252,175,62">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow']/@style"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_w_cH4UxQEeaUD4tTTJ7O7g" labelSize="10"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_storageoutputflow']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_yQankExQEeaUD4tTTJ7O7g" sourceNode="_qe8PUExQEeaUD4tTTJ7O7g" targetNode="_vwIcIExQEeaUD4tTTJ7O7g">
-        <target xmi:type="metamodel:ProcessOutputFlow" href="sample.simqri#//@flow.3"/>
-        <semanticElements xmi:type="metamodel:ProcessOutputFlow" href="sample.simqri#//@flow.3"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_yQbOoExQEeaUD4tTTJ7O7g" targetArrow="InputClosedArrow" size="2" strokeColor="138,226,52">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']/@style"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_yQb1sExQEeaUD4tTTJ7O7g" labelSize="10"/>
-        </ownedStyle>
-        <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']"/>
-      </ownedDiagramElements>
-      <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_3TFQMExQEeaUD4tTTJ7O7g" sourceNode="_wbHS0ExQEeaUD4tTTJ7O7g" targetNode="_qqNEIExQEeaUD4tTTJ7O7g">
-        <target xmi:type="metamodel:ProcessOutputFlow" href="sample.simqri#//@flow.4"/>
-        <semanticElements xmi:type="metamodel:ProcessOutputFlow" href="sample.simqri#//@flow.4"/>
-        <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_3TF3QExQEeaUD4tTTJ7O7g" targetArrow="InputClosedArrow" size="2" strokeColor="138,226,52">
-          <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']/@style"/>
-          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_3TF3QUxQEeaUD4tTTJ7O7g" labelSize="10"/>
+          <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_LZEFQVf9EeaXUMlCe2GCjg" labelSize="10"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='SimQRi%20Diagram']/@additionalLayers[name='SD_edges']/@edgeMappings[name='SD_processoutputflow']"/>
       </ownedDiagramElements>
@@ -336,746 +266,552 @@
     </ownedRepresentations>
     <ownedRepresentations xmi:type="table:DTable" xmi:id="_SrJXcBIPEeaWrKzNGSHc5g" name="new Queries Table" headerColumnWidth="44">
       <target xmi:type="metamodel:Model" href="sample.simqri#/"/>
-      <lines xmi:type="table:DLine" xmi:id="_JWZEoExREeaUD4tTTJ7O7g" label="Number of time units plus 1">
+      <lines xmi:type="table:DLine" xmi:id="_UeI-8FfzEea9zbPeHWJiSg" label="Number of time units plus 1">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JWdWEExREeaUD4tTTJ7O7g" label="Number of time units plus 1" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_UeQTsFfzEea9zbPeHWJiSg" label="Number of time units plus 1" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWdWEUxREeaUD4tTTJ7O7g" label="plus(time,1)" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_UeQTsVfzEea9zbPeHWJiSg" label="plus(time,1)" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWfLQExREeaUD4tTTJ7O7g" label="1001,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_UeSI4FfzEea9zbPeHWJiSg" label="11,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWfyUExREeaUD4tTTJ7O7g" label="101,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_UeSv8FfzEea9zbPeHWJiSg" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWfyUUxREeaUD4tTTJ7O7g" label="101,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_UeSv8VfzEea9zbPeHWJiSg" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWfyUkxREeaUD4tTTJ7O7g" label="101,00" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_UeTXAFfzEea9zbPeHWJiSg" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWfyU0xREeaUD4tTTJ7O7g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_UeTXAVfzEea9zbPeHWJiSg" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWfyVExREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_UeTXAlfzEea9zbPeHWJiSg" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.0"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWZrsExREeaUD4tTTJ7O7g" label="new_supplier 1 : Number of started batches">
+      <lines xmi:type="table:DLine" xmi:id="_2jLJkFf-Eeadk_NYoX8NdQ" label="new_supplier 1 : Number of started batches">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JWgZYExREeaUD4tTTJ7O7g" label="new_supplier 1 : Number of started batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2kNrYFf-Eeadk_NYoX8NdQ" label="new_supplier 1 : Number of started batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWgZYUxREeaUD4tTTJ7O7g" label="startedBatchCount(&quot;new_supplier 1&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2kNrYVf-Eeadk_NYoX8NdQ" label="startedBatchCount(&quot;new_supplier 1&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWjcsExREeaUD4tTTJ7O7g" label="2,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2khNYFf-Eeadk_NYoX8NdQ" label="1,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWkDwExREeaUD4tTTJ7O7g" label="2,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2khNYVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWkq0ExREeaUD4tTTJ7O7g" label="2,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2khNYlf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWkq0UxREeaUD4tTTJ7O7g" label="2,00" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2khNY1f-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWkq0kxREeaUD4tTTJ7O7g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2khNZFf-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWkq00xREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2khNZVf-Eeadk_NYoX8NdQ" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.1"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWZrsUxREeaUD4tTTJ7O7g" label="new_supplier 1 : Number of completed batches">
+      <lines xmi:type="table:DLine" xmi:id="_2jU6kFf-Eeadk_NYoX8NdQ" label="new_supplier 1 : Number of completed batches">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JWkq1ExREeaUD4tTTJ7O7g" label="new_supplier 1 : Number of completed batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2khNZlf-Eeadk_NYoX8NdQ" label="new_supplier 1 : Number of completed batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWkq1UxREeaUD4tTTJ7O7g" label="completedBatchCount(&quot;new_supplier 1&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2khNZ1f-Eeadk_NYoX8NdQ" label="completedBatchCount(&quot;new_supplier 1&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWnHEExREeaUD4tTTJ7O7g" label="2,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2k9SQFf-Eeadk_NYoX8NdQ" label="1,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWnHEUxREeaUD4tTTJ7O7g" label="2,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2k9SQVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWnHEkxREeaUD4tTTJ7O7g" label="2,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2k9SQlf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWnHE0xREeaUD4tTTJ7O7g" label="2,00" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2k9SQ1f-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWnuIExREeaUD4tTTJ7O7g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2k9SRFf-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWnuIUxREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2k9SRVf-Eeadk_NYoX8NdQ" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.2"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWZrskxREeaUD4tTTJ7O7g" label="new_supplier 1 : Percentage of time idle">
+      <lines xmi:type="table:DLine" xmi:id="_2jU6kVf-Eeadk_NYoX8NdQ" label="new_supplier 1 : Percentage of time idle">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JWnuIkxREeaUD4tTTJ7O7g" label="new_supplier 1 : Percentage of time idle" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2k9SRlf-Eeadk_NYoX8NdQ" label="new_supplier 1 : Percentage of time idle" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWnuI0xREeaUD4tTTJ7O7g" label="div(totalWaitDuration(&quot;new_supplier 1&quot;), time)" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2k9SR1f-Eeadk_NYoX8NdQ" label="div(totalWaitDuration(&quot;new_supplier 1&quot;), time)" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWpjUExREeaUD4tTTJ7O7g" label="1,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2lQ0QFf-Eeadk_NYoX8NdQ" label="1,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWqKYExREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2lQ0QVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWqKYUxREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2lQ0Qlf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWqKYkxREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2lQ0Q1f-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWqKY0xREeaUD4tTTJ7O7g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2lQ0RFf-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWqKZExREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2lQ0RVf-Eeadk_NYoX8NdQ" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.3"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWZrs0xREeaUD4tTTJ7O7g" label="new_storage 1 : Maximum relative stock level">
+      <lines xmi:type="table:DLine" xmi:id="_2jU6klf-Eeadk_NYoX8NdQ" label="new_storage 1 : Maximum relative stock level">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JWqxcExREeaUD4tTTJ7O7g" label="new_storage 1 : Maximum relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2lQ0Rlf-Eeadk_NYoX8NdQ" label="new_storage 1 : Maximum relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWqxcUxREeaUD4tTTJ7O7g" label="maxOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
-          <currentStyle xmi:type="table:DCellStyle" xmi:id="_Q9QwsFSnEeaQ0o9OP7HOVw">
-            <backgroundStyleOrigin xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Value']"/>
-          </currentStyle>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWtNsExREeaUD4tTTJ7O7g" label="0,94" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2lQ0R1f-Eeadk_NYoX8NdQ" label="maxOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWtNsUxREeaUD4tTTJ7O7g" label="0,94" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2ljvMFf-Eeadk_NYoX8NdQ" label="0,97" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWt0wExREeaUD4tTTJ7O7g" label="0,94" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2ljvMVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWt0wUxREeaUD4tTTJ7O7g" label="0,94" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2ljvMlf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWt0wkxREeaUD4tTTJ7O7g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2ljvM1f-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWt0w0xREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2ljvNFf-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_2ljvNVf-Eeadk_NYoX8NdQ" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.4"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWZrtExREeaUD4tTTJ7O7g" label="new_storage 1 : Average relative stock level">
+      <lines xmi:type="table:DLine" xmi:id="_2jU6k1f-Eeadk_NYoX8NdQ" label="new_storage 1 : Average relative stock level">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JWt0xExREeaUD4tTTJ7O7g" label="new_storage 1 : Average relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2ljvNlf-Eeadk_NYoX8NdQ" label="new_storage 1 : Average relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWub0ExREeaUD4tTTJ7O7g" label="avgOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2ljvN1f-Eeadk_NYoX8NdQ" label="avgOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWwRAExREeaUD4tTTJ7O7g" label="0,01" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2l2qIFf-Eeadk_NYoX8NdQ" label="0,75" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWwRAUxREeaUD4tTTJ7O7g" label="0,14" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2l2qIVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWwRAkxREeaUD4tTTJ7O7g" label="0,09" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2l2qIlf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWwRA0xREeaUD4tTTJ7O7g" label="0,12" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mAbIFf-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWw4EExREeaUD4tTTJ7O7g" label="1.1639267453315957E-6" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mAbIVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWw4EUxREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2mAbIlf-Eeadk_NYoX8NdQ" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.5"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWaSwExREeaUD4tTTJ7O7g" label="new_storage 1 : Minimum relative stock level">
+      <lines xmi:type="table:DLine" xmi:id="_2jU6lFf-Eeadk_NYoX8NdQ" label="new_storage 1 : Minimum relative stock level">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JWw4EkxREeaUD4tTTJ7O7g" label="new_storage 1 : Minimum relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mAbI1f-Eeadk_NYoX8NdQ" label="new_storage 1 : Minimum relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWw4E0xREeaUD4tTTJ7O7g" label="minOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
-          <currentStyle xmi:type="table:DCellStyle" xmi:id="_qzNaQEzAEea9_tZ8Qwr9mw">
-            <backgroundStyleOrigin xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Value']"/>
-          </currentStyle>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWz7YExREeaUD4tTTJ7O7g" label="0,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mAbJFf-Eeadk_NYoX8NdQ" label="minOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWz7YUxREeaUD4tTTJ7O7g" label="0,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mTWEFf-Eeadk_NYoX8NdQ" label="0,70" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWz7YkxREeaUD4tTTJ7O7g" label="0,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mTWEVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWz7Y0xREeaUD4tTTJ7O7g" label="0,00" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mTWElf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JWz7ZExREeaUD4tTTJ7O7g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mTWE1f-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW0icExREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2mTWFFf-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_2mTWFVf-Eeadk_NYoX8NdQ" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.6"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWaSwUxREeaUD4tTTJ7O7g" label="new_batch_process 1 : Number of started batches">
+      <lines xmi:type="table:DLine" xmi:id="_2jU6lVf-Eeadk_NYoX8NdQ" label="new_batch_process 1 : Number of started batches">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JW0icUxREeaUD4tTTJ7O7g" label="new_batch_process 1 : Number of started batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mTWFlf-Eeadk_NYoX8NdQ" label="new_batch_process 1 : Number of started batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW0ickxREeaUD4tTTJ7O7g" label="startedBatchCount(&quot;new_batch_process 1&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mTWF1f-Eeadk_NYoX8NdQ" label="startedBatchCont(&quot;new_batch_process 1&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
-          <currentStyle xmi:type="table:DCellStyle" xmi:id="_b31rUEy5Eea2Bpi_nWcqWg">
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_BMKVgFiDEea35a9Gl7F5rQ" backgroundColor="239,41,41">
             <backgroundStyleOrigin xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Value']"/>
           </currentStyle>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW2-sExREeaUD4tTTJ7O7g" label="31,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mmRAFf-Eeadk_NYoX8NdQ" label="33,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW3lwExREeaUD4tTTJ7O7g" label="41,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mmRAVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW3lwUxREeaUD4tTTJ7O7g" label="4,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mmRAlf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW3lwkxREeaUD4tTTJ7O7g" label="15,64" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mmRA1f-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW4M0ExREeaUD4tTTJ7O7g" label="0.32423224253364896" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mmRBFf-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW4M0UxREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2mmRBVf-Eeadk_NYoX8NdQ" label=" failure: expected boolean or arithmetic expression&#xA;&#xA;startedBatchCont(&quot;new_batch_process 1&quot;)&#xA;^" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.7"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWaSwkxREeaUD4tTTJ7O7g" label="new_batch_process 1 : Number of completed batches">
+      <lines xmi:type="table:DLine" xmi:id="_2jU6llf-Eeadk_NYoX8NdQ" label="new_batch_process 1 : Number of completed batches">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JW4M0kxREeaUD4tTTJ7O7g" label="new_batch_process 1 : Number of completed batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mmRBlf-Eeadk_NYoX8NdQ" label="new_batch_process 1 : Number of completed batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW4M00xREeaUD4tTTJ7O7g" label="completedBatchCount(&quot;new_batch_process 1&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
-          <currentStyle xmi:type="table:DCellStyle" xmi:id="_8KfWgEy9Eea6iIh9-xAzQQ">
-            <backgroundStyleOrigin xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Value']"/>
-          </currentStyle>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW6CAExREeaUD4tTTJ7O7g" label="31,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2mmRB1f-Eeadk_NYoX8NdQ" label="completedBatchCount(&quot;new_batch_process 1&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW6pEExREeaUD4tTTJ7O7g" label="41,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2m5zAFf-Eeadk_NYoX8NdQ" label="30,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW6pEUxREeaUD4tTTJ7O7g" label="4,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2m5zAVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW6pEkxREeaUD4tTTJ7O7g" label="15,64" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2m5zAlf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW6pE0xREeaUD4tTTJ7O7g" label="0.32423224253364896" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2m5zA1f-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW6pFExREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2m5zBFf-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
+        </cells>
+        <cells xmi:type="table:DCell" xmi:id="_2m5zBVf-Eeadk_NYoX8NdQ" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.8"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWaSw0xREeaUD4tTTJ7O7g" label="new_batch_process 1 : Percentage of time idle">
+      <lines xmi:type="table:DLine" xmi:id="_2jU6l1f-Eeadk_NYoX8NdQ" label="new_batch_process 1 : Percentage of time idle">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JW6pFUxREeaUD4tTTJ7O7g" label="new_batch_process 1 : Percentage of time idle" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2m5zBlf-Eeadk_NYoX8NdQ" label="new_batch_process 1 : Percentage of time idle" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW7QIExREeaUD4tTTJ7O7g" label="div(totalWaitDuration(&quot;new_batch_process 1&quot;), time)" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2m5zB1f-Eeadk_NYoX8NdQ" label="div(totalWaitDuration(&quot;new_batch_process 1&quot;), time)" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW9FUExREeaUD4tTTJ7O7g" label="2,97" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2nMt8Ff-Eeadk_NYoX8NdQ" label="0,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW9FUUxREeaUD4tTTJ7O7g" label="2,96" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2nMt8Vf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW9FUkxREeaUD4tTTJ7O7g" label="2,59" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2nMt8lf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW9FU0xREeaUD4tTTJ7O7g" label="2,84" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2nMt81f-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW9sYExREeaUD4tTTJ7O7g" label="3.242322425336515E-5" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2nMt9Ff-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW9sYUxREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2nMt9Vf-Eeadk_NYoX8NdQ" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.9"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWaSxExREeaUD4tTTJ7O7g" label="new_storage 2 : Maximum relative stock level">
+      <lines xmi:type="table:DLine" xmi:id="_2jU6m1f-Eeadk_NYoX8NdQ" label="new_storage 2 : Maximum relative stock level">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JW9sYkxREeaUD4tTTJ7O7g" label="new_storage 2 : Maximum relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2n8U1lf-Eeadk_NYoX8NdQ" label="new_storage 2 : Maximum relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW9sY0xREeaUD4tTTJ7O7g" label="maxOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2n8U11f-Eeadk_NYoX8NdQ" label="maxOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW_hkExREeaUD4tTTJ7O7g" label="1,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2oPPwFf-Eeadk_NYoX8NdQ" label="1,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JW_hkUxREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2oPPwVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXAIoExREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2oPPwlf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXAIoUxREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2oPPw1f-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXAIokxREeaUD4tTTJ7O7g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2oPPxFf-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXAIo0xREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2oPPxVf-Eeadk_NYoX8NdQ" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.10"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWaSxUxREeaUD4tTTJ7O7g" label="new_storage 2 : Average relative stock level">
+      <lines xmi:type="table:DLine" xmi:id="_2jU6nVf-Eeadk_NYoX8NdQ" label="new_storage 2 : Total lost by overflow">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JXAIpExREeaUD4tTTJ7O7g" label="new_storage 2 : Average relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2oiKtlf-Eeadk_NYoX8NdQ" label="new_storage 2 : Total lost by overflow" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXAIpUxREeaUD4tTTJ7O7g" label="avgOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2oiKt1f-Eeadk_NYoX8NdQ" label="totalLostByOverflow(&quot;new_storage 2&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXCk4ExREeaUD4tTTJ7O7g" label="0,02" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2o1ssFf-Eeadk_NYoX8NdQ" label="30,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXCk4UxREeaUD4tTTJ7O7g" label="0,32" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2o1ssVf-Eeadk_NYoX8NdQ" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXCk4kxREeaUD4tTTJ7O7g" label="0,20" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2o1sslf-Eeadk_NYoX8NdQ" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXCk40xREeaUD4tTTJ7O7g" label="0,28" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2o1ss1f-Eeadk_NYoX8NdQ" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXCk5ExREeaUD4tTTJ7O7g" label="2.4061104261901454E-6" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_2o1stFf-Eeadk_NYoX8NdQ" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXCk5UxREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_2o1stVf-Eeadk_NYoX8NdQ" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.11"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWaSx0xREeaUD4tTTJ7O7g" label="new_storage 3 : Maximum relative stock level">
+      <lines xmi:type="table:DLine" xmi:id="_9zjF0FiAEeauRuhUKDxEjw" label="new_batch_process 2 : Number of started batches">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JXFoMUxREeaUD4tTTJ7O7g" label="new_storage 3 : Maximum relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_91VOgFiAEeauRuhUKDxEjw" label="new_batch_process 2 : Number of started batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXFoMkxREeaUD4tTTJ7O7g" label="maxOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_91VOgViAEeauRuhUKDxEjw" label="startedBatchCount(&quot;new_batch_process 2&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXHdYExREeaUD4tTTJ7O7g" label="1,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_91e_gFiAEeauRuhUKDxEjw" label="" column="_SrJXmxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXHdYUxREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_91e_gViAEeauRuhUKDxEjw" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXHdYkxREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_91e_gliAEeauRuhUKDxEjw" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXHdY0xREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_91e_g1iAEeauRuhUKDxEjw" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXHdZExREeaUD4tTTJ7O7g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_91e_hFiAEeauRuhUKDxEjw" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXIEcExREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
+        <cells xmi:type="table:DCell" xmi:id="_91e_hViAEeauRuhUKDxEjw" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.12"/>
         </cells>
       </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWa50ExREeaUD4tTTJ7O7g" label="new_storage 3 : Average relative stock level">
+      <lines xmi:type="table:DLine" xmi:id="_9zkT8FiAEeauRuhUKDxEjw" label="new_batch_process 2 : Percentage of time idle">
         <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
         <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
         <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JXIEcUxREeaUD4tTTJ7O7g" label="new_storage 3 : Average relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_91owhliAEeauRuhUKDxEjw" label="new_batch_process 2 : Percentage of time idle" column="_SrJXmRIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXIEckxREeaUD4tTTJ7O7g" label="avgOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
+        <cells xmi:type="table:DCell" xmi:id="_91owh1iAEeauRuhUKDxEjw" label="div(totalWaitDuration(&quot;nw_batch_process 2&quot;), time" column="_SrJXmhIPEeaWrKzNGSHc5g">
           <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
           <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXKgsExREeaUD4tTTJ7O7g" label="0,02" column="_SrJXmxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXKgsUxREeaUD4tTTJ7O7g" label="0,32" column="_SrJXnBIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXLHwExREeaUD4tTTJ7O7g" label="0,20" column="_SrJXnRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXLHwUxREeaUD4tTTJ7O7g" label="0,28" column="_SrJXnhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXLHwkxREeaUD4tTTJ7O7g" label="2.4061104261901454E-6" column="_SrJXnxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXLHw0xREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
-        </cells>
-      </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWa50UxREeaUD4tTTJ7O7g" label="new_storage 3 : Minimum relative stock level">
-        <target xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-        <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JXLHxExREeaUD4tTTJ7O7g" label="new_storage 3 : Minimum relative stock level" column="_SrJXmRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXLHxUxREeaUD4tTTJ7O7g" label="minOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))" column="_SrJXmhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXNkAExREeaUD4tTTJ7O7g" label="1,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXNkAUxREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXNkAkxREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXOLEExREeaUD4tTTJ7O7g" label="1,00" column="_SrJXnhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXOLEUxREeaUD4tTTJ7O7g" label="0.0" column="_SrJXnxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXOLEkxREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.14"/>
-        </cells>
-      </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWa50kxREeaUD4tTTJ7O7g" label="new_batch_process 2 : Number of started batches">
-        <target xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-        <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JXOLE0xREeaUD4tTTJ7O7g" label="new_batch_process 2 : Number of started batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXOLFExREeaUD4tTTJ7O7g" label="startedBatchCount(&quot;new_batch_process 2&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXQAQExREeaUD4tTTJ7O7g" label="69,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXQAQUxREeaUD4tTTJ7O7g" label="96,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXQnUExREeaUD4tTTJ7O7g" label="59,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXQnUUxREeaUD4tTTJ7O7g" label="84,36" column="_SrJXnhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXQnUkxREeaUD4tTTJ7O7g" label="0.3242322425336511" column="_SrJXnxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXQnU0xREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.15"/>
-        </cells>
-      </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWa500xREeaUD4tTTJ7O7g" label="new_batch_process 2 : Number of completed batches">
-        <target xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-        <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JXQnVExREeaUD4tTTJ7O7g" label="new_batch_process 2 : Number of completed batches" column="_SrJXmRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXQnVUxREeaUD4tTTJ7O7g" label="completedBatchCount(&quot;new_batch_process 2&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXScgExREeaUD4tTTJ7O7g" label="69,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXTDkExREeaUD4tTTJ7O7g" label="96,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXTDkUxREeaUD4tTTJ7O7g" label="59,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXTDkkxREeaUD4tTTJ7O7g" label="84,36" column="_SrJXnhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXTDk0xREeaUD4tTTJ7O7g" label="0.3242322425336511" column="_SrJXnxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXTDlExREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.16"/>
-        </cells>
-      </lines>
-      <lines xmi:type="table:DLine" xmi:id="_JWa51ExREeaUD4tTTJ7O7g" label="new_batch_process 2 : Percentage of time idle">
-        <target xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-        <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_JXTqoExREeaUD4tTTJ7O7g" label="new_batch_process 2 : Percentage of time idle" column="_SrJXmRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXTqoUxREeaUD4tTTJ7O7g" label="div(totalWaitDuration(&quot;new_batch_process 2&quot;), time)" column="_SrJXmhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXVf0ExREeaUD4tTTJ7O7g" label="2,93" column="_SrJXmxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXVf0UxREeaUD4tTTJ7O7g" label="2,41" column="_SrJXnBIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXVf0kxREeaUD4tTTJ7O7g" label="2,04" column="_SrJXnRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXVf00xREeaUD4tTTJ7O7g" label="2,16" column="_SrJXnhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXVf1ExREeaUD4tTTJ7O7g" label="3.242322425336515E-5" column="_SrJXnxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_JXVf1UxREeaUD4tTTJ7O7g" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.17"/>
-        </cells>
-      </lines>
-      <lines xmi:type="table:DLine" xmi:id="_zgvwQU2_EeaGVePBJKlswA" label="new_storage 2 : Total lost by overflow">
-        <target xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-        <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-        <originMapping xmi:type="description_2:LineMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']"/>
-        <cells xmi:type="table:DCell" xmi:id="_ziW50E2_EeaGVePBJKlswA" label="new_storage 2 : Total lost by overflow" column="_SrJXmRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-        </cells>
-        <cells xmi:type="table:DCell" xmi:id="_ziW50U2_EeaGVePBJKlswA" label="totalLostByOverflow(&quot;new_storage 2&quot;)" column="_SrJXmhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-          <currentStyle xmi:type="table:DCellStyle" xmi:id="_ziW50k2_EeaGVePBJKlswA">
+          <currentStyle xmi:type="table:DCellStyle" xmi:id="_AFHN4FiDEea35a9Gl7F5rQ" backgroundColor="239,41,41">
             <backgroundStyleOrigin xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Value']"/>
           </currentStyle>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_ziW5002_EeaGVePBJKlswA" label="72,00" column="_SrJXmxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
+        <cells xmi:type="table:DCell" xmi:id="_91x6cFiAEeauRuhUKDxEjw" label="" column="_SrJXmxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_ziW51E2_EeaGVePBJKlswA" label="99,00" column="_SrJXnBIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
+        <cells xmi:type="table:DCell" xmi:id="_91x6cViAEeauRuhUKDxEjw" label="" column="_SrJXnBIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_ziW51U2_EeaGVePBJKlswA" label="60,00" column="_SrJXnRIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
+        <cells xmi:type="table:DCell" xmi:id="_91x6cliAEeauRuhUKDxEjw" label="" column="_SrJXnRIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_ziW51k2_EeaGVePBJKlswA" label="87,33" column="_SrJXnhIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
+        <cells xmi:type="table:DCell" xmi:id="_91x6c1iAEeauRuhUKDxEjw" label="" column="_SrJXnhIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_ziW5102_EeaGVePBJKlswA" label="0.32772780596108775" column="_SrJXnxIPEeaWrKzNGSHc5g">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
+        <cells xmi:type="table:DCell" xmi:id="_91x6dFiAEeauRuhUKDxEjw" label="" column="_SrJXnxIPEeaWrKzNGSHc5g">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
         </cells>
-        <cells xmi:type="table:DCell" xmi:id="_ziW52E2_EeaGVePBJKlswA" label="" column="_CKxFUEuqEealmvLNe2SAWQ">
-          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
-          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.18"/>
+        <cells xmi:type="table:DCell" xmi:id="_91x6dViAEeauRuhUKDxEjw" label=" failure: nw_batch_process 2 is not a known process: (new_batch_process 1,new_supplier 1) (add quotes around identifiers with white spaces)&#xA;&#xA;div(totalWaitDuration(&quot;nw_batch_process 2&quot;), time&#xA;                      ^" column="_CKxFUEuqEealmvLNe2SAWQ">
+          <target xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
+          <semanticElements xmi:type="metamodel:Query" href="sample.simqri#//@query.13"/>
         </cells>
       </lines>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXmRIPEeaWrKzNGSHc5g" label="Name" cells="_JWdWEExREeaUD4tTTJ7O7g _JWgZYExREeaUD4tTTJ7O7g _JWkq1ExREeaUD4tTTJ7O7g _JWnuIkxREeaUD4tTTJ7O7g _JWqxcExREeaUD4tTTJ7O7g _JWt0xExREeaUD4tTTJ7O7g _JWw4EkxREeaUD4tTTJ7O7g _JW0icUxREeaUD4tTTJ7O7g _JW4M0kxREeaUD4tTTJ7O7g _JW6pFUxREeaUD4tTTJ7O7g _JW9sYkxREeaUD4tTTJ7O7g _JXAIpExREeaUD4tTTJ7O7g _JXFoMUxREeaUD4tTTJ7O7g _JXIEcUxREeaUD4tTTJ7O7g _JXLHxExREeaUD4tTTJ7O7g _JXOLE0xREeaUD4tTTJ7O7g _JXQnVExREeaUD4tTTJ7O7g _JXTqoExREeaUD4tTTJ7O7g _ziW50E2_EeaGVePBJKlswA" width="277" featureName="name">
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXmRIPEeaWrKzNGSHc5g" label="Name" cells="_UeQTsFfzEea9zbPeHWJiSg _2kNrYFf-Eeadk_NYoX8NdQ _2khNZlf-Eeadk_NYoX8NdQ _2k9SRlf-Eeadk_NYoX8NdQ _2lQ0Rlf-Eeadk_NYoX8NdQ _2ljvNlf-Eeadk_NYoX8NdQ _2mAbI1f-Eeadk_NYoX8NdQ _2mTWFlf-Eeadk_NYoX8NdQ _2mmRBlf-Eeadk_NYoX8NdQ _2m5zBlf-Eeadk_NYoX8NdQ _2n8U1lf-Eeadk_NYoX8NdQ _2oiKtlf-Eeadk_NYoX8NdQ _91VOgFiAEeauRuhUKDxEjw _91owhliAEeauRuhUKDxEjw" width="277" featureName="name">
         <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Name']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXmhIPEeaWrKzNGSHc5g" label="Value" cells="_JWdWEUxREeaUD4tTTJ7O7g _JWgZYUxREeaUD4tTTJ7O7g _JWkq1UxREeaUD4tTTJ7O7g _JWnuI0xREeaUD4tTTJ7O7g _JWqxcUxREeaUD4tTTJ7O7g _JWub0ExREeaUD4tTTJ7O7g _JWw4E0xREeaUD4tTTJ7O7g _JW0ickxREeaUD4tTTJ7O7g _JW4M00xREeaUD4tTTJ7O7g _JW7QIExREeaUD4tTTJ7O7g _JW9sY0xREeaUD4tTTJ7O7g _JXAIpUxREeaUD4tTTJ7O7g _JXFoMkxREeaUD4tTTJ7O7g _JXIEckxREeaUD4tTTJ7O7g _JXLHxUxREeaUD4tTTJ7O7g _JXOLFExREeaUD4tTTJ7O7g _JXQnVUxREeaUD4tTTJ7O7g _JXTqoUxREeaUD4tTTJ7O7g _ziW50U2_EeaGVePBJKlswA" width="269" featureName="value">
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXmhIPEeaWrKzNGSHc5g" label="Value" cells="_UeQTsVfzEea9zbPeHWJiSg _2kNrYVf-Eeadk_NYoX8NdQ _2khNZ1f-Eeadk_NYoX8NdQ _2k9SR1f-Eeadk_NYoX8NdQ _2lQ0R1f-Eeadk_NYoX8NdQ _2ljvN1f-Eeadk_NYoX8NdQ _2mAbJFf-Eeadk_NYoX8NdQ _2mTWF1f-Eeadk_NYoX8NdQ _2mmRB1f-Eeadk_NYoX8NdQ _2m5zB1f-Eeadk_NYoX8NdQ _2n8U11f-Eeadk_NYoX8NdQ _2oiKt1f-Eeadk_NYoX8NdQ _91VOgViAEeauRuhUKDxEjw _91owh1iAEeauRuhUKDxEjw" width="269" featureName="value">
         <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Value']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXmxIPEeaWrKzNGSHc5g" label="&quot;One Shot&quot; results" cells="_JWfLQExREeaUD4tTTJ7O7g _JWjcsExREeaUD4tTTJ7O7g _JWnHEExREeaUD4tTTJ7O7g _JWpjUExREeaUD4tTTJ7O7g _JWtNsExREeaUD4tTTJ7O7g _JWwRAExREeaUD4tTTJ7O7g _JWz7YExREeaUD4tTTJ7O7g _JW2-sExREeaUD4tTTJ7O7g _JW6CAExREeaUD4tTTJ7O7g _JW9FUExREeaUD4tTTJ7O7g _JW_hkExREeaUD4tTTJ7O7g _JXCk4ExREeaUD4tTTJ7O7g _JXHdYExREeaUD4tTTJ7O7g _JXKgsExREeaUD4tTTJ7O7g _JXNkAExREeaUD4tTTJ7O7g _JXQAQExREeaUD4tTTJ7O7g _JXScgExREeaUD4tTTJ7O7g _JXVf0ExREeaUD4tTTJ7O7g _ziW5002_EeaGVePBJKlswA" visible="false" width="111" featureName="result">
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXmxIPEeaWrKzNGSHc5g" label="&quot;One Shot&quot; results" cells="_UeSI4FfzEea9zbPeHWJiSg _2khNYFf-Eeadk_NYoX8NdQ _2k9SQFf-Eeadk_NYoX8NdQ _2lQ0QFf-Eeadk_NYoX8NdQ _2ljvMFf-Eeadk_NYoX8NdQ _2l2qIFf-Eeadk_NYoX8NdQ _2mTWEFf-Eeadk_NYoX8NdQ _2mmRAFf-Eeadk_NYoX8NdQ _2m5zAFf-Eeadk_NYoX8NdQ _2nMt8Ff-Eeadk_NYoX8NdQ _2oPPwFf-Eeadk_NYoX8NdQ _2o1ssFf-Eeadk_NYoX8NdQ _91e_gFiAEeauRuhUKDxEjw _91x6cFiAEeauRuhUKDxEjw" visible="false" width="111" featureName="result">
         <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Result']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnBIPEeaWrKzNGSHc5g" label="Maximum (MC)" cells="_JWfyUExREeaUD4tTTJ7O7g _JWkDwExREeaUD4tTTJ7O7g _JWnHEUxREeaUD4tTTJ7O7g _JWqKYExREeaUD4tTTJ7O7g _JWtNsUxREeaUD4tTTJ7O7g _JWwRAUxREeaUD4tTTJ7O7g _JWz7YUxREeaUD4tTTJ7O7g _JW3lwExREeaUD4tTTJ7O7g _JW6pEExREeaUD4tTTJ7O7g _JW9FUUxREeaUD4tTTJ7O7g _JW_hkUxREeaUD4tTTJ7O7g _JXCk4UxREeaUD4tTTJ7O7g _JXHdYUxREeaUD4tTTJ7O7g _JXKgsUxREeaUD4tTTJ7O7g _JXNkAUxREeaUD4tTTJ7O7g _JXQAQUxREeaUD4tTTJ7O7g _JXTDkExREeaUD4tTTJ7O7g _JXVf0UxREeaUD4tTTJ7O7g _ziW51E2_EeaGVePBJKlswA" visible="false" width="99" featureName="max">
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnBIPEeaWrKzNGSHc5g" label="Maximum (MC)" cells="_UeSv8FfzEea9zbPeHWJiSg _2khNYVf-Eeadk_NYoX8NdQ _2k9SQVf-Eeadk_NYoX8NdQ _2lQ0QVf-Eeadk_NYoX8NdQ _2ljvMVf-Eeadk_NYoX8NdQ _2l2qIVf-Eeadk_NYoX8NdQ _2mTWEVf-Eeadk_NYoX8NdQ _2mmRAVf-Eeadk_NYoX8NdQ _2m5zAVf-Eeadk_NYoX8NdQ _2nMt8Vf-Eeadk_NYoX8NdQ _2oPPwVf-Eeadk_NYoX8NdQ _2o1ssVf-Eeadk_NYoX8NdQ _91e_gViAEeauRuhUKDxEjw _91x6cViAEeauRuhUKDxEjw" visible="false" width="99" featureName="max">
         <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Max']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnRIPEeaWrKzNGSHc5g" label="Minimum (MC)" cells="_JWfyUUxREeaUD4tTTJ7O7g _JWkq0ExREeaUD4tTTJ7O7g _JWnHEkxREeaUD4tTTJ7O7g _JWqKYUxREeaUD4tTTJ7O7g _JWt0wExREeaUD4tTTJ7O7g _JWwRAkxREeaUD4tTTJ7O7g _JWz7YkxREeaUD4tTTJ7O7g _JW3lwUxREeaUD4tTTJ7O7g _JW6pEUxREeaUD4tTTJ7O7g _JW9FUkxREeaUD4tTTJ7O7g _JXAIoExREeaUD4tTTJ7O7g _JXCk4kxREeaUD4tTTJ7O7g _JXHdYkxREeaUD4tTTJ7O7g _JXLHwExREeaUD4tTTJ7O7g _JXNkAkxREeaUD4tTTJ7O7g _JXQnUExREeaUD4tTTJ7O7g _JXTDkUxREeaUD4tTTJ7O7g _JXVf0kxREeaUD4tTTJ7O7g _ziW51U2_EeaGVePBJKlswA" visible="false" width="98" featureName="min">
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnRIPEeaWrKzNGSHc5g" label="Minimum (MC)" cells="_UeSv8VfzEea9zbPeHWJiSg _2khNYlf-Eeadk_NYoX8NdQ _2k9SQlf-Eeadk_NYoX8NdQ _2lQ0Qlf-Eeadk_NYoX8NdQ _2ljvMlf-Eeadk_NYoX8NdQ _2l2qIlf-Eeadk_NYoX8NdQ _2mTWElf-Eeadk_NYoX8NdQ _2mmRAlf-Eeadk_NYoX8NdQ _2m5zAlf-Eeadk_NYoX8NdQ _2nMt8lf-Eeadk_NYoX8NdQ _2oPPwlf-Eeadk_NYoX8NdQ _2o1sslf-Eeadk_NYoX8NdQ _91e_gliAEeauRuhUKDxEjw _91x6cliAEeauRuhUKDxEjw" visible="false" width="98" featureName="min">
         <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Min']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnhIPEeaWrKzNGSHc5g" label="Mean (MC)" cells="_JWfyUkxREeaUD4tTTJ7O7g _JWkq0UxREeaUD4tTTJ7O7g _JWnHE0xREeaUD4tTTJ7O7g _JWqKYkxREeaUD4tTTJ7O7g _JWt0wUxREeaUD4tTTJ7O7g _JWwRA0xREeaUD4tTTJ7O7g _JWz7Y0xREeaUD4tTTJ7O7g _JW3lwkxREeaUD4tTTJ7O7g _JW6pEkxREeaUD4tTTJ7O7g _JW9FU0xREeaUD4tTTJ7O7g _JXAIoUxREeaUD4tTTJ7O7g _JXCk40xREeaUD4tTTJ7O7g _JXHdY0xREeaUD4tTTJ7O7g _JXLHwUxREeaUD4tTTJ7O7g _JXOLEExREeaUD4tTTJ7O7g _JXQnUUxREeaUD4tTTJ7O7g _JXTDkkxREeaUD4tTTJ7O7g _JXVf00xREeaUD4tTTJ7O7g _ziW51k2_EeaGVePBJKlswA" visible="false" width="75" featureName="mean">
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnhIPEeaWrKzNGSHc5g" label="Mean (MC)" cells="_UeTXAFfzEea9zbPeHWJiSg _2khNY1f-Eeadk_NYoX8NdQ _2k9SQ1f-Eeadk_NYoX8NdQ _2lQ0Q1f-Eeadk_NYoX8NdQ _2ljvM1f-Eeadk_NYoX8NdQ _2mAbIFf-Eeadk_NYoX8NdQ _2mTWE1f-Eeadk_NYoX8NdQ _2mmRA1f-Eeadk_NYoX8NdQ _2m5zA1f-Eeadk_NYoX8NdQ _2nMt81f-Eeadk_NYoX8NdQ _2oPPw1f-Eeadk_NYoX8NdQ _2o1ss1f-Eeadk_NYoX8NdQ _91e_g1iAEeauRuhUKDxEjw _91x6c1iAEeauRuhUKDxEjw" visible="false" width="75" featureName="mean">
         <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Mean']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnxIPEeaWrKzNGSHc5g" label="Variance (MC)" cells="_JWfyU0xREeaUD4tTTJ7O7g _JWkq0kxREeaUD4tTTJ7O7g _JWnuIExREeaUD4tTTJ7O7g _JWqKY0xREeaUD4tTTJ7O7g _JWt0wkxREeaUD4tTTJ7O7g _JWw4EExREeaUD4tTTJ7O7g _JWz7ZExREeaUD4tTTJ7O7g _JW4M0ExREeaUD4tTTJ7O7g _JW6pE0xREeaUD4tTTJ7O7g _JW9sYExREeaUD4tTTJ7O7g _JXAIokxREeaUD4tTTJ7O7g _JXCk5ExREeaUD4tTTJ7O7g _JXHdZExREeaUD4tTTJ7O7g _JXLHwkxREeaUD4tTTJ7O7g _JXOLEUxREeaUD4tTTJ7O7g _JXQnUkxREeaUD4tTTJ7O7g _JXTDk0xREeaUD4tTTJ7O7g _JXVf1ExREeaUD4tTTJ7O7g _ziW5102_EeaGVePBJKlswA" visible="false" width="131" featureName="variance">
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_SrJXnxIPEeaWrKzNGSHc5g" label="Variance (MC)" cells="_UeTXAVfzEea9zbPeHWJiSg _2khNZFf-Eeadk_NYoX8NdQ _2k9SRFf-Eeadk_NYoX8NdQ _2lQ0RFf-Eeadk_NYoX8NdQ _2ljvNFf-Eeadk_NYoX8NdQ _2mAbIVf-Eeadk_NYoX8NdQ _2mTWFFf-Eeadk_NYoX8NdQ _2mmRBFf-Eeadk_NYoX8NdQ _2m5zBFf-Eeadk_NYoX8NdQ _2nMt9Ff-Eeadk_NYoX8NdQ _2oPPxFf-Eeadk_NYoX8NdQ _2o1stFf-Eeadk_NYoX8NdQ _91e_hFiAEeauRuhUKDxEjw _91x6dFiAEeauRuhUKDxEjw" visible="false" width="131" featureName="variance">
         <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Variance']"/>
       </columns>
-      <columns xmi:type="table:DFeatureColumn" xmi:id="_CKxFUEuqEealmvLNe2SAWQ" label="Error Message" cells="_JWfyVExREeaUD4tTTJ7O7g _JWkq00xREeaUD4tTTJ7O7g _JWnuIUxREeaUD4tTTJ7O7g _JWqKZExREeaUD4tTTJ7O7g _JWt0w0xREeaUD4tTTJ7O7g _JWw4EUxREeaUD4tTTJ7O7g _JW0icExREeaUD4tTTJ7O7g _JW4M0UxREeaUD4tTTJ7O7g _JW6pFExREeaUD4tTTJ7O7g _JW9sYUxREeaUD4tTTJ7O7g _JXAIo0xREeaUD4tTTJ7O7g _JXCk5UxREeaUD4tTTJ7O7g _JXIEcExREeaUD4tTTJ7O7g _JXLHw0xREeaUD4tTTJ7O7g _JXOLEkxREeaUD4tTTJ7O7g _JXQnU0xREeaUD4tTTJ7O7g _JXTDlExREeaUD4tTTJ7O7g _JXVf1UxREeaUD4tTTJ7O7g _ziW52E2_EeaGVePBJKlswA" width="456" featureName="error">
+      <columns xmi:type="table:DFeatureColumn" xmi:id="_CKxFUEuqEealmvLNe2SAWQ" label="Error Message" cells="_UeTXAlfzEea9zbPeHWJiSg _2khNZVf-Eeadk_NYoX8NdQ _2k9SRVf-Eeadk_NYoX8NdQ _2lQ0RVf-Eeadk_NYoX8NdQ _2ljvNVf-Eeadk_NYoX8NdQ _2mAbIlf-Eeadk_NYoX8NdQ _2mTWFVf-Eeadk_NYoX8NdQ _2mmRBVf-Eeadk_NYoX8NdQ _2m5zBVf-Eeadk_NYoX8NdQ _2nMt9Vf-Eeadk_NYoX8NdQ _2oPPxVf-Eeadk_NYoX8NdQ _2o1stVf-Eeadk_NYoX8NdQ _91e_hViAEeauRuhUKDxEjw _91x6dViAEeauRuhUKDxEjw" width="456" featureName="error">
         <originMapping xmi:type="description_2:FeatureColumnMapping" href="platform:/plugin/be.cetic.simqri.design/description/simqri.odesign#//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedColumnMappings[name='QT_Error']"/>
         <currentStyle xmi:type="table:DTableElementStyle" xmi:id="_qwgxAEwPEeav9YlNexHlag" labelSize="10" defaultForegroundStyle="true" foregroundColor="239,41,41"/>
       </columns>

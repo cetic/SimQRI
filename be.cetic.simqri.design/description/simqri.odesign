@@ -22,7 +22,7 @@
         <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromOutputs" level="ERROR" message="aql:self.hasOneFlowFromThatPort().toString()" targetClass="metamodel.Model">
           <audits auditExpression="aql:self.hasOneFlowFromThatPort().toString().size()=0"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromElements" level="ERROR" message="aql:self.isLinkedToFlow().toString()" targetClass="metamodel.Model">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="SD_checkFlowsFromElements" level="WARNING" message="aql:self.isLinkedToFlow().toString()" targetClass="metamodel.Model">
           <audits auditExpression="aql:self.isLinkedToFlow().toString().size()=0"/>
         </ownedRules>
       </validationSet>

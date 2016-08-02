@@ -1,6 +1,7 @@
 package be.cetic.simqri.simulator.mapping
 
 import oscar.des.flow.core.{AttributeDefinitions, DiscreteChoice, Putable, Fetchable}
+
 import oscar.des.engine.SimControl
 
 import oscar.des.flow.lib._
@@ -8,6 +9,7 @@ import oscar.des.flow.modeling._
 import oscar.des.montecarlo.DataSampling
 import oscar.des.logger._
 
+import scala.util.control._
 import scala.collection.{mutable, SortedSet}
 import scala.collection.mutable
 import scala.collection.JavaConversions._
@@ -40,6 +42,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
   val factoryModel = if (mcSim) new FactoryModel(null, attrsDef) else new FactoryModel(verboseFunc, attrsDef)
   
   var simQRiComponents : Array[SimQRiComponent] = new Array[SimQRiComponent](0)
+  var nonMappedComponentNames : Array[String] = new Array[String](0)
   // val standardItemClass = zeroItemClass
   val attributes = attributeDefinitions("rawQuantity")
   val rawBatch = attributes.getN(0)
@@ -114,15 +117,30 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
                                                   storage.getName, 
                                                   storage.isOverflow(),
                                                   "0")
-        mapStorages += (components.indexOf(c) -> newStorage)
-        simQRiComponents +:= CStorage(newStorage)
+                                                  
+        // check if the storage is linked to another element
+        if(!storage.getProcessOutputFlow.isEmpty() || !storage.getStorageOutputFlow.isEmpty() || !storage.getOrderOnStockThreshold.isEmpty()) {
+          mapStorages += (components.indexOf(c) -> newStorage)
+          simQRiComponents +:= CStorage(newStorage)
+        }
+        else {
+          nonMappedComponentNames +:= storage.getName;
+        }
+        // mapStorages += (components.indexOf(c) -> newStorage)
+        // simQRiComponents +:= CStorage(newStorage)
       }
       else if(c.isInstanceOf[be.cetic.simqri.metamodel.Supplier]) {
         val supplier = c.asInstanceOf[be.cetic.simqri.metamodel.Supplier]
         val triplet = (supplier.getName,
                        ph.getNonNegativeDoubleFunc(supplier.getSupplierDelay), 
                        supplier.getDeliveredPercentage.intValue())
-        mapPartSuppliers += (components.indexOf(c) -> triplet)
+        // check if the supplier is linked to another element
+        if(!supplier.getRefillPolicy.isEmpty())
+          mapPartSuppliers += (components.indexOf(c) -> triplet)
+        else {
+          nonMappedComponentNames +:= supplier.getName;
+        }
+        // mapPartSuppliers += (components.indexOf(c) -> triplet)
       }
       // NEW : we fill a map which will contain informations about processes inputs and
       // all kinds of outputs that will be used to create process objects in the oscar-des simulator
@@ -235,8 +253,26 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
                                                        "", 
                                                        batchProcess.getName, 
                                                        "0")
-          activableProcesses +:= newSBP
-          simQRiComponents +:= CSingleBatchProcess(newSBP)
+          // check if the sbp is linked to another element
+          var noLinked = true
+          if(!batchProcess.getOutputs.isEmpty()) {
+            val loop = new Breaks
+            loop.breakable {
+              for(o <- batchProcess.getOutputs) {
+                if(!o.getProcessOutputFlow.isEmpty() && !batchProcess.getStorageOutputFlow.isEmpty()) {
+                  activableProcesses +:= newSBP
+                  simQRiComponents +:= CSingleBatchProcess(newSBP)
+                  noLinked = false
+                  loop.break()
+                }
+              }
+            }
+          }
+          if(noLinked) {
+            nonMappedComponentNames +:= batchProcess.getName;
+          }
+          // activableProcesses +:= newSBP
+          // simQRiComponents +:= CSingleBatchProcess(newSBP)
         }
         else if(numLines!=1 && perSuc==100) {
           val newBP = factoryModel.batchProcess(batchProcess.getNumberOfChains,
@@ -246,8 +282,26 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
                                                 batchProcess.getName,
                                                 "",
                                                 "0")
-          activableProcesses +:= newBP
-          simQRiComponents +:= CBatchProcess(newBP)
+          // check if the bp is linked to another element
+          var noLinked = true
+          if(!batchProcess.getOutputs.isEmpty()) {
+            val loop = new Breaks
+            loop.breakable {
+              for(o <- batchProcess.getOutputs) {
+                if(!o.getProcessOutputFlow.isEmpty() && !batchProcess.getStorageOutputFlow.isEmpty()) {
+                  activableProcesses +:= newBP
+                  simQRiComponents +:= CBatchProcess(newBP)
+                  noLinked = false
+                  loop.break()
+                }
+              }
+            }
+          }
+          if(noLinked) {
+            nonMappedComponentNames +:= batchProcess.getName;
+          }
+          // activableProcesses +:= newBP
+          // simQRiComponents +:= CBatchProcess(newBP)
         }
         else if(numLines==1 && perSuc!=100) {
           val choiceStr = s" outputPort 0 weight $perSuc \n outputPort 1 weight ${1F-perSuc}"
@@ -258,8 +312,26 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
                                                                  choiceStr, 
                                                                  batchProcess.getName,
                                                                  "0")
-          activableProcesses +:= newFSBP  
-          simQRiComponents +:= CFailingSingleBatchProcess(newFSBP)
+          // check if the fsbp is linked to another element
+          var noLinked = true
+          if(!batchProcess.getOutputs.isEmpty()) {
+            val loop = new Breaks
+            loop.breakable {
+              for(o <- batchProcess.getOutputs) {
+                if(!o.getProcessOutputFlow.isEmpty() && !batchProcess.getStorageOutputFlow.isEmpty()) {
+                  activableProcesses +:= newFSBP
+                  simQRiComponents +:= CFailingSingleBatchProcess(newFSBP)
+                  noLinked = false
+                  loop.break()
+                }
+              }
+            }
+          }
+          if(noLinked) {
+            nonMappedComponentNames +:= batchProcess.getName;
+          }
+          // activableProcesses +:= newFSBP
+          // simQRiComponents +:= CFailingSingleBatchProcess(newFSBP)
         }
         else if(numLines!=1 && perSuc!=100) {
           val choiceStr = s" outputPort 0 weight $perSuc \n outputPort 1 weight ${1F-perSuc}"
@@ -271,8 +343,26 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
                                                           batchProcess.getName,
                                                           choiceStr, 
                                                           "0")
-          activableProcesses +:= newFBP 
-          simQRiComponents +:= CFailingBatchProcess(newFBP)
+          // check if the fbp is linked to another element
+          var noLinked = true
+          if(!batchProcess.getOutputs.isEmpty()) {
+            val loop = new Breaks
+            loop.breakable {
+              for(o <- batchProcess.getOutputs) {
+                if(!o.getProcessOutputFlow.isEmpty() && !batchProcess.getStorageOutputFlow.isEmpty()) {
+                  activableProcesses +:= newFBP
+                  simQRiComponents +:= CFailingBatchProcess(newFBP)
+                  noLinked = false
+                  loop.break()
+                }
+              }
+            }
+          }
+          if(noLinked) {
+            nonMappedComponentNames +:= batchProcess.getName;
+          }
+          // activableProcesses +:= newFBP
+          // simQRiComponents +:= CFailingBatchProcess(newFBP)
         }
       }
       else if(c.isInstanceOf[be.cetic.simqri.metamodel.ConveyorBelt]) {
@@ -288,8 +378,20 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
                                                       "", 
                                                       conveyorBelt.getName, 
                                                       "0")
-        activableProcesses +:= newCBP
-        simQRiComponents +:= CConveyorBeltProcess(newCBP)
+        // check if the cbp is linked to another element
+        var noLinked = true
+        if(conveyorBelt.getOutput != null) {
+          if(!conveyorBelt.getOutput().getProcessOutputFlow.isEmpty() && !conveyorBelt.getStorageOutputFlow.isEmpty()) {
+            activableProcesses +:= newCBP
+            noLinked = false
+            simQRiComponents +:= CConveyorBeltProcess(newCBP)
+          }
+        }
+        if(noLinked) {
+          nonMappedComponentNames +:= conveyorBelt.getName;
+        }
+        // activableProcesses +:= newCBP
+        // simQRiComponents +:= CConveyorBeltProcess(newCBP)
       }
     }
     
@@ -299,20 +401,32 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
     var message : java.util.ArrayList[String] = new java.util.ArrayList // check if all queries are valid
     // The model is now complete! We can now simulate it.
     for(query <- model.getQuery) {
-      probeParser.apply(query.getValue) match { // probesList :+= (s"${query.getName} $query.getType", boolExpr) add a type to probes ?
-        case BooleanExpressionResult(boolExpr) =>
-          probesList :+= (s"${query.getName}", boolExpr)
-        case DoubleExpressionResult(dblExpr) =>
-          probesList :+= (s"${query.getName}", dblExpr)
-        case BoolHistoryExpressionResult(boolHistExpr) =>
-          probesList :+= (s"${query.getName}", boolHistExpr)
-        case DoubleHistoryExpressionResult(dblHistExpr) =>
-          probesList :+= (s"${query.getName}", dblHistExpr)
-        case ParsingError(errStr) =>
-          if(verbose)
-            message.add("The probe "+query.getName+" cannot be parsed. This is the error : \n"+errStr)
-        case _ =>
-      }
+        var parsing = true
+        val loop = new Breaks()
+        loop.breakable {
+          for(name <- nonMappedComponentNames) {
+            if(query.getValue.contains(name)) {
+              parsing = false
+              loop.break()
+            }
+          }
+        }
+        if(parsing) {
+          probeParser.apply(query.getValue) match { // probesList :+= (s"${query.getName} $query.getType", boolExpr) add a type to probes ?
+            case BooleanExpressionResult(boolExpr) =>
+              probesList :+= (s"${query.getName}", boolExpr)
+            case DoubleExpressionResult(dblExpr) =>
+              probesList :+= (s"${query.getName}", dblExpr)
+            case BoolHistoryExpressionResult(boolHistExpr) =>
+              probesList :+= (s"${query.getName}", boolHistExpr)
+            case DoubleHistoryExpressionResult(dblHistExpr) =>
+              probesList :+= (s"${query.getName}", dblHistExpr)
+            case ParsingError(errStr) =>
+              if(verbose)
+                message.add("The probe "+query.getName+" cannot be parsed. This is the error : \n"+errStr)
+            case _ =>
+          }
+        }
     }
     factoryModel.setQueries(probesList)
     

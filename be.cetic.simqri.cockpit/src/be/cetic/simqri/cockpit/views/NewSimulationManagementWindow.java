@@ -189,10 +189,10 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		@Override
 		public void run() {
 			jbStart.setEnabled(false);
-			while(newSimulation.getLoading() < loader.getMaximum() && !newSimulation.isAborded())
+			while(newSimulation.getLoading() < loader.getMaximum() && !newSimulation.isCanceled())
 				loader.setValue(newSimulation.getLoading());
 				
-			if(!newSimulation.isAborded()) {
+			if(!newSimulation.isCanceled()) {
 				loader.setValue(loader.getMaximum());
 				dispose();
 			}
@@ -241,7 +241,7 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 			}
 			else if(e.getSource() == this.jbStop) {
 				if(simulationThread != null && loadingBarThread != null && !simulationThread.isInterrupted() && !loadingBarThread.isInterrupted()) {
-					newSimulation.setAborded(true);
+					newSimulation.setCanceled(true);
 					jbStart.setText("Restart");
 					loader.setValue(0);
 				}
