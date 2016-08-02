@@ -3,6 +3,7 @@ package be.cetic.simqri.cockpit.views;
 import java.awt.BorderLayout;
 
 
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -21,16 +22,14 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
 
 /**
  * @author FK
  * @since 19/04/2016
- * @version 1.0
- * @deprecated
+ * @version 2.0
  * 
- * This is the main window in which simulation results will be displayed.
+ * This is the window in which One Shot results will be displayed.
  * 
  */
 public class ResultsWindow extends JFrame implements ActionListener {
@@ -40,18 +39,14 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	private JLabel jlTitle;
 	private JPanel jpButtons;
 	private JTabbedPane jtpResults;
-	private Component panelTrace, panelRuntime, panelElements, panelQueries;
+	private Component panelTrace, panelElements, panelQueries;
 	private JButton jbSave, jbExit;
+	private OneShotTracer ost;
 	
 	public ResultsWindow(OneShotTracer ost) {
 		super("One Shot simulation results");
-		initComponents(false);
-		initWindow();
-	}
-	
-	public ResultsWindow(MonteCarloTracer mct) {
-		super("Monte-Carlo simulation results");
-		initComponents(true);
+		this.ost = ost;
+		initComponents();
 		initWindow();
 	}
 	
@@ -68,29 +63,16 @@ public class ResultsWindow extends JFrame implements ActionListener {
 		this.setVisible(true);
 	}
 	
-	private void initComponents(boolean mc) { 
+	private void initComponents() { 
 		this.jlTitle = new JLabel();
 		this.jlTitle.setText("The simulation is completed. Here are the results :");
 		this.jtpResults = new JTabbedPane();
+				
+		this.panelTrace = new PanelResults(ost.getStringEvents());
+		this.panelElements = new PanelResults(ost.getStringElements()); 
+		this.panelQueries = new PanelResults(ost.getStringProbes()); 
 		
-		String elements, queries;
-		
-		if(!mc) {
-			this.panelTrace = new PanelResults("");
-			this.jtpResults.addTab("Trace", null, panelTrace, "Check the simulation trace");
-			elements = "";
-			queries = "";
-		}
-		else {
-			this.panelRuntime = new PanelResults("");
-			this.jtpResults.addTab("Runtime", null, panelRuntime, "Check the simulation runtime");
-			elements = "";
-			queries = "";
-		}
-		
-		this.panelElements = new PanelResults(elements); 
-		this.panelQueries = new PanelResults(queries); 
-		
+		this.jtpResults.addTab("Trace", null, panelTrace, "Check the simulation trace");
 		this.jtpResults.addTab("Elements", null, panelElements, "Check the simulation elements");
 		this.jtpResults.addTab("Queries", null, panelQueries, "Check the simulation queries results");
 		
@@ -108,11 +90,7 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == this.jbSave) {
 			String allResults = "";
-			/*if(this.ost != null && this.mct == null) 
-				allResults = ost.getStringEvents()+"\n"+ost.getStringElements()+"\n"+ost.getStringProbes()+"\n";
-			else if(this.ost == null && this.mct != null)
-				allResults = mct.getStringRuntime()+"\n"+mct.getStringElements()+"\n"+mct.getStringProbes()+"\n";*/
-			
+			allResults = ost.getStringEvents()+"\n"+ost.getStringElements()+"\n"+ost.getStringProbes()+"\n";
 			saveInTextFile(allResults);
 		}
 		if(event.getSource() == this.jbExit) {

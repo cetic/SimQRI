@@ -102,7 +102,7 @@ public class Simulation {
 				
 				setQueriesSamples(sqlogger, model);
 				
-				new ResultsWindow(mct);
+				// new ResultsWindow(mct);
 			}
 			else {
 				showMessage("The simulation will not be launchable due to some errors in your queries : \n"

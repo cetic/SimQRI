@@ -14,6 +14,7 @@ import be.cetic.simqri.cockpit.reporting.ReportManager;
 import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
 import be.cetic.simqri.cockpit.util.JsonFormat;
+import be.cetic.simqri.cockpit.views.ResultsWindow;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.Query;
 import be.cetic.simqri.simulator.mapping.SimQRiSirius;
@@ -148,7 +149,7 @@ public class NewSimulation implements Runnable {
 				});
 				thread.start();
 				
-				// Instance of the object that will store "One Shot" simulation results and manage their XML mutation
+				// Instance of the object that will store "One Shot" simulation results
 				OneShotTracer ost = new OneShotTracer();
 				if(isAborted()) return;
 				// Convert simulation results to java structures
@@ -160,20 +161,11 @@ public class NewSimulation implements Runnable {
 				if(isAborted()) return;
 				ost.setRawInfos(sqlogger.logs().rawInfos());
 				if(isAborted()) return;
-				ost.createOneShotXMLFile();
-				if(isAborted()) return;
 				this.setQueriesResult(sqlogger, model);
 				if(isAborted()) return;
-				thread.interrupt();
 					
-				ReportManager reportManager = new ReportManager(extensions);
-				try {
-					reportManager.executeReport("One Shot");
-				} catch (EngineException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				// new ResultsWindow(ost);
+				new ResultsWindow(ost);
+				thread.interrupt();
 			}
 			
 		}

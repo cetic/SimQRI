@@ -157,6 +157,10 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		
 		jcbPdf.setSelected(true);
 		
+		this.jcbDocx.setEnabled(false); this.jcbPptx.setEnabled(false);
+		this.jcbXlsx.setEnabled(false); this.jcbHtml.setEnabled(false);
+		this.jcbPdf.setEnabled(false); this.jcbOdt.setEnabled(false);
+		
 		jtfTimeUnits = new JTextField("1000");
 		PlainDocument docTimeUnits = (PlainDocument) jtfTimeUnits.getDocument();
 	    docTimeUnits.setDocumentFilter(new IntFilter());
@@ -205,9 +209,15 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		if(e.getActionCommand() != null && e.getActionCommand().equals("One Shot")) {
 			this.jtfMaxIterations.setText("100");
 			this.jtfMaxIterations.setEnabled(false);
+			this.jcbDocx.setEnabled(false); this.jcbPptx.setEnabled(false);
+			this.jcbXlsx.setEnabled(false); this.jcbHtml.setEnabled(false);
+			this.jcbPdf.setEnabled(false); this.jcbOdt.setEnabled(false);
 		}
 		else if (e.getActionCommand() != null && e.getActionCommand().equals("Monte-Carlo")) {
 			this.jtfMaxIterations.setEnabled(true);
+			this.jcbDocx.setEnabled(true); this.jcbPptx.setEnabled(true);
+			this.jcbXlsx.setEnabled(true); this.jcbHtml.setEnabled(true);
+			this.jcbPdf.setEnabled(true); this.jcbOdt.setEnabled(true);
 		}
 		else {
 			if(e.getSource() == this.jbStart) {
@@ -217,22 +227,22 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 					JOptionPane.showMessageDialog(null, "Max Iterations value is not set!", "Error", JOptionPane.ERROR_MESSAGE);
 				else {
 					timeUnits = Integer.parseInt(jtfTimeUnits.getText());
-					maxIterations = Integer.parseInt(jtfMaxIterations.getText());
+					maxIterations = Integer.parseInt(jtfMaxIterations.getText()); // Extensions chosen by the user
+					List<String> extensions = new ArrayList<String>();
 					if(this.jrbMonteCarlo.isSelected()) {
 						type = "Monte-Carlo";
 						loader.setMaximum(maxIterations);
+						
+						if(this.jcbDocx.isSelected()) extensions.add("docx"); if(this.jcbPdf.isSelected()) extensions.add("pdf");
+						if(this.jcbPptx.isSelected()) extensions.add("pptx"); if(this.jcbOdt.isSelected()) extensions.add("odt");
+						if(this.jcbXlsx.isSelected()) extensions.add("xlsx"); if(this.jcbHtml.isSelected()) extensions.add("html");
 					}
 					else {
 						type = "One Shot";
 						loader.setMaximum(timeUnits);
 					}
-					
-					// Extensions chosen by the user
-					List<String> extensions = new ArrayList<String>();
-					if(this.jcbDocx.isSelected()) extensions.add("docx"); if(this.jcbPdf.isSelected()) extensions.add("pdf");
-					if(this.jcbPptx.isSelected()) extensions.add("pptx"); if(this.jcbOdt.isSelected()) extensions.add("odt");
-					if(this.jcbXlsx.isSelected()) extensions.add("xlsx"); if(this.jcbHtml.isSelected()) extensions.add("html");
 					newSimulation = new NewSimulation(type, timeUnits, maxIterations, model, extensions);
+					
 					simulationThread = new Thread(newSimulation);
 					loadingBarThread = new Thread(new LoadingBar());
 					simulationThread.start();

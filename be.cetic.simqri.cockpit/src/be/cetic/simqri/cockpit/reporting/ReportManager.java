@@ -2,7 +2,6 @@ package be.cetic.simqri.cockpit.reporting;
 
 import java.util.List;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -16,10 +15,12 @@ import org.eclipse.birt.report.engine.api.IReportRunnable;
 import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
 import org.eclipse.birt.report.engine.api.PDFRenderOption;
 
+import be.cetic.simqri.cockpit.views.ReportLoaderWindow;
+
 /**
  * 
  * @author FK
- * @version 1.0
+ * @version 1.1
  * This class manages the process of the BIRT reporting services
  *
  */
@@ -28,6 +29,7 @@ public class ReportManager {
 	private List<String> extensions; // .pdf, .docx, .html, etc. Retrieved from NewSimulation.java
 	private IReportEngine engine;
 	private IReportRunnable report;
+	private int createdReports;
 	private boolean aborted;
 
 	public ReportManager(List<String> extensions) {
@@ -40,6 +42,14 @@ public class ReportManager {
 
 	public void setExtensions(List<String> extensions) {
 		this.extensions = extensions;
+	}
+	
+	public int getCreatedReports() {
+		return createdReports;
+	}
+
+	public void setCreatedReports(int createdReports) {
+		this.createdReports = createdReports;
 	}
 	
 	public boolean isAborted() {
@@ -99,24 +109,35 @@ public class ReportManager {
 	        	return;
 	        }
 	        
+	        int nbReports = extensions.size();
+	        this.createdReports = 0;
+	        // Thread that manages the report loader window behaviour
 			Thread t = new Thread(new Runnable(){
 		        public void run(){
-		            int abort = JOptionPane.showConfirmDialog(null,  "Results reports are being processed.\nThis operation may also take a while...", "Information", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon("simqri-reports/gifs/loader.gif"));
-		            if(abort == JOptionPane.CANCEL_OPTION) {
-			        	JOptionPane.showMessageDialog(null,  "Process aborted !\nHowever, some reports may have already been generated.", "Warning", JOptionPane.WARNING_MESSAGE);
-		            	setAborted(true);
-		            }
+		        	ReportLoaderWindow rlw = new ReportLoaderWindow(nbReports);
+		        	while(rlw.isEnabled()) {
+		        		rlw.setJpbStatus(createdReports);
+		        		if(rlw.getJpbStatus() == nbReports) {
+		        			setAborted(false);
+		        			rlw.dispose();
+		        		}
+		        		else if(rlw.isAborted()) {
+		        			setAborted(true);
+		        			rlw.dispose();
+		        		}
+		        	}
 		        }
 		    });
 			t.start();
 			for(String extension : extensions) {
+				if(isAborted()) 
+					break;
 	        	createReport(path, extension);
-	        	if(isAborted()) 
-					return;
+	        	this.createdReports++;
 	        }
-			t.interrupt();
-			
-	        JOptionPane.showMessageDialog(null,  "Your reports are now available in the selected directory !", "Simulation succeded", JOptionPane.INFORMATION_MESSAGE);
+			// t.interrupt();
+			if(!isAborted())
+	        	JOptionPane.showMessageDialog(null,  "Your reports are now available in the selected directory !", "Simulation succeded", JOptionPane.INFORMATION_MESSAGE);
 	        engine.destroy( );
 	        Platform.shutdown();
 	        engine = null;
