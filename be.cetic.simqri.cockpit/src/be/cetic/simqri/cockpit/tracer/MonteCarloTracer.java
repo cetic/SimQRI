@@ -1,6 +1,7 @@
 package be.cetic.simqri.cockpit.tracer;
 
 import java.io.BufferedWriter;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -35,7 +36,8 @@ public class MonteCarloTracer {
 	private BufferedWriter bf;
 	
 	public MonteCarloTracer() {
-		this.XMLFile = new File("simqri-reports/montecarlo.xml");
+		this.XMLFile = new File("xml/montecarlo.xml");
+		this.XMLFile.getParentFile().mkdirs();
 	}
 	
 	public MonteCarloTracer(Map<String, List<SamplingTuple>> elementsSampling, SamplingTuple runtimeSampling,
@@ -45,7 +47,8 @@ public class MonteCarloTracer {
 		this.runtimeSampling = runtimeSampling;
 		this.probesSampling = probesSampling;
 		this.historySampling = historySampling;
-		this.XMLFile = new File("simqri-reports/montecarlo.xml");
+		this.XMLFile = new File("xml/montecarlo.xml");
+		this.XMLFile.getParentFile().mkdirs();
 	}
 	
 	public File getXMLFile() {

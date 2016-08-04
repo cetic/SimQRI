@@ -14,6 +14,7 @@ import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -27,23 +28,24 @@ import javax.swing.SwingConstants;
 import javax.swing.text.PlainDocument;
 
 import be.cetic.simqri.cockpit.main.NewSimulation;
+import be.cetic.simqri.cockpit.reporting.WorkspaceManager;
 import be.cetic.simqri.cockpit.util.IntFilter;
 import be.cetic.simqri.metamodel.Model;
 
 /**
  * 
  * @author FK
- * @version 1.1
+ * @version 1.2
  * This class is the new management window of a new simulation.
  * It is displayed after a right-click on the back of the Sirius tool and select "New Simulation".
- * This window contains a loading bar that is updated in a thread.
+ * This window contains a loading bar that is updated in a thread & combo boxes that allow the user
+ * to choose the report template that will be used.
  * This thread is performed in the same time that the simulation tread (see NewSimulation.java)
  */
 public class NewSimulationManagementWindow extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private String type;
 	private Model model;
 	private NewSimulation newSimulation;
 	private int timeUnits;
@@ -66,6 +68,12 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 	private JCheckBox jcbHtml;
 	private JCheckBox jcbPptx;
 	// -----------------------------------
+	private JLabel jlSelectModelingProject;
+	private JComboBox<String> jcbModelingProjects;
+	// -----------------------------------
+	private JLabel jlSelectReportTemplate;
+	private JComboBox<String> jcbReportTemplates;
+	// -----------------------------------
 	private JButton jbStart;
 	private JButton jbStop;
 	// -----------------------------------
@@ -77,8 +85,8 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		super("New Simulation");
 		this.model = model;
 		this.setResizable(false);
-		this.setSize(new Dimension(350, 350));
-		this.setLayout(new GridLayout(11, 1));
+		this.setSize(new Dimension(350, 500));
+		this.setLayout(new GridLayout(17, 1));
 		
 		initComponents();
 		
@@ -104,6 +112,18 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		line10.setLayout(new FlowLayout());
 		JPanel line11 = new JPanel();
 		line11.setLayout(new FlowLayout());
+		JPanel line12 = new JPanel();
+		line12.setLayout(new FlowLayout());
+		JPanel line13 = new JPanel();
+		line13.setLayout(new FlowLayout());
+		JPanel line14 = new JPanel();
+		line14.setLayout(new FlowLayout());
+		JPanel line15 = new JPanel();
+		line15.setLayout(new FlowLayout());
+		JPanel line16 = new JPanel();
+		line16.setLayout(new FlowLayout());
+		JPanel line17 = new JPanel();
+		line17.setLayout(new FlowLayout());
 		
 		line1.add(jrbOneShot); line1.add(jrbMonteCarlo); 
 		line2.add(horizontalSeparator());
@@ -114,6 +134,12 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		line10.add(jcbPdf); line10.add(jcbDocx); line10.add(jcbXlsx);
 		line10.add(jcbPptx); line10.add(jcbOdt); line10.add(jcbHtml);
 		line5.add(horizontalSeparator());
+		line12.add(jlSelectModelingProject);
+		line13.add(jcbModelingProjects);
+		line14.add(horizontalSeparator());
+		line15.add(jlSelectReportTemplate);
+		line16.add(jcbReportTemplates);
+		line17.add(horizontalSeparator());
 		line6.add(jbStart); line6.add(jbStop);
 		line7.add(horizontalSeparator());
 		line8.add(loader);
@@ -121,8 +147,11 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		this.add(line1); this.add(line2);
 		this.add(line3); this.add(line4);
 		this.add(line9); this.add(line11);
-		this.add(line10);
-		this.add(line5); this.add(line6);
+		this.add(line10);this.add(line5); 
+		this.add(line12); this.add(line13);
+		this.add(line14); this.add(line15);
+		this.add(line16);this.add(line17); 
+		this.add(line6);
 		this.add(line7); this.add(line8);
 		
 		this.setLocationRelativeTo(null);
@@ -160,6 +189,24 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		this.jcbDocx.setEnabled(false); this.jcbPptx.setEnabled(false);
 		this.jcbXlsx.setEnabled(false); this.jcbHtml.setEnabled(false);
 		this.jcbPdf.setEnabled(false); this.jcbOdt.setEnabled(false);
+		
+		this.jlSelectModelingProject = new JLabel("Select your modeling project");
+		this.jcbModelingProjects = new JComboBox<String>();
+		for(String project : WorkspaceManager.getModelingProjects())
+			this.jcbModelingProjects.addItem(project);
+		this.jcbModelingProjects.setSelectedIndex(0);
+		this.jcbModelingProjects.addActionListener(this);
+		this.jcbModelingProjects.setEnabled(false);
+		
+		this.jlSelectReportTemplate = new JLabel("Select the report template you want to use");
+		this.jcbReportTemplates = new JComboBox<String>();
+		for(String template : WorkspaceManager.getTemplates(this.jcbModelingProjects.getItemAt(0)))
+			this.jcbReportTemplates.addItem(template);
+		if(this.jcbReportTemplates.getModel().getSize() == 0)
+			this.jcbReportTemplates.addItem("No report templates available !");
+		this.jcbReportTemplates.setSelectedIndex(0);
+		this.jcbReportTemplates.addActionListener(this);
+		this.jcbReportTemplates.setEnabled(false);
 		
 		jtfTimeUnits = new JTextField("1000");
 		PlainDocument docTimeUnits = (PlainDocument) jtfTimeUnits.getDocument();
@@ -218,30 +265,42 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 			this.jcbDocx.setEnabled(true); this.jcbPptx.setEnabled(true);
 			this.jcbXlsx.setEnabled(true); this.jcbHtml.setEnabled(true);
 			this.jcbPdf.setEnabled(true); this.jcbOdt.setEnabled(true);
+			this.jcbModelingProjects.setEnabled(true); this.jcbReportTemplates.setEnabled(true);
+		}
+		else if(e.getSource() == this.jcbModelingProjects) {
+			this.jcbReportTemplates.removeAllItems();
+			for(String template : WorkspaceManager.getTemplates((String) this.jcbModelingProjects.getSelectedItem()))
+				this.jcbReportTemplates.addItem(template);
+			if(this.jcbReportTemplates.getModel().getSize() == 0)
+				this.jcbReportTemplates.addItem("No report templates available !");
+			this.jcbReportTemplates.setSelectedIndex(0);
 		}
 		else {
 			if(e.getSource() == this.jbStart) {
 				if(jtfTimeUnits.getText().isEmpty()) 
 					JOptionPane.showMessageDialog(null, "Time Units value is not set!", "Error", JOptionPane.ERROR_MESSAGE);
-				else if (this.jrbMonteCarlo.isSelected() && jtfMaxIterations.getText().isEmpty()) 
+				else if (this.jrbMonteCarlo.isSelected() && (jtfMaxIterations.getText().isEmpty()))
 					JOptionPane.showMessageDialog(null, "Max Iterations value is not set!", "Error", JOptionPane.ERROR_MESSAGE);
+				else if (this.jrbMonteCarlo.isSelected() && jcbReportTemplates.getItemAt(0).equals("No report templates available !")) {
+					JOptionPane.showMessageDialog(null, "Report template is not set!", "Error", JOptionPane.ERROR_MESSAGE);
+				}
 				else {
 					timeUnits = Integer.parseInt(jtfTimeUnits.getText());
 					maxIterations = Integer.parseInt(jtfMaxIterations.getText()); // Extensions chosen by the user
 					List<String> extensions = new ArrayList<String>();
 					if(this.jrbMonteCarlo.isSelected()) {
-						type = "Monte-Carlo";
 						loader.setMaximum(maxIterations);
-						
+						WorkspaceManager.SELECTED_PROJECT = (String) this.jcbModelingProjects.getSelectedItem();
+						WorkspaceManager.SELECTED_TEMPLATE = (String) this.jcbReportTemplates.getSelectedItem();
 						if(this.jcbDocx.isSelected()) extensions.add("docx"); if(this.jcbPdf.isSelected()) extensions.add("pdf");
 						if(this.jcbPptx.isSelected()) extensions.add("pptx"); if(this.jcbOdt.isSelected()) extensions.add("odt");
 						if(this.jcbXlsx.isSelected()) extensions.add("xlsx"); if(this.jcbHtml.isSelected()) extensions.add("html");
+						this.newSimulation = new NewSimulation(model, timeUnits, maxIterations, extensions);
 					}
 					else {
-						type = "One Shot";
 						loader.setMaximum(timeUnits);
+						this.newSimulation = new NewSimulation(model, timeUnits);
 					}
-					newSimulation = new NewSimulation(type, timeUnits, maxIterations, model, extensions);
 					
 					simulationThread = new Thread(newSimulation);
 					loadingBarThread = new Thread(new LoadingBar());

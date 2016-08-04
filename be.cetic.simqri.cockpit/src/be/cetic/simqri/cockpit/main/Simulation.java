@@ -80,7 +80,7 @@ public class Simulation {
 				
 				setQueriesResult(sqlogger, model);
 
-				new ResultsWindow(ost);
+				new ResultsWindow();
 			}
 			else {
 				showMessage("The simulation will not be launchable due to some errors in your queries : \n"

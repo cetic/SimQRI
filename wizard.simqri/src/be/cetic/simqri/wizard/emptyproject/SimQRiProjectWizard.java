@@ -1,5 +1,7 @@
 package be.cetic.simqri.wizard.emptyproject;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
@@ -7,7 +9,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -103,7 +108,7 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 				} catch (CoreException e) {
 					e.printStackTrace();
 				}
-
+				
 				//create a resource file
 				ResourceSet resourceSet = new ResourceSetImpl();
 				org.eclipse.emf.common.util.URI fileURI = URI.createPlatformResourceURI("/" + projectName + "/" + projectName + "." + FILE_EXTENSION, true);
@@ -123,12 +128,12 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 
 				URI airdFileURI = URI.createPlatformResourceURI(airdFile.getFullPath().toOSString(), true);
 				Session session = SessionManager.INSTANCE.getSession(airdFileURI, monitor);
-
+				
 				//adding the resource also to Sirius session
 				AddSemanticResourceCommand addCommandToSession = new AddSemanticResourceCommand(session, fileURI, monitor );
 				session.getTransactionalEditingDomain().getCommandStack().execute(addCommandToSession);
 				session.save(monitor);
-
+				
 				//find and add viewpoint
 				Set<Viewpoint> availableViewpoints = ViewpointSelection.getViewpoints(FILE_EXTENSION);
 
@@ -166,7 +171,38 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 				DialectUIManager dialectUIManager = DialectUIManager.INSTANCE;
 					dialectUIManager.openEditor(session,
 						myDiagramRepresentation, monitor);
-				   
+				 
+				
+				//create report templates folder
+				IFolder templatesFolder = project.getFolder("Report Templates");
+				try {
+					templatesFolder.create(false,  true, null);
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				//create reports folder
+				IFolder reportsFolder = project.getFolder("Generated Reports");
+				try {
+					reportsFolder.create(false,  true, null);
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				//fill report templates folder with 2 templates
+				IFile mcDefaultTemplate = templatesFolder.getFile("montecarlo.rptdesign");
+				try {
+					mcDefaultTemplate.create(new FileInputStream("simqri-reports/montecarlo.rptdesign"), false, monitor);
+				} catch (FileNotFoundException | CoreException e1) {
+					JOptionPane.showMessageDialog(null, "The default report templates cannot be imported.\n"
+							+ "Make sure you have correctly initialized the \"simqri-reports\" folder as explained in the installation guide.",
+							"FILE(S) NOT FOUND", JOptionPane.ERROR_MESSAGE);
+					e1.printStackTrace();
+				}
+				// TODO another template
+				
 				//save session and refresh workspace
 				session.save(monitor);
 				try {
@@ -174,6 +210,7 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 				} catch (CoreException e) {
 					e.printStackTrace();
 				}
+				
 				return Status.OK_STATUS;
 			}
 		};

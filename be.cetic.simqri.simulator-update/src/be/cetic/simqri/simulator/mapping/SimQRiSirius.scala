@@ -403,6 +403,7 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
     for(query <- model.getQuery) {
         var parsing = true
         val loop = new Breaks()
+        // check if the query doesn't refer to a non mapped element
         loop.breakable {
           for(name <- nonMappedComponentNames) {
             if(query.getValue.contains(name)) {

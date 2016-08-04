@@ -11,14 +11,6 @@
   <query name="new_batch_process 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_batch_process 1&quot;), time)" result="2,90" error=""/>
   <query name="new_storage 2 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" result="1,00" error=""/>
   <query name="new_storage 2 : Total lost by overflow" value="totalLostByOverflow(&quot;new_storage 2&quot;)" result="100,00" error=""/>
-  <query name="new_batch_process 2 : Number of started batches" value="startedBatchCount(&quot;new_batch_process 2&quot;)" error=""/>
-  <query name="new_batch_process 1 : Number of started batches" value="startedBatchCount(&quot;new_batch_process 1&quot;)" result="100,00" error=""/>
-  <query name="new_storage 2 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" result="1,00" error=""/>
-  <query name="new_batch_process 2 : Number of completed batches" value="completedBatchCount(&quot;new_batch_process 2&quot;)" error=""/>
-  <query name="new_batch_process 2 : Percentage of time idle" value="div(totalWaitDration(&quot;new_batch_process 2&quot;), time)" error=""/>
-  <query name="new_storage 3 : Maximum relative stock level" value="maxOnHistory(relaiveStockLevel(&quot;new_storage 3&quot;))" error=""/>
-  <query name="new_storage 3 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))" error=""/>
-  <query name="new_storage 3 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))" error=""/>
   <orderOnStockThreshold name="oost 1" supplier="//@component.0" storage="//@component.1"/>
   <component xsi:type="metamodel:Supplier" name="new_supplier 1" refillPolicy="//@orderOnStockThreshold.0">
     <supplierDelay xsi:type="metamodel:Scalar" value="0"/>
@@ -29,11 +21,6 @@
     <outputs processOutputFlow="//@flow.1" description="Default Success Port"/>
   </component>
   <component xsi:type="metamodel:Storage" name="new_storage 2" overflow="true" processOutputFlow="//@flow.1"/>
-  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 2">
-    <duration xsi:type="metamodel:Scalar"/>
-    <outputs description="Default Success Port"/>
-  </component>
-  <component xsi:type="metamodel:Storage" name="new_storage 3"/>
   <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.1" destination="//@component.2">
     <quantity xsi:type="metamodel:Scalar"/>
   </flow>

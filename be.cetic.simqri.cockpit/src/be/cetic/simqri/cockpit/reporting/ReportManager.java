@@ -1,5 +1,7 @@
 package be.cetic.simqri.cockpit.reporting;
 
+import java.io.File;
+
 import java.util.List;
 
 import javax.swing.JFileChooser;
@@ -15,7 +17,7 @@ import org.eclipse.birt.report.engine.api.IReportRunnable;
 import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
 import org.eclipse.birt.report.engine.api.PDFRenderOption;
 
-import be.cetic.simqri.cockpit.views.ReportLoaderWindow;
+import be.cetic.simqri.cockpit.views.LoaderWindow;
 
 /**
  * 
@@ -68,7 +70,7 @@ public class ReportManager {
 	 * and all the mechanisms provided by the BIRT Report Engine API
 	 * 
 	 */
-	public void executeReport(String type) throws EngineException {
+	public void executeReport() throws EngineException {
 		EngineConfig config = null;
 		this.engine = null;
 	    try
@@ -85,45 +87,36 @@ public class ReportManager {
 	        Platform.startup(config);
 	        IReportEngineFactory factory = (IReportEngineFactory) Platform.createFactoryObject( IReportEngineFactory.EXTENSION_REPORT_ENGINE_FACTORY );
 	        engine = factory.createReportEngine( config );
-	        String reportFilepath = null;
-	        if(type.equals("One Shot"))
-	        	reportFilepath = "simqri-reports/oneshot.rptdesign";
-	        else
-	        	reportFilepath = "simqri-reports/montecarlo.rptdesign";
+	        WorkspaceManager.setReportFolderPath(WorkspaceManager.SELECTED_PROJECT);
+	        WorkspaceManager.setTemplatePath(WorkspaceManager.SELECTED_PROJECT, WorkspaceManager.SELECTED_TEMPLATE);
 	        try {
-	         	report = engine.openReportDesign(reportFilepath);
+	         	report = engine.openReportDesign(WorkspaceManager.TEMPLATE_PATH);
 	        }
 	        catch(Exception e)
 	        {
-	        	JOptionPane.showMessageDialog(null, reportFilepath + " not found!\n"
-	        			+ "Make sure you have properly configured your \"simqri-reports\" folder as it is explained in the installation guide ! ", "REPORT DESIGN FILE NOT FOUND", JOptionPane.ERROR_MESSAGE);
+	        	JOptionPane.showMessageDialog(null, WorkspaceManager.TEMPLATE_PATH + " not found !\n"
+	        			+ "Make sure your .rptdesign file is well located in the \"Report Templates\" directory !", "TEMPLATE FILE NOT FOUND", JOptionPane.ERROR_MESSAGE);
 	            engine.destroy( );
 	            Platform.shutdown();
 	            return;
 	        }
-	        
-	        // the user choose the path of the directory in which we will save report(s) file(s)
-	        String path = selectDirectoryPath();
-	        if(path.isEmpty()) {
-	        	JOptionPane.showMessageDialog(null,  "The choice of the directory is aborted !", "Warning", JOptionPane.WARNING_MESSAGE);
-	        	return;
-	        }
-	        
+     
 	        int nbReports = extensions.size();
 	        this.createdReports = 0;
-	        // Thread that manages the report loader window behaviour
+	        // Thread that manages the loader window behaviour
 			Thread t = new Thread(new Runnable(){
 		        public void run(){
-		        	ReportLoaderWindow rlw = new ReportLoaderWindow(nbReports);
-		        	while(rlw.isEnabled()) {
-		        		rlw.setJpbStatus(createdReports);
-		        		if(rlw.getJpbStatus() == nbReports) {
+		        	LoaderWindow lw = new LoaderWindow(nbReports, "Creating reports", "Results reports are being generated...", 
+		        			"Process aborted !\nHowever, some reports may have already been generated.");
+		        	while(lw.isEnabled()) {
+		        		lw.setJpbStatus(createdReports);
+		        		if(lw.getJpbStatus() == nbReports) {
 		        			setAborted(false);
-		        			rlw.dispose();
+		        			lw.dispose();
 		        		}
-		        		else if(rlw.isAborted()) {
+		        		else if(lw.isAborted()) {
 		        			setAborted(true);
-		        			rlw.dispose();
+		        			lw.dispose();
 		        		}
 		        	}
 		        }
@@ -132,7 +125,7 @@ public class ReportManager {
 			for(String extension : extensions) {
 				if(isAborted()) 
 					break;
-	        	createReport(path, extension);
+	        	createReport(WorkspaceManager.REPORT_FOLDER_PATH, extension);
 	        	this.createdReports++;
 	        }
 			// t.interrupt();
@@ -181,16 +174,18 @@ public class ReportManager {
 			task.run();
 		}
 		catch(EngineException e1) {
-			JOptionPane.showMessageDialog(null, "Report " + path + " run failed in "+extension+" format.\n", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Report generating failed in "+extension+" format.\n", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		
 	}
 	
+	@SuppressWarnings("unused")
 	private String selectDirectoryPath() {
 		String path = "";
 		JFileChooser chooser = new JFileChooser();
 	    // chooser.setCurrentDirectory(new java.io.File("."));
 	    chooser.setDialogTitle("Select a destination folder for your reports !");
+	    chooser.setCurrentDirectory(new File("current workspace ?"));
 	    chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 	    chooser.setAcceptAllFileFilterUsed(false);
 

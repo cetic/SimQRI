@@ -2,7 +2,7 @@ package be.cetic.simqri.cockpit.main;
 
 import java.util.List;
 
-import javax.swing.ImageIcon;
+
 import javax.swing.JOptionPane;
 
 import org.eclipse.birt.report.engine.api.EngineException;
@@ -14,6 +14,7 @@ import be.cetic.simqri.cockpit.reporting.ReportManager;
 import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
 import be.cetic.simqri.cockpit.util.JsonFormat;
+import be.cetic.simqri.cockpit.views.LoaderWindow;
 import be.cetic.simqri.cockpit.views.ResultsWindow;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.Query;
@@ -28,7 +29,7 @@ import scala.collection.Iterator;
 /**
  * 
  * @author FK
- * 
+ * @version 2.0
  * Entity that manages the simulation progress using the new management cockpit
  */
 public class NewSimulation implements Runnable {
@@ -42,16 +43,26 @@ public class NewSimulation implements Runnable {
 	private SimControl simControl;
 	private List<String> extensions; // .pdf, .docx, .html, etc. Retrieved from NewSimulationManagementWindow.java
 	private boolean aborted;
+	private int retrieveResultsStatus;
 	
-	public NewSimulation(String type, int timeUnits, int maxIterations, Model model, List<String> extensions) {
-		super();
-		this.type = type;
+	// One Shot Constructor
+	public NewSimulation(Model model, int timeUnits) {
+		this.type = "One Shot";
+		this.model = model;
+		this.timeUnits = timeUnits;
+		this.simControl = new SimControl();
+	}
+	
+	// Monte-Carlo Constructor 
+	public NewSimulation(Model model, int timeUnits, int maxIterations, List<String> extensions) {
+		this.type = "Monte-Carlo";
 		this.timeUnits = timeUnits;
 		this.maxIterations = maxIterations;
 		this.model = model;
 		this.simControl = new SimControl();
 		this.extensions = extensions;
 	}
+	
 
 	public Model getModel() {
 		return this.model;
@@ -129,7 +140,7 @@ public class NewSimulation implements Runnable {
 	public void run() { // simulation execution thread (data mapping + API OscaR)
 		TraceLogger sqlogger = new TraceLogger();
 		sqlogger.reset();
-		Tools t = new Tools();
+		Tools tools = new Tools();
 		if(type.equals("One Shot")) {
 			this.setSimulation(new SimQRiSirius(timeUnits, true, sqlogger, false)); 
 			simulation.fillModelWithSiriusData(model);
@@ -138,34 +149,53 @@ public class NewSimulation implements Runnable {
 			if(this.isCanceled())
 				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to retrieve intermediate reports ?");
 			if(showResults == JOptionPane.YES_OPTION) {
-				Thread thread = new Thread(new Runnable(){
-					public void run(){
-						int abort = JOptionPane.showConfirmDialog(null,  "Results are being retrieved.\nThis operation may take a while...", "Information", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon("simqri-reports/gifs/loader.gif"));
-						if(abort == JOptionPane.CANCEL_OPTION) {
-							JOptionPane.showMessageDialog(null,  "Process aborted !", "Warning", JOptionPane.WARNING_MESSAGE);
-						    setAborted(true);
-						}
-					}
-				});
-				thread.start();
+				// Thread that manages the loader window behaviour
+				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
+				this.retrieveResultsStatus = 0;
+				Thread t = new Thread(new Runnable(){
+			        public void run(){
+			        	LoaderWindow lw = new LoaderWindow(4, "Results retrieval", "This operation may take a while...",
+			        			"Operation aborted !");
+			        	while(lw.isEnabled()) {
+			        		lw.setJpbStatus(retrieveResultsStatus);
+			        		if(lw.getJpbStatus() == 4) {
+			        			lw.dispose();
+			        		}
+			        		else if(lw.isAborted()) {
+			        			setAborted(true);
+			        			lw.dispose();
+			        		}
+			        	}
+			        }
+			    });
+				t.start();
 				
 				// Instance of the object that will store "One Shot" simulation results
 				OneShotTracer ost = new OneShotTracer();
-				if(isAborted()) return;
 				// Convert simulation results to java structures
-				ost.setEvents(t.eventsToJavaMap(sqlogger));
-				if(isAborted()) return;
-				ost.setMapInfos(t.mapInfosToJavaMap(sqlogger));
-				if(isAborted()) return;
+				ost.setEvents(tools.eventsToJavaMap(sqlogger));
+				ost.setMapInfos(tools.mapInfosToJavaMap(sqlogger));
 				ost.setProbes(sqlogger.logs().probes());
-				if(isAborted()) return;
 				ost.setRawInfos(sqlogger.logs().rawInfos());
-				if(isAborted()) return;
+				
+				// create and fill the results window
+				ResultsWindow rw = new ResultsWindow();
+				if(this.isAborted()) return;
+				rw.setElements(ost.getStringElements());
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				rw.setQueries(ost.getStringProbes());
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				rw.setEvents(ost.getStringEvents());
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				rw.initComponents();
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				
 				this.setQueriesResult(sqlogger, model);
-				if(isAborted()) return;
-					
-				new ResultsWindow(ost);
-				thread.interrupt();
+				rw.initWindow();
 			}
 			
 		}
@@ -177,43 +207,56 @@ public class NewSimulation implements Runnable {
 			if(this.isCanceled())
 				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to consult intermediate results ?");
 			if(showResults == JOptionPane.YES_OPTION) {
-				Thread thread = new Thread(new Runnable(){
-					public void run(){
-						int abort = JOptionPane.showConfirmDialog(null,  "Results are being retrieved.\nThis operation may take a while...", "Information", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE, new ImageIcon("simqri-reports/gifs/loader.gif"));
-						if(abort == JOptionPane.CANCEL_OPTION) {
-							JOptionPane.showMessageDialog(null,  "Process aborted !", "Warning", JOptionPane.WARNING_MESSAGE);
-							setAborted(true);
-						}
-					}
-				});
-				thread.start();
+				// Thread that manages the loader window behaviour
+				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
+				this.retrieveResultsStatus = 0;
+				Thread t = new Thread(new Runnable(){
+			        public void run(){
+			        	LoaderWindow lw = new LoaderWindow(5, "Results retrieval", "This operation may take a while...",
+			        			"Operation aborted !");
+			        	while(lw.isEnabled()) {
+			        		lw.setJpbStatus(retrieveResultsStatus);
+			        		if(lw.getJpbStatus() == 5) {
+			        			lw.dispose();
+			        		}
+			        		else if(lw.isAborted()) {
+			        			setAborted(true);
+			        			lw.dispose();
+			        		}
+			        	}
+			        }
+			    });
+				t.start();
 					
 				// Instance of the object that will store "Monte-Carlo" simulation results and manage their XML mutation
 				MonteCarloTracer mct = new MonteCarloTracer();
-				if(isAborted()) return;
+				
 				// Convert simulation results to java structures
-				mct.setElementsSampling(t.elementsSamplingsToJavaMap(sqlogger));
-				if(isAborted()) return;
 				mct.setRuntimeSampling(sqlogger.logs().mcSamplings().runtimeSampling());
-				if(isAborted()) return;
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
 				mct.setProbesSampling(sqlogger.logs().mcSamplings().probesSampling());
-				if(isAborted()) return;
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				mct.setElementsSampling(tools.elementsSamplingsToJavaMap(sqlogger));
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
 				mct.setHistorySampling(sqlogger.logs().mcSamplings().historySampling());
-				if(isAborted()) return;
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
 				mct.createMonteCarloXMLFile();
-				if(isAborted()) return;
-				this.setQueriesSamples(sqlogger, model);
-				if(isAborted()) return;
-				thread.interrupt();
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
 					
-				ReportManager reportManager = new ReportManager(extensions);
+				ReportManager reportManager = new ReportManager(this.extensions);
 				try {
-					reportManager.executeReport("Monte-Carlo");
+					reportManager.executeReport(); // TODO change parameter with template report and modeling project
 				} catch (EngineException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				//new ResultsWindow(mct);
+				this.setQueriesSamples(sqlogger, model);
+				// mct.getXMLFile().delete();
 			}
 		}
 	}

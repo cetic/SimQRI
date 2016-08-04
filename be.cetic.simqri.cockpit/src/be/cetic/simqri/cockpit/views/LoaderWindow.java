@@ -21,13 +21,14 @@ import javax.swing.JProgressBar;
  * This window is displayed during the reports generation process.
  * 
  */
-public class ReportLoaderWindow extends JFrame implements ActionListener {
+public class LoaderWindow extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 	
 	private JLabel jlMessage;
 	private JProgressBar jpbStatus;
 	private JButton jbCancel;
+	private String cancelMessage;
 	private int nbReports;
 	private boolean aborted;
 	
@@ -47,14 +48,16 @@ public class ReportLoaderWindow extends JFrame implements ActionListener {
 		this.aborted = aborted;
 	}
 	
-	public ReportLoaderWindow(int nbReports) {
-		super("Creating reports");
+	public LoaderWindow(int nbReports, String title, String text, String cancelMessage) {
+		super(title);
+		this.cancelMessage = cancelMessage;
 		this.setResizable(false);
 		this.setSize(new Dimension(300, 150));
 		this.setAborted(false);
 		this.nbReports = nbReports;
 		this.setLayout(new GridLayout(3, 1));
 		
+		this.jlMessage = new JLabel(text);
 		initComponents();
 		
 		this.setLocationRelativeTo(null);
@@ -62,9 +65,10 @@ public class ReportLoaderWindow extends JFrame implements ActionListener {
 	}
 	
 	private void initComponents() {
-		this.jlMessage = new JLabel("Results reports are being generated...");
 		this.jpbStatus = new JProgressBar();
 		this.jpbStatus.setMaximum(nbReports);
+		this.jpbStatus.setMinimum(0);
+		this.jpbStatus.setStringPainted(true);
 		this.jbCancel = new JButton("Cancel");
 		this.jbCancel.addActionListener(this);
 		
@@ -88,7 +92,7 @@ public class ReportLoaderWindow extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == this.jbCancel) {
 			this.setAborted(true);
-        	JOptionPane.showMessageDialog(null,  "Process aborted !\nHowever, some reports may have already been generated.", "Warning", JOptionPane.WARNING_MESSAGE);
+        	JOptionPane.showMessageDialog(null,  cancelMessage, "Warning", JOptionPane.WARNING_MESSAGE);
 		}
 	}
 }

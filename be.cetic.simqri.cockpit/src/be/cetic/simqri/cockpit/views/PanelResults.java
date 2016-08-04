@@ -28,6 +28,10 @@ public class PanelResults extends JPanel {
 				
 	}
 	
+	public String getResults() {
+		return results;
+	}
+	
 	private void fillJTextArea() {
 		this.jtaResults = new JTextArea(27, 60);
 		this.jtaResults.setText(results);

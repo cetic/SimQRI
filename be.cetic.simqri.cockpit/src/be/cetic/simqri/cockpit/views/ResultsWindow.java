@@ -2,9 +2,6 @@ package be.cetic.simqri.cockpit.views;
 
 import java.awt.BorderLayout;
 
-
-
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,8 +19,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import be.cetic.simqri.cockpit.tracer.OneShotTracer;
-
 /**
  * @author FK
  * @since 19/04/2016
@@ -39,17 +34,42 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	private JLabel jlTitle;
 	private JPanel jpButtons;
 	private JTabbedPane jtpResults;
-	private Component panelTrace, panelElements, panelQueries;
+	private String events, elements, queries;
 	private JButton jbSave, jbExit;
-	private OneShotTracer ost;
+	private PanelResults panelTrace;
+	private PanelResults panelElements;
+	private PanelResults panelQueries;
 	
-	public ResultsWindow(OneShotTracer ost) {
+	public String getEvents() {
+		return events;
+	}
+
+	public void setEvents(String events) {
+		this.events = events;
+	}
+
+	public String getElements() {
+		return elements;
+	}
+
+	public void setElements(String elements) {
+		this.elements = elements;
+	}
+
+	public String getQueries() {
+		return queries;
+	}
+
+	public void setQueries(String queries) {
+		this.queries = queries;
+	}
+
+	public ResultsWindow() {
 		super("One Shot simulation results");
-		this.ost = ost;
-		initComponents();
-		initWindow();
 	}
 	
+	
+
 	public void initWindow() {
 		this.setResizable(false);
 		this.setSize(new Dimension(750, 600));
@@ -63,14 +83,14 @@ public class ResultsWindow extends JFrame implements ActionListener {
 		this.setVisible(true);
 	}
 	
-	private void initComponents() { 
+	public void initComponents() { 
 		this.jlTitle = new JLabel();
 		this.jlTitle.setText("The simulation is completed. Here are the results :");
 		this.jtpResults = new JTabbedPane();
 				
-		this.panelTrace = new PanelResults(ost.getStringEvents());
-		this.panelElements = new PanelResults(ost.getStringElements()); 
-		this.panelQueries = new PanelResults(ost.getStringProbes()); 
+		this.panelTrace = new PanelResults(events);
+		this.panelElements = new PanelResults(elements); 
+		this.panelQueries = new PanelResults(queries); 
 		
 		this.jtpResults.addTab("Trace", null, panelTrace, "Check the simulation trace");
 		this.jtpResults.addTab("Elements", null, panelElements, "Check the simulation elements");
@@ -89,42 +109,33 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		if(event.getSource() == this.jbSave) {
-			String allResults = "";
-			allResults = ost.getStringEvents()+"\n"+ost.getStringElements()+"\n"+ost.getStringProbes()+"\n";
-			saveInTextFile(allResults);
+			JFileChooser fileChooser = new JFileChooser();
+			FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
+			fileChooser.setFileFilter(filter);
+			fileChooser.setDialogTitle("Specify a text file to save"); 
+			int userSelection = fileChooser.showSaveDialog(null);
+			if (userSelection == JFileChooser.APPROVE_OPTION) {
+			    File fileToSave = fileChooser.getSelectedFile();
+			    
+			    if(fileToSave.exists()) {
+				    JOptionPane.showMessageDialog(null, fileToSave.getName()+" already exists !", "Error", JOptionPane.ERROR_MESSAGE);
+			    }
+			    else {
+			    	if(!fileToSave.getName().toLowerCase().endsWith(".txt"))
+			    		fileToSave = new File(fileToSave.getAbsolutePath() + ".txt");
+				    BufferedWriter  bf = null;
+				    try {
+						bf = new BufferedWriter(new FileWriter(fileToSave));
+						bf.write(events); bf.write(elements); bf.write(queries);
+						bf.close();
+					} catch (IOException e) {
+						JOptionPane.showMessageDialog(this, "Erreur: " + e.getMessage() + "");
+					}
+				      JOptionPane.showMessageDialog(null, "Data saved successfully at "+fileToSave.getAbsolutePath(), "Information", JOptionPane.INFORMATION_MESSAGE);
+			    }
+			}
 		}
-		if(event.getSource() == this.jbExit) {
+		if(event.getSource() == this.jbExit) 
 			this.dispose();
-		}
-	} 
-	
-	private void saveInTextFile(String allResults) {
-		JFileChooser fileChooser = new JFileChooser();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
-		fileChooser.setFileFilter(filter);
-		fileChooser.setDialogTitle("Specify a text file to save");   
-		int userSelection = fileChooser.showSaveDialog(null);
-		
-		if (userSelection == JFileChooser.APPROVE_OPTION) {
-		    File fileToSave = fileChooser.getSelectedFile();
-		    
-		    if(fileToSave.exists()) {
-			    JOptionPane.showMessageDialog(null, fileToSave.getName()+" already exists !", "Error", JOptionPane.ERROR_MESSAGE);
-		    }
-		    else {
-		    		if(!fileToSave.getName().toLowerCase().endsWith(".txt"))
-		    			fileToSave = new File(fileToSave.getAbsolutePath() + ".txt");
-			    BufferedWriter  bf = null;
-			    try {
-					bf = new BufferedWriter(new FileWriter(fileToSave));
-					bf.write(allResults);
-					bf.close();
-				} catch (IOException e) {
-					JOptionPane.showMessageDialog(this, "Erreur: " + e.getMessage() + "");
-				}
-			      JOptionPane.showMessageDialog(null, "Data saved successfully at "+fileToSave.getAbsolutePath(), "Information", JOptionPane.INFORMATION_MESSAGE);
-		    }
-		}
 	}
-	
 }

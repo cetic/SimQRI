@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">FILELIST</property>
+            <property name="id">4</property>
+        </structure>
+        <structure>
+            <property name="name">ENCODINGLIST</property>
+            <property name="id">4</property>
+        </structure>
+        <structure>
+            <property name="name">SCHEMAFILELIST</property>
+            <property name="id">4</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">4</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">4</property>
+        </structure>
+    </list-property>
     <property name="units">in</property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.datatools.enablement.oda.xml" name="Data Source" id="4">
-            <property name="FILELIST">simqri-reports/montecarlo.xml</property>
-            <property name="SCHEMAFILELIST">simqri-reports/montecarlo.xsd</property>
+            <property name="FILELIST">xml/montecarlo.xml</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
