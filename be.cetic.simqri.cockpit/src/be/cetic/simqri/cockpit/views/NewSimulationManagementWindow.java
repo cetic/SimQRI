@@ -3,6 +3,8 @@ package be.cetic.simqri.cockpit.views;
 import java.awt.Dimension;
 
 
+
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -20,13 +22,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JProgressBar;
 import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.PlainDocument;
 
+import be.cetic.simqri.cockpit.main.LoadingBarManager;
 import be.cetic.simqri.cockpit.main.NewSimulation;
 import be.cetic.simqri.cockpit.reporting.WorkspaceManager;
 import be.cetic.simqri.cockpit.util.IntFilter;
@@ -38,16 +40,16 @@ import be.cetic.simqri.metamodel.Model;
  * @version 1.2
  * This class is the new management window of a new simulation.
  * It is displayed after a right-click on the back of the Sirius tool and select "New Simulation".
- * This window contains a loading bar that is updated in a thread & combo boxes that allow the user
- * to choose the report template that will be used.
- * This thread is performed in the same time that the simulation tread (see NewSimulation.java)
+ * This window contains a combo boxes that allow the user to choose the report template that will be used
+ * and a a loading bar that is updated in a thread (LoadingBarManager.java).
+ * This thread is performed in the same time that the simulation thread (NewSimulation.java)
  */
 public class NewSimulationManagementWindow extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
 	
 	private Model model;
-	private NewSimulation newSimulation;
+	private NewSimulation simulation;
 	private int timeUnits;
 	private int maxIterations;
 	
@@ -67,6 +69,7 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 	private JCheckBox jcbOdt;
 	private JCheckBox jcbHtml;
 	private JCheckBox jcbPptx;
+	private List<JCheckBox> jcbExtensions;
 	// -----------------------------------
 	private JLabel jlSelectModelingProject;
 	private JComboBox<String> jcbModelingProjects;
@@ -77,16 +80,17 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 	private JButton jbStart;
 	private JButton jbStop;
 	// -----------------------------------
+	private LoadingBarManager loadingBarManager;
 	private Thread loadingBarThread;
 	private Thread simulationThread;
-	private JProgressBar loader;
+	private PanelLoader jpLoader;
 	
 	public NewSimulationManagementWindow(Model model) {
 		super("New Simulation");
 		this.model = model;
 		this.setResizable(false);
-		this.setSize(new Dimension(350, 500));
-		this.setLayout(new GridLayout(17, 1));
+		this.setSize(new Dimension(350, 470));
+		this.setLayout(new GridLayout(15, 1));
 		
 		initComponents();
 		
@@ -104,8 +108,6 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		line6.setLayout(new GridLayout(1, 2));
 		JPanel line7 = new JPanel();
 		line7.setLayout(new FlowLayout());
-		JPanel line8 = new JPanel();
-		line8.setLayout(new FlowLayout());
 		JPanel line9 = new JPanel();
 		line9.setLayout(new FlowLayout());
 		JPanel line10 = new JPanel();
@@ -136,23 +138,19 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		line5.add(horizontalSeparator());
 		line12.add(jlSelectModelingProject);
 		line13.add(jcbModelingProjects);
-		line14.add(horizontalSeparator());
 		line15.add(jlSelectReportTemplate);
 		line16.add(jcbReportTemplates);
 		line17.add(horizontalSeparator());
 		line6.add(jbStart); line6.add(jbStop);
-		line7.add(horizontalSeparator());
-		line8.add(loader);
 		
 		this.add(line1); this.add(line2);
 		this.add(line3); this.add(line4);
 		this.add(line9); this.add(line11);
-		this.add(line10);this.add(line5); 
+		this.add(line10); this.add(line5); 
 		this.add(line12); this.add(line13);
-		this.add(line14); this.add(line15);
-		this.add(line16);this.add(line17); 
-		this.add(line6);
-		this.add(line7); this.add(line8);
+		this.add(line15);
+		this.add(line16); this.add(line17); 
+		this.add(jpLoader); this.add(line6);
 		
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
@@ -177,21 +175,21 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		jlMaxIterations = new JLabel("Max iterations: ");
 		
 		jlSelectExtensions = new JLabel("Select your report extension(s)");
-		jcbDocx = new JCheckBox(".docx");
-		jcbHtml = new JCheckBox(".html");
-		jcbXlsx = new JCheckBox(".xlsx");
-		jcbPdf = new JCheckBox(".pdf");
-		jcbPptx = new JCheckBox(".pptx");
-		jcbOdt = new JCheckBox(".odt");
+		jcbExtensions = new ArrayList<JCheckBox>(6);
+		jcbDocx = new JCheckBox("docx"); jcbExtensions.add(jcbDocx);
+		jcbHtml = new JCheckBox("html"); jcbExtensions.add(jcbHtml);
+		jcbXlsx = new JCheckBox("xlsx"); jcbExtensions.add(jcbXlsx);
+		jcbPdf = new JCheckBox("pdf"); jcbExtensions.add(jcbPdf);
+		jcbPptx = new JCheckBox("pptx"); jcbExtensions.add(jcbPptx);
+		jcbOdt = new JCheckBox("odt"); jcbExtensions.add(jcbOdt);
 		
 		jcbPdf.setSelected(true);
 		
-		this.jcbDocx.setEnabled(false); this.jcbPptx.setEnabled(false);
-		this.jcbXlsx.setEnabled(false); this.jcbHtml.setEnabled(false);
-		this.jcbPdf.setEnabled(false); this.jcbOdt.setEnabled(false);
+		for(JCheckBox jcb : jcbExtensions) jcb.setEnabled(false);
 		
 		this.jlSelectModelingProject = new JLabel("Select your modeling project");
 		this.jcbModelingProjects = new JComboBox<String>();
+		// Retrieval of all user workspaces modeling projects
 		for(String project : WorkspaceManager.getModelingProjects())
 			this.jcbModelingProjects.addItem(project);
 		this.jcbModelingProjects.setSelectedIndex(0);
@@ -200,6 +198,7 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		
 		this.jlSelectReportTemplate = new JLabel("Select the report template you want to use");
 		this.jcbReportTemplates = new JComboBox<String>();
+		// Retrieval of all report templates of the selected project (the first one by default)
 		for(String template : WorkspaceManager.getTemplates(this.jcbModelingProjects.getItemAt(0)))
 			this.jcbReportTemplates.addItem(template);
 		if(this.jcbReportTemplates.getModel().getSize() == 0)
@@ -215,7 +214,8 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 	    jtfMaxIterations = new JTextField("100");
 	    PlainDocument docMaxIterations = (PlainDocument) jtfMaxIterations.getDocument();
 	    docMaxIterations.setDocumentFilter(new IntFilter());
-		jtfMaxIterations.setEnabled(false); // "One Shot" simulation selected by default
+	    // "One Shot" simulation selected by default
+		jtfMaxIterations.setEnabled(false); 
 	    
 		jtfTimeUnits.setColumns(5);
 		jtfMaxIterations.setColumns(5);
@@ -224,31 +224,9 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		jbStart.addActionListener(this);
 		jbStop = new JButton("Stop");
 		jbStop.addActionListener(this);
+		jbStop.setEnabled(false);
 		
-		loader = new JProgressBar();
-		loader.setMaximum(Integer.parseInt(jtfMaxIterations.getText()));
-		loader.setMinimum(0);
-		loader.setStringPainted(true);
-	}
-	
-	/**
-	 * 
-	 * @author FK
-	 * Internal class dedicated to the simulation management (start, stop, loader)
-	 */
-	private class LoadingBar implements Runnable { 
-		@Override
-		public void run() {
-			jbStart.setEnabled(false);
-			while(newSimulation.getLoading() < loader.getMaximum() && !newSimulation.isCanceled())
-				loader.setValue(newSimulation.getLoading());
-				
-			if(!newSimulation.isCanceled()) {
-				loader.setValue(loader.getMaximum());
-				dispose();
-			}
-		    jbStart.setEnabled(true);
-		}
+		jpLoader = new PanelLoader("status bar", 100);
 	}
 	
 	@Override
@@ -256,18 +234,15 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		if(e.getActionCommand() != null && e.getActionCommand().equals("One Shot")) {
 			this.jtfMaxIterations.setText("100");
 			this.jtfMaxIterations.setEnabled(false);
-			this.jcbDocx.setEnabled(false); this.jcbPptx.setEnabled(false);
-			this.jcbXlsx.setEnabled(false); this.jcbHtml.setEnabled(false);
-			this.jcbPdf.setEnabled(false); this.jcbOdt.setEnabled(false);
+			for(JCheckBox jcb : jcbExtensions) jcb.setEnabled(false);
 		}
 		else if (e.getActionCommand() != null && e.getActionCommand().equals("Monte-Carlo")) {
 			this.jtfMaxIterations.setEnabled(true);
-			this.jcbDocx.setEnabled(true); this.jcbPptx.setEnabled(true);
-			this.jcbXlsx.setEnabled(true); this.jcbHtml.setEnabled(true);
-			this.jcbPdf.setEnabled(true); this.jcbOdt.setEnabled(true);
+			for(JCheckBox jcb : jcbExtensions) jcb.setEnabled(true);
 			this.jcbModelingProjects.setEnabled(true); this.jcbReportTemplates.setEnabled(true);
 		}
 		else if(e.getSource() == this.jcbModelingProjects) {
+			// Replacing the content of the templates combo box by the templates of the selected project
 			this.jcbReportTemplates.removeAllItems();
 			for(String template : WorkspaceManager.getTemplates((String) this.jcbModelingProjects.getSelectedItem()))
 				this.jcbReportTemplates.addItem(template);
@@ -277,6 +252,9 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 		}
 		else {
 			if(e.getSource() == this.jbStart) {
+				if(loadingBarManager != null && !loadingBarManager.isAborted())
+					// exceptional case
+					return;
 				if(jtfTimeUnits.getText().isEmpty()) 
 					JOptionPane.showMessageDialog(null, "Time Units value is not set!", "Error", JOptionPane.ERROR_MESSAGE);
 				else if (this.jrbMonteCarlo.isSelected() && (jtfMaxIterations.getText().isEmpty()))
@@ -285,34 +263,48 @@ public class NewSimulationManagementWindow extends JFrame implements ActionListe
 					JOptionPane.showMessageDialog(null, "Report template is not set!", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 				else {
+					jbStop.setEnabled(true);
+					// retrieving all the selected parameters
 					timeUnits = Integer.parseInt(jtfTimeUnits.getText());
-					maxIterations = Integer.parseInt(jtfMaxIterations.getText()); // Extensions chosen by the user
+					maxIterations = Integer.parseInt(jtfMaxIterations.getText()); 
+					// Extensions chosen by the user
 					List<String> extensions = new ArrayList<String>();
 					if(this.jrbMonteCarlo.isSelected()) {
-						loader.setMaximum(maxIterations);
+						// reset the loading bar and its label
+						jpLoader.reset("Processing simulation...", maxIterations);
+						// Set the name of the modeling project and the name of its selected template (for the ReportManager)
 						WorkspaceManager.SELECTED_PROJECT = (String) this.jcbModelingProjects.getSelectedItem();
 						WorkspaceManager.SELECTED_TEMPLATE = (String) this.jcbReportTemplates.getSelectedItem();
-						if(this.jcbDocx.isSelected()) extensions.add("docx"); if(this.jcbPdf.isSelected()) extensions.add("pdf");
-						if(this.jcbPptx.isSelected()) extensions.add("pptx"); if(this.jcbOdt.isSelected()) extensions.add("odt");
-						if(this.jcbXlsx.isSelected()) extensions.add("xlsx"); if(this.jcbHtml.isSelected()) extensions.add("html");
-						this.newSimulation = new NewSimulation(model, timeUnits, maxIterations, extensions);
+						// Set extensions selected by the user
+						for(JCheckBox jcb : jcbExtensions) {
+							if(jcb.isSelected())
+								extensions.add(jcb.getText());
+						}
+						this.simulation = new NewSimulation(model, timeUnits, maxIterations, extensions);
 					}
 					else {
-						loader.setMaximum(timeUnits);
-						this.newSimulation = new NewSimulation(model, timeUnits);
+						jpLoader.reset("Processing simulation...", timeUnits);
+						this.simulation = new NewSimulation(model, timeUnits);
 					}
-					
-					simulationThread = new Thread(newSimulation);
-					loadingBarThread = new Thread(new LoadingBar());
+					loadingBarManager = new LoadingBarManager(jpLoader, simulation);
+					simulationThread = new Thread(simulation);
+					loadingBarThread = new Thread(loadingBarManager);
+					jbStart.setEnabled(false);
 					simulationThread.start();
 					loadingBarThread.start(); 
 				}
 			}
 			else if(e.getSource() == this.jbStop) {
 				if(simulationThread != null && loadingBarThread != null && !simulationThread.isInterrupted() && !loadingBarThread.isInterrupted()) {
-					newSimulation.setCanceled(true);
+					if(loadingBarManager.getStep() != 1) 
+						// The user can abort the simulation and then generate the intermediate results...
+						// He should be able to abort this step too. So, the 'stop' button cannot be disabled after canceling a simulation
+						this.jbStop.setEnabled(false);
+					simulation.setCanceled(true);
+					simulation.setAborted(true);
+					loadingBarManager.setAborted(true);
+					jbStart.setEnabled(true);
 					jbStart.setText("Restart");
-					loader.setValue(0);
 				}
 			}
 		}

@@ -20,10 +20,10 @@ import org.eclipse.core.runtime.CoreException;
  */
 public class WorkspaceManager {
 	
-	public static String TEMPLATE_PATH;
-	public static String REPORT_FOLDER_PATH;
-	public static String SELECTED_PROJECT;
-	public static String SELECTED_TEMPLATE;
+	public static String SELECTED_PROJECT; // Project choosen by the user (in which reports will be generated)
+	public static String SELECTED_TEMPLATE; // Reporting template selected by the user
+	public static String TEMPLATE_PATH; // Full path of the template selected by the user
+	public static String REPORT_FOLDER_PATH; // Full path of the reports folder in which reports will be generated
 	
 	/**
 	 * 

@@ -3,6 +3,7 @@ package be.cetic.simqri.cockpit.main;
 import java.util.List;
 
 
+
 import javax.swing.JOptionPane;
 
 import org.eclipse.birt.report.engine.api.EngineException;
@@ -14,7 +15,6 @@ import be.cetic.simqri.cockpit.reporting.ReportManager;
 import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
 import be.cetic.simqri.cockpit.util.JsonFormat;
-import be.cetic.simqri.cockpit.views.LoaderWindow;
 import be.cetic.simqri.cockpit.views.ResultsWindow;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.Query;
@@ -35,22 +35,29 @@ import scala.collection.Iterator;
 public class NewSimulation implements Runnable {
 	
 	private SimQRiSirius simulation;
+	
 	// Mapping parameters
 	private Model model;
 	private String type;
 	private int timeUnits;
 	private int maxIterations;
-	private SimControl simControl;
-	private List<String> extensions; // .pdf, .docx, .html, etc. Retrieved from NewSimulationManagementWindow.java
-	private boolean aborted;
-	private int retrieveResultsStatus;
 	
+	private SimControl simControl; // variable used to control the simulation in OscaR
+	private List<String> extensions; // pdf, docx, html, etc. Retrieved from NewSimulationManagementWindow.java
+	private boolean aborted;
+	
+	private ReportManager reportManager;
+
+	private int retrieveResultsStatus; // used by the thread dedicated to the progress bar in LoadingBarManager.java
+	private int showResults; // also used by the thread dedicated to the progress bar in LoadingBarManager.java
+
 	// One Shot Constructor
 	public NewSimulation(Model model, int timeUnits) {
 		this.type = "One Shot";
 		this.model = model;
 		this.timeUnits = timeUnits;
 		this.simControl = new SimControl();
+		this.showResults = 10; // default value used by the thread dedicated to the progress bar in LoadingBarManager.java
 	}
 	
 	// Monte-Carlo Constructor 
@@ -61,8 +68,28 @@ public class NewSimulation implements Runnable {
 		this.model = model;
 		this.simControl = new SimControl();
 		this.extensions = extensions;
+		this.showResults = 10; // default value used by the thread dedicated to the progress bar in LoadingBarManager.java
 	}
 	
+	public int getExtensionsSize() {
+		return extensions.size();
+	}
+	
+	public ReportManager getReportManager() {
+		return reportManager;
+	}
+	
+	public int getShowResults() {
+		return this.showResults;
+	}
+	
+	public int getRetrieveResultsStatus() {
+		return retrieveResultsStatus;
+	}
+
+	public void setRetrieveResultsStatus(int retrieveResultsStatus) {
+		this.retrieveResultsStatus = retrieveResultsStatus;
+	}
 
 	public Model getModel() {
 		return this.model;
@@ -90,7 +117,7 @@ public class NewSimulation implements Runnable {
 	
 	public int getLoading() {
 		if(this.simulation==null) 
-			// the thread that retrieve this value can be executed before the beginning of the simulation
+			// the thread that retrieves this value can be executed before the beginning of the simulation
 			return 0;
 		else if(this.type.equals("Monte-Carlo"))
 			return this.simulation.loading(); 
@@ -109,7 +136,7 @@ public class NewSimulation implements Runnable {
 
 	public boolean isCanceled() {
 		if(this.simulation==null)
-			// the thread that retrieve this value can be executed before the beginning of the simulation
+			// the thread that retrieves this value can be executed before the beginning of the simulation
 			return false;
 		else if(this.type.equals("Monte-Carlo"))
 			return this.simulation.mcAborted();
@@ -136,8 +163,11 @@ public class NewSimulation implements Runnable {
 		this.aborted = aborted;
 	}
 	
+	/**
+	 * Main simulation thread (data mapping, API OscaR, results retrieval in tracers and reports generation)
+	 */
 	@Override
-	public void run() { // simulation execution thread (data mapping + API OscaR)
+	public void run() { 
 		TraceLogger sqlogger = new TraceLogger();
 		sqlogger.reset();
 		Tools tools = new Tools();
@@ -145,30 +175,13 @@ public class NewSimulation implements Runnable {
 			this.setSimulation(new SimQRiSirius(timeUnits, true, sqlogger, false)); 
 			simulation.fillModelWithSiriusData(model);
 			simulation.simulateOneShot(this.simControl);
-			int showResults = JOptionPane.YES_OPTION;
 			if(this.isCanceled())
-				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to retrieve intermediate reports ?");
+				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to consult intermediate results ?");
+			else showResults = JOptionPane.YES_OPTION; // We have to fix the value because the LoadingBarManager thread will use it...
 			if(showResults == JOptionPane.YES_OPTION) {
-				// Thread that manages the loader window behaviour
+
 				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
 				this.retrieveResultsStatus = 0;
-				Thread t = new Thread(new Runnable(){
-			        public void run(){
-			        	LoaderWindow lw = new LoaderWindow(4, "Results retrieval", "This operation may take a while...",
-			        			"Operation aborted !");
-			        	while(lw.isEnabled()) {
-			        		lw.setJpbStatus(retrieveResultsStatus);
-			        		if(lw.getJpbStatus() == 4) {
-			        			lw.dispose();
-			        		}
-			        		else if(lw.isAborted()) {
-			        			setAborted(true);
-			        			lw.dispose();
-			        		}
-			        	}
-			        }
-			    });
-				t.start();
 				
 				// Instance of the object that will store "One Shot" simulation results
 				OneShotTracer ost = new OneShotTracer();
@@ -202,32 +215,15 @@ public class NewSimulation implements Runnable {
 		else if(type.equals("Monte-Carlo")) {
 			this.setSimulation(new SimQRiSirius(timeUnits, true, sqlogger, true));
 			simulation.fillModelWithSiriusData(model);
-			simulation.simulateMonteCarlo(maxIterations, this.simControl); // simControl useless here... For the moment ?
-			int showResults = JOptionPane.YES_OPTION;
+			simulation.simulateMonteCarlo(maxIterations, this.simControl);
 			if(this.isCanceled())
-				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to consult intermediate results ?");
+				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to retrieve intermediate reports ?");
+			else showResults = JOptionPane.YES_OPTION; // We have to fix the value because the LoadingBarManager thread will use it...
 			if(showResults == JOptionPane.YES_OPTION) {
-				// Thread that manages the loader window behaviour
+
 				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
 				this.retrieveResultsStatus = 0;
-				Thread t = new Thread(new Runnable(){
-			        public void run(){
-			        	LoaderWindow lw = new LoaderWindow(5, "Results retrieval", "This operation may take a while...",
-			        			"Operation aborted !");
-			        	while(lw.isEnabled()) {
-			        		lw.setJpbStatus(retrieveResultsStatus);
-			        		if(lw.getJpbStatus() == 5) {
-			        			lw.dispose();
-			        		}
-			        		else if(lw.isAborted()) {
-			        			setAborted(true);
-			        			lw.dispose();
-			        		}
-			        	}
-			        }
-			    });
-				t.start();
-					
+				
 				// Instance of the object that will store "Monte-Carlo" simulation results and manage their XML mutation
 				MonteCarloTracer mct = new MonteCarloTracer();
 				
@@ -248,9 +244,9 @@ public class NewSimulation implements Runnable {
 				retrieveResultsStatus++;
 				if(this.isAborted()) return;
 					
-				ReportManager reportManager = new ReportManager(this.extensions);
+				this.reportManager = new ReportManager(this.extensions);
 				try {
-					reportManager.executeReport(); // TODO change parameter with template report and modeling project
+					this.reportManager.executeReport();
 				} catch (EngineException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -2,6 +2,7 @@ package be.cetic.simqri.cockpit.reporting;
 
 import java.io.File;
 
+
 import java.util.List;
 
 import javax.swing.JFileChooser;
@@ -16,8 +17,6 @@ import org.eclipse.birt.report.engine.api.IReportEngineFactory;
 import org.eclipse.birt.report.engine.api.IReportRunnable;
 import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
 import org.eclipse.birt.report.engine.api.PDFRenderOption;
-
-import be.cetic.simqri.cockpit.views.LoaderWindow;
 
 /**
  * 
@@ -36,6 +35,7 @@ public class ReportManager {
 
 	public ReportManager(List<String> extensions) {
 		this.extensions = extensions;
+		this.createdReports = 0;
 	}
 	
 	public List<String> getExtensions() {
@@ -77,7 +77,7 @@ public class ReportManager {
 	    {
 	    	// Prepare & open the BIRT report design
 	    	config = new EngineConfig();                   
-	        config.setLogConfig("simqri-reports/logs", java.util.logging.Level.WARNING);
+	        config.setLogConfig("logs", java.util.logging.Level.WARNING);
 	        
 	        // Set the path that refers to the BIRT ReportEngine. 
 	        // NO MORE USED : plug-ins are directly installed on the Eclipse IDE with the BIRT osgi update site
@@ -100,35 +100,13 @@ public class ReportManager {
 	            Platform.shutdown();
 	            return;
 	        }
-     
-	        int nbReports = extensions.size();
-	        this.createdReports = 0;
-	        // Thread that manages the loader window behaviour
-			Thread t = new Thread(new Runnable(){
-		        public void run(){
-		        	LoaderWindow lw = new LoaderWindow(nbReports, "Creating reports", "Results reports are being generated...", 
-		        			"Process aborted !\nHowever, some reports may have already been generated.");
-		        	while(lw.isEnabled()) {
-		        		lw.setJpbStatus(createdReports);
-		        		if(lw.getJpbStatus() == nbReports) {
-		        			setAborted(false);
-		        			lw.dispose();
-		        		}
-		        		else if(lw.isAborted()) {
-		        			setAborted(true);
-		        			lw.dispose();
-		        		}
-		        	}
-		        }
-		    });
-			t.start();
+	        String strDate = getStrDate();   
 			for(String extension : extensions) {
 				if(isAborted()) 
 					break;
-	        	createReport(WorkspaceManager.REPORT_FOLDER_PATH, extension);
+	        	createReport(WorkspaceManager.REPORT_FOLDER_PATH, extension, strDate);
 	        	this.createdReports++;
 	        }
-			// t.interrupt();
 			if(!isAborted())
 	        	JOptionPane.showMessageDialog(null,  "Your reports are now available in the selected directory !", "Simulation succeded", JOptionPane.INFORMATION_MESSAGE);
 	        engine.destroy( );
@@ -136,8 +114,7 @@ public class ReportManager {
 	        engine = null;
 	        return;
 	    }
-	    catch (Exception e)
-		{
+	    catch (Exception e) {
 		    e.printStackTrace();
 		} 
 	}
@@ -147,26 +124,20 @@ public class ReportManager {
 	 * @param path the path of the directory in which reports files will be created
 	 * @param extension a file extension selected by the user
 	 */
-	private void createReport(String path, String extension) {
-		// Get the full date to set it in the file name
-		String format = "dd-MM-yyyy-HH-mm-ss"; 
-		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format ); 
-		java.util.Date date = new java.util.Date(); 
-		String strDate = formater.format(date);
-		if(isAborted()) return;
+	private void createReport(String path, String extension, String strDate) {
 		IRunAndRenderTask task = engine.createRunAndRenderTask( report );
-		
+		if(isAborted()) return;
 		// Particular for .pdf format
 		if(extension.equals("pdf")) {
 			PDFRenderOption options = new PDFRenderOption( );
 	        options.setOutputFormat("pdf");
-	        options.setOutputFileName(path+"/REPORT_"+strDate+".pdf");
+	        options.setOutputFileName(path+"/"+strDate+"/"+"/REPORT_"+strDate+".pdf");
 	        task.setRenderOption(options);
 		}
 		else {
 			HTMLRenderOption options = new HTMLRenderOption();
 			options.setOutputFormat(extension);
-			options.setOutputFileName(path+"/REPORT_"+strDate+"."+extension);
+			options.setOutputFileName(path+"/"+strDate+"/"+"/REPORT_"+strDate+"."+extension);
 			task.setRenderOption(options);
 		}
 		if(isAborted()) return;
@@ -177,6 +148,18 @@ public class ReportManager {
 			JOptionPane.showMessageDialog(null, "Report generating failed in "+extension+" format.\n", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		
+	}
+	
+	/**
+	 * 
+	 * @return the date related to the current reports generation
+	 */
+	private String getStrDate() {
+		// Get the full date to set it in the file name
+		String format = "dd-MM-yyyy-HH-mm-ss"; 
+		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format ); 
+		java.util.Date date = new java.util.Date(); 
+		return formater.format(date);
 	}
 	
 	@SuppressWarnings("unused")
