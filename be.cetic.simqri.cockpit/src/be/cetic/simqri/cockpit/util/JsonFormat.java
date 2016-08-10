@@ -2,6 +2,7 @@ package be.cetic.simqri.cockpit.util;
 
 import javax.swing.JOptionPane;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -43,6 +44,23 @@ public class JsonFormat {
 		double val = 0;
 		try {
 			val = jsonObject.getDouble(key);
+		} catch (JSONException e) {
+			JOptionPane.showMessageDialog(null,  "Invalid JSon format", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+
+		return val;
+	}
+	
+	public static JSONArray jsonToArray(String jsonString, String key) {
+		JSONObject jsonObject = null;
+		try {
+			jsonObject = new JSONObject(jsonString);
+		} catch (JSONException e) {
+			JOptionPane.showMessageDialog(null,  "Invalid JSon format", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		JSONArray val = null;
+		try {
+			val = jsonObject.getJSONArray(key);
 		} catch (JSONException e) {
 			JOptionPane.showMessageDialog(null,  "Invalid JSon format", "Error", JOptionPane.ERROR_MESSAGE);
 		}

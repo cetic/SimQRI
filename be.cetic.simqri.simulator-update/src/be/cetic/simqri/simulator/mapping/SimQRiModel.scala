@@ -1,18 +1,19 @@
 package be.cetic.simqri.simulator.mapping
 
 import oscar.des.flow.lib._
+
 import oscar.des.flow.modeling._
 import oscar.des.montecarlo.DataSampling
 
 /**
  * @author Gustavo Ospina
  * 
- * This object is used to make Monte-Carlo simulation in SimQRISirius.class.
+ * This object is used to make Monte-Carlo simulation in SimQRISirius.scala.
  * The SimQRi web project has typically the same object.
  * 
  */
 object SimQRiModel {
-    private def addListDoubleToList(dblLs : List[(Double,Double)],
+  private def addListDoubleToList(dblLs : List[(Double,Double)],
                                   dlsLs : List[(Double,List[Double])]) : List[(Double,List[Double])] = {
     def addTupleToList(tup : (Double,Double),
                        lsDls : List[(Double,List[Double])]) : List[(Double,List[Double])] = lsDls match {

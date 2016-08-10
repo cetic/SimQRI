@@ -94,7 +94,7 @@ public class Simulation {
 			if(errQueries.isEmpty()) {
 				sim.simulateMonteCarlo(maxIterations, new SimControl());
 				
-				MonteCarloTracer mct = new MonteCarloTracer();
+				MonteCarloTracer mct = new MonteCarloTracer(model);
 				mct.setElementsSampling(t.elementsSamplingsToJavaMap(sqlogger));
 				mct.setRuntimeSampling(sqlogger.logs().mcSamplings().runtimeSampling());
 				mct.setProbesSampling(sqlogger.logs().mcSamplings().probesSampling());

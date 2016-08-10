@@ -15,6 +15,7 @@ import be.cetic.simqri.metamodel.OutputType;
 import be.cetic.simqri.metamodel.Poisson;
 import be.cetic.simqri.metamodel.ProcessOutputFlow;
 import be.cetic.simqri.metamodel.Query;
+import be.cetic.simqri.metamodel.QueryType;
 import be.cetic.simqri.metamodel.Scalar;
 import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
@@ -106,6 +107,8 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 				return createOrderTypeFromString(eDataType, initialValue);
 			case MetamodelPackage.OUTPUT_TYPE:
 				return createOutputTypeFromString(eDataType, initialValue);
+			case MetamodelPackage.QUERY_TYPE:
+				return createQueryTypeFromString(eDataType, initialValue);
 			case MetamodelPackage.PERCENT:
 				return createPercentFromString(eDataType, initialValue);
 			case MetamodelPackage.POSITIVE_INT:
@@ -133,6 +136,8 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 				return convertOrderTypeToString(eDataType, instanceValue);
 			case MetamodelPackage.OUTPUT_TYPE:
 				return convertOutputTypeToString(eDataType, instanceValue);
+			case MetamodelPackage.QUERY_TYPE:
+				return convertQueryTypeToString(eDataType, instanceValue);
 			case MetamodelPackage.PERCENT:
 				return convertPercentToString(eDataType, instanceValue);
 			case MetamodelPackage.POSITIVE_INT:
@@ -325,6 +330,26 @@ public class MetamodelFactoryImpl extends EFactoryImpl implements MetamodelFacto
 	 * @generated
 	 */
 	public String convertOutputTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QueryType createQueryTypeFromString(EDataType eDataType, String initialValue) {
+		QueryType result = QueryType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertQueryTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

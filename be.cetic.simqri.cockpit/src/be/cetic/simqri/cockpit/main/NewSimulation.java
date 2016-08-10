@@ -225,7 +225,7 @@ public class NewSimulation implements Runnable {
 				this.retrieveResultsStatus = 0;
 				
 				// Instance of the object that will store "Monte-Carlo" simulation results and manage their XML mutation
-				MonteCarloTracer mct = new MonteCarloTracer();
+				MonteCarloTracer mct = new MonteCarloTracer(model);
 				
 				// Convert simulation results to java structures
 				mct.setRuntimeSampling(sqlogger.logs().mcSamplings().runtimeSampling());

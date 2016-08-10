@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link be.cetic.simqri.metamodel.Query#getMean <em>Mean</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Query#getVariance <em>Variance</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Query#getError <em>Error</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.Query#getType <em>Type</em>}</li>
  * </ul>
  *
  * @see be.cetic.simqri.metamodel.MetamodelPackage#getQuery()
@@ -236,5 +237,35 @@ public interface Query extends EObject {
 	 * @generated
 	 */
 	void setError(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * The default value is <code>"UNDEFINED"</code>.
+	 * The literals are from the enumeration {@link be.cetic.simqri.metamodel.QueryType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see be.cetic.simqri.metamodel.QueryType
+	 * @see #setType(QueryType)
+	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getQuery_Type()
+	 * @model default="UNDEFINED"
+	 * @generated
+	 */
+	QueryType getType();
+
+	/**
+	 * Sets the value of the '{@link be.cetic.simqri.metamodel.Query#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see be.cetic.simqri.metamodel.QueryType
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(QueryType value);
 
 } // Query

@@ -214,13 +214,22 @@ public interface MetamodelPackage extends EPackage {
 	int QUERY__ERROR = 7;
 
 	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY__TYPE = 8;
+
+	/**
 	 * The number of structural features of the '<em>Query</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_FEATURE_COUNT = 8;
+	int QUERY_FEATURE_COUNT = 9;
 
 	/**
 	 * The number of operations of the '<em>Query</em>' class.
@@ -1178,6 +1187,16 @@ public interface MetamodelPackage extends EPackage {
 	int OUTPUT_TYPE = 20;
 
 	/**
+	 * The meta object id for the '{@link be.cetic.simqri.metamodel.QueryType <em>Query Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see be.cetic.simqri.metamodel.QueryType
+	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getQueryType()
+	 * @generated
+	 */
+	int QUERY_TYPE = 21;
+
+	/**
 	 * The meta object id for the '<em>Percent</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1185,7 +1204,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPercent()
 	 * @generated
 	 */
-	int PERCENT = 21;
+	int PERCENT = 22;
 
 	/**
 	 * The meta object id for the '<em>Positive Int</em>' data type.
@@ -1195,7 +1214,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveInt()
 	 * @generated
 	 */
-	int POSITIVE_INT = 22;
+	int POSITIVE_INT = 23;
 
 	/**
 	 * The meta object id for the '<em>Positive Double</em>' data type.
@@ -1205,7 +1224,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveDouble()
 	 * @generated
 	 */
-	int POSITIVE_DOUBLE = 23;
+	int POSITIVE_DOUBLE = 24;
 
 	/**
 	 * The meta object id for the '<em>Positive Int Not Null</em>' data type.
@@ -1215,7 +1234,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveIntNotNull()
 	 * @generated
 	 */
-	int POSITIVE_INT_NOT_NULL = 24;
+	int POSITIVE_INT_NOT_NULL = 25;
 
 	/**
 	 * The meta object id for the '<em>Positive Double Not Null</em>' data type.
@@ -1225,7 +1244,7 @@ public interface MetamodelPackage extends EPackage {
 	 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getPositiveDoubleNotNull()
 	 * @generated
 	 */
-	int POSITIVE_DOUBLE_NOT_NULL = 25;
+	int POSITIVE_DOUBLE_NOT_NULL = 26;
 
 	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Model <em>Model</em>}'.
@@ -1389,6 +1408,17 @@ public interface MetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getQuery_Error();
+
+	/**
+	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Query#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see be.cetic.simqri.metamodel.Query#getType()
+	 * @see #getQuery()
+	 * @generated
+	 */
+	EAttribute getQuery_Type();
 
 	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Storage <em>Storage</em>}'.
@@ -2010,6 +2040,16 @@ public interface MetamodelPackage extends EPackage {
 	EEnum getOutputType();
 
 	/**
+	 * Returns the meta object for enum '{@link be.cetic.simqri.metamodel.QueryType <em>Query Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Query Type</em>'.
+	 * @see be.cetic.simqri.metamodel.QueryType
+	 * @generated
+	 */
+	EEnum getQueryType();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Double <em>Percent</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2215,6 +2255,14 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUERY__ERROR = eINSTANCE.getQuery_Error();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY__TYPE = eINSTANCE.getQuery_Type();
 
 		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.StorageImpl <em>Storage</em>}' class.
@@ -2717,6 +2765,16 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum OUTPUT_TYPE = eINSTANCE.getOutputType();
+
+		/**
+		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.QueryType <em>Query Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see be.cetic.simqri.metamodel.QueryType
+		 * @see be.cetic.simqri.metamodel.impl.MetamodelPackageImpl#getQueryType()
+		 * @generated
+		 */
+		EEnum QUERY_TYPE = eINSTANCE.getQueryType();
 
 		/**
 		 * The meta object literal for the '<em>Percent</em>' data type.

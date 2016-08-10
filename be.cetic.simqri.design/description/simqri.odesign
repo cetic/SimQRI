@@ -643,6 +643,7 @@
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
         </defaultForeground>
       </ownedColumnMappings>
+      <ownedColumnMappings name="QT_Type" label="Type" headerLabelExpression="Type" canEdit="aql:true" featureName="type" labelExpression="feature:type"/>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckOutputs"/>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckQuery"/>

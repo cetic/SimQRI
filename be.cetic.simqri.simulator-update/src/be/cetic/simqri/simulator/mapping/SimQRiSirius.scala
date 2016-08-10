@@ -48,6 +48,12 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
   val rawBatch = attributes.getN(0)
   val ph = new ProbabilityHandler()
   
+  // Variables for MC Simulation
+  var samplingMap : Map[String, Map[String,DataSampling]] = null
+  var singleProbesSamplingMap : Map[String,DataSampling] = null
+  var historyProbesMap : Map[String,List[(Double,List[Double])]] = null
+  val samplingRuntime = new DataSampling
+  
   // Auxiliary function to obtain the list of outputs
   // it will create Delay objects if the delay data is not zero
   def getStorageFlowOutputInfo(nameProcess : String, storInfo : mutable.HashMap[Int, Storage],
@@ -466,10 +472,6 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
   
     // Main function for MC simulation
   def simulateMonteCarlo(numIterations : Int, simControl:SimControl): Unit = {
-    var samplingMap : Map[String, Map[String,DataSampling]] = null
-    var singleProbesSamplingMap : Map[String,DataSampling] = null
-    var historyProbesMap : Map[String,List[(Double,List[Double])]] = null
-    val samplingRuntime = new DataSampling
     var i = 0
     var currentFM = factoryModel
     while (i < numIterations && !mcAborted) {
@@ -495,28 +497,36 @@ class SimQRiSirius(duration : Float, verbose : Boolean, sqlogger: Logger[String]
       loading += 1;
     }
     // Log elements infos
-    samplingMap.foreach((samplings) => {
-      val elem_name = samplings._1
-      val attrs_map = samplings._2
-      attrs_map.foreach((attr_map) => {
-        val attr_name = attr_map._1
-        val attr_sampling = attr_map._2
-        sqlogger.log("mc_sampling_element", elem_name, attr_name, attr_sampling.toJSONString)
+    if (samplingMap != null) {
+      samplingMap.foreach((samplings) => {
+        val elem_name = samplings._1
+        val attrs_map = samplings._2
+        attrs_map.foreach((attr_map) => {
+          val attr_name = attr_map._1
+          val attr_sampling = attr_map._2
+          sqlogger.log("mc_sampling_element", elem_name, attr_name, attr_sampling.toJSONString)
+        })
       })
-    })
+    }
     // Log runtime info
-    sqlogger.log("mc_sampling_runtime", samplingRuntime.toJSONString)
+    if (samplingRuntime != null) {
+      sqlogger.log("mc_sampling_runtime", samplingRuntime.toJSONString)
+    }
     // Log single probes info
-    singleProbesSamplingMap.foreach((probe_map) => {
-      val probe_name = probe_map._1
-      val probe_sampling = probe_map._2
-      sqlogger.log("mc_sampling_probe", probe_name, probe_sampling.toJSONString)
-    })
+    if (singleProbesSamplingMap != null) {
+      singleProbesSamplingMap.foreach((probe_map) => {
+        val probe_name = probe_map._1
+        val probe_sampling = probe_map._2
+        sqlogger.log("mc_sampling_probe", probe_name, probe_sampling.toJSONString)
+      })
+    }
     // Log history probes info
-    historyProbesMap.foreach((history_map) => {
-      val probe_name = history_map._1
-      val probe_history = history_map._2
-      sqlogger.log("mc_history_probe", probe_name, SimQRiModel.historyListToJSONString(probe_history))
-    })
+    if (historyProbesMap != null) {
+      historyProbesMap.foreach((history_map) => {
+        val probe_name = history_map._1
+        val probe_history = history_map._2
+        sqlogger.log("mc_history_probe", probe_name, SimQRiModel.historyListToJSONString(probe_history))
+      })
+    }
   }
 }

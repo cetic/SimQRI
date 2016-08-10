@@ -17,6 +17,12 @@
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//OutputType/LOWER_QUALITY"/>
       <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//OutputType/TRASH"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//QueryType">
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//QueryType/DELAY"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//QueryType/QUANTITY"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//QueryType/QUALITY"/>
+      <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//QueryType/UNDEFINED"/>
+    </genEnums>
     <genDataTypes ecoreDataType="metamodel.ecore#//Percent"/>
     <genDataTypes ecoreDataType="metamodel.ecore#//PositiveInt"/>
     <genDataTypes ecoreDataType="metamodel.ecore#//PositiveDouble"/>
@@ -38,6 +44,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/mean"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/variance"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/error"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Query/type"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Storage">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//Storage/size"/>

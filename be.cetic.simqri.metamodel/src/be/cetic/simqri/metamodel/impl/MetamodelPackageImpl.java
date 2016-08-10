@@ -19,6 +19,7 @@ import be.cetic.simqri.metamodel.Poisson;
 import be.cetic.simqri.metamodel.Probability;
 import be.cetic.simqri.metamodel.ProcessOutputFlow;
 import be.cetic.simqri.metamodel.Query;
+import be.cetic.simqri.metamodel.QueryType;
 import be.cetic.simqri.metamodel.Scalar;
 import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
@@ -189,6 +190,13 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * @generated
 	 */
 	private EEnum outputTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum queryTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -428,6 +436,15 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 */
 	public EAttribute getQuery_Error() {
 		return (EAttribute)queryEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQuery_Type() {
+		return (EAttribute)queryEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -957,6 +974,15 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getQueryType() {
+		return queryTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getPercent() {
 		return percentEDataType;
 	}
@@ -1041,6 +1067,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		createEAttribute(queryEClass, QUERY__MEAN);
 		createEAttribute(queryEClass, QUERY__VARIANCE);
 		createEAttribute(queryEClass, QUERY__ERROR);
+		createEAttribute(queryEClass, QUERY__TYPE);
 
 		storageEClass = createEClass(STORAGE);
 		createEAttribute(storageEClass, STORAGE__SIZE);
@@ -1118,6 +1145,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		// Create enums
 		orderTypeEEnum = createEEnum(ORDER_TYPE);
 		outputTypeEEnum = createEEnum(OUTPUT_TYPE);
+		queryTypeEEnum = createEEnum(QUERY_TYPE);
 
 		// Create data types
 		percentEDataType = createEDataType(PERCENT);
@@ -1185,6 +1213,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEAttribute(getQuery_Mean(), ecorePackage.getEString(), "mean", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_Variance(), ecorePackage.getEString(), "variance", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_Error(), ecorePackage.getEString(), "error", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuery_Type(), this.getQueryType(), "type", "UNDEFINED", 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(storageEClass, Storage.class, "Storage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStorage_Size(), this.getPositiveIntNotNull(), "size", "100", 0, 1, Storage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1269,6 +1298,12 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		addEEnumLiteral(outputTypeEEnum, OutputType.FAILURE);
 		addEEnumLiteral(outputTypeEEnum, OutputType.LOWER_QUALITY);
 		addEEnumLiteral(outputTypeEEnum, OutputType.TRASH);
+
+		initEEnum(queryTypeEEnum, QueryType.class, "QueryType");
+		addEEnumLiteral(queryTypeEEnum, QueryType.DELAY);
+		addEEnumLiteral(queryTypeEEnum, QueryType.QUANTITY);
+		addEEnumLiteral(queryTypeEEnum, QueryType.QUALITY);
+		addEEnumLiteral(queryTypeEEnum, QueryType.UNDEFINED);
 
 		// Initialize data types
 		initEDataType(percentEDataType, Double.class, "Percent", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

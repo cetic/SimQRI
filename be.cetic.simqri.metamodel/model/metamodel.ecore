@@ -22,6 +22,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mean" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="error" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//QueryType"
+        defaultValueLiteral="UNDEFINED"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Storage" eSuperTypes="#//Component">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="#//PositiveIntNotNull"
@@ -169,5 +171,11 @@
         eType="#//PositiveDouble" defaultValueLiteral="1"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" eType="#//Output"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="QueryType">
+    <eLiterals name="DELAY"/>
+    <eLiterals name="QUANTITY" value="1"/>
+    <eLiterals name="QUALITY" value="2"/>
+    <eLiterals name="UNDEFINED" value="3"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -114,7 +114,7 @@ public class LoadingBarManager implements Runnable {
 				while(simulation.getReportManager() == null) 
 					waiting();
 				
-				panelLoader.reset("Generating reports...", simulation.getExtensionsSize());
+				panelLoader.reset("Generating reports [0/"+simulation.getExtensionsSize()+"]", simulation.getExtensionsSize());
 				this.step = 3;
 				int nbPrec = 0;
 				// Generating reports loop
@@ -123,14 +123,14 @@ public class LoadingBarManager implements Runnable {
 					panelLoader.getJpbStatus().setValue(nbReports);
 					if(nbReports >nbPrec) {
 						nbPrec = nbReports;
-						panelLoader.setMessage("Generating reports ("+nbReports+"/"+simulation.getExtensionsSize()+")");
+						panelLoader.setMessage("Generating reports ["+nbReports+"/"+simulation.getExtensionsSize()+"]");
 					}
 				}
 				if(isAborted()) {
 					// We have to warn the report manager that the reports generation has been aborted
 					simulation.getReportManager().setAborted(true);
 					panelLoader.reset("status bar", 100);
-					JOptionPane.showMessageDialog(null,  "Operation aborted !\nHowever, some reports have already been generated...", "Warning", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(null,  "Operation aborted !\nHowever, some reports may have already been generated...", "Warning", JOptionPane.WARNING_MESSAGE);
 				}
 				setAborted(true); // aborted = finished
 				// End of the process, we close the simulation management window

@@ -18,6 +18,7 @@ import be.cetic.simqri.metamodel.Poisson;
 import be.cetic.simqri.metamodel.Probability;
 import be.cetic.simqri.metamodel.ProcessOutputFlow;
 import be.cetic.simqri.metamodel.Query;
+import be.cetic.simqri.metamodel.QueryType;
 import be.cetic.simqri.metamodel.Scalar;
 import be.cetic.simqri.metamodel.Storage;
 import be.cetic.simqri.metamodel.StorageOutputFlow;
@@ -146,6 +147,8 @@ public class MetamodelValidator extends EObjectValidator {
 				return validateOrderType((OrderType)value, diagnostics, context);
 			case MetamodelPackage.OUTPUT_TYPE:
 				return validateOutputType((OutputType)value, diagnostics, context);
+			case MetamodelPackage.QUERY_TYPE:
+				return validateQueryType((QueryType)value, diagnostics, context);
 			case MetamodelPackage.PERCENT:
 				return validatePercent((Double)value, diagnostics, context);
 			case MetamodelPackage.POSITIVE_INT:
@@ -347,6 +350,15 @@ public class MetamodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateOutputType(OutputType outputType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateQueryType(QueryType queryType, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
 

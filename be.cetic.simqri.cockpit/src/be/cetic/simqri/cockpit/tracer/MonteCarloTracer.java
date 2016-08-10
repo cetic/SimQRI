@@ -9,7 +9,12 @@ import java.util.Map;
 
 import javax.swing.JOptionPane;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import be.cetic.simqri.cockpit.util.JsonFormat;
+import be.cetic.simqri.metamodel.Model;
+import be.cetic.simqri.metamodel.Query;
 import oscar.des.logger.HistorySampling;
 import oscar.des.logger.SamplingTuple;
 import scala.collection.Iterator;
@@ -22,7 +27,7 @@ import scala.collection.immutable.List;
  * @version 3.0
  * 
  * This class stores "Monte-Carlo" simulation results by using appropriates collections.
- * It also transform these collections into XML structures in order to be placed in a XML file.
+ * It also creates an XML file containing data used for the reporting services.
  */
 public class MonteCarloTracer {
 	
@@ -34,19 +39,22 @@ public class MonteCarloTracer {
 	private List<HistorySampling> historySampling;
 	private File XMLFile;
 	private BufferedWriter bf;
+	private Model model;
 	
-	public MonteCarloTracer() {
+	public MonteCarloTracer(Model model) {
 		this.XMLFile = new File("xml/montecarlo.xml");
+		this.model = model;
 		this.XMLFile.getParentFile().mkdirs();
 	}
 	
-	public MonteCarloTracer(Map<String, List<SamplingTuple>> elementsSampling, SamplingTuple runtimeSampling,
+	public MonteCarloTracer(Model model, Map<String, List<SamplingTuple>> elementsSampling, SamplingTuple runtimeSampling,
 			List<SamplingTuple> probesSampling, List<HistorySampling> historySampling) {
 		super();
 		this.elementsSampling = elementsSampling;
 		this.runtimeSampling = runtimeSampling;
 		this.probesSampling = probesSampling;
 		this.historySampling = historySampling;
+		this.model = model;
 		this.XMLFile = new File("xml/montecarlo.xml");
 		this.XMLFile.getParentFile().mkdirs();
 	}
@@ -150,16 +158,31 @@ public class MonteCarloTracer {
 			String jsonProbe = probe.toJSONString();
 			String attrName = JsonFormat.jsonToString(jsonProbe, "name");
 			
+			// Query XML conversion
 			String jsonProbeSampling = JsonFormat.getJSonFromJSon(jsonProbe,  "dataSampling");
 			String attrMax = String.format("%.2f", JsonFormat.jsonToDouble(jsonProbeSampling, "max"));
 			String attrMin = String.format("%.2f", JsonFormat.jsonToDouble(jsonProbeSampling, "min"));
 			String attrMean = String.format("%.2f", JsonFormat.jsonToDouble(jsonProbeSampling, "mean"));
 			double attrVariance = JsonFormat.jsonToDouble(jsonProbeSampling, "variance");
 			String probeXML = "<query>";
-			probeXML += "<name>"+attrName+"</name><max>"+attrMax+"</max><min>"+attrMin+"</min>";
+			probeXML += "<name>"+attrName+"</name>"+"<value>"+getQueryValue(attrName)+"</value>";
+			probeXML += "<type>"+getQueryType(attrName)+"</type>"+"<max>"+attrMax+"</max><min>"+attrMin+"</min>";
 			probeXML += "<mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance></query>";
+			
+			// Query's Histograms XML conversion
+			JSONArray histograms = JsonFormat.jsonToArray(jsonProbeSampling, "histogram");
+			java.util.List<Double> histoList = getQueryHistograms(histograms);
+			String histoProbeXML = "";
+			for(int i=0; i < histoList.size(); i+=2) {
+				histoProbeXML += "<histogram>";
+				histoProbeXML += "<name>"+attrName+"</name>";
+				histoProbeXML += "<type>"+getQueryType(attrName)+"</type>";
+				histoProbeXML += "<mean>"+histoList.get(i)+"</mean>";
+				histoProbeXML += "<frequency>"+histoList.get(i+1)+"</frequency></histogram>";
+			}
 			try {
 				bf.append(probeXML);
+				bf.append(histoProbeXML);
 			} catch (IOException e) {
 				JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
 			}
@@ -171,6 +194,40 @@ public class MonteCarloTracer {
 		}
 		probesString += "  ----------------------------------------- \n";
 		// return probesString;
+	}
+	
+	private java.util.List<Double> getQueryHistograms(JSONArray histograms) {
+		java.util.List<Double> histoList = new java.util.ArrayList<Double>();
+		for(int i=0; i<histograms.length(); i++) {
+			String histogram = "";
+			try {
+				histogram = histograms.get(i).toString();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			double mean = JsonFormat.jsonToDouble(histogram, "mean");
+			double frequency = JsonFormat.jsonToDouble(histogram,  "frequency");
+			histoList.add(mean);
+			histoList.add(frequency);
+		}
+		return histoList;
+	}
+	
+	private String getQueryValue(String queryName) {
+		for(Query q : model.getQuery()) {
+			if(q.getName().equals(queryName))
+				return q.getValue();
+		}
+		return "";
+	}
+	
+	private String getQueryType(String queryName) {
+		for(Query q : model.getQuery()) {
+			if(q.getName().equals(queryName))
+				return q.getType().toString();
+		}
+		return "";
 	}
 	
 	/**

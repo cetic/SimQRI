@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metamodel:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metamodel="http://www.example.org/metamodel">
   <query name="Number of time units plus 1" value="plus(time,1)" result="1001,00" error=""/>
-  <query name="new_supplier 1 : Number of started batches" value="startedBatchCount(&quot;new_supplier 1&quot;)" result="2,00" error=""/>
-  <query name="new_supplier 1 : Number of completed batches" value="completedBatchCount(&quot;new_supplier 1&quot;)" result="2,00" error=""/>
-  <query name="new_supplier 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_supplier 1&quot;), time)" result="1,00" error=""/>
-  <query name="new_storage 1 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" result="0,97" error=""/>
-  <query name="new_storage 1 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" result="0,02" error=""/>
-  <query name="new_storage 1 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" result="0,00" error=""/>
-  <query name="new_batch_process 1 : Number of completed batches" value="completedBatchCount(&quot;new_batch_process 1&quot;)" result="100,00" error=""/>
-  <query name="new_batch_process 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_batch_process 1&quot;), time)" result="2,90" error=""/>
-  <query name="new_storage 2 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" result="1,00" error=""/>
-  <query name="new_storage 2 : Total lost by overflow" value="totalLostByOverflow(&quot;new_storage 2&quot;)" result="100,00" error=""/>
+  <query name="new_supplier 1 : Number of started batches" value="startedBatchCount(&quot;new_supplier 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_supplier 1 : Number of completed batches" value="completedBatchCount(&quot;new_supplier 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_supplier 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_supplier 1&quot;), time)" error="" type="DELAY"/>
+  <query name="new_storage 1 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 1 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 1 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" error="" type="QUANTITY"/>
+  <query name="new_batch_process 1 : Number of started batches" value="startedBatchCount(&quot;new_batch_process 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_batch_process 1 : Number of completed batches" value="completedBatchCount(&quot;new_batch_process 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_batch_process 1 : Percentage of time idle" value="div(totalWaitDuration(&quot;new_batch_process 1&quot;), time)" error="" type="DELAY"/>
+  <query name="new_storage 2 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 2 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 2 : Total lost by overflow" value="totalLostByOverflow(&quot;new_storage 2&quot;)" error="" type="QUANTITY"/>
   <orderOnStockThreshold name="oost 1" supplier="//@component.0" storage="//@component.1"/>
   <component xsi:type="metamodel:Supplier" name="new_supplier 1" refillPolicy="//@orderOnStockThreshold.0">
     <supplierDelay xsi:type="metamodel:Scalar" value="0"/>

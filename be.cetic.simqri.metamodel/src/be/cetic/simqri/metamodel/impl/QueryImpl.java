@@ -5,6 +5,7 @@ package be.cetic.simqri.metamodel.impl;
 import be.cetic.simqri.metamodel.MetamodelPackage;
 import be.cetic.simqri.metamodel.Query;
 
+import be.cetic.simqri.metamodel.QueryType;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getMean <em>Mean</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getVariance <em>Variance</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getError <em>Error</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -192,6 +194,26 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 	 * @ordered
 	 */
 	protected String error = ERROR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final QueryType TYPE_EDEFAULT = QueryType.UNDEFINED;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected QueryType type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -385,6 +407,27 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QueryType getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(QueryType newType) {
+		QueryType oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.QUERY__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -404,6 +447,8 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return getVariance();
 			case MetamodelPackage.QUERY__ERROR:
 				return getError();
+			case MetamodelPackage.QUERY__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -439,6 +484,9 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return;
 			case MetamodelPackage.QUERY__ERROR:
 				setError((String)newValue);
+				return;
+			case MetamodelPackage.QUERY__TYPE:
+				setType((QueryType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -476,6 +524,9 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 			case MetamodelPackage.QUERY__ERROR:
 				setError(ERROR_EDEFAULT);
 				return;
+			case MetamodelPackage.QUERY__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -504,6 +555,8 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return VARIANCE_EDEFAULT == null ? variance != null : !VARIANCE_EDEFAULT.equals(variance);
 			case MetamodelPackage.QUERY__ERROR:
 				return ERROR_EDEFAULT == null ? error != null : !ERROR_EDEFAULT.equals(error);
+			case MetamodelPackage.QUERY__TYPE:
+				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -534,6 +587,8 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 		result.append(variance);
 		result.append(", error: ");
 		result.append(error);
+		result.append(", type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}
