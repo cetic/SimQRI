@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link be.cetic.simqri.metamodel.Query#getVariance <em>Variance</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Query#getError <em>Error</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.Query#getType <em>Type</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.Query#isSystem <em>System</em>}</li>
  * </ul>
  *
  * @see be.cetic.simqri.metamodel.MetamodelPackage#getQuery()
@@ -267,5 +268,31 @@ public interface Query extends EObject {
 	 * @generated
 	 */
 	void setType(QueryType value);
+
+	/**
+	 * Returns the value of the '<em><b>System</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>System</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>System</em>' attribute.
+	 * @see #setSystem(boolean)
+	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getQuery_System()
+	 * @model
+	 * @generated
+	 */
+	boolean isSystem();
+
+	/**
+	 * Sets the value of the '{@link be.cetic.simqri.metamodel.Query#isSystem <em>System</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>System</em>' attribute.
+	 * @see #isSystem()
+	 * @generated
+	 */
+	void setSystem(boolean value);
 
 } // Query

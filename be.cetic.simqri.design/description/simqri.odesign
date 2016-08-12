@@ -237,7 +237,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(metamodel::ConveyorBelt) and self.eContents()->size()=0">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(metamodel::ConveyorBelt) and self.eContents()->select(i|i.oclIsKindOf(metamodel::Output))->size()=0">
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="output"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsKindOf(metamodel::BatchProcess)">
@@ -609,13 +609,70 @@
     <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="Queries Table" initialisation="true" domainClass="metamodel.Model">
       <metamodel href="http://www.example.org/metamodel#/"/>
       <ownedLineMappings name="QT_Query" label="Query" domainClass="metamodel.Query" headerLabelExpression="aql:self.name"/>
-      <ownedCreateLine name="Add a query" forceRefresh="true" elementsToSelect="aql:self.query" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
+      <ownedCreateLine name="Add Non-Typed Query" forceRefresh="true" elementsToSelect="aql:self.query" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
         <variables name="root" documentation="The semantic root element of the table."/>
         <variables name="element" documentation="The semantic currently edited element."/>
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
-        <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewQuery"/>
+        <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewQuery">
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="system" valueExpression="aql:false"/>
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:metamodel::QueryType::UNDEFINED"/>
+        </firstModelOperation>
       </ownedCreateLine>
-      <ownedCreateLine name="Add basic queries" forceRefresh="true" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
+      <ownedCreateLine name="Add Quantity Query" forceRefresh="true" elementsToSelect="aql:self.query" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
+        <variables name="root" documentation="The semantic root element of the table."/>
+        <variables name="element" documentation="The semantic currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewQuery">
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="system" valueExpression="aql:false"/>
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:metamodel::QueryType::QUANTITY"/>
+        </firstModelOperation>
+      </ownedCreateLine>
+      <ownedCreateLine name="Add Quality Query" forceRefresh="true" elementsToSelect="aql:self.query" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
+        <variables name="root" documentation="The semantic root element of the table."/>
+        <variables name="element" documentation="The semantic currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewQuery">
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="system" valueExpression="aql:false"/>
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:metamodel::QueryType::QUALITY"/>
+        </firstModelOperation>
+      </ownedCreateLine>
+      <ownedCreateLine name="Add Delay Query" forceRefresh="true" elementsToSelect="aql:self.query" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
+        <variables name="root" documentation="The semantic root element of the table."/>
+        <variables name="element" documentation="The semantic currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewQuery">
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="system" valueExpression="aql:false"/>
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:metamodel::QueryType::DELAY"/>
+        </firstModelOperation>
+      </ownedCreateLine>
+      <ownedCreateLine name="Add System Query (Quantity Type)" precondition="aql:self.query->select(q|q.system=true and q.type=metamodel::QueryType::QUANTITY)->size()&lt;1" forceRefresh="true" elementsToSelect="aql:self.query" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
+        <variables name="root" documentation="The semantic root element of the table."/>
+        <variables name="element" documentation="The semantic currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewSystemQuery">
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="system" valueExpression="aql:true"/>
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:metamodel::QueryType::QUANTITY"/>
+        </firstModelOperation>
+      </ownedCreateLine>
+      <ownedCreateLine name="Add System Query (Quality Type)" precondition="aql:self.query->select(q|q.system=true and q.type=metamodel::QueryType::QUALITY)->size()&lt;1" forceRefresh="true" elementsToSelect="aql:self.query" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
+        <variables name="root" documentation="The semantic root element of the table."/>
+        <variables name="element" documentation="The semantic currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewSystemQuery">
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="system" valueExpression="aql:true"/>
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:metamodel::QueryType::QUALITY"/>
+        </firstModelOperation>
+      </ownedCreateLine>
+      <ownedCreateLine name="Add System Query (Delay Type)" precondition="aql:self.query->select(q|q.system=true and q.type=metamodel::QueryType::DELAY)->size()&lt;1" forceRefresh="true" elementsToSelect="aql:self.query" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
+        <variables name="root" documentation="The semantic root element of the table."/>
+        <variables name="element" documentation="The semantic currently edited element."/>
+        <variables name="container" documentation="The semantic element corresponding to the view container."/>
+        <firstModelOperation xsi:type="tool_1:CreateInstance" typeName="metamodel.Query" referenceName="query" variableName="NewSystemQuery">
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="system" valueExpression="aql:true"/>
+          <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="aql:metamodel::QueryType::DELAY"/>
+        </firstModelOperation>
+      </ownedCreateLine>
+      <ownedCreateLine name="Add Basic Queries" forceRefresh="true" mapping="//@ownedViewpoints[name='SimQRi%20Design']/@ownedRepresentations[name='Queries%20Table']/@ownedLineMappings[name='QT_Query']">
         <variables name="root" documentation="The semantic root element of the table."/>
         <variables name="element" documentation="The semantic currently edited element."/>
         <variables name="container" documentation="The semantic element corresponding to the view container."/>
@@ -625,7 +682,26 @@
           </subModelOperations>
         </firstModelOperation>
       </ownedCreateLine>
-      <ownedColumnMappings name="QT_Name" label="Name" headerLabelExpression="Name" canEdit="aql:true" featureName="name" labelExpression="feature:name"/>
+      <ownedColumnMappings name="QT_Name" label="Name" headerLabelExpression="Name" canEdit="aql:true" featureName="name" labelExpression="feature:name">
+        <foregroundConditionalStyle predicateExpression="aql:self.system=true and self.type=metamodel::QueryType::QUANTITY">
+          <style labelSize="10">
+            <labelFormat>italic</labelFormat>
+            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+          </style>
+        </foregroundConditionalStyle>
+        <foregroundConditionalStyle predicateExpression="aql:self.system=true and self.type=metamodel::QueryType::QUALITY">
+          <style labelSize="10">
+            <labelFormat>italic</labelFormat>
+            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+          </style>
+        </foregroundConditionalStyle>
+        <foregroundConditionalStyle predicateExpression="aql:self.system=true and self.type=metamodel::QueryType::DELAY">
+          <style labelSize="10">
+            <labelFormat>italic</labelFormat>
+            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+          </style>
+        </foregroundConditionalStyle>
+      </ownedColumnMappings>
       <ownedColumnMappings name="QT_Value" label="Value" headerLabelExpression="Value" canEdit="aql:true" featureName="value" labelExpression="feature:value">
         <backgroundConditionalStyle predicateExpression="aql:self.eContainer().thisQueryIsValid().toString().contains(self.name)">
           <style>
@@ -643,7 +719,23 @@
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
         </defaultForeground>
       </ownedColumnMappings>
-      <ownedColumnMappings name="QT_Type" label="Type" headerLabelExpression="Type" canEdit="aql:true" featureName="type" labelExpression="feature:type"/>
+      <ownedColumnMappings name="QT_Type" label="Type" headerLabelExpression="Type" canEdit="aql:false" featureName="type" labelExpression="feature:type">
+        <backgroundConditionalStyle predicateExpression="aql:self.type=metamodel::QueryType::QUANTITY and self.system=true">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </backgroundConditionalStyle>
+        <backgroundConditionalStyle predicateExpression="aql:self.type=metamodel::QueryType::QUALITY and self.system=true">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+          </style>
+        </backgroundConditionalStyle>
+        <backgroundConditionalStyle predicateExpression="aql:self.type=metamodel::QueryType::DELAY and self.system=true">
+          <style>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          </style>
+        </backgroundConditionalStyle>
+      </ownedColumnMappings>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckOutputs"/>
     <ownedJavaExtensions qualifiedClassName="be.cetic.simqri.design.templates.CheckQuery"/>

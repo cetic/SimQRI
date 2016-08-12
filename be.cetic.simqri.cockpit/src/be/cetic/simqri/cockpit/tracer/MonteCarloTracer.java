@@ -166,7 +166,8 @@ public class MonteCarloTracer {
 			double attrVariance = JsonFormat.jsonToDouble(jsonProbeSampling, "variance");
 			String probeXML = "<query>";
 			probeXML += "<name>"+attrName+"</name>"+"<value>"+getQueryValue(attrName)+"</value>";
-			probeXML += "<type>"+getQueryType(attrName)+"</type>"+"<max>"+attrMax+"</max><min>"+attrMin+"</min>";
+			probeXML += "<type>"+getQueryType(attrName)+"</type>"+"<system>"+getQuerySystem(attrName)+"</system>";
+			probeXML += "<max>"+attrMax+"</max><min>"+attrMin+"</min>";
 			probeXML += "<mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance></query>";
 			
 			// Query's Histograms XML conversion
@@ -176,7 +177,9 @@ public class MonteCarloTracer {
 			for(int i=0; i < histoList.size(); i+=2) {
 				histoProbeXML += "<histogram>";
 				histoProbeXML += "<name>"+attrName+"</name>";
+				histoProbeXML += "<value>"+getQueryValue(attrName)+"</value>";
 				histoProbeXML += "<type>"+getQueryType(attrName)+"</type>";
+				histoProbeXML += "<system>"+getQuerySystem(attrName)+"</system>";
 				histoProbeXML += "<mean>"+histoList.get(i)+"</mean>";
 				histoProbeXML += "<frequency>"+histoList.get(i+1)+"</frequency></histogram>";
 			}
@@ -228,6 +231,14 @@ public class MonteCarloTracer {
 				return q.getType().toString();
 		}
 		return "";
+	}
+	
+	private boolean getQuerySystem(String queryName) {
+		for(Query q : model.getQuery()) {
+			if(q.getName().equals(queryName))
+				return q.isSystem();
+		}
+		return false;
 	}
 	
 	/**

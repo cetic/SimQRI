@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getVariance <em>Variance</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getError <em>Error</em>}</li>
  *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#getType <em>Type</em>}</li>
+ *   <li>{@link be.cetic.simqri.metamodel.impl.QueryImpl#isSystem <em>System</em>}</li>
  * </ul>
  *
  * @generated
@@ -214,6 +215,26 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 	 * @ordered
 	 */
 	protected QueryType type = TYPE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #isSystem() <em>System</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSystem()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SYSTEM_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isSystem() <em>System</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSystem()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean system = SYSTEM_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -428,6 +449,27 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isSystem() {
+		return system;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSystem(boolean newSystem) {
+		boolean oldSystem = system;
+		system = newSystem;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.QUERY__SYSTEM, oldSystem, system));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -449,6 +491,8 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return getError();
 			case MetamodelPackage.QUERY__TYPE:
 				return getType();
+			case MetamodelPackage.QUERY__SYSTEM:
+				return isSystem();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -487,6 +531,9 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return;
 			case MetamodelPackage.QUERY__TYPE:
 				setType((QueryType)newValue);
+				return;
+			case MetamodelPackage.QUERY__SYSTEM:
+				setSystem((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -527,6 +574,9 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 			case MetamodelPackage.QUERY__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
+			case MetamodelPackage.QUERY__SYSTEM:
+				setSystem(SYSTEM_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -557,6 +607,8 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 				return ERROR_EDEFAULT == null ? error != null : !ERROR_EDEFAULT.equals(error);
 			case MetamodelPackage.QUERY__TYPE:
 				return type != TYPE_EDEFAULT;
+			case MetamodelPackage.QUERY__SYSTEM:
+				return system != SYSTEM_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -589,6 +641,8 @@ public class QueryImpl extends MinimalEObjectImpl.Container implements Query {
 		result.append(error);
 		result.append(", type: ");
 		result.append(type);
+		result.append(", system: ");
+		result.append(system);
 		result.append(')');
 		return result.toString();
 	}

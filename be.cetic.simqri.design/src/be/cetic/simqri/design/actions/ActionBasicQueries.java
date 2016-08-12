@@ -64,7 +64,7 @@ public class ActionBasicQueries implements IExternalJavaAction {
 	private void addQuery(String name, String value, QueryType queryType, Model model) {
 		if(!containsQuery(name, value, model)) {
 			Query q = new QueryImpl();
-			q.setName(name); q.setValue(value); q.setType(queryType);
+			q.setName(name); q.setValue(value); q.setType(queryType); q.setSystem(false);
 			TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(model);
 			domain.getCommandStack().execute(new RecordingCommand(domain) {
 				public void doExecute() {

@@ -223,13 +223,22 @@ public interface MetamodelPackage extends EPackage {
 	int QUERY__TYPE = 8;
 
 	/**
+	 * The feature id for the '<em><b>System</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUERY__SYSTEM = 9;
+
+	/**
 	 * The number of structural features of the '<em>Query</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUERY_FEATURE_COUNT = 9;
+	int QUERY_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Query</em>' class.
@@ -1421,6 +1430,17 @@ public interface MetamodelPackage extends EPackage {
 	EAttribute getQuery_Type();
 
 	/**
+	 * Returns the meta object for the attribute '{@link be.cetic.simqri.metamodel.Query#isSystem <em>System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>System</em>'.
+	 * @see be.cetic.simqri.metamodel.Query#isSystem()
+	 * @see #getQuery()
+	 * @generated
+	 */
+	EAttribute getQuery_System();
+
+	/**
 	 * Returns the meta object for class '{@link be.cetic.simqri.metamodel.Storage <em>Storage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2263,6 +2283,14 @@ public interface MetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUERY__TYPE = eINSTANCE.getQuery_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>System</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUERY__SYSTEM = eINSTANCE.getQuery_System();
 
 		/**
 		 * The meta object literal for the '{@link be.cetic.simqri.metamodel.impl.StorageImpl <em>Storage</em>}' class.

@@ -69,6 +69,7 @@ public class QueryItemProvider
 			addVariancePropertyDescriptor(object);
 			addErrorPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addSystemPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -272,6 +273,28 @@ public class QueryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the System feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSystemPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Query_system_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Query_system_feature", "_UI_Query_type"),
+				 MetamodelPackage.Literals.QUERY__SYSTEM,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Query.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -318,6 +341,7 @@ public class QueryItemProvider
 			case MetamodelPackage.QUERY__VARIANCE:
 			case MetamodelPackage.QUERY__ERROR:
 			case MetamodelPackage.QUERY__TYPE:
+			case MetamodelPackage.QUERY__SYSTEM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
