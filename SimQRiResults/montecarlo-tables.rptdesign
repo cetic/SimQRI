@@ -1334,7 +1334,7 @@
                             <property name="borderTopColor">#C0C0C0</property>
                             <property name="borderTopStyle">solid</property>
                             <property name="borderTopWidth">thin</property>
-                            <property name="textAlign">center</property>
+                            <property name="textAlign">left</property>
                             <property name="resultSetColumn">name</property>
                         </data>
                     </cell>
