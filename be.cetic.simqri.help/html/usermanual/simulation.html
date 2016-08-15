@@ -17,12 +17,13 @@
 <div id="menu">
 <ul>
 <li><a href="index.html">Home</a></li>
-<li><a href="toolkit.html">SimQRi toolkit</a></li>
-<li><a href="createProject.html">Create a project</a></li>
-<li><a href="graphical.html">Graphical modeling tools</a></li>
+<li><a href="toolkit.html">SimQRi Toolkit</a></li>
+<li><a href="createProject.html">Create a Project</a></li>
+<li><a href="graphical.html">Modeling Tools</a></li>
 <li><a href="queriesTable.html">Queries Edition Table</a></li>
-<li><a href="simulation.html">Simulation management</a></li>
-<li><a href="results.html">Results analysis</a></li>
+<li><a href="writingQueries.html">Writing Queries</a></li>
+<li><a href="simulation.html">New Simulation</a></li>
+<li><a href="results.html">Results Analysis</a></li>
 </ul>
 </div>
 
@@ -36,7 +37,7 @@
     In order to set and launch a new simulation, you have to open the simulation management cockpit. To open this tool, make a <b>right-click on the background of the modeling area and select "New Simulation" option</b>. After that, a similar window will be open :
 </p>
 <p>
-    <img src="images/simulation/simu1.PNG"></img>
+    <img src="images/simulation/simuOS.PNG"></img>
 </p>
 
 <h2 id="step2">Step 2 : Choose the kind of simulation</h2>
@@ -44,19 +45,25 @@
 <p>
 You have then to choose a kind of simulation.
 <ul>
-    <li><b>One Shot</b> : only one scenario is executed. "One Shot" simulations are fast but less accurate than "Monte-Carlo" simulations.</li><br/>
-    <li><b>Monte-Carlo</b> : a huge quantity of scenarios are executed following the "Monte-Carlo" probabilistic methods in order to produce more accurate results. "Monte-Carlo" simulations are slowler than "One Shot" simulations. That's why, they can be aborted.</li>
+    <li><b>One Shot</b> : only one scenario is executed. "One Shot" simulations are fast but less accurate than "Monte-Carlo" simulations. Also, processing results is much slowler as for "Monte-Carlo" simulations</li><br/>
+    <li><b>Monte-Carlo</b> : a huge quantity of scenarios are executed following the "Monte-Carlo" probabilistic methods in order to produce more accurate results. "Monte-Carlo" simulations are slowler than "One Shot" simulations.</li>
 </ul>
 </p>
 
 <h2 id="step3">Step 3 : Set simulation parameters</h2>
 
 <p>
-Depending the kind of simulation choosen previously, you will have to set one or two parameter(s). 
+Depending the kind of simulation choosen previously, you will have to set one or four parameter(s). 
 <ul>
-    <li><b>Time units</b> : the max number of time units for the execution of the simulation. </li><br/>
-    <li><b>Max iterations</b> (only for "Monte-Carlo" simulations) : the max number of iterations. An iteration is a scenario of the simulation execution. A huge number implies a huge duration !</li>
+    <li><b>Time units</b> (OS and MC) : the max number of time units for the execution of the simulation. </li><br/>
+    <li><b>Max iterations</b> (MC only) : the max number of iterations. An iteration is a scenario of the simulation execution. A huge number implies a huge duration !</li>
+    <li><b>Report extensions</b> (MC only) : Select the kind of file(s) you want to generate following the reporting operation of a "Monte-Carlo" simulation.</li>
+    <li><b>Modeling Project</b> (MC only) : The modeling project in which you want to generate report files (basically, this is the curent project in which you are working...)</li>
+    <li><b>Report Template</b> (MC only) : The template you want to use to generate report files. The wizard only select templates situated in the "Report Templates" directory of the selected modeling project above.</li>
 </ul>
+</p>
+<p>
+    <img src="images/simulation/simuMC1.PNG"></img>
 </p>
 
 <h2 id="step4">Step 4 : Launch and abort a simulation</h2>
@@ -65,13 +72,13 @@ Depending the kind of simulation choosen previously, you will have to set one or
     You are now ready to launch a new simulation ! If the simulation progress too slowly, you will always be able to abort it by clicking on the "stop" button.
 </p>
 <p>
-    <img src="images/simulation/simu2.PNG"></img>
+    <img src="images/simulation/simuMC2.PNG"></img>
 </p>
 <p>
-    In case of Monte-Carlo simulations with a huge number of iterations, the process of the results will take some <b>additional time</b>. That's why, you may sometimes be face to face with a similar display :
+    In case of Monte-Carlo simulations, the reports generation will take some <b>additional time</b>. That's why, you will be face to face with a similar display :
 </p>
 <p>
-    <img src="images/simulation/simu3.PNG"></img>
+    <img src="images/simulation/simuMC3.PNG"></img>
 </p>
 </div>
 

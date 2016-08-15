@@ -17,12 +17,13 @@
 <div id="menu">
 <ul>
 <li><a href="index.html">Home</a></li>
-<li><a href="toolkit.html">SimQRi toolkit</a></li>
-<li><a href="createProject.html">Create a project</a></li>
-<li><a href="graphical.html">Graphical modeling tools</a></li>
+<li><a href="toolkit.html">SimQRi Toolkit</a></li>
+<li><a href="createProject.html">Create a Project</a></li>
+<li><a href="graphical.html">Modeling Tools</a></li>
 <li><a href="queriesTable.html">Queries Edition Table</a></li>
-<li><a href="simulation.html">Simulation management</a></li>
-<li><a href="results.html">Results analysis</a></li>
+<li><a href="writingQueries.html">Writing Queries</a></li>
+<li><a href="simulation.html">New Simulation</a></li>
+<li><a href="results.html">Results Analysis</a></li>
 </ul>
 </div>
 
@@ -40,26 +41,13 @@ Once the "One Shot" simulation is over, results are displayed in a new window. T
     <li><b>Elements</b> : shows the final state of each property for every elements</li>
     <li><b>Queries</b> : shows queries results</li>
 </ul>
+    <img src="images/results/oneshot/oneshot.PNG"></img>
+<br/><br/>
 Moreover, queries results are also dynamically encoded in the Queries Table : 
     <img src="images/results/oneshot/queries2.PNG"></img>
 </p>
 
-<h2 id="mc">Monte-Carlo Simulation Results</h2>
-
-<p>
-Once the "Monte-Carlo" simulation is over, results are displayed in a new window. This window is structured in several tabs : 
-
-<ul>
-    <li><b>Runtime</b></li>
-    <li><b>Elements</b> : shows the final state of each property for every elements (max, min, mean and variance)</li>
-    <li><b>Queries</b> : shows queries results (max, min, mean and variance)</li>
-</ul>
-Moreover, queries results are also dynamically encoded in the Queries Table : 
-    <img src="images/results/mc/queries2.PNG"></img>
-</p>
-
-
-<h2 id="saveas">Save as</h2>
+<h2 id="saveas">Save as (One Shot Simulation)</h2>
 
 <p>
     You can also save your results in a text file with a click on the "Save as" button. The file extension is already set by the system. All you have to do is to specify the name and the location of the file.
@@ -68,13 +56,57 @@ Moreover, queries results are also dynamically encoded in the Queries Table :
     <img src="images/results/saveas.PNG"></img>
 </p>
 
+<h2 id="mc">Monte-Carlo Simulation Results</h2>
+
+<p>
+Once the "Monte-Carlo" simulation is over, results are processed through a report template and then generated into files whose the extension was selected by the user before the beginning of the simulation.
+These files are situated into the "Generated Reports" folder. The name of subfolders are composed by the date and time of its reports generation.
+</p>
+<p>
+    <img src="images/results/mc/montecarlo1.PNG"></img>
+</p>
+<p>
+    At the end of the simulation, queries results are also dynamically encoded in the Queries Table : 
+    <img src="images/results/mc/queries2.PNG"></img>
+</p>
+<h2 id="reports">Monte-Carlo Default Report Templates</h2>
+<p>
+    The SimQRi Eclipse desktop client provides two default report templates
+    <ul>
+        <li>
+            <b>montecarlo-tables</b> report template :<br/><br/>
+            This kind of report contains 3 sections :
+            <ul>
+                <li><b>Runtime</b></li>
+                <li><b>Elements</b> : shows the final state of each property for every elements (max, min, mean and variance)</li>
+                <li><b>Queries</b> : shows queries results (max, min, mean and variance)</li>
+            </ul>
+            The following example has been generated using Microsoft Excel format : <br/><br/>
+            <img src="images/results/mc/montecarlo3.PNG"></img>
+        </li> <br/><br/>
+        <li>
+            <b>montecarlo-charts</b> report template :<br/><br/>
+            This kind of report contains 3 sections :
+            <ul>
+                <li><b>Risk Distribution</b> : a pie chart that shows the importance of each type of risk as a result of the simulation</li>
+                <li><b>System Risks Histograms</b> : 3 Bar charts that display the mean according to the frequency of each system risk. These values are calculated using system queries during the simulation</li>
+                <li><b>???</b> : ???</li>
+            </ul>
+            The following example has been generated in PDF format : <br/><br/>
+            <img src="images/results/mc/montecarlo2.PNG"></img>
+        </li>
+    </ul>
+    Furthermore, SimQRi allows the user to use its own report templates created with the <a href="http://www.eclipse.org/birt/">Eclipse BIRT</a> reporting tool ! For more information about this feature, please download and consult the "PDF file named "CustomReportingTemplate" on the <a href="http://simqri.cetic.be">SimQRi tools webpage</a>.
+</p>
+
 </div>
 <div id="sidebar">
 <h3>Menu Navigation</h3>
 <ul>
 <li><a href="#os">One Shot Simulation Results</a></li>
+<li><a href="#saveas">Save As (One Shot Simulation)</a></li>
 <li><a href="#mc">Monte-Carlo Simulation Results</a></li>
-<li><a href="#saveas">Save As</a></li>
+<li><a href="#reports">Monte-Carlo Default Report Templates</a></li>
 </ul>
 <table><tr><td><a href="http://www.simqri.com/"><img src="images/logo.PNG" alt="SimQRi"></img></a></td></tr></table>
 </div>

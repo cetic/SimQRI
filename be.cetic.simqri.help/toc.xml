@@ -2,6 +2,20 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="SimQRi User Manual" topic="html/toc.html">
-   <topic href="html/usermanual/index.html" label="SimQRi User Manual">
+   <topic href="html/usermanual/index.html" label="Home Page">
+   </topic>
+   <topic href="html/usermanual/toolkit.html" label="SimQRi Toolkit">
+   </topic>
+   <topic href="html/usermanual/createProject.html" label="How to Create a Project">
+   </topic>
+   <topic href="html/usermanual/graphical.html" label="Modeling Tools">
+   </topic>
+   <topic href="html/usermanual/queriesTable.html" label="How to use Queries Edition Table">
+   </topic>
+   <topic href="html/usermanual/writingQueries.html" label="How to write Queries">
+   </topic>
+   <topic href="html/usermanual/simulation.html" label="Configure a new Simulation">
+   </topic>
+   <topic href="html/usermanual/results.html" label="Results Analysis">
    </topic>
 </toc>
