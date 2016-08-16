@@ -24,7 +24,7 @@ public class WorkspaceManager {
 	public static String SELECTED_TEMPLATE; // Reporting template selected by the user
 	public static String TEMPLATE_PATH; // Full path of the template selected by the user
 	public static String REPORT_FOLDER_PATH; // Full path of the reports folder in which reports will be generated
-	
+	public static String XML_FOLDER_WORKSPACE_PATH; // Full XML file path located in the workspace
 	/**
 	 * 
 	 * @return the list of all simqri modeling projects name available in the user's workspace
@@ -82,5 +82,15 @@ public class WorkspaceManager {
 	public static void setReportFolderPath(String modelingProject) { // For ReportManager
 		String workspacePath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toString();
 		REPORT_FOLDER_PATH = workspacePath+"/"+modelingProject+"/Generated Reports";
+	}
+	
+	/**
+	 * 
+	 * @param modelingProject the name of the selected modeling project
+	 * @return the directory path in which reports will be generated
+	 */
+	public static void setXmlFolderWorkspacePath(String modelingProject) { // For ReportManager
+		String workspacePath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toString();
+		XML_FOLDER_WORKSPACE_PATH = workspacePath+"/"+modelingProject+"/Report Templates/xml";
 	}
 }

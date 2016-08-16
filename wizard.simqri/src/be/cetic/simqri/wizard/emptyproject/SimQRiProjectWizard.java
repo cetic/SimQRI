@@ -191,6 +191,15 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 					e.printStackTrace();
 				}
 				
+				//create XML folder
+				IFolder xmlFolder = project.getFolder("Report Templates/xml");
+				try {
+					xmlFolder.create(false,  true, null);
+				} catch (CoreException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				//fill report templates folder with 2 templates
 				IFile mcDefaultTablesTemplate = templatesFolder.getFile("montecarlo-tables.rptdesign");
 				try {

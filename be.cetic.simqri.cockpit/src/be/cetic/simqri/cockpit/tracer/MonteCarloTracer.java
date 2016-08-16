@@ -2,9 +2,14 @@ package be.cetic.simqri.cockpit.tracer;
 
 import java.io.BufferedWriter;
 
+
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Map;
 
 import javax.swing.JOptionPane;
@@ -12,6 +17,7 @@ import javax.swing.JOptionPane;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import be.cetic.simqri.cockpit.reporting.WorkspaceManager;
 import be.cetic.simqri.cockpit.util.JsonFormat;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.Query;
@@ -76,12 +82,36 @@ public class MonteCarloTracer {
 		this.endOfXMLFile();
 	}
 	
+	private static void copyFileUsingStream(File source, File dest) throws IOException {
+	    InputStream is = null;
+	    OutputStream os = null;
+	    try {
+	        is = new FileInputStream(source);
+	        os = new FileOutputStream(dest);
+	        byte[] buffer = new byte[1024];
+	        int length;
+	        while ((length = is.read(buffer)) > 0) {
+	            os.write(buffer, 0, length);
+	        }
+	    } finally {
+	        is.close();
+	        os.close();
+	    }
+	}
+	
 	private void endOfXMLFile() {
 		try {
 			bf.append("</montecarlo>");
 			bf.close();
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+		}
+		// copy the generated XML File on the workspace for the user
+		File xmlWorkspaceFile = new File(WorkspaceManager.XML_FOLDER_WORKSPACE_PATH+"/montecarlo.xml");
+		try {
+			copyFileUsingStream(this.XMLFile, xmlWorkspaceFile);
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null,  "Error while generating XML Workspace file !", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	

@@ -12,6 +12,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 
 import be.cetic.simqri.cockpit.reporting.ReportManager;
+import be.cetic.simqri.cockpit.reporting.WorkspaceManager;
 import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
 import be.cetic.simqri.cockpit.util.JsonFormat;
@@ -224,6 +225,11 @@ public class NewSimulation implements Runnable {
 				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
 				this.retrieveResultsStatus = 0;
 				
+				// Setting used path for the reporting services (reports folder, templates folder, xml folder)
+				WorkspaceManager.setReportFolderPath(WorkspaceManager.SELECTED_PROJECT);
+		        WorkspaceManager.setTemplatePath(WorkspaceManager.SELECTED_PROJECT, WorkspaceManager.SELECTED_TEMPLATE);
+				WorkspaceManager.setXmlFolderWorkspacePath(WorkspaceManager.SELECTED_PROJECT);
+		        
 				// Instance of the object that will store "Monte-Carlo" simulation results and manage their XML mutation
 				MonteCarloTracer mct = new MonteCarloTracer(model);
 				

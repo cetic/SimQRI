@@ -686,19 +686,19 @@
         <foregroundConditionalStyle predicateExpression="aql:self.system=true and self.type=metamodel::QueryType::QUANTITY">
           <style labelSize="10">
             <labelFormat>italic</labelFormat>
-            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
           </style>
         </foregroundConditionalStyle>
         <foregroundConditionalStyle predicateExpression="aql:self.system=true and self.type=metamodel::QueryType::QUALITY">
           <style labelSize="10">
             <labelFormat>italic</labelFormat>
-            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
           </style>
         </foregroundConditionalStyle>
         <foregroundConditionalStyle predicateExpression="aql:self.system=true and self.type=metamodel::QueryType::DELAY">
           <style labelSize="10">
             <labelFormat>italic</labelFormat>
-            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+            <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </foregroundConditionalStyle>
       </ownedColumnMappings>
@@ -722,17 +722,17 @@
       <ownedColumnMappings name="QT_Type" label="Type" headerLabelExpression="Type" canEdit="aql:false" featureName="type" labelExpression="feature:type">
         <backgroundConditionalStyle predicateExpression="aql:self.type=metamodel::QueryType::QUANTITY and self.system=true">
           <style>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
           </style>
         </backgroundConditionalStyle>
         <backgroundConditionalStyle predicateExpression="aql:self.type=metamodel::QueryType::QUALITY and self.system=true">
           <style>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
           </style>
         </backgroundConditionalStyle>
         <backgroundConditionalStyle predicateExpression="aql:self.type=metamodel::QueryType::DELAY and self.system=true">
           <style>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
           </style>
         </backgroundConditionalStyle>
       </ownedColumnMappings>

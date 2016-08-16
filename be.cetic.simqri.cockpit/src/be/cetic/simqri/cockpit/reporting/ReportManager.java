@@ -87,8 +87,6 @@ public class ReportManager {
 	        Platform.startup(config);
 	        IReportEngineFactory factory = (IReportEngineFactory) Platform.createFactoryObject( IReportEngineFactory.EXTENSION_REPORT_ENGINE_FACTORY );
 	        engine = factory.createReportEngine( config );
-	        WorkspaceManager.setReportFolderPath(WorkspaceManager.SELECTED_PROJECT);
-	        WorkspaceManager.setTemplatePath(WorkspaceManager.SELECTED_PROJECT, WorkspaceManager.SELECTED_TEMPLATE);
 	        try {
 	         	report = engine.openReportDesign(WorkspaceManager.TEMPLATE_PATH);
 	        }
