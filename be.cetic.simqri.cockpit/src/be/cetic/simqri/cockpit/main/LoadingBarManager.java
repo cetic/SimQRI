@@ -15,7 +15,7 @@ import be.cetic.simqri.cockpit.views.PanelLoader;
  */
 public class LoadingBarManager implements Runnable {
 	
-	private PanelLoader panelLoader;
+	private PanelLoader panelLoader; // The panel of the progress bar
 	private NewSimulation simulation;
 	private int step;
 	private boolean aborted;
@@ -75,22 +75,22 @@ public class LoadingBarManager implements Runnable {
 		while(panelLoader.getJpbStatus().getValue() < panelLoader.getMaximum() && !isAborted()) 
 			panelLoader.getJpbStatus().setValue(simulation.getLoading());
 
-		if(isAborted()) { 
-			// We have to wait the choice of the user (retrieve intermediate simulation results or not)
+		if(isAborted()) {  // STOP button pressed
+			// We have to wait the user's choice (retrieve intermediate simulation results or not)
 			while(this.simulation.getShowResults() == 10) // 10 = default value until a right one is set by the user
 				waiting(); 
 			if(this.simulation.getShowResults() != JOptionPane.YES_OPTION) {
-				// Next steps will not be executed
+				// Next steps will not be executed, we reset the progress bar panel
 				panelLoader.reset("status bar", 100);
 				return;
 			}
-			// else, the simulation is not aborted anymore (aborted was set to false after pressing the "stop" button)
+			// else, the simulation is not aborted anymore (aborted was set to true after pressing the "stop" button)
 			this.setAborted(false);
 		}
-		// 4 steps in the one shot results retrieval...
+		// 4 steps for processing results in the one shot results retrieval...
 		if(this.simulation.getType().equals("One Shot"))
 			panelLoader.reset("Processing results...", 4);
-		/// and 5 in the MC results retrieval
+		// ...and 5 in the MC results retrieval
 		else
 			panelLoader.reset("Processing results...", 5);
 		this.step = 2;
@@ -98,13 +98,13 @@ public class LoadingBarManager implements Runnable {
 		while(panelLoader.getJpbStatus().getValue() < panelLoader.getMaximum() && !isAborted()) 
 			panelLoader.getJpbStatus().setValue(simulation.getRetrieveResultsStatus());
 		
-		if(isAborted()) { 
+		if(isAborted()) { // STOP button pressed
 			panelLoader.reset("status bar", 100);
 			JOptionPane.showMessageDialog(null,  "Operation aborted !", "Warning", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		else {
-			// The process is over for One shot results, we close the simulation management window
+			// The process is over for One Shot results, we close the simulation management window
 			if(this.simulation.getType().equals("One Shot")) {
 				panelLoader.disposeWindow();
 			}
@@ -126,7 +126,7 @@ public class LoadingBarManager implements Runnable {
 						panelLoader.setMessage("Generating reports ["+nbReports+"/"+simulation.getExtensionsSize()+"]");
 					}
 				}
-				if(isAborted()) {
+				if(isAborted()) { // STOP button pressed
 					// We have to warn the report manager that the reports generation has been aborted
 					simulation.getReportManager().setAborted(true);
 					panelLoader.reset("status bar", 100);

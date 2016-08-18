@@ -66,7 +66,7 @@ public class ReportManager {
 	 * 
 	 * @param type the type of the executed simulation
 	 * @throws EngineException
-	 * This method generates the reports by using the rptdesign files (which are using the previously generated XML files) 
+	 * This method generates the reports by using an rptdesign file (which uses the previously generated XML file) 
 	 * and all the mechanisms provided by the BIRT Report Engine API
 	 * 
 	 */

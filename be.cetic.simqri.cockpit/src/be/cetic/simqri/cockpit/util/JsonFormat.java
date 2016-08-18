@@ -16,6 +16,12 @@ import org.json.JSONObject;
  */
 public class JsonFormat {
 	
+	/**
+	 * 
+	 * @param jsonString
+	 * @param key
+	 * @return a string that contains the json value linked to the key
+	 */
 	public static String jsonToString(String jsonString, String key) {
 		JSONObject jsonObject = null;
 		try {
@@ -34,6 +40,12 @@ public class JsonFormat {
 		return val;
 	}
 	
+	/**
+	 * 
+	 * @param jsonString
+	 * @param key
+	 * @return a double that contains the json value linked to the key
+	 */
 	public static double jsonToDouble(String jsonString, String key) {
 		JSONObject jsonObject = null;
 		try {
@@ -51,6 +63,12 @@ public class JsonFormat {
 		return val;
 	}
 	
+	/**
+	 * 
+	 * @param jsonString
+	 * @param key
+	 * @return a JSONArray that contains the json value linked to the key
+	 */
 	public static JSONArray jsonToArray(String jsonString, String key) {
 		JSONObject jsonObject = null;
 		try {
@@ -68,6 +86,12 @@ public class JsonFormat {
 		return val;
 	}
 	
+	/**
+	 * 
+	 * @param jsonString
+	 * @param key
+	 * @return a string that contains the json value from an internal json object of the jsonString linked to the key
+	 */
 	public static String getJSonFromJSon(String jsonString, String key) {
 		JSONObject json = null;
 		try {

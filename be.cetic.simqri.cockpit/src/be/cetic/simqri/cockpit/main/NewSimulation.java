@@ -31,7 +31,8 @@ import scala.collection.Iterator;
  * 
  * @author FK
  * @version 2.0
- * Entity that manages the simulation progress using the new management cockpit
+ * Main class dedicated to the simulation management execution
+ * The simulation is handled through the management cockpit window
  */
 public class NewSimulation implements Runnable {
 	
@@ -165,7 +166,7 @@ public class NewSimulation implements Runnable {
 	}
 	
 	/**
-	 * Main simulation thread (data mapping, API OscaR, results retrieval in tracers and reports generation)
+	 * Main simulation thread (data mapping, API OscaR, results retrieval in tracers and reports generation for MC simulations)
 	 */
 	@Override
 	public void run() { 
@@ -178,7 +179,7 @@ public class NewSimulation implements Runnable {
 			simulation.simulateOneShot(this.simControl);
 			if(this.isCanceled())
 				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to consult intermediate results ?");
-			else showResults = JOptionPane.YES_OPTION; // We have to fix the value because the LoadingBarManager thread will use it...
+			else showResults = JOptionPane.YES_OPTION; // We have to fix the value here because the LoadingBarManager thread will use it...
 			if(showResults == JOptionPane.YES_OPTION) {
 
 				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
@@ -219,13 +220,13 @@ public class NewSimulation implements Runnable {
 			simulation.simulateMonteCarlo(maxIterations, this.simControl);
 			if(this.isCanceled())
 				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to retrieve intermediate reports ?");
-			else showResults = JOptionPane.YES_OPTION; // We have to fix the value because the LoadingBarManager thread will use it...
+			else showResults = JOptionPane.YES_OPTION; // We have to fix the value here because the LoadingBarManager thread will use it...
 			if(showResults == JOptionPane.YES_OPTION) {
 
 				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
 				this.retrieveResultsStatus = 0;
 				
-				// Setting used path for the reporting services (reports folder, templates folder, xml folder)
+				// Setting used path for the reporting services (reports folder, template path and xml workspace folder)
 				WorkspaceManager.setReportFolderPath(WorkspaceManager.SELECTED_PROJECT);
 		        WorkspaceManager.setTemplatePath(WorkspaceManager.SELECTED_PROJECT, WorkspaceManager.SELECTED_TEMPLATE);
 				WorkspaceManager.setXmlFolderWorkspacePath(WorkspaceManager.SELECTED_PROJECT);
@@ -246,7 +247,7 @@ public class NewSimulation implements Runnable {
 				mct.setHistorySampling(sqlogger.logs().mcSamplings().historySampling());
 				retrieveResultsStatus++;
 				if(this.isAborted()) return;
-				mct.createMonteCarloXMLFile();
+				mct.createXMLFile();
 				retrieveResultsStatus++;
 				if(this.isAborted()) return;
 					
@@ -254,8 +255,7 @@ public class NewSimulation implements Runnable {
 				try {
 					this.reportManager.executeReport();
 				} catch (EngineException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null,  "An error has occured during reports generation!", "error",  JOptionPane.ERROR_MESSAGE);
 				}
 				this.setQueriesSamples(sqlogger, model);
 				// mct.getXMLFile().delete();
@@ -274,7 +274,7 @@ public class NewSimulation implements Runnable {
 		Iterator<Tuple2<String, String>> itProbes = sqlogger.logs().probes().iterator();
 		while(itProbes.hasNext()) {
 			Tuple2<String, String> probes = itProbes.next();
-			String result = probes._2.toString().replaceAll("[^\\d.]", ""); // On ne garde que les valeurs numériques du résultat
+			String result = probes._2.toString().replaceAll("[^\\d.]", ""); // We keep numerical values only
 			double value = Double.parseDouble(result);
 			for(Query q : model.getQuery()) {
 				if(q.getName().equals(probes._1)) {

@@ -25,6 +25,7 @@ public class WorkspaceManager {
 	public static String TEMPLATE_PATH; // Full path of the template selected by the user
 	public static String REPORT_FOLDER_PATH; // Full path of the reports folder in which reports will be generated
 	public static String XML_FOLDER_WORKSPACE_PATH; // Full XML file path located in the workspace
+	
 	/**
 	 * 
 	 * @return the list of all simqri modeling projects name available in the user's workspace
@@ -66,10 +67,8 @@ public class WorkspaceManager {
 	/**
 	 * 
 	 * @param reportTemplate the name of the selected report template
-	 * @param modelingProject the name of the selected modeling project
-	 * @return the path of the selected report template
 	 */
-	public static void setTemplatePath(String modelingProject, String reportTemplate) { // For ReportManager (path)
+	public static void setTemplatePath(String modelingProject, String reportTemplate) { // Called in Simulation.java
 		String workspacePath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toString();
 		TEMPLATE_PATH = workspacePath+"/"+modelingProject+"/Report Templates/"+reportTemplate;
 	}
@@ -77,9 +76,8 @@ public class WorkspaceManager {
 	/**
 	 * 
 	 * @param modelingProject the name of the selected modeling project
-	 * @return the directory path in which reports will be generated
 	 */
-	public static void setReportFolderPath(String modelingProject) { // For ReportManager
+	public static void setReportFolderPath(String modelingProject) { // Called in Simulation.java
 		String workspacePath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toString();
 		REPORT_FOLDER_PATH = workspacePath+"/"+modelingProject+"/Generated Reports";
 	}
@@ -87,9 +85,8 @@ public class WorkspaceManager {
 	/**
 	 * 
 	 * @param modelingProject the name of the selected modeling project
-	 * @return the directory path in which reports will be generated
 	 */
-	public static void setXmlFolderWorkspacePath(String modelingProject) { // For ReportManager
+	public static void setXmlFolderWorkspacePath(String modelingProject) { // Called in Simulation.java
 		String workspacePath = ResourcesPlugin.getWorkspace().getRoot().getLocation().toString();
 		XML_FOLDER_WORKSPACE_PATH = workspacePath+"/"+modelingProject+"/Report Templates/xml";
 	}

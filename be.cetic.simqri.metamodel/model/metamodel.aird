@@ -174,7 +174,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_SkxvsuXbEeW4tuuFtCl4pA"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_SkxIoeXbEeW4tuuFtCl4pA" fontName="Ubuntu" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SkxIouXbEeW4tuuFtCl4pA" x="870" y="245" width="120" height="61"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SkxIouXbEeW4tuuFtCl4pA" x="870" y="245" width="120" height="68"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_huHtYOXbEeW4tuuFtCl4pA" type="2003" element="_htuEwOXbEeW4tuuFtCl4pA">
             <children xmi:type="notation:Node" xmi:id="_huIUcOXbEeW4tuuFtCl4pA" type="5007"/>

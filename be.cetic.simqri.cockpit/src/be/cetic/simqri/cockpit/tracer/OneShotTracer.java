@@ -11,7 +11,7 @@ import scala.collection.immutable.List;
  * 
  * @author FK
  * @since 20/04/2016
- * @version 3.0
+ * @version 2.0
  * 
  * This class stores "One Shot" simulation results by using appropriates collections.
  * It also transform these collections into String objects in order to be displayed in an external window.

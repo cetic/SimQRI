@@ -21,7 +21,7 @@ import oscar.des.logger.TraceLogger;
  * @author FK
  * @version 2.0
  * 
- * This class is used to check queries kept in the "Model" object and written by the user in the Sirius interface.
+ * This class is used to check queries situated in the "Model" object and written by the user in the Sirius interface.
  * 
  */
 public class CheckQueries {
@@ -29,7 +29,7 @@ public class CheckQueries {
 	/**
 	 * 
 	 * @param model The instance drawn in the Sirius diagram
-	 * @param errMessages The string of all error messages related to the modeling. Empty if no errors.
+	 * @param errMessages The string that contains error messages related to wrong queries. Empty if no errors.
 	 */
 	public static void check(Model model, String errMessages) {
 		if(!errMessages.isEmpty()) {
@@ -55,7 +55,7 @@ public class CheckQueries {
 	
 	/**
 	 * This method is used by a java extension which is called every time a query value is updated in the queries table
-	 * @param model The instance drawn in the Sirius diagram
+	 * @param model The model instance drawn in the Sirius diagram
 	 * @return errors The String of all error messages related to the queries parsing. Empty if no errors...
 	 */
 	public static ArrayList<String> dynamicCheck(Model model) {
@@ -64,7 +64,7 @@ public class CheckQueries {
 		// Check the conversion of the model and the validity of queries
 		SimQRiSirius sim = new SimQRiSirius(100, true, logger, true);
 		errors =  sim.fillModelWithSiriusData(model);
-		// Metamodel transaction in order to set queries error into the Queries Table
+		// Metamodel transaction in order to set queries error message into the Queries Table
 		boolean hasError;
 		for(Query q : model.getQuery()) {
 			hasError = false;

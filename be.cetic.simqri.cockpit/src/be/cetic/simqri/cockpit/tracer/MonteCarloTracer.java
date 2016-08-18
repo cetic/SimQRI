@@ -34,6 +34,8 @@ import scala.collection.immutable.List;
  * 
  * This class stores "Monte-Carlo" simulation results by using appropriates collections.
  * It also creates an XML file containing data used for the reporting services.
+ * The XML File is created in a "xml" folder at the root of the Eclipse IDE files and is
+ * also copied in the workspace to allow an easier access for the user
  */
 public class MonteCarloTracer {
 	
@@ -49,8 +51,8 @@ public class MonteCarloTracer {
 	
 	public MonteCarloTracer(Model model) {
 		this.XMLFile = new File("xml/montecarlo.xml");
-		this.model = model;
 		this.XMLFile.getParentFile().mkdirs();
+		this.model = model;
 	}
 	
 	public MonteCarloTracer(Model model, Map<String, List<SamplingTuple>> elementsSampling, SamplingTuple runtimeSampling,
@@ -69,7 +71,7 @@ public class MonteCarloTracer {
 		return this.XMLFile;
 	}
 	
-	public void createMonteCarloXMLFile() {
+	public void createXMLFile() {
 		try {
 			bf = new BufferedWriter(new FileWriter(this.XMLFile));
 			bf.write("<montecarlo>");
@@ -111,10 +113,13 @@ public class MonteCarloTracer {
 		try {
 			copyFileUsingStream(this.XMLFile, xmlWorkspaceFile);
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null,  "Error while generating XML Workspace file !", "ERROR", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null,  "Error while creating XML Workspace file !", "ERROR", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
+	/**
+	 * Add "Elements" structues and their properties to the XML file
+	 */
 	private void setXMLElements() {
 		@SuppressWarnings("unused")
 		String elementsString = "\n  ----------------ELEMENTS---------------- \n";
@@ -152,6 +157,9 @@ public class MonteCarloTracer {
 		// return elementsString;
 	}
 	
+	/**
+	 * Add "Runtime" structue and its properties to the XML file
+	 */
 	private void setXMLRuntime() {
 		@SuppressWarnings("unused")
 		String runtimeString = "\n  ----------------RUNTIME----------------- \n";
@@ -178,6 +186,9 @@ public class MonteCarloTracer {
 		// return runtimeString;
 	}
 	
+	/**
+	 * Add "Query" and "Histogram" structures and their properties to the XML file
+	 */
 	private void setXMLProbes() {
 		@SuppressWarnings("unused")
 		String probesString = "\n  -----------------QUERIES----------------- \n";
@@ -229,6 +240,12 @@ public class MonteCarloTracer {
 		// return probesString;
 	}
 	
+	/**
+	 * 
+	 * @param histograms a JSON array that contains "Histogram" structures
+	 * @return a List of doubles. even indexes contain "mean" numbers and 
+	 * uneven indexes contain "frequency" numbers
+	 */
 	private java.util.List<Double> getQueryHistograms(JSONArray histograms) {
 		java.util.List<Double> histoList = new java.util.ArrayList<Double>();
 		for(int i=0; i<histograms.length(); i++) {
@@ -236,7 +253,6 @@ public class MonteCarloTracer {
 			try {
 				histogram = histograms.get(i).toString();
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			double mean = JsonFormat.jsonToDouble(histogram, "mean");

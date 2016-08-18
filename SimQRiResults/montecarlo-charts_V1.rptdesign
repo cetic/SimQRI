@@ -1667,8 +1667,10 @@
             <text-property name="text">Monte-Carlo Simulation - Results Analysis</text-property>
         </label>
         <grid id="221">
+            <property name="height">3.71875in</property>
             <column id="222"/>
             <row id="223">
+                <property name="height">3.71875in</property>
                 <cell id="224">
                     <property name="textAlign">center</property>
                     <extended-item extensionName="Chart" id="11">
@@ -2367,6 +2369,7 @@
           <Caption>
             <Value></Value>
             <Font>
+              <Size>12.0</Size>
               <Alignment/>
             </Font>
           </Caption>
@@ -2408,7 +2411,10 @@
           <Components>
             <Type>Percentile_Orthogonal_Value</Type>
           </Components>
-          <Separator>, </Separator>
+          <Components>
+            <Type>Orthogonal_Value</Type>
+          </Components>
+          <Separator>, costs : </Separator>
         </DataPoint>
         <LabelPosition>Outside</LabelPosition>
         <Stacked>false</Stacked>
@@ -2422,6 +2428,7 @@
             </Value>
           </Action>
         </Triggers>
+        <Translucent>false</Translucent>
         <Explosion>0</Explosion>
         <Title>
           <Caption>
@@ -2460,7 +2467,7 @@
         <LeaderLineAttributes>
           <Style>Solid</Style>
           <Thickness>1</Thickness>
-          <Visible>true</Visible>
+          <Visible>false</Visible>
         </LeaderLineAttributes>
         <LeaderLineStyle>Fixed_Length</LeaderLineStyle>
         <LeaderLineLength>10.0</LeaderLineLength>
@@ -2525,23 +2532,29 @@
       <AggregateExpression>Sum</AggregateExpression>
     </Grouping>
   </SeriesDefinitions>
+  <MinSlicePercent>false</MinSlicePercent>
 </model:ChartWithoutAxes>
 ]]></xml-property>
                         <property name="outputFormat">SVG</property>
                         <list-property name="filter">
                             <structure>
-                                <property name="operator">ne</property>
+                                <property name="operator">not-match</property>
                                 <expression name="expr" type="javascript">row["type"]</expression>
                                 <simple-property-list name="value1">
                                     <value>'UNDEFINED'</value>
                                 </simple-property-list>
                                 <property name="updateAggregation">true</property>
                             </structure>
+                            <structure>
+                                <property name="operator">is-true</property>
+                                <expression name="expr" type="javascript">row["system"]</expression>
+                                <property name="updateAggregation">true</property>
+                            </structure>
                         </list-property>
                         <property name="inheritColumns">false</property>
-                        <property name="height">175.5pt</property>
-                        <property name="width">299.25pt</property>
-                        <property name="dataSet">Histogram</property>
+                        <property name="height">261.75pt</property>
+                        <property name="width">564pt</property>
+                        <property name="dataSet">Queries</property>
                         <list-property name="boundDataColumns">
                             <structure>
                                 <property name="name">name</property>
@@ -2568,16 +2581,27 @@
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
+                                <property name="name">max</property>
+                                <text-property name="displayName">max</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["max"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">min</property>
+                                <text-property name="displayName">min</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["min"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
                                 <property name="name">mean</property>
                                 <text-property name="displayName">mean</text-property>
                                 <expression name="expression" type="javascript">dataSetRow["mean"]</expression>
-                                <property name="dataType">float</property>
-                                <property name="allowExport">true</property>
+                                <property name="dataType">string</property>
                             </structure>
                             <structure>
-                                <property name="name">frequency</property>
-                                <text-property name="displayName">frequency</text-property>
-                                <expression name="expression" type="javascript">dataSetRow["frequency"]</expression>
+                                <property name="name">variance</property>
+                                <text-property name="displayName">variance</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["variance"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                         </list-property>
@@ -6279,6 +6303,15 @@
         <Blue>255</Blue>
       </Background>
       <Visible>false</Visible>
+      <Triggers>
+        <Condition>onmouseover</Condition>
+        <Action>
+          <Type>Highlight</Type>
+          <Value xsi:type="attribute:SeriesValue">
+            <Name></Name>
+          </Value>
+        </Action>
+      </Triggers>
       <Cursor>
         <Type>Auto</Type>
       </Cursor>
@@ -6399,10 +6432,10 @@
   </ExtendedProperties>
   <SampleData>
     <BaseSampleData>
-      <DataSetRepresentation>A, B, C</DataSetRepresentation>
+      <DataSetRepresentation>'A','B','C','D','E'</DataSetRepresentation>
     </BaseSampleData>
     <OrthogonalSampleData>
-      <DataSetRepresentation>5,4,12</DataSetRepresentation>
+      <DataSetRepresentation>6,4,12,8,10</DataSetRepresentation>
       <SeriesDefinitionIndex>0</SeriesDefinitionIndex>
     </OrthogonalSampleData>
   </SampleData>
@@ -6455,6 +6488,7 @@
             <horizontalAlignment>Center</horizontalAlignment>
             <verticalAlignment>Center</verticalAlignment>
           </Alignment>
+          <Rotation>0.0</Rotation>
         </Font>
       </Caption>
       <Background xsi:type="attribute:ColorDefinition">
@@ -6495,6 +6529,7 @@
               <horizontalAlignment>Center</horizontalAlignment>
               <verticalAlignment>Center</verticalAlignment>
             </Alignment>
+            <Rotation>90.0</Rotation>
           </Font>
         </Caption>
         <Background xsi:type="attribute:ColorDefinition">
@@ -6524,7 +6559,7 @@
       <TitlePosition>Left</TitlePosition>
       <SeriesDefinitions ZOrder="0">
         <Query>
-          <Definition>row[&quot;name&quot;]</Definition>
+          <Definition></Definition>
           <Grouping>
             <GroupType>Text</GroupType>
           </Grouping>
@@ -6765,7 +6800,7 @@
             </Components>
             <Separator>, </Separator>
           </DataPoint>
-          <LabelPosition>Inside</LabelPosition>
+          <LabelPosition>Outside</LabelPosition>
           <Stacked>false</Stacked>
           <Triggers>
             <Condition>onmouseover</Condition>
@@ -7140,6 +7175,7 @@
       </Series>
       <Grouping>
         <Enabled>true</Enabled>
+        <GroupingInterval>1.0</GroupingInterval>
         <GroupType>Text</GroupType>
         <AggregateExpression>Sum</AggregateExpression>
       </Grouping>
@@ -7192,6 +7228,7 @@
       <Visible>true</Visible>
     </Label>
     <LabelPosition>Below</LabelPosition>
+    <Interval>1</Interval>
     <MajorGrid>
       <LineAttributes>
         <Style>Solid</Style>
@@ -7244,15 +7281,14 @@
     </MinorGrid>
     <Scale>
       <MinorGridsPerUnit>5</MinorGridsPerUnit>
+      <ShowOutside>false</ShowOutside>
+      <AutoExpand>true</AutoExpand>
     </Scale>
     <Origin>
       <Type>Min</Type>
-      <Value xsi:type="data:NumberDataElement">
-        <Value>0.0</Value>
-      </Value>
     </Origin>
     <PrimaryAxis>true</PrimaryAxis>
-    <CategoryAxis>true</CategoryAxis>
+    <CategoryAxis>false</CategoryAxis>
     <Percent>false</Percent>
   </Axes>
   <Orientation>Vertical</Orientation>
@@ -10145,7 +10181,7 @@
       <TitlePosition>Left</TitlePosition>
       <SeriesDefinitions ZOrder="0">
         <Query>
-          <Definition>row[&quot;name&quot;]</Definition>
+          <Definition></Definition>
           <Grouping>
             <GroupType>Text</GroupType>
           </Grouping>
@@ -12539,7 +12575,7 @@
       <TitlePosition>Left</TitlePosition>
       <SeriesDefinitions>
         <Query>
-          <Definition>row[&quot;name&quot;]</Definition>
+          <Definition></Definition>
           <Grouping>
             <GroupType>Text</GroupType>
           </Grouping>

@@ -210,7 +210,7 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 							"FILE(S) NOT FOUND", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
-				IFile mcDefaultChartsTemplate = templatesFolder.getFile("montecarlo-charts.rptdesign");
+				IFile mcDefaultChartsTemplate = templatesFolder.getFile("montecarlo-charts-lite.rptdesign");
 				try {
 					mcDefaultChartsTemplate.create(new FileInputStream("simqri-reports/montecarlo-charts.rptdesign"), false, monitor);
 				} catch (FileNotFoundException | CoreException e1) {

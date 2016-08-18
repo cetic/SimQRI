@@ -11,18 +11,18 @@
 <div id="wrap">
 
 <div id="header">
-<h1><a href="#">Writing Queries</a></h1>
+<h1><a href="#">Query Language</a></h1>
 </div>
 
 <div id="menu">
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="toolkit.html">SimQRi Toolkit</a></li>
-<li><a href="createProject.html">Create a Project</a></li>
+<li><a href="createProject.html">Create Project</a></li>
 <li><a href="graphical.html">Modeling Tools</a></li>
-<li><a href="queriesTable.html">Queries Edition Table</a></li>
-<li><a href="writingQueries.html">Writing Queries</a></li>
-<li><a href="simulation.html">New Simulation</a></li>
+<li><a href="queriesTable.html">Queries Table</a></li>
+<li><a href="writingQueries.html">Query Language</a></li>
+<li><a href="simulation.html">Simulation Management</a></li>
 <li><a href="results.html">Results Analysis</a></li>
 </ul>
 </div>
@@ -31,40 +31,301 @@
 
 <div id="content">
 
-<h2 id="qti">Queries Table Initialization</h2>
+<h1>Reference for the query language</h1>
+<p>&nbsp;</p>
+<p>The goal of the query language is to define what you want to measure on a stochastic factory model.</p>
+<p>Such model represent the behavior of a factory over time. Such factory might exhibit stochastic behavior, as defined in the factory modeling section.</p>
+<p>The simulation has two possible modes: single short, where the factory model is run only once, and Monte-Carlo, where the factory model is run a large number of times, and statistics are collected over the different queries submitted to the engine.</p>
+<ul>
+<li>In the single shot mode, one gets a value for each of the defined query, these being evaluated at the end of the simulation trace</li>
+<li>In the Monte-Carlo mode, one gets statistics over these queries, such as min, max, average, median, variance, as well as two-dimensional statistics over two queries. Such statistics are actually elaborated after the engine being run, and on the basis of the collected values of the queries.</li>
+</ul>
+<p>The query language therefore does not include any stochastic operator.</p>
+<p>The query language supports two basic types: arithmetic and Boolean. Arithmetic is taken as floating numbers with double precision.</p>
+<p>The value of a query is evaluated at the end of a simulation trace. So queries such as &ldquo;<em>is this storage empty</em>&rdquo; will be evaluated at this time. However, queries involving temporal operators such as &ldquo;<em>average of some storage content over time</em>&rdquo; involves that the storage content is evaluated at each point in time of the history, and these values are averaged at the end of the simulation trace.</p>
+<p>The semantics of all operator is therefore defined with respect to a position in time, and a trace. These are designated as &ldquo;t&rdquo; for the position in time and the trace is implicit, since we only consider a single trace for the query language (multiple trace only appear at the Monte-Carlo level). The simulation proceed with discrete event-based time model. Each position in time has an associated time value, which is an arithmetic value. As time is discrete, we assume the existence of a prev(t) operator that deliver the time value at the previous discrete position of t.</p>
+<p>The query language I made of two parts: the probes ad the operators. Probes are specific functions that extract a property of a simulation item and operators are classical mathematical operators such as &ldquo;+&rdquo;, or &ldquo;average over time&rdquo; operators.</p>
+<p>Queries, and their constituent general are of two types: either Boolean expressions, or arithmetic expressions depending on the type of value they output. Besides, some are operators that take other expressions as parameters. In the sequel, arithmetic expressions are denoted by the names a1,a2, and logical expressions are denoted by the names l1,l2.</p>
+<h2 id="1.1">1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Referencing processes and storages</h2>
+<p>In the queries, processes and storages are referenced by their names. If the name contains space, it is required to surround the name by double quotes &ldquo; without incorporating additional heading or trailing spaces.</p>
+<p>Processes and storages have a dedicated &ldquo;cost&rdquo; attribute that defines their cost function. The cost function is meant to declare the cost of the storage or process since the beginning of the simulation. It is declared using the query language defined here, except that when declaring such cost function, no storage or process can be referenced, but the one related to the declared cost function. This process or storage is referenced through a dedicated keyword: &ldquo;this&rdquo;.</p>
+<h2 id="1.2"><a name="_Toc430351012"></a>1.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Probes on processes</h2>
+<p>The probes on processes are atomic operator that extract basic metrics from processes of the simulation model. Suppose that <em>p</em> is such a process, designated by its name.</p>
+<p>t|= running(p)</p>
+<p>Boolean expression</p>
+<p>true if the process is running at time t, false otherwise. A process might not be running if it is blocked by lack of input material or output storage blocking the outputting of items at the output of the process. Conveyor belt processes do not block by lack of input item. In case p has multiple lines, this evaluates to true if at least one line is running</p>
+<p><br /> t|= completedBatchCount(p)</p>
+<p>arithmetic expression</p>
+<p>the total number of batches performed by the process between the beginning of the trace, and time t. A splitting process sums up the batches delivered to each of its outputs. For a process with multiple lines, it sums up the completed batches of each line.</p>
+<p>t|= completedBatchCount(p,portNumber)</p>
+<p>arithmetic expression</p>
+<p>the total number of batches performed by the process between the beginning of the trace, and time t that have been output through port portNumber. For a process with multiple lines, it sums up the completed batches of each line. This only applies to SplittingBatch and SplittingSingleBatch processes.</p>
+<p>t|= startedBatchCount(p)</p>
+<p>arithmetic expression</p>
+<p>the number of batches started by the process since the beginning of the trace<br /> for a process with multiple lines, it sums up the started batches of each line.&nbsp;</p>
+<p>&nbsp;</p>
+<p>t|= totalWaitDuration(p)</p>
+<p>arithmetic expression</p>
+<p>The total duration where the process was not running between the beginning of the trace, and time t. for a process with multiple lines, it sums up the waiting time of each line.</p>
+<p>&nbsp;</p>
+<p>t|= anyBatchStarted(p)</p>
+<p>Boolean expression</p>
+<p>true if a batch as started by the process at time t</p>
+<p>&nbsp;</p>
+<p>t|= cost(p)</p>
+<p>Double expression</p>
+<p>This is a placeholder for the cost function declared in the cost attribute of process p, evaluated at time t</p>
+<p>&nbsp;</p>
+<h2 id="1.3"><a name="_Toc430351013"></a>1.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Probes on storages</h2>
+<p>The probes on storages are atomic operator that extract basic metrics from storages of the simulation model. Suppose that <em>s</em> is such a storage, designated by its name.</p>
+<p><em>&nbsp;</em></p>
+<p>t|= empty(s)</p>
+<p>Boolean expression</p>
+<p>true if the storage s is empty at time t, false otherwise</p>
+<p>&nbsp;</p>
+<p>t|= content(s)</p>
+<p>arithmetic expression</p>
+<p>The number of items in the storage s at time t</p>
+<p>&nbsp;</p>
+<p>t|= content(s,attributeCondition)</p>
+<p>arithmetic expression</p>
+<p>The number of items in the storage s at time t that match the condition attributeCondition</p>
+<p>(see section 4 for details about the syntax of attribute conditions)</p>
+<p>&nbsp;</p>
+<p>t|= capacity(s)</p>
+<p>arithmetic expression</p>
+<p>The maximal capacity of the stock. This feature is invariant in time.</p>
+<p>&nbsp;</p>
+<p>t|= relativeContent(s)</p>
+<p>arithmetic expression</p>
+<p>The relative content of storage s at time t, that is: the content of the stock divided by the capacity of the storage</p>
+<p>&nbsp;</p>
+<p>t|= totalPut(s)</p>
+<p>arithmetic expression</p>
+<p>The number of items that have been put in the storage s between the beginning of the simulation and time t, not counting the initial ones</p>
+<p>&nbsp;</p>
+<p>t|= totalPut(s,attributeCondition)</p>
+<p>arithmetic expression</p>
+<p>The number of items that have been put in the storage s between the beginning of the simulation and time t, that match the condition attributeCondition, and not counting the initial ones (see section 4 for details about the syntax of attribute conditions)</p>
+<p>&nbsp;</p>
+<p>t|= totalFetch(s)</p>
+<p>arithmetic expression</p>
+<p>The number of items that have been fetched from the storage s between the beginning of the simulation and time t</p>
+<p>&nbsp;</p>
+<p>t|= totalFetch(s,attributeCondition)</p>
+<p>arithmetic expression</p>
+<p>The number of items that have been fetched from the storage s , that match the condition attributeCondition, between the beginning of the simulation and time t (see section 4 for details about the syntax of attribute conditions)</p>
+<p>&nbsp;</p>
+<p>t|= totalLosByOverflow(s)</p>
+<p>arithmetic expression</p>
+<p>the number of items that have been lost by overflow between the beginning of the trace, and time t. If the storage is declared as a blocking storage, this number will be zero.</p>
+<p>&nbsp;</p>
+<p>t|= totalLosByOverflow(s,attributeCondition)</p>
+<p>arithmetic expression</p>
+<p>the number of items that have been lost by overflow and that match the condition attributeCondition, between the beginning of the trace, and time t. If the storage is declared as a blocking storage, this number will be zero. (see section 4 for details about the syntax of attribute conditions)</p>
+<p>&nbsp;</p>
+<p>t|= cost(s)</p>
+<p>Double expression</p>
+<p>This is a placeholder for the cost function declared in the cost attribute of storage s, evaluated at time t</p>
+<p>&nbsp;</p>
+<h2 id="1.4"><a name="_Toc430351014"></a>1.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Logical operators</h2>
+<p>t|= true</p>
+<p>evaluates to true</p>
+<p>t|= false</p>
+<p>evaluates to false</p>
+<p>&nbsp;</p>
+<p>t|=! l1</p>
+<p>the negation operator: true if t|= l1, false otherwise</p>
+<p>&nbsp;</p>
+<p>t|= l1 &amp; l2</p>
+<p>t|= and(l1,l2)</p>
+<p>the conjunction operator: true if both t|= l1&nbsp;&nbsp; and t|= l2 evaluate to true, false otherwise</p>
+<p>&nbsp;</p>
+<p>t|= l1 | l2</p>
+<p>t|= or(l1,l2)</p>
+<p>the disjunction operator: true if either t|= l1&nbsp; or t|= l2 evaluates to true, false otherwise</p>
+<p>&nbsp;</p>
+<p>t|= ite(ifExpr,thenExpr,elseExpt)</p>
+<p>if t|= ifExpr is true, then t|= thenExpr otherwise, t|= elseExpr</p>
+<p>&nbsp;</p>
+<p>t|= a1 &gt; a2</p>
+<p>self explanatory</p>
+<p>&nbsp;</p>
+<p>t|= a1 &gt;= a2</p>
+<p>self explanatory</p>
+<p>&nbsp;</p>
+<p>t|= a1 &lt; a2</p>
+<p>self explanatory</p>
+<p>&nbsp;</p>
+<p>t|= a1 &lt;= a2</p>
+<p>self explanatory</p>
+<p>&nbsp;</p>
+<p>t|= a1 = a2</p>
+<p>self explanatory</p>
+<p>&nbsp;</p>
+<p>t|= a1 != a2</p>
+<p>self explanatory</p>
+<p>&nbsp;</p>
+<p>t|= [*] l1</p>
+<p>t|= hasAlwaysBeen(l1)</p>
+<p>true if for each t&rsquo; in [0;t] t&rsquo; |= l1</p>
+<p>&nbsp;</p>
+<p>t|= &lt;*&gt; l1</p>
+<p>t|= hasBeen(l1)</p>
+<p>true if there is a t&rsquo; in [0;t] such that t&rsquo; |= l1</p>
+<p>&nbsp;</p>
+<p>t|= since(l1,l2)</p>
+<p>true if there is a past position t&rsquo; in [0;t] such that t&rsquo; |= b and for each position t&rsquo;&rsquo; in [t&rsquo;,t] t&rsquo;&rsquo; |= a</p>
+<p>&nbsp;</p>
+<p>t|= @ l1</p>
+<p>true if both t|= @ l1 and prev(t)|= @ !l1</p>
+<p>this is a dangerous expression, since time is event-based, so that an additional artifact in the model might introduce additional intermediary time steps</p>
+<p>&nbsp;</p>
+<p>t|= changed(e)</p>
+<p>e might be either a Boolean or an arithmetic expression.</p>
+<p>This evaluate to true when t|= e and prev(t)|= e evaluate to different values.</p>
+<p>&nbsp;</p>
+<p>t|= delta(a1)</p>
+<p>t|= a1 &ndash; prev(t)|= a1</p>
+<p>this is a dangerous expression, since time is event-based, so that an additional artifact in the model might introduce additional intermediary time steps</p>
+<p><em>&nbsp;</em></p>
+<h2 id="1.5"><a name="_Toc430351015"></a>1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Arithmetic operators</h2>
+<p>t|= [0-9]+(\.[0-9]+)?</p>
+<p>This represents a regular expression for defining decimal numbers. It evaluates to the value of the represented number, and the decimal mark is the dot.</p>
+<p>&nbsp;</p>
+<p>t|= totalCost</p>
+<p>the sum of all cost attributes of storages and processes, evaluated at time t</p>
+<p>&nbsp;</p>
+<p>t|= a1 + a2</p>
+<p>the sum of a1 and a2</p>
+<p>&nbsp;</p>
+<p>t|= a1 - a2</p>
+<p>the difference between a1 and a2</p>
+<p>&nbsp;</p>
+<p>t|= a1 * a2</p>
+<p>the product of a1 and a2</p>
+<p>&nbsp;</p>
+<p>t|= a1 / a2</p>
+<p>the ratio between a1 and a2</p>
+<p>&nbsp;</p>
+<p>t|= - a1</p>
+<p>the opposite of a1</p>
+<p>&nbsp;</p>
+<p>t|= duration(b1)</p>
+<p>let be t1 such that prev(t1) |= b1 is false (or t1 is zero) and for all t2 in [t1,t]&nbsp; t2 |= b1 is true</p>
+<p>if no such t1 exists, set t1 be t</p>
+<p>the expression evaluates to t - t1, that is the duration for which b has been true since it was last false</p>
+<p>&nbsp;</p>
+<p>t|= cumulatedDuration(b1)</p>
+<p>let be T = {(t1,t2) | t1 = prev(t2) &amp; t1|=b1 &amp; t2 |= b1}</p>
+<p>the cumulated duration of b is the sum over the couples T1,t2 in T of t2 &ndash; t1</p>
+<p><br /> t|= culumatedDurationNotStart (b1)</p>
+<p>lt be t&rsquo;, the smallest point in time where t|= b1 is false, zero if no such point in time exist</p>
+<p>this is equal to t|= cumulatedDuration(b1) minus prev(t&rsquo;)</p>
+<p>&nbsp;</p>
+<p>t |= time</p>
+<p>evaluates to t</p>
+<p>&nbsp;</p>
+<p>t |= min(a1)</p>
+<p>the minimum over all the values of t&rsquo; |= a1 with t&rsquo; in in [0;t]</p>
+<p>&nbsp;</p>
+<p>t |= max(a1)</p>
+<p>the maximum over all the values of t&rsquo; |= a1 with t&rsquo; in in [0;t]</p>
+<p>&nbsp;</p>
+<p>t |= avg(a1)</p>
+<p>the average of all the values of t&rsquo; |= a1 with t&rsquo; in in [0;t]</p>
+<p>&nbsp;</p>
+<p>t |= integral(a1)</p>
+<p>the integral of t&rsquo; |= a1 dt with t&rsquo; in [0;t]. The integral is computed through the trapezoidal rule taking the events as discretization base <a href="https://en.wikipedia.org/wiki/Numerical_integration">https://en.wikipedia.org/wiki/Numerical_integration</a></p>
+<p>&nbsp;</p>
+<p>t|= ite(ifExpr,thenExpr,elseExpt)</p>
+<p>if t|= ifExpr is true, then t|= thenExpr otherwise, t|= elseExpr</p>
+<p>&nbsp;</p>
+<h2 id="1.6"><a name="_Toc430351016"></a>1.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Priority of infix operators</h2>
+<p>Infix operators have the following priority:</p>
+<p>&nbsp;</p>
+<p>For infix logical operators:</p>
+<table>
+<tbody>
+<tr>
+<td width="132">
+<p>Highest</p>
+</td>
+<td width="66">
+<p>!</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>&nbsp;</p>
+</td>
+<td width="66">
+<p>&amp;</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>lowest</p>
+</td>
+<td width="66">
+<p>|</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>For infix arithmetic operators:</p>
+<table>
+<tbody>
+<tr>
+<td width="132">
+<p>Highest</p>
+</td>
+<td width="66">
+<p>-</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>&nbsp;</p>
+</td>
+<td width="66">
+<p>* /</p>
+</td>
+</tr>
+<tr>
+<td width="132">
+<p>Lowest</p>
+</td>
+<td width="66">
+<p>+ -</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><br /> </p>
+<h2 id="1.7"><a name="_Toc430351017"></a>1.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comments</h2>
+<p>the query language supports C-style comments:</p>
+<ul>
+<li>line comments: on the encounter of a //, the remain of the line is ignored</li>
+<li>block comments, all characters included between /* and */ are ignored even on multiple lines.</li>
+</ul>
+<p>Nesting comments is not supported</p>
 
-<p>
-Once your project is created (see <a href="createProject.html">Create a project</a>), you are able to display an empty "Queries Table". This table will allow you to write the name and the value of your queries and to consult their results (once their value is valid and the simulation is launched).
-</p>
-<p>
-    <img src="images/table/t1.PNG"></img>
-</p>
 
-<h2 id="efq">Encode the first Query</h2>
-
-<p>
-    However, the first query will <b>not be encodable</b> by using the adding function offered by this table. To encode the first query, follow these steps : 
-    
-    <ol>
-        <li>Go to the graphical modeling area and click on the background of the modeling area</li><br/>
-        <li>Go to the "properties" tab situated below the modeling area and select the "Model" subtab
-            <img src="images/table/t2.PNG"></img></li><br/>
-        <li>Click on the "+" button in order to add a query manually from the Properties editor
-        <img src="images/table/t21.PNG"></img></li><br/>
-        <li>Write the name and the value of the first query and click on "Finish"
-        <img src="images/table/t3.PNG"></img></li><br/>
-        <li>Finally, go back to your Queries Table. You can notice that the first query has been added
-        <img src="images/table/t4.PNG"></img></li>
-    </ol>
-</p>
 
 </div>
 
 <div id="sidebar">
 <h3>Menu Navigation</h3>
 <ul>
-<li><a href="#qti">Queries Table Initialization</a></li>
-<li><a href="#efq">Encode the first Query</a></li>
+<li><a href="#1.1">1.1 Referencing processes and storages</a></li>
+<li><a href="#1.2">1.2 Probes on processes</a></li>
+<li><a href="#1.3">1.3 Probes on storages</a></li>
+<li><a href="#1.4">1.4 Logical operators</a></li>
+<li><a href="#1.5">1.5 Arithmetic operators</a></li>
+<li><a href="#1.6">1.6 Priority of infix operators</a></li>
+<li><a href="#1.7">1.7 Comments</a></li>
 </ul>
 <table><tr><td><a href="http://www.simqri.com/"><img src="images/logo.PNG" alt="SimQRi"></img></a></td></tr></table>
 </div>

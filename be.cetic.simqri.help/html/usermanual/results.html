@@ -11,18 +11,18 @@
 <div id="wrap">
 
 <div id="header">
-<h1><a href="#">Results analysis</a></h1>
+<h1><a href="#">Results Analysis</a></h1>
 </div>
 
 <div id="menu">
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="toolkit.html">SimQRi Toolkit</a></li>
-<li><a href="createProject.html">Create a Project</a></li>
+<li><a href="createProject.html">Create Project</a></li>
 <li><a href="graphical.html">Modeling Tools</a></li>
-<li><a href="queriesTable.html">Queries Edition Table</a></li>
-<li><a href="writingQueries.html">Writing Queries</a></li>
-<li><a href="simulation.html">New Simulation</a></li>
+<li><a href="queriesTable.html">Queries Table</a></li>
+<li><a href="writingQueries.html">Query Language</a></li>
+<li><a href="simulation.html">Simulation Management</a></li>
 <li><a href="results.html">Results Analysis</a></li>
 </ul>
 </div>
@@ -60,7 +60,8 @@ Moreover, queries results are also dynamically encoded in the Queries Table :
 
 <p>
 Once the "Monte-Carlo" simulation is over, results are processed through a report template and then generated into files whose the extension was selected by the user before the beginning of the simulation.
-These files are situated into the "Generated Reports" folder. The name of subfolders are composed by the date and time of its reports generation.
+These files are situated into the "Generated Reports" folder. The name of subfolders are composed by the date and time of its reports generation.<br/>
+<b class="red">Warning : you may have to do a refresh of the SimQRi project to display the generated report ! (right-click on the name of the project in the workspace and select "refresh").</b>
 </p>
 <p>
     <img src="images/results/mc/montecarlo1.PNG"></img>
@@ -85,18 +86,19 @@ These files are situated into the "Generated Reports" folder. The name of subfol
             <img src="images/results/mc/montecarlo3.PNG"></img>
         </li> <br/><br/>
         <li>
-            <b>montecarlo-charts</b> report template :<br/><br/>
-            This kind of report contains 3 sections :
+            <b>montecarlo-charts-lite</b> report template :<br/><br/>
+            This kind of report contains 2 sections :
             <ul>
                 <li><b>Risk Distribution</b> : a pie chart that shows the importance of each type of risk as a result of the simulation</li>
                 <li><b>System Risks Histograms</b> : 3 Bar charts that display the mean according to the frequency of each system risk. These values are calculated using system queries during the simulation</li>
-                <li><b>???</b> : ???</li>
             </ul>
+            
+            <b class="red">N.B. </b>A more complete graphical report template will be available with the next SimQRi version and will replace this "lite" template...  <br/><br/>
             The following example has been generated in PDF format : <br/><br/>
             <img src="images/results/mc/montecarlo2.PNG"></img>
         </li>
     </ul>
-    Furthermore, SimQRi allows the user to use its own report templates created with the <a href="http://www.eclipse.org/birt/">Eclipse BIRT</a> reporting tool ! For more information about this feature, please download and consult the "PDF file named "CustomReportingTemplate" on the <a href="http://simqri.cetic.be">SimQRi tools webpage</a>.
+    Furthermore, SimQRi allows the user to use its own report templates created with the <a href="http://www.eclipse.org/birt/">Eclipse BIRT</a> reporting tool ! For more information about this feature, please download and consult the PDF file named "CustomReportingTemplate" on the <a href="http://simqri.cetic.be">SimQRi tools webpage</a>.
 </p>
 
 </div>
