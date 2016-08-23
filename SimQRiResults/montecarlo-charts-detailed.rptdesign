@@ -1873,6 +1873,430 @@
                 </ex-property>
             </list-property>
         </oda-data-set>
+        <joint-data-set name="ElementsAndQueries" id="497">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Queries::nbrQueries</property>
+                    <property name="alias">nbrQueries</property>
+                    <text-property name="displayName">Queries::nbrQueries</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::mean</property>
+                    <property name="alias">Elements::mean</property>
+                    <text-property name="displayName">Elements::mean</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::min</property>
+                    <property name="alias">Queries::min</property>
+                    <text-property name="displayName">Queries::min</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::sumMean</property>
+                    <property name="alias">sumMean</property>
+                    <text-property name="displayName">Queries::sumMean</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::type</property>
+                    <property name="alias">type</property>
+                    <text-property name="displayName">Queries::type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::percentMean</property>
+                    <property name="alias">percentMean</property>
+                    <text-property name="displayName">Queries::percentMean</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::max</property>
+                    <property name="alias">Elements::max</property>
+                    <text-property name="displayName">Elements::max</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::mean</property>
+                    <property name="alias">Queries::mean</property>
+                    <text-property name="displayName">Queries::mean</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::element-name</property>
+                    <property name="alias">element-name</property>
+                    <text-property name="displayName">Queries::element-name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::variance</property>
+                    <property name="alias">Elements::variance</property>
+                    <text-property name="displayName">Elements::variance</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::variance</property>
+                    <property name="alias">Queries::variance</property>
+                    <text-property name="displayName">Queries::variance</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::system</property>
+                    <property name="alias">system</property>
+                    <text-property name="displayName">Queries::system</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::name</property>
+                    <property name="alias">Queries::name</property>
+                    <text-property name="displayName">Queries::name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::max</property>
+                    <property name="alias">Queries::max</property>
+                    <text-property name="displayName">Queries::max</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::name</property>
+                    <property name="alias">Elements::name</property>
+                    <text-property name="displayName">Elements::name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::attribute</property>
+                    <property name="alias">attribute</property>
+                    <text-property name="displayName">Elements::attribute</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::min</property>
+                    <property name="alias">Elements::min</property>
+                    <text-property name="displayName">Elements::min</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::value</property>
+                    <property name="alias">value</property>
+                    <text-property name="displayName">Queries::value</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::element-type</property>
+                    <property name="alias">element-type</property>
+                    <text-property name="displayName">Queries::element-type</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Queries::name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">value</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">system</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Queries::max</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Queries::min</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Queries::mean</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">Queries::variance</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">element-name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">element-type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">nbrQueries</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">sumMean</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">percentMean</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">Elements::name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">attribute</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">Elements::max</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">Elements::min</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">Elements::mean</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">Elements::variance</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>Queries</value>
+                <value>Elements</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">inner</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">Queries</property>
+                    <property name="rightDataSet">Elements</property>
+                    <expression name="leftExpression">dataSetRow["name"]</expression>
+                    <expression name="rightExpression">dataSetRow["name"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
+        <joint-data-set name="ElementAndQuery" id="498">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Queries::nbrQueries</property>
+                    <property name="alias">nbrQueries</property>
+                    <text-property name="displayName">Queries::nbrQueries</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::mean</property>
+                    <property name="alias">Elements::mean</property>
+                    <text-property name="displayName">Elements::mean</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::min</property>
+                    <property name="alias">Queries::min</property>
+                    <text-property name="displayName">Queries::min</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::sumMean</property>
+                    <property name="alias">sumMean</property>
+                    <text-property name="displayName">Queries::sumMean</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::type</property>
+                    <property name="alias">type</property>
+                    <text-property name="displayName">Queries::type</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::percentMean</property>
+                    <property name="alias">percentMean</property>
+                    <text-property name="displayName">Queries::percentMean</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::max</property>
+                    <property name="alias">Elements::max</property>
+                    <text-property name="displayName">Elements::max</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::mean</property>
+                    <property name="alias">Queries::mean</property>
+                    <text-property name="displayName">Queries::mean</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::element-name</property>
+                    <property name="alias">element-name</property>
+                    <text-property name="displayName">Queries::element-name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::variance</property>
+                    <property name="alias">Elements::variance</property>
+                    <text-property name="displayName">Elements::variance</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::variance</property>
+                    <property name="alias">Queries::variance</property>
+                    <text-property name="displayName">Queries::variance</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::system</property>
+                    <property name="alias">system</property>
+                    <text-property name="displayName">Queries::system</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::name</property>
+                    <property name="alias">Queries::name</property>
+                    <text-property name="displayName">Queries::name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::max</property>
+                    <property name="alias">Queries::max</property>
+                    <text-property name="displayName">Queries::max</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::name</property>
+                    <property name="alias">Elements::name</property>
+                    <text-property name="displayName">Elements::name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::attribute</property>
+                    <property name="alias">attribute</property>
+                    <text-property name="displayName">Elements::attribute</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Elements::min</property>
+                    <property name="alias">Elements::min</property>
+                    <text-property name="displayName">Elements::min</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::value</property>
+                    <property name="alias">value</property>
+                    <text-property name="displayName">Queries::value</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Queries::element-type</property>
+                    <property name="alias">element-type</property>
+                    <text-property name="displayName">Queries::element-type</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Elements::name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">attribute</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Elements::max</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Elements::min</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">Elements::mean</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">Elements::variance</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">Queries::name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">value</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">system</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">Queries::max</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">Queries::min</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">Queries::mean</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">Queries::variance</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">element-name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">element-type</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">nbrQueries</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">sumMean</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">percentMean</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>Queries</value>
+                <value>Elements</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">inner</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">Queries</property>
+                    <property name="rightDataSet">Elements</property>
+                    <expression name="leftExpression">dataSetRow["element-name"]</expression>
+                    <expression name="rightExpression">dataSetRow["name"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
     </data-sets>
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
@@ -6485,6 +6909,12 @@
                             <property name="fontFamily">serif</property>
                             <property name="fontSize">12pt</property>
                             <property name="textUnderline">underline</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                            </list-property>
                             <text-property name="text">Element Name</text-property>
                         </label>
                     </cell>
@@ -6507,6 +6937,14 @@
                                 <property name="fontSize">12pt</property>
                                 <property name="fontWeight">normal</property>
                                 <property name="fontStyle">italic</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
                                 <property name="textAlign">center</property>
                                 <property name="resultSetColumn">element-name</property>
                             </data>
@@ -10156,6 +10594,12 @@
                             <property name="fontFamily">serif</property>
                             <property name="fontSize">12pt</property>
                             <property name="textUnderline">underline</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                            </list-property>
                             <text-property name="text">Element Name</text-property>
                         </label>
                     </cell>
@@ -10178,6 +10622,14 @@
                                 <property name="fontSize">12pt</property>
                                 <property name="fontWeight">normal</property>
                                 <property name="fontStyle">italic</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
                                 <property name="textAlign">center</property>
                                 <property name="resultSetColumn">element-name</property>
                             </data>
@@ -13828,6 +14280,12 @@
                             <property name="fontFamily">serif</property>
                             <property name="fontSize">12pt</property>
                             <property name="textUnderline">underline</property>
+                            <list-property name="visibility">
+                                <structure>
+                                    <property name="format">all</property>
+                                    <expression name="valueExpr" type="javascript">true</expression>
+                                </structure>
+                            </list-property>
                             <text-property name="text">Element Name</text-property>
                         </label>
                     </cell>
@@ -13850,6 +14308,14 @@
                                 <property name="fontSize">12pt</property>
                                 <property name="fontWeight">normal</property>
                                 <property name="fontStyle">italic</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
                                 <property name="textAlign">center</property>
                                 <property name="resultSetColumn">element-name</property>
                             </data>
@@ -17460,6 +17926,737 @@
                     <cell id="491"/>
                     <cell id="492"/>
                     <cell id="493"/>
+                </row>
+            </footer>
+        </table>
+        <label id="499">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">16pt</property>
+            <property name="textUnderline">underline</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Main information about elements</text-property>
+        </label>
+        <table name="Elements-Table" id="82">
+            <property name="pageBreakAfter">always</property>
+            <property name="dataSet">Elements</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">attribute</property>
+                    <text-property name="displayName">attribute</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["attribute"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">max</property>
+                    <text-property name="displayName">max</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["max"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">min</property>
+                    <text-property name="displayName">min</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["min"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">mean</property>
+                    <text-property name="displayName">mean</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["mean"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">variance</property>
+                    <text-property name="displayName">variance</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["variance"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">name</property>
+                    <text-property name="displayName">name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">variance_1</property>
+                    <text-property name="displayName">variance</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["variance"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="104">
+                <property name="width">10%</property>
+            </column>
+            <column id="105">
+                <property name="width">30%</property>
+            </column>
+            <column id="106">
+                <property name="width">10%</property>
+            </column>
+            <column id="107">
+                <property name="width">10%</property>
+            </column>
+            <column id="108">
+                <property name="width">15%</property>
+            </column>
+            <column id="109">
+                <property name="width">25%</property>
+            </column>
+            <header>
+                <row id="83">
+                    <cell id="84"/>
+                    <cell id="85">
+                        <label id="110">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">ATTRIBUTE</text-property>
+                        </label>
+                    </cell>
+                    <cell id="86">
+                        <label id="112">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">MAX</text-property>
+                        </label>
+                    </cell>
+                    <cell id="87">
+                        <label id="114">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">MIN</text-property>
+                        </label>
+                    </cell>
+                    <cell id="88">
+                        <label id="116">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">MEAN</text-property>
+                        </label>
+                    </cell>
+                    <cell id="89">
+                        <label id="118">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">VARIANCE</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="168">
+                <property name="groupName">NameGroup</property>
+                <expression name="keyExpr" type="javascript">row["name"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["name"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="169">
+                        <cell id="170">
+                            <label id="150">
+                                <property name="fontSize">12pt</property>
+                                <property name="borderBottomColor">#C0C0C0</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#C0C0C0</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#C0C0C0</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#C0C0C0</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">center</property>
+                                <text-property name="text">Name</text-property>
+                            </label>
+                        </cell>
+                        <cell id="171">
+                            <data id="183">
+                                <property name="backgroundColor">#FFFFFF</property>
+                                <property name="fontSize">12pt</property>
+                                <property name="fontStyle">italic</property>
+                                <property name="color">#000000</property>
+                                <property name="borderBottomColor">#C0C0C0</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#C0C0C0</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#C0C0C0</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#C0C0C0</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">center</property>
+                                <property name="resultSetColumn">name</property>
+                            </data>
+                        </cell>
+                        <cell id="172"/>
+                        <cell id="173"/>
+                        <cell id="174"/>
+                        <cell id="175"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="176">
+                        <cell id="177"/>
+                        <cell id="178"/>
+                        <cell id="179"/>
+                        <cell id="180"/>
+                        <cell id="181"/>
+                        <cell id="182"/>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="90">
+                    <cell id="91"/>
+                    <cell id="92">
+                        <data id="111">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="resultSetColumn">attribute</property>
+                        </data>
+                    </cell>
+                    <cell id="93">
+                        <data id="113">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">max</property>
+                        </data>
+                    </cell>
+                    <cell id="94">
+                        <data id="115">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">min</property>
+                        </data>
+                    </cell>
+                    <cell id="95">
+                        <data id="117">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">mean</property>
+                        </data>
+                    </cell>
+                    <cell id="96">
+                        <data id="119">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">variance</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="97">
+                    <cell id="98"/>
+                    <cell id="99"/>
+                    <cell id="100"/>
+                    <cell id="101"/>
+                    <cell id="102"/>
+                    <cell id="103"/>
+                </row>
+            </footer>
+        </table>
+        <label id="500">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">16pt</property>
+            <property name="textUnderline">underline</property>
+            <property name="textAlign">center</property>
+            <text-property name="text">Further information (Queries results)</text-property>
+        </label>
+        <table name="Queries-Table" id="184">
+            <property name="dataSet">Queries</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">name</property>
+                    <text-property name="displayName">name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">max</property>
+                    <text-property name="displayName">max</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["max"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">min</property>
+                    <text-property name="displayName">min</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["min"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">mean</property>
+                    <text-property name="displayName">mean</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["mean"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">variance</property>
+                    <text-property name="displayName">variance</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["variance"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">value</property>
+                    <text-property name="displayName">value</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["value"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">type</property>
+                    <text-property name="displayName">type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">variance_1</property>
+                    <text-property name="displayName">variance</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["variance"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">element-name</property>
+                    <text-property name="displayName">element-name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["element-name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">element-type</property>
+                    <text-property name="displayName">element-type</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["element-type"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">system</property>
+                    <text-property name="displayName">system</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["system"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="filter">
+                <structure>
+                    <property name="operator">is-false</property>
+                    <expression name="expr" type="javascript">row["system"]</expression>
+                    <property name="updateAggregation">true</property>
+                </structure>
+                <structure>
+                    <property name="operator">not-like</property>
+                    <expression name="expr" type="javascript">row["element-name"]</expression>
+                    <simple-property-list name="value1">
+                        <value>""</value>
+                    </simple-property-list>
+                    <property name="updateAggregation">true</property>
+                </structure>
+            </list-property>
+            <column id="203">
+                <property name="width">40%</property>
+            </column>
+            <column id="204">
+                <property name="width">10%</property>
+            </column>
+            <column id="205">
+                <property name="width">10%</property>
+            </column>
+            <column id="206">
+                <property name="width">20%</property>
+            </column>
+            <column id="207">
+                <property name="width">20%</property>
+            </column>
+            <header>
+                <row id="185">
+                    <cell id="186">
+                        <label id="210">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">NAME</text-property>
+                        </label>
+                    </cell>
+                    <cell id="187">
+                        <label id="212">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">MAX</text-property>
+                        </label>
+                    </cell>
+                    <cell id="188">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <label id="214">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">MIN</text-property>
+                        </label>
+                    </cell>
+                    <cell id="189">
+                        <property name="borderBottomStyle">none</property>
+                        <property name="borderLeftStyle">none</property>
+                        <property name="borderRightStyle">none</property>
+                        <property name="borderTopStyle">none</property>
+                        <label id="216">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">MEAN</text-property>
+                        </label>
+                    </cell>
+                    <cell id="190">
+                        <label id="218">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <text-property name="text">VARIANCE</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="514">
+                <property name="groupName">ElementType</property>
+                <expression name="keyExpr" type="javascript">row["element-type"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["element-type"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="515">
+                        <cell id="516">
+                            <data id="527">
+                                <property name="fontSize">12pt</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="borderBottomColor">#C0C0C0</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#C0C0C0</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#C0C0C0</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#C0C0C0</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">center</property>
+                                <property name="resultSetColumn">element-type</property>
+                            </data>
+                        </cell>
+                        <cell id="517"/>
+                        <cell id="518"/>
+                        <cell id="519"/>
+                        <cell id="520"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="521">
+                        <cell id="522"/>
+                        <cell id="523"/>
+                        <cell id="524"/>
+                        <cell id="525"/>
+                        <cell id="526"/>
+                    </row>
+                </footer>
+            </group>
+            <group id="528">
+                <property name="groupName">ElementNameGroup</property>
+                <expression name="keyExpr" type="javascript">row["element-name"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue" type="javascript">row["element-name"]</expression>
+                </structure>
+                <property name="hideDetail">false</property>
+                <header>
+                    <row id="529">
+                        <cell id="530">
+                            <data id="541">
+                                <property name="fontStyle">italic</property>
+                                <property name="borderBottomColor">#C0C0C0</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#C0C0C0</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#C0C0C0</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#C0C0C0</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">center</property>
+                                <property name="resultSetColumn">element-name</property>
+                            </data>
+                        </cell>
+                        <cell id="531"/>
+                        <cell id="532"/>
+                        <cell id="533"/>
+                        <cell id="534"/>
+                    </row>
+                </header>
+                <footer>
+                    <row id="535">
+                        <cell id="536"/>
+                        <cell id="537"/>
+                        <cell id="538"/>
+                        <cell id="539"/>
+                        <cell id="540"/>
+                    </row>
+                </footer>
+            </group>
+            <detail>
+                <row id="191">
+                    <cell id="192">
+                        <data id="211">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">left</property>
+                            <property name="resultSetColumn">name</property>
+                        </data>
+                    </cell>
+                    <cell id="193">
+                        <data id="213">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">max</property>
+                        </data>
+                    </cell>
+                    <cell id="194">
+                        <data id="215">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">min</property>
+                        </data>
+                    </cell>
+                    <cell id="195">
+                        <data id="217">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">mean</property>
+                        </data>
+                    </cell>
+                    <cell id="196">
+                        <data id="219">
+                            <property name="borderBottomColor">#C0C0C0</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#C0C0C0</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#C0C0C0</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#C0C0C0</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <property name="textAlign">center</property>
+                            <property name="resultSetColumn">variance</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="197">
+                    <cell id="198"/>
+                    <cell id="199"/>
+                    <cell id="200"/>
+                    <cell id="201"/>
+                    <cell id="202"/>
                 </row>
             </footer>
         </table>
