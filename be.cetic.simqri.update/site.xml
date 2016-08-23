@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/be.cetic.simqri.feature_1.2.0.201607181646.jar" id="be.cetic.simqri.feature" version="1.2.0.201607181646">
+   <feature url="features/be.cetic.simqri.feature_1.3.0.201608181415.jar" id="be.cetic.simqri.feature" version="1.3.0.201608181415">
       <category name="simqri"/>
    </feature>
    <category-def name="simqri" label="SimQRi Project"/>
