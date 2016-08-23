@@ -178,7 +178,6 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 				try {
 					templatesFolder.create(false,  true, null);
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -187,7 +186,6 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 				try {
 					reportsFolder.create(false,  true, null);
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -196,7 +194,6 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 				try {
 					xmlFolder.create(false,  true, null);
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -212,7 +209,7 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 				}
 				IFile mcDefaultChartsTemplate = templatesFolder.getFile("montecarlo-charts-lite.rptdesign");
 				try {
-					mcDefaultChartsTemplate.create(new FileInputStream("simqri-reports/montecarlo-charts.rptdesign"), false, monitor);
+					mcDefaultChartsTemplate.create(new FileInputStream("simqri-reports/montecarlo-charts-lite.rptdesign"), false, monitor);
 				} catch (FileNotFoundException | CoreException e1) {
 					JOptionPane.showMessageDialog(null, "The default charts report template cannot be imported.\n"
 							+ "Make sure you have correctly initialized the \"simqri-reports\" folder as explained in the installation guide.",

@@ -3,6 +3,8 @@ package be.cetic.simqri.cockpit.tracer;
 import java.io.BufferedWriter;
 
 
+
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -11,6 +13,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
@@ -19,6 +23,7 @@ import org.json.JSONException;
 
 import be.cetic.simqri.cockpit.reporting.WorkspaceManager;
 import be.cetic.simqri.cockpit.util.JsonFormat;
+import be.cetic.simqri.metamodel.Component;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.Query;
 import oscar.des.logger.HistorySampling;
@@ -209,8 +214,9 @@ public class MonteCarloTracer {
 			probeXML += "<name>"+attrName+"</name>"+"<value>"+getQueryValue(attrName)+"</value>";
 			probeXML += "<type>"+getQueryType(attrName)+"</type>"+"<system>"+getQuerySystem(attrName)+"</system>";
 			probeXML += "<max>"+attrMax+"</max><min>"+attrMin+"</min>";
-			probeXML += "<mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance></query>";
-			
+			probeXML += "<mean>"+attrMean+"</mean><variance>"+attrVariance+"</variance>";
+			probeXML += "<element-name>"+getElementName(getQueryValue(attrName))+"</element-name>";
+			probeXML += "<element-type>"+getElementType(getElementName(getQueryValue(attrName)))+"</element-type></query>";
 			// Query's Histograms XML conversion
 			JSONArray histograms = JsonFormat.jsonToArray(jsonProbeSampling, "histogram");
 			java.util.List<Double> histoList = getQueryHistograms(histograms);
@@ -222,7 +228,9 @@ public class MonteCarloTracer {
 				histoProbeXML += "<type>"+getQueryType(attrName)+"</type>";
 				histoProbeXML += "<system>"+getQuerySystem(attrName)+"</system>";
 				histoProbeXML += "<mean>"+histoList.get(i)+"</mean>";
-				histoProbeXML += "<frequency>"+histoList.get(i+1)+"</frequency></histogram>";
+				histoProbeXML += "<frequency>"+histoList.get(i+1)+"</frequency>";
+				histoProbeXML += "<element-name>"+getElementName(getQueryValue(attrName))+"</element-name>";
+				histoProbeXML += "<element-type>"+getElementType(getElementName(getQueryValue(attrName)))+"</element-type></histogram>";
 			}
 			try {
 				bf.append(probeXML);
@@ -285,6 +293,39 @@ public class MonteCarloTracer {
 				return q.isSystem();
 		}
 		return false;
+	}
+	
+	private String getElementName(String queryValue) {
+		Pattern pattern = Pattern.compile("\"(.*?)\"");
+		Matcher matcher = pattern.matcher(queryValue);
+		if (matcher.find()) {
+			return matcher.group(1);
+		}
+		return "";
+	}
+	
+	private String getElementType(String elementName) {
+		String type = "";
+		for(Component c : model.getComponent()) {
+			if(c.getName().equals(elementName)) {
+				switch(c.getClass().toString()) {
+				case "class be.cetic.simqri.metamodel.impl.BatchProcessImpl":
+					type = "Batch Process";
+					break;
+				case "class be.cetic.simqri.metamodel.impl.ConveyorBeltImpl":
+					type = "Batch Process";
+					break;
+				case "class be.cetic.simqri.metamodel.impl.StorageImpl":
+					type = "Storage";
+					break;
+				case "class be.cetic.simqri.metamodel.impl.SupplierImpl":
+					type = "Supplier";
+					break;
+				}
+				break;
+			}
+		}
+		return type;
 	}
 	
 	/**
