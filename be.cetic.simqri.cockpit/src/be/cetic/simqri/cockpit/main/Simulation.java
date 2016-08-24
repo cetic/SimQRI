@@ -1,6 +1,7 @@
 package be.cetic.simqri.cockpit.main;
 
 import java.awt.EventQueue;
+
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -10,7 +11,6 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 
 import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
-import be.cetic.simqri.cockpit.util.JsonFormat;
 import be.cetic.simqri.cockpit.views.ResultsWindow;
 import be.cetic.simqri.cockpit.views.SimulationManagementWindow;
 import be.cetic.simqri.metamodel.Model;
@@ -116,9 +116,10 @@ public class Simulation {
 	 * 
 	 * @param sqlogger "One Shot" simulation results
 	 * @param model The instance of the SimQRi model
-	 * 
+	 * @deprecated
 	 * This method set simulation results to queries objects of the Sirius Metamodel instance. 
 	 */
+	@SuppressWarnings("unused")
 	private static void setQueriesResult(TraceLogger sqlogger, Model model) {
 		Iterator<Tuple2<String, String>> itProbes = sqlogger.logs().probes().iterator();
 		while(itProbes.hasNext()) {
@@ -130,7 +131,7 @@ public class Simulation {
 					TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(q);
 					domain.getCommandStack().execute(new RecordingCommand(domain) {
 					   public void doExecute() {
-						   q.setResult(String.format("%.2f", value)); 
+						   // q.setResult(String.format("%.2f", value)); 
 						   // q.setMax("");
 						   // q.setMin("");
 						   // q.setMean("");
@@ -146,7 +147,7 @@ public class Simulation {
 	 * 
 	 * @param sqlogger "Monte-Carlo" simulation results
 	 * @param model The instance of the SimQRi model
-	 * 
+	 * @deprecated
 	 * This method set simulation results to queries objects of the Sirius Metamodel instance. 
 	 */
 	private static void setQueriesSamples(TraceLogger sqlogger, Model model) {
@@ -159,10 +160,10 @@ public class Simulation {
 					domain.getCommandStack().execute(new RecordingCommand(domain) {
 					   public void doExecute() {
 						  // q.setResult("");
-						  q.setMax(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "max")));
-						  q.setMin(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "min")));
-						  q.setMean(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "mean")));
-						  q.setVariance(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "variance")));
+						  // q.setMax(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "max")));
+						  // q.setMin(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "min")));
+						  // q.setMean(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "mean")));
+						  // q.setVariance(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "variance")));
 					   }
 					});
 				}

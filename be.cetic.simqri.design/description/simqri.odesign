@@ -709,11 +709,6 @@
           </style>
         </backgroundConditionalStyle>
       </ownedColumnMappings>
-      <ownedColumnMappings name="QT_Result" label="Result" semanticElements="feature:result" headerLabelExpression="&quot;One Shot&quot; results" canEdit="aql:false" featureName="result" labelExpression="feature:result"/>
-      <ownedColumnMappings name="QT_Max" label="Max" semanticElements="feature:max" headerLabelExpression="Maximum (MC)" canEdit="aql:false" featureName="max" labelExpression="feature:max"/>
-      <ownedColumnMappings name="QT_Min" label="Min" semanticElements="feature:min" headerLabelExpression="Minimum (MC)" canEdit="aql:false" featureName="min" labelExpression="feature:min"/>
-      <ownedColumnMappings name="QT_Mean" label="Mean" semanticElements="feature:mean" headerLabelExpression="Mean (MC)" canEdit="aql:false" featureName="mean" labelExpression="feature:mean"/>
-      <ownedColumnMappings name="QT_Variance" label="Variance" semanticElements="feature:variance" headerLabelExpression="Variance (MC)" canEdit="aql:false" featureName="variance" labelExpression="feature:variance"/>
       <ownedColumnMappings name="QT_Error" label="Error" semanticElements="feature:error" headerLabelExpression="Error Message" canEdit="aql:false" featureName="error" labelExpression="feature:error">
         <defaultForeground labelSize="10">
           <foreGroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>

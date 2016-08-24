@@ -389,7 +389,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuery_Result() {
+	public EAttribute getQuery_Error() {
 		return (EAttribute)queryEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -398,7 +398,7 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuery_Max() {
+	public EAttribute getQuery_Type() {
 		return (EAttribute)queryEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -407,53 +407,8 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getQuery_Min() {
-		return (EAttribute)queryEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQuery_Mean() {
-		return (EAttribute)queryEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQuery_Variance() {
-		return (EAttribute)queryEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQuery_Error() {
-		return (EAttribute)queryEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getQuery_Type() {
-		return (EAttribute)queryEClass.getEStructuralFeatures().get(8);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getQuery_System() {
-		return (EAttribute)queryEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)queryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1070,11 +1025,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		queryEClass = createEClass(QUERY);
 		createEAttribute(queryEClass, QUERY__NAME);
 		createEAttribute(queryEClass, QUERY__VALUE);
-		createEAttribute(queryEClass, QUERY__RESULT);
-		createEAttribute(queryEClass, QUERY__MAX);
-		createEAttribute(queryEClass, QUERY__MIN);
-		createEAttribute(queryEClass, QUERY__MEAN);
-		createEAttribute(queryEClass, QUERY__VARIANCE);
 		createEAttribute(queryEClass, QUERY__ERROR);
 		createEAttribute(queryEClass, QUERY__TYPE);
 		createEAttribute(queryEClass, QUERY__SYSTEM);
@@ -1217,11 +1167,6 @@ public class MetamodelPackageImpl extends EPackageImpl implements MetamodelPacka
 		initEClass(queryEClass, Query.class, "Query", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuery_Name(), ecorePackage.getEString(), "name", "query", 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_Value(), ecorePackage.getEString(), "value", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQuery_Result(), ecorePackage.getEString(), "result", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQuery_Max(), ecorePackage.getEString(), "max", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQuery_Min(), ecorePackage.getEString(), "min", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQuery_Mean(), ecorePackage.getEString(), "mean", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getQuery_Variance(), ecorePackage.getEString(), "variance", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_Error(), ecorePackage.getEString(), "error", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_Type(), this.getQueryType(), "type", "UNDEFINED", 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuery_System(), ecorePackage.getEBoolean(), "system", null, 0, 1, Query.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

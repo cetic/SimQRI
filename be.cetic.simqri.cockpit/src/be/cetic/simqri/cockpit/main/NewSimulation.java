@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 import javax.swing.JOptionPane;
 
 import org.eclipse.birt.report.engine.api.EngineException;
@@ -15,7 +16,6 @@ import be.cetic.simqri.cockpit.reporting.ReportManager;
 import be.cetic.simqri.cockpit.reporting.WorkspaceManager;
 import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
-import be.cetic.simqri.cockpit.util.JsonFormat;
 import be.cetic.simqri.cockpit.views.ResultsWindow;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.Query;
@@ -209,7 +209,7 @@ public class NewSimulation implements Runnable {
 				retrieveResultsStatus++;
 				if(this.isAborted()) return;
 				
-				this.setQueriesResult(sqlogger, model);
+				// this.setQueriesResult(sqlogger, model);
 				rw.initWindow();
 			}
 			
@@ -230,7 +230,7 @@ public class NewSimulation implements Runnable {
 				WorkspaceManager.setReportFolderPath(WorkspaceManager.SELECTED_PROJECT);
 		        WorkspaceManager.setTemplatePath(WorkspaceManager.SELECTED_PROJECT, WorkspaceManager.SELECTED_TEMPLATE);
 				WorkspaceManager.setXmlFolderWorkspacePath(WorkspaceManager.SELECTED_PROJECT);
-		        
+				
 				// Instance of the object that will store "Monte-Carlo" simulation results and manage their XML mutation
 				MonteCarloTracer mct = new MonteCarloTracer(model);
 				
@@ -247,6 +247,7 @@ public class NewSimulation implements Runnable {
 				mct.setHistorySampling(sqlogger.logs().mcSamplings().historySampling());
 				retrieveResultsStatus++;
 				if(this.isAborted()) return;
+				
 				mct.createXMLFile();
 				retrieveResultsStatus++;
 				if(this.isAborted()) return;
@@ -257,7 +258,7 @@ public class NewSimulation implements Runnable {
 				} catch (EngineException e) {
 					JOptionPane.showMessageDialog(null,  "An error has occured during reports generation!", "error",  JOptionPane.ERROR_MESSAGE);
 				}
-				this.setQueriesSamples(sqlogger, model);
+				// this.setQueriesSamples(sqlogger, model);
 				// mct.getXMLFile().delete();
 			}
 		}
@@ -267,9 +268,11 @@ public class NewSimulation implements Runnable {
 	 * 
 	 * @param sqlogger "One Shot" simulation results
 	 * @param model The instance of the SimQRi model
-	 * 
+	 * @deprecated
 	 * This method set simulation results to queries objects of the Sirius Metamodel instance. 
+	 * No longer used due to a too long time for setting results when there are a lot of queries
 	 */
+	@SuppressWarnings("unused")
 	private void setQueriesResult(TraceLogger sqlogger, Model model) {
 		Iterator<Tuple2<String, String>> itProbes = sqlogger.logs().probes().iterator();
 		while(itProbes.hasNext()) {
@@ -281,7 +284,7 @@ public class NewSimulation implements Runnable {
 					TransactionalEditingDomain domain = TransactionUtil.getEditingDomain(q);
 					domain.getCommandStack().execute(new RecordingCommand(domain) {
 					   public void doExecute() {
-						   q.setResult(String.format("%.2f", value)); 
+						   // q.setResult(String.format("%.2f", value)); 
 						   // q.setMax("");
 						   // q.setMin("");
 						   // q.setMean("");
@@ -297,9 +300,11 @@ public class NewSimulation implements Runnable {
 	 * 
 	 * @param sqlogger "Monte-Carlo" simulation results
 	 * @param model The instance of the SimQRi model
-	 * 
+	 * @deprecated
 	 * This method set simulation results to queries objects of the Sirius Metamodel instance. 
+	 * No longer used due to a too long time for setting results when there are a lot of queries
 	 */
+	@SuppressWarnings("unused")
 	private void setQueriesSamples(TraceLogger sqlogger, Model model) {
 		Iterator<SamplingTuple> itProbes = sqlogger.logs().mcSamplings().probesSampling().iterator();
 		while(itProbes.hasNext()) {
@@ -310,10 +315,10 @@ public class NewSimulation implements Runnable {
 					domain.getCommandStack().execute(new RecordingCommand(domain) {
 					   public void doExecute() {
 						  // q.setResult("");
-						  q.setMax(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "max")));
-						  q.setMin(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "min")));
-						  q.setMean(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "mean")));
-						  q.setVariance(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "variance")));
+						  // q.setMax(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "max")));
+						  // q.setMin(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "min")));
+						  // q.setMean(String.format("%.2f", JsonFormat.jsonToDouble(probes.samplingStr(), "mean")));
+						  // q.setVariance(String.valueOf(JsonFormat.jsonToDouble(probes.samplingStr(), "variance")));
 					   }
 					});
 				}

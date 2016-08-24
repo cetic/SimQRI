@@ -31,12 +31,13 @@ public class ActionBasicQueries implements IExternalJavaAction {
 		Model model = (Model) parameters.get("model");
 		addQuery("Number of time units plus 1", "plus(time,1)", QueryType.UNDEFINED, model);
 		for(Component c : model.getComponent()) {
-			if(c instanceof Supplier) {
+			if (c instanceof BatchProcess || c instanceof ConveyorBelt || c instanceof Supplier) {
 				addQuery(c.getName()+" : Number of started batches", "startedBatchCount(\""+c.getName()+"\")", QueryType.QUANTITY, model);
 				addQuery(c.getName()+" : Number of completed batches", "completedBatchCount(\""+c.getName()+"\")", QueryType.QUANTITY, model);
-				addQuery(c.getName()+" : Percentage of time idle", "div(totalWaitDuration(\""+c.getName()+"\"), time)", QueryType.DELAY, model);
+				addQuery(c.getName()+" : Total Idle time", "totalWaitDuration(\""+c.getName()+"\")", QueryType.DELAY, model);
+				// addQuery(c.getName()+" : Percentage of idle time", "div(totalWaitDuration(\""+c.getName()+"\"), time)", QueryType.DELAY, model);
 			}
-			else if( c instanceof Storage) {
+			else if (c instanceof Storage) {
 				Storage s = (Storage) c;
 				addQuery(s.getName()+" : Maximum relative stock level", "maxOnHistory(relativeStockLevel(\""+s.getName()+"\"))", QueryType.QUANTITY, model);
 				addQuery(s.getName()+" : Average relative stock level", "avgOnHistory(relativeStockLevel(\""+s.getName()+"\"))", QueryType.QUANTITY, model);
@@ -44,11 +45,10 @@ public class ActionBasicQueries implements IExternalJavaAction {
 					addQuery(s.getName()+" : Total lost by overflow", "totalLostByOverflow(\""+s.getName()+"\")", QueryType.QUANTITY, model);
 				else
 					addQuery(s.getName()+" : Minimum relative stock level", "minOnHistory(relativeStockLevel(\""+s.getName()+"\"))", QueryType.QUANTITY, model);
-			}
-			else if (c instanceof BatchProcess || c instanceof ConveyorBelt) {
-				addQuery(c.getName()+" : Number of started batches", "startedBatchCount(\""+c.getName()+"\")", QueryType.QUANTITY, model);
-				addQuery(c.getName()+" : Number of completed batches", "completedBatchCount(\""+c.getName()+"\")", QueryType.QUANTITY, model);
-				addQuery(c.getName()+" : Percentage of time idle", "div(totalWaitDuration(\""+c.getName()+"\"), time)", QueryType.DELAY, model);
+				
+				addQuery(s.getName()+" : Total input", "totalPut(\""+s.getName()+"\")", QueryType.QUANTITY, model);
+				addQuery(s.getName()+" : Capacity", "capacity(\""+s.getName()+"\")", QueryType.QUANTITY, model);
+				addQuery(s.getName()+" : Capacity utilisation", "relativeStockLevel(\""+s.getName()+"\")", QueryType.QUANTITY, model);
 			}
 		}
 	}
