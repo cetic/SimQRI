@@ -88,7 +88,7 @@ public class PanelLoader extends JPanel {
 	}
 	
 	public void disposeWindow() {
-		NewSimulationManagementWindow window = (NewSimulationManagementWindow) SwingUtilities.getWindowAncestor(this);
+		SimulationManagementWindow window = (SimulationManagementWindow) SwingUtilities.getWindowAncestor(this);
 		window.dispose();
 	}
 	

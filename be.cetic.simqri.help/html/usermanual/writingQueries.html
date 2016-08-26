@@ -49,7 +49,7 @@
 <h2 id="1.1">1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Referencing processes and storages</h2>
 <p>In the queries, processes and storages are referenced by their names. If the name contains space, it is required to surround the name by double quotes &ldquo; without incorporating additional heading or trailing spaces.</p>
 <p>Processes and storages have a dedicated &ldquo;cost&rdquo; attribute that defines their cost function. The cost function is meant to declare the cost of the storage or process since the beginning of the simulation. It is declared using the query language defined here, except that when declaring such cost function, no storage or process can be referenced, but the one related to the declared cost function. This process or storage is referenced through a dedicated keyword: &ldquo;this&rdquo;.</p>
-<h2 id="1.2"><a name="_Toc430351012"></a>1.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Probes on processes</h2>
+<h2 id="1.2"><a name="_Toc430351012"></a>1.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Probes on suppliers and processes</h2>
 <p>The probes on processes are atomic operator that extract basic metrics from processes of the simulation model. Suppose that <em>p</em> is such a process, designated by its name.</p>
 <p>t|= running(p)</p>
 <p>Boolean expression</p>
@@ -96,7 +96,7 @@
 <p>arithmetic expression</p>
 <p>The maximal capacity of the stock. This feature is invariant in time.</p>
 <p>&nbsp;</p>
-<p>t|= relativeContent(s)</p>
+<p>t|= relativeStockLevel(s)</p>
 <p>arithmetic expression</p>
 <p>The relative content of storage s at time t, that is: the content of the stock divided by the capacity of the storage</p>
 <p>&nbsp;</p>
@@ -128,7 +128,17 @@
 <p>Double expression</p>
 <p>This is a placeholder for the cost function declared in the cost attribute of storage s, evaluated at time t</p>
 <p>&nbsp;</p>
-<h2 id="1.4"><a name="_Toc430351014"></a>1.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Logical operators</h2>
+<h2 id="1.4">1.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tracing queries: the higher order query &ldquo;record&rdquo;</h2>
+<p>To obtain the trace of the evolution of the value for a query over the simulation, one can use the special, higher order query <em>record</em>. The syntax for such query is:</p>
+<p>&nbsp;</p>
+<p>record(q)</p>
+<p>&nbsp;</p>
+<p>where <em>q</em> is a valid query (excepting another record query). The result of <em>record(q)</em> is a list of tuples [(t1,v1), &hellip;, (tn,vn)], where, for 1 &pound; i &pound; n,&nbsp; ti is a timestamp belonging to the simulation interval, and vi is the value of q at that timestamp, i.e.:</p>
+<p>&nbsp;</p>
+<p>ti ⊨ q evaluates to vi, for all i, 1 &pound; i &pound; n</p>
+<p>&nbsp;</p>
+<p>The simulation engine records only the changes of values of <em>q</em> starting from the value at the beginning of simulation. This implies that for all i, v(i-1) &sup1; vi and vi &sup1; v(i+1).</p>
+<h2 id="1.5"><a name="_Toc430351014"></a>1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Logical operators</h2>
 <p>t|= true</p>
 <p>evaluates to true</p>
 <p>t|= false</p>
@@ -189,7 +199,7 @@
 <p>t|= a1 &ndash; prev(t)|= a1</p>
 <p>this is a dangerous expression, since time is event-based, so that an additional artifact in the model might introduce additional intermediary time steps</p>
 <p><em>&nbsp;</em></p>
-<h2 id="1.5"><a name="_Toc430351015"></a>1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Arithmetic operators</h2>
+<h2 id="1.6"><a name="_Toc430351015"></a>1.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Arithmetic operators</h2>
 <p>t|= [0-9]+(\.[0-9]+)?</p>
 <p>This represents a regular expression for defining decimal numbers. It evaluates to the value of the represented number, and the decimal mark is the dot.</p>
 <p>&nbsp;</p>
@@ -241,7 +251,7 @@
 <p>t|= ite(ifExpr,thenExpr,elseExpt)</p>
 <p>if t|= ifExpr is true, then t|= thenExpr otherwise, t|= elseExpr</p>
 <p>&nbsp;</p>
-<h2 id="1.6"><a name="_Toc430351016"></a>1.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Priority of infix operators</h2>
+<h2 id="1.7"><a name="_Toc430351016"></a>1.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Priority of infix operators</h2>
 <p>Infix operators have the following priority:</p>
 <p>&nbsp;</p>
 <p>For infix logical operators:</p>
@@ -304,7 +314,7 @@
 </tbody>
 </table>
 <p><br /> </p>
-<h2 id="1.7"><a name="_Toc430351017"></a>1.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comments</h2>
+<h2 id="1.8"><a name="_Toc430351017"></a>1.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Comments</h2>
 <p>the query language supports C-style comments:</p>
 <ul>
 <li>line comments: on the encounter of a //, the remain of the line is ignored</li>
@@ -322,10 +332,11 @@
 <li><a href="#1.1">1.1 Referencing processes and storages</a></li>
 <li><a href="#1.2">1.2 Probes on processes</a></li>
 <li><a href="#1.3">1.3 Probes on storages</a></li>
-<li><a href="#1.4">1.4 Logical operators</a></li>
-<li><a href="#1.5">1.5 Arithmetic operators</a></li>
-<li><a href="#1.6">1.6 Priority of infix operators</a></li>
-<li><a href="#1.7">1.7 Comments</a></li>
+<li><a href="#1.4">1.4 Tracing queries: the higher order query &ldquo;record&rdquo;</a></li>
+<li><a href="#1.5">1.5 Logical operators</a></li>
+<li><a href="#1.6">1.6 Arithmetic operators</a></li>
+<li><a href="#1.7">1.7 Priority of infix operators</a></li>
+<li><a href="#1.8">1.8 Comments</a></li>
 </ul>
 <table><tr><td><a href="http://www.simqri.com/"><img src="images/logo.PNG" alt="SimQRi"></img></a></td></tr></table>
 </div>

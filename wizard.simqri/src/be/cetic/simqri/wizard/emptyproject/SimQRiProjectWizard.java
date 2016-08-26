@@ -198,18 +198,18 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 				}
 				
 				//fill report templates folder with 2 templates
-				IFile mcDefaultTablesTemplate = templatesFolder.getFile("montecarlo-tables.rptdesign");
+				IFile mcDefaultTablesTemplate = templatesFolder.getFile("overall-template.rptdesign");
 				try {
-					mcDefaultTablesTemplate.create(new FileInputStream("simqri-reports/montecarlo-tables.rptdesign"), false, monitor);
+					mcDefaultTablesTemplate.create(new FileInputStream("simqri-reports/overall-template.rptdesign"), false, monitor);
 				} catch (FileNotFoundException | CoreException e1) {
 					JOptionPane.showMessageDialog(null, "The default tables report template cannot be imported.\n"
 							+ "Make sure you have correctly initialized the \"simqri-reports\" folder as explained in the installation guide.",
 							"FILE(S) NOT FOUND", JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
-				IFile mcDefaultChartsTemplate = templatesFolder.getFile("montecarlo-charts-lite.rptdesign");
+				IFile mcDefaultChartsTemplate = templatesFolder.getFile("detailed-template.rptdesign");
 				try {
-					mcDefaultChartsTemplate.create(new FileInputStream("simqri-reports/montecarlo-charts-lite.rptdesign"), false, monitor);
+					mcDefaultChartsTemplate.create(new FileInputStream("simqri-reports/detailed-template.rptdesign"), false, monitor);
 				} catch (FileNotFoundException | CoreException e1) {
 					JOptionPane.showMessageDialog(null, "The default charts report template cannot be imported.\n"
 							+ "Make sure you have correctly initialized the \"simqri-reports\" folder as explained in the installation guide.",

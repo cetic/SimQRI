@@ -3,6 +3,7 @@ package be.cetic.simqri.design.actions;
 import java.util.Collection;
 
 
+
 import java.util.Map;
 
 import javax.swing.JOptionPane;
@@ -11,7 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
 import be.cetic.simqri.cockpit.main.CheckQueries;
-import be.cetic.simqri.cockpit.views.NewSimulationManagementWindow;
+import be.cetic.simqri.cockpit.views.SimulationManagementWindow;
 import be.cetic.simqri.design.templates.CheckFlows;
 import be.cetic.simqri.design.templates.CheckOutputs;
 import be.cetic.simqri.metamodel.Model;
@@ -37,7 +38,7 @@ public class ActionSimulation implements IExternalJavaAction {
 		Model model = (Model) parameters.get("model");
 		String errMessages = checkModelValidity(model);
 		if(errMessages.isEmpty() && CheckQueries.dynamicCheck(model).isEmpty())
-			new NewSimulationManagementWindow(model);
+			new SimulationManagementWindow(model);
 		else if(!CheckQueries.dynamicCheck(model).isEmpty())
 			JOptionPane.showMessageDialog(null, "A new simulation will not be launchable due to some errors in your queries !\n","Error", 
 					JOptionPane.ERROR_MESSAGE);

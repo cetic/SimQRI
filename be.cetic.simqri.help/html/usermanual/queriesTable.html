@@ -34,7 +34,7 @@
 <h2 id="qti">Queries Table Initialization</h2>
 
 <p>
-Once your project is created (see <a href="createProject.html">Create a project</a>), you are able to display an empty "Queries Table". This table will allow you to write the name and the value of your queries and to consult their results (once their value is valid and the simulation is launched).
+Once your project is created (see <a href="createProject.html">Create a project</a>), you are able to display an empty "Queries Table". This table will allow you to write the name and the value of your queries and to check their validity, once they are encoded.
 </p>
 <p>
     <img src="images/table/t1.PNG"></img>
@@ -47,14 +47,14 @@ Once your project is created (see <a href="createProject.html">Create a project<
     
     <ol>
         <li>Go to the graphical modeling area and click on the background of the modeling area</li><br/>
-        <li>Go to the "properties" tab situated below the modeling area and select the "Model" subtab
+        <li>Go to the "properties" tab situated below the modeling area and select the "Model" (or "Base") subtab
             <img src="images/table/t2.PNG"></img></li><br/>
         <li>Click on the "+" button in order to add a query manually from the Properties editor
         <img src="images/table/t21.PNG"></img></li><br/>
         <li>Write the name and the value of the first query and click on "Finish"
         <img src="images/table/t3.PNG"></img></li><br/>
         <li>Finally, go back to your Queries Table. You can notice that the first query has been added
-        <img src="images/table/t4.PNG"></img></li>
+        </li>
     </ol>
 </p>
 
@@ -63,7 +63,7 @@ Once your project is created (see <a href="createProject.html">Create a project<
 <p>Once the first query has been written (see the steps above), you will be able to use functionalities provided by the Queries Table. Most of them consist in adding and removing queries in a simple way. All you have to do is a <b>right-click on the line delimited by the first query</b> and select "<b>Add a *** query</b>" or "<b>Delete line".</b></p>
 <p>
     Basically, you can choose the <b>type</b> (Quantity, Quality, Delay or "Non-Typed") of the query you are about to create. <br/>
-    You will also be able to create one "<b>System Query</b>" of each type. These particular queries will be used during the results process of "Monte-Carlo" simulations in order to generate specific charts (only if you choose to use the "montecarlo-charts" report template).
+    You will also be able to create one "<b>System Query</b>" of each type. These particular queries will be used during the results process of "Monte-Carlo" simulations in order to generate specific charts (only if you choose to use the charts report template).
 </p>
 <p>
     <img src="images/table/queriesSample.PNG"></img>
@@ -73,7 +73,7 @@ Once your project is created (see <a href="createProject.html">Create a project<
 <h2 id="gbq">Generate basic Queries</h2>
 
 <p>
-    When you make a "right-click" on a query, you also have a "<b>Add basic queries</b>" option. This feature will automatically generate basic queries related to every elements drawn in the modeling area.
+    When you make a "right-click" on a query, you also have a "<b>Add basic queries</b>" option. This feature will automatically generate basic queries related to every elements drawn in the modeling area.<br/><br/>
 <img src="images/table/t6.PNG"></img>
 </p>
 
@@ -82,8 +82,8 @@ Once your project is created (see <a href="createProject.html">Create a project<
 <p>
 Finally, you will be alble to check the validity of your queries in two ways : 
 <ol>
-    <li>If the value of an encoded query in the table includes a syntactic or semantic error, the field will be highlighted in <b class="red">red</b>. Furthermore, the table also contains a <b>column</b> which contains the <b>error message of invalid queries</b>. For a better visibility, you can choose to hide or display any column. You can do this by a right-click on the table, select "Show/Hide" and then "Hide/Show columns...". <br/>
-        <img src='images/table/t7.PNG'></img>
+    <li>If the value of an encoded query in the table includes a syntactic or semantic error, the field will be highlighted in <b class="red">red</b>. Furthermore, the table also contains a <b>column</b> which contains the <b>error message of invalid queries</b>. For a better visibility, you can choose to hide or display any column. You can do this by a right-click on the table, select "Show/Hide" and then "Hide/Show columns...". <br/><br/>
+        <img src='images/table/t7.PNG'></img><br/><br/>
         <img src='images/table/t8.PNG'></img>
     </li><br/>
     <li>There is also a "<b>check queries</b>" functionnality that can be activated by a <b>right click on the background of the graphical modeling area and select the "Check Queries" option</b>. This functionality also displays details related to errors in order to help you to correct them. This feature is also automatically activated before launching a simulation.</li>

@@ -1,18 +1,22 @@
 package be.cetic.simqri.cockpit.main;
 
-import java.awt.EventQueue;
+import java.util.List;
 
-import java.util.ArrayList;
+
+
 
 import javax.swing.JOptionPane;
 
-import org.eclipse.emf.transaction.*;
+import org.eclipse.birt.report.engine.api.EngineException;
+import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 
+import be.cetic.simqri.cockpit.reporting.ReportManager;
+import be.cetic.simqri.cockpit.reporting.WorkspaceManager;
 import be.cetic.simqri.cockpit.tracer.MonteCarloTracer;
 import be.cetic.simqri.cockpit.tracer.OneShotTracer;
 import be.cetic.simqri.cockpit.views.ResultsWindow;
-import be.cetic.simqri.cockpit.views.SimulationManagementWindow;
 import be.cetic.simqri.metamodel.Model;
 import be.cetic.simqri.metamodel.Query;
 import be.cetic.simqri.simulator.mapping.SimQRiSirius;
@@ -24,92 +28,240 @@ import scala.Tuple2;
 import scala.collection.Iterator;
 
 /**
- * @deprecated
+ * 
  * @author FK
  * @version 2.0
- * 
- * This class is used to call displays related to simulations 
- * and to launch them with parameters choosen by the user.
- * It also retrieves and manages results...
+ * Main class dedicated to the simulation management execution
+ * The simulation is handled through the management cockpit window
  */
-public class Simulation {
+public class Simulation implements Runnable {
 	
-	/**
-	 * 
-	 * @param model The instance drawn in the Sirius diagram
-	 * @param errMessages The string of all error messages related to the modeling. Empty if no errors.
-	 * 
-	 */
-	public static void displaySimulationWindow(Model model, String errMessages) {
-		if(errMessages.isEmpty())
-			new SimulationManagementWindow(model);
+	private SimQRiSirius simulation;
+	
+	// Mapping parameters
+	private Model model;
+	private String type;
+	private int timeUnits;
+	private int maxIterations;
+	
+	private SimControl simControl; // variable used to control the simulation in OscaR
+	private List<String> extensions; // pdf, docx, html, etc. Retrieved from NewSimulationManagementWindow.java
+	private boolean aborted;
+	
+	private ReportManager reportManager;
+
+	private int retrieveResultsStatus; // used by the thread dedicated to the progress bar in LoadingBarManager.java
+	private int showResults; // also used by the thread dedicated to the progress bar in LoadingBarManager.java
+
+	// One Shot Constructor
+	public Simulation(Model model, int timeUnits) {
+		this.type = "One Shot";
+		this.model = model;
+		this.timeUnits = timeUnits;
+		this.simControl = new SimControl();
+		this.showResults = 10; // default value used by the thread dedicated to the progress bar in LoadingBarManager.java
+	}
+	
+	// Monte-Carlo Constructor 
+	public Simulation(Model model, int timeUnits, int maxIterations, List<String> extensions) {
+		this.type = "Monte-Carlo";
+		this.timeUnits = timeUnits;
+		this.maxIterations = maxIterations;
+		this.model = model;
+		this.simControl = new SimControl();
+		this.extensions = extensions;
+		this.showResults = 10; // default value used by the thread dedicated to the progress bar in LoadingBarManager.java
+	}
+	
+	public int getExtensionsSize() {
+		return extensions.size();
+	}
+	
+	public ReportManager getReportManager() {
+		return reportManager;
+	}
+	
+	public int getShowResults() {
+		return this.showResults;
+	}
+	
+	public int getRetrieveResultsStatus() {
+		return retrieveResultsStatus;
+	}
+
+	public void setRetrieveResultsStatus(int retrieveResultsStatus) {
+		this.retrieveResultsStatus = retrieveResultsStatus;
+	}
+
+	public Model getModel() {
+		return this.model;
+	}
+
+	public void setModel(Model model) {
+		this.model = model;
+	}
+
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getTimeUnits() {
+		return this.timeUnits;
+	}
+
+	public void setTimeUnits(int timeUnits) {
+		this.timeUnits = timeUnits;
+	}
+	
+	public int getLoading() {
+		if(this.simulation==null) 
+			// the thread that retrieves this value can be executed before the beginning of the simulation
+			return 0;
+		else if(this.type.equals("Monte-Carlo"))
+			return this.simulation.loading(); 
+			// = number of iterations processed at that time
+		else 
+			return (int) simControl.curTime();
+	}
+
+	public int getMaxIterations() {
+		return this.maxIterations;
+	}
+
+	public void setMaxIterations(int maxIterations) {
+		this.maxIterations = maxIterations;
+	}
+
+	public boolean isCanceled() {
+		if(this.simulation==null)
+			// the thread that retrieves this value can be executed before the beginning of the simulation
+			return false;
+		else if(this.type.equals("Monte-Carlo"))
+			return this.simulation.mcAborted();
 		else
-			showMessage("The simulation will not be launchable due to some modeling errors in your diagram : \n"
-						+ errMessages, true);
+			return simControl.aborted();
+	}
+
+	public void setCanceled(boolean canceled) {
+		if(this.type.equals("Monte-Carlo"))
+			this.simulation.mcAborted_$eq(canceled); // interrupt MC loop
+		else
+			simControl.aborted_$eq(canceled);
+	}
+	
+	public void setSimulation(SimQRiSirius simulation) {
+		this.simulation = simulation;
+	}
+	
+	public boolean isAborted() {
+		return aborted;
+	}
+
+	public void setAborted(boolean aborted) {
+		this.aborted = aborted;
 	}
 	
 	/**
-	 * 
-	 * @param type the type of simulation
-	 * @param timeUnits simulation parameter
-	 * @param maxIterations simulation parameter
-	 * @param model The instance drawn in the Sirius diagram
-	 * 
-	 * This method launches simulations and retrieves results in a logger, manages them into a tracer 
-	 * and then calls a window in which these results will be diplayed.
-	 * It also set results of queries as attributes to all "Query" instances of the sirius model 
-	 * in order to display them in the queries table view
+	 * Main simulation thread (data mapping, API OscaR, results retrieval in tracers and reports generation for MC simulations)
 	 */
-	public static void launch(String type, int timeUnits, int maxIterations, Model model) {
-		TraceLogger sqlogger = new TraceLogger(); // Object that will contain simulations results
+	@Override
+	public void run() { 
+		TraceLogger sqlogger = new TraceLogger();
 		sqlogger.reset();
-		Tools t = new Tools(); // Tools : Scala class of the "simulator" project that provides auxiliary functions
+		Tools tools = new Tools();
 		if(type.equals("One Shot")) {
-			SimQRiSirius sim = new SimQRiSirius(timeUnits, true, sqlogger, false);
-			ArrayList<String> errQueries = sim.fillModelWithSiriusData(model);
-			if(errQueries.isEmpty()) {
-				sim.simulateOneShot(new SimControl());
+			this.setSimulation(new SimQRiSirius(timeUnits, true, sqlogger, false)); 
+			simulation.fillModelWithSiriusData(model);
+			simulation.simulateOneShot(this.simControl);
+			if(this.isCanceled())
+				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to consult intermediate results ?");
+			else showResults = JOptionPane.YES_OPTION; // We have to fix the value here because the LoadingBarManager thread will use it...
+			if(showResults == JOptionPane.YES_OPTION) {
+
+				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
+				this.retrieveResultsStatus = 0;
 				
-				// Instance of the object that will store "One Shot" simulation results and transphorm them to strings for the display
+				// Instance of the object that will store "One Shot" simulation results
 				OneShotTracer ost = new OneShotTracer();
-				// Passing simulation results to our own tracer
-				ost.setEvents(t.eventsToJavaMap(sqlogger));
-				ost.setMapInfos(t.mapInfosToJavaMap(sqlogger));
+				// Convert simulation results to java structures
+				ost.setEvents(tools.eventsToJavaMap(sqlogger));
+				ost.setMapInfos(tools.mapInfosToJavaMap(sqlogger));
 				ost.setProbes(sqlogger.logs().probes());
 				ost.setRawInfos(sqlogger.logs().rawInfos());
 				
-				setQueriesResult(sqlogger, model);
-
-				new ResultsWindow();
-			}
-			else {
-				showMessage("The simulation will not be launchable due to some errors in your queries : \n"
-						+ errQueries, true);
+				// create and fill the results window
+				ResultsWindow rw = new ResultsWindow();
+				if(this.isAborted()) return;
+				rw.setElements(ost.getStringElements());
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				rw.setQueries(ost.getStringProbes());
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				rw.setEvents(ost.getStringEvents());
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				rw.initComponents();
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				
+				// this.setQueriesResult(sqlogger, model);
+				rw.initWindow();
 			}
 			
 		}
 		else if(type.equals("Monte-Carlo")) {
-			SimQRiSirius sim = new SimQRiSirius(timeUnits, true, sqlogger, true);
-			ArrayList<String> errQueries = sim.fillModelWithSiriusData(model);
-			if(errQueries.isEmpty()) {
-				sim.simulateMonteCarlo(maxIterations, new SimControl());
+			this.setSimulation(new SimQRiSirius(timeUnits, true, sqlogger, true));
+			simulation.fillModelWithSiriusData(model);
+			simulation.simulateMonteCarlo(maxIterations, this.simControl);
+			if(this.isCanceled())
+				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to retrieve intermediate reports ?");
+			else showResults = JOptionPane.YES_OPTION; // We have to fix the value here because the LoadingBarManager thread will use it...
+			if(showResults == JOptionPane.YES_OPTION) {
+
+				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
+				this.retrieveResultsStatus = 0;
 				
+				// Setting used path for the reporting services (reports folder, template path and xml workspace folder)
+				WorkspaceManager.setReportFolderPath(WorkspaceManager.SELECTED_PROJECT);
+		        WorkspaceManager.setTemplatePath(WorkspaceManager.SELECTED_PROJECT, WorkspaceManager.SELECTED_TEMPLATE);
+				WorkspaceManager.setXmlFolderWorkspacePath(WorkspaceManager.SELECTED_PROJECT);
+				
+				// Instance of the object that will store "Monte-Carlo" simulation results and manage their XML mutation
 				MonteCarloTracer mct = new MonteCarloTracer(model);
-				mct.setElementsSampling(t.elementsSamplingsToJavaMap(sqlogger));
+				
+				// Convert simulation results to java structures
 				mct.setRuntimeSampling(sqlogger.logs().mcSamplings().runtimeSampling());
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
 				mct.setProbesSampling(sqlogger.logs().mcSamplings().probesSampling());
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				mct.setElementsSampling(tools.elementsSamplingsToJavaMap(sqlogger));
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
 				mct.setHistorySampling(sqlogger.logs().mcSamplings().historySampling());
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
 				
-				setQueriesSamples(sqlogger, model);
-				
-				// new ResultsWindow(mct);
-			}
-			else {
-				showMessage("The simulation will not be launchable due to some errors in your queries : \n"
-						+ errQueries, true);
+				mct.createXMLFile();
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+					
+				this.reportManager = new ReportManager(this.extensions);
+				try {
+					this.reportManager.executeReport();
+				} catch (EngineException e) {
+					JOptionPane.showMessageDialog(null,  "An error has occured during reports generation!", "error",  JOptionPane.ERROR_MESSAGE);
+				}
+				// this.setQueriesSamples(sqlogger, model);
+				// mct.getXMLFile().delete();
 			}
 		}
-		
 	}
 	
 	/**
@@ -118,13 +270,14 @@ public class Simulation {
 	 * @param model The instance of the SimQRi model
 	 * @deprecated
 	 * This method set simulation results to queries objects of the Sirius Metamodel instance. 
+	 * No longer used due to a too long time for setting results when there are a lot of queries
 	 */
 	@SuppressWarnings("unused")
-	private static void setQueriesResult(TraceLogger sqlogger, Model model) {
+	private void setQueriesResult(TraceLogger sqlogger, Model model) {
 		Iterator<Tuple2<String, String>> itProbes = sqlogger.logs().probes().iterator();
 		while(itProbes.hasNext()) {
 			Tuple2<String, String> probes = itProbes.next();
-			String result = probes._2.toString().replaceAll("[^\\d.]", ""); // On ne garde que les valeurs numériques du résultat
+			String result = probes._2.toString().replaceAll("[^\\d.]", ""); // We keep numerical values only
 			double value = Double.parseDouble(result);
 			for(Query q : model.getQuery()) {
 				if(q.getName().equals(probes._1)) {
@@ -149,8 +302,10 @@ public class Simulation {
 	 * @param model The instance of the SimQRi model
 	 * @deprecated
 	 * This method set simulation results to queries objects of the Sirius Metamodel instance. 
+	 * No longer used due to a too long time for setting results when there are a lot of queries
 	 */
-	private static void setQueriesSamples(TraceLogger sqlogger, Model model) {
+	@SuppressWarnings("unused")
+	private void setQueriesSamples(TraceLogger sqlogger, Model model) {
 		Iterator<SamplingTuple> itProbes = sqlogger.logs().mcSamplings().probesSampling().iterator();
 		while(itProbes.hasNext()) {
 			SamplingTuple probes = itProbes.next();
@@ -169,17 +324,5 @@ public class Simulation {
 				}
 			}
 		}
-	}
-	
-	private static void showMessage(String message, boolean error) {
-	    EventQueue.invokeLater(new Runnable() {
-	        @Override
-	        public void run() {
-	        		if(!error)
-	        			JOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
-	        		else
-	        			JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
-	        }
-	    });
 	}
 }

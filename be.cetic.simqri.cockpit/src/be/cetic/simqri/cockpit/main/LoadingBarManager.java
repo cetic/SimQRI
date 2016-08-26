@@ -16,7 +16,7 @@ import be.cetic.simqri.cockpit.views.PanelLoader;
 public class LoadingBarManager implements Runnable {
 	
 	private PanelLoader panelLoader; // The panel of the progress bar
-	private NewSimulation simulation;
+	private Simulation simulation;
 	private int step;
 	private boolean aborted;
 	
@@ -28,7 +28,7 @@ public class LoadingBarManager implements Runnable {
 		this.step = step;
 	}
 	
-	public LoadingBarManager(PanelLoader panelLoader, NewSimulation simulation) {
+	public LoadingBarManager(PanelLoader panelLoader, Simulation simulation) {
 		super();
 		this.panelLoader = panelLoader;
 		this.simulation = simulation;
@@ -44,11 +44,11 @@ public class LoadingBarManager implements Runnable {
 		this.panelLoader = panelLoader;
 	}
 
-	public NewSimulation getSimulation() {
+	public Simulation getSimulation() {
 		return simulation;
 	}
 
-	public void setSimulation(NewSimulation simulation) {
+	public void setSimulation(Simulation simulation) {
 		this.simulation = simulation;
 	}
 
