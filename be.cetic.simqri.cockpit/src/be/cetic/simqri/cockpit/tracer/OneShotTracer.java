@@ -3,6 +3,13 @@ package be.cetic.simqri.cockpit.tracer;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.swing.JOptionPane;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import be.cetic.simqri.cockpit.util.JsonFormat;
 import scala.Tuple2;
 import scala.collection.Iterator;
 import scala.collection.immutable.List;
@@ -75,15 +82,32 @@ public class OneShotTracer {
 		return elementsString;
 	}
 	
-	public String getStringProbes() {
+	public String getStringProbes(boolean history) {
 		String probesString = "\n  -----------------QUERIES---------------- \n";
 		Iterator<Tuple2<String, String>> itProbes = probes.iterator();
 		while(itProbes.hasNext()) {
 			Tuple2<String, String> probe = itProbes.next();
 			String query = probe._1;
-			String value = probe._2.replaceAll("[^\\d.]", "");
-			double doubleValue = Double.parseDouble(value);
-			probesString += "  * "+query+" : "+String.format("%.2f", doubleValue)+"\n";
+			if(!history && probe._2.contains("single_value")) { // normal queries management
+				String value = probe._2.replaceAll("[^\\d.]", "");
+				double doubleValue = Double.parseDouble(value);
+				probesString += "  * "+query+" : "+String.format("%.2f", doubleValue)+"\n";
+			}
+			else if(history && probe._2.contains("history_value")) { // "record" queries management
+				probesString += "  *  "+query+" (record query) : \n";
+				JSONArray values = JsonFormat.jsonToArray(probe._2, "values");
+				for(int i=0; i < values.length(); i++) {
+					JSONObject tuple = null;
+					try {
+						tuple = values.getJSONObject(i);
+					} catch (JSONException e) {
+						JOptionPane.showMessageDialog(null, "Error: " + e.getMessage() + "", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+					double time = JsonFormat.jsonToDouble(tuple.toString(),  "time");
+					double value = JsonFormat.jsonToDouble(tuple.toString(),  "value");
+					probesString += "    **  Time unit : "+time+", value : "+value+"\n";
+				}
+			}
 		}
 		probesString += "  ---------------------------------------- \n";
 		return probesString;

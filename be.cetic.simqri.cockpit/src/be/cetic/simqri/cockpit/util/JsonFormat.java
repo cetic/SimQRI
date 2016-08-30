@@ -33,7 +33,6 @@ public class JsonFormat {
 		try {
 			val = jsonObject.getString(key);
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			JOptionPane.showMessageDialog(null,  "Invalid JSon format", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 

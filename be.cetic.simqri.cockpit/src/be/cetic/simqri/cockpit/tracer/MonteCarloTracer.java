@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,6 +18,7 @@ import javax.swing.JOptionPane;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import be.cetic.simqri.cockpit.reporting.WorkspaceManager;
 import be.cetic.simqri.cockpit.util.JsonFormat;
@@ -78,11 +80,12 @@ public class MonteCarloTracer {
 			bf = new BufferedWriter(new FileWriter(this.XMLFile));
 			bf.write("<montecarlo>");
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+			JOptionPane.showMessageDialog(null, "Error: " + e.getMessage() + "", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		this.setXMLElements();
 		this.setXMLRuntime();
 		this.setXMLProbes();
+		this.setXMLHistory();
 		this.endOfXMLFile();
 	}
 	
@@ -146,7 +149,7 @@ public class MonteCarloTracer {
 				try {
 					bf.append(elementXML);
 				} catch (IOException e) {
-					JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+					JOptionPane.showMessageDialog(null, "Error: " + e.getMessage() + "", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 				elementsString += "  * "+attrName+" : \n";
 				elementsString += "    - Max : "+attrMax+" \n";
@@ -183,7 +186,7 @@ public class MonteCarloTracer {
 		try {
 			bf.append(runtimeXML);
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+			JOptionPane.showMessageDialog(null, "Error: " + e.getMessage() + "", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		// return runtimeString;
 	}
@@ -233,7 +236,7 @@ public class MonteCarloTracer {
 				bf.append(probeXML);
 				bf.append(histoProbeXML);
 			} catch (IOException e) {
-				JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
+				JOptionPane.showMessageDialog(null, "Error: " + e.getMessage() + "", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 			probesString += "  * "+attrName+" : \n";
 			probesString += "    - Max : "+attrMax+" \n";
@@ -243,6 +246,44 @@ public class MonteCarloTracer {
 		}
 		probesString += "  ----------------------------------------- \n";
 		// return probesString;
+	}
+	
+	public void setXMLHistory() { // Dedicated to "record" queries
+		Iterator<HistorySampling> itHistory = historySampling.iterator();
+		String historyXML = "";
+		while(itHistory.hasNext()) {
+			HistorySampling history = itHistory.next();
+			String jsonHistory = history.toJSONString();
+			String attrName = JsonFormat.jsonToString(jsonHistory,  "name");
+			JSONArray historyArray = JsonFormat.jsonToArray(jsonHistory, "history");
+			for(int i=0; i<historyArray.length(); i++) {
+				JSONObject tuple = null;
+				try {
+					tuple = historyArray.getJSONObject(i);
+				} catch (JSONException e) {
+					JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				double time = JsonFormat.jsonToDouble(tuple.toString(),  "time");
+				JSONArray valuesArray = JsonFormat.jsonToArray(tuple.toString(),  "values");
+				ArrayList<Double> values = new ArrayList<Double>();
+				for(int j=0; j<valuesArray.length(); j++) {
+					try {
+						values.add(valuesArray.getDouble(j));
+					} catch (JSONException e) {
+						JOptionPane.showMessageDialog(null, "Error: " + e.getMessage() + "", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+				}
+				double mean = getMean(values);
+				historyXML += "<history><name>"+attrName+"</name><time>"+time+"</time>"
+						   + "<max>"+getMax(values)+"</max><min>"+getMin(values)+"</min>"
+						   + "<mean>"+mean+"</mean><variance>"+getVariance(values, mean)+"</variance></history>";
+			}
+		}
+		try {
+			bf.append(historyXML);
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Error: " + e.getMessage() + "", "Error", JOptionPane.ERROR_MESSAGE);
+		}
 	}
 	
 	/**
@@ -258,7 +299,7 @@ public class MonteCarloTracer {
 			try {
 				histogram = histograms.get(i).toString();
 			} catch (JSONException e) {
-				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, "Error: " + e.getMessage() + "", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 			double mean = JsonFormat.jsonToDouble(histogram, "mean");
 			double frequency = JsonFormat.jsonToDouble(histogram,  "frequency");
@@ -325,25 +366,38 @@ public class MonteCarloTracer {
 		return type;
 	}
 	
-	/**
-	 * @deprecated
-	 */
-	public String getStringHistory() {
-		String historyString = "\n  -----------------HISTORY----------------- \n";
-		Iterator<HistorySampling> itHistory = historySampling.iterator();
-		while(itHistory.hasNext()) {
-			HistorySampling history = itHistory.next();
-			
-			String jsonHistory = history.toJSONString().replace(" ",  "");
-			String attrName = JsonFormat.jsonToString(jsonHistory, "name");
-			
-			String jsonHistorySampling = JsonFormat.getJSonFromJSon(jsonHistory,  "history");	
-			
-			historyString += "  * "+attrName+" : \n";
-			historyString += jsonHistorySampling+" \n";
+	private double getMax(ArrayList<Double> values) {
+		double max = 0;
+		for(double val : values) {
+			if(val > max)
+				max = val;
 		}
-		historyString += "  ----------------------------------------- \n";
-		return historyString;
+		return max;
+	}
+	
+	private double getMin(ArrayList<Double> values) {
+		double min = values.get(0);
+		for(double val : values) {
+			if(val < min)
+				min = val;
+		}
+		return min;
+	}
+	
+	private double getMean(ArrayList<Double> values) {
+		double mean = 0, sum = 0;
+		for(double val : values)
+			sum += val;
+		mean = sum/values.size();
+		return mean;
+	}
+	
+	private double getVariance(ArrayList<Double> values, double mean) {
+		double numerator = 0, denominator = values.size()-1;
+		for(double val : values) {
+			numerator += (val-mean)*(val-mean);
+		}
+		return numerator/denominator;
 	}
 
 	public Map<String, List<SamplingTuple>> getElementsSampling() {

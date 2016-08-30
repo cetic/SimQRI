@@ -6,7 +6,8 @@
 	<classpathentry kind="lib" path="lib/org.eclipse.emf.common.jar"/>
 	<classpathentry kind="lib" path="lib/org.eclipse.emf.ecore.jar"/>
 	<classpathentry kind="lib" path="lib/metamodel.jar"/>
-	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/oscar.jar"/>
+	<classpathentry kind="lib" path="lib/scala-parser-combinators_2.11-1.0.4.jar"/>
+	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

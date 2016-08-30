@@ -34,11 +34,9 @@ public class ResultsWindow extends JFrame implements ActionListener {
 	private JLabel jlTitle;
 	private JPanel jpButtons;
 	private JTabbedPane jtpResults;
-	private String events, elements, queries;
+	private String events, elements, queries, history;
 	private JButton jbSave, jbExit;
-	private PanelResults panelTrace;
-	private PanelResults panelElements;
-	private PanelResults panelQueries;
+	private PanelResults panelTrace, panelElements, panelQueries, panelHistory;
 	
 	public String getEvents() {
 		return events;
@@ -62,6 +60,14 @@ public class ResultsWindow extends JFrame implements ActionListener {
 
 	public void setQueries(String queries) {
 		this.queries = queries;
+	}
+	
+	public String getHistory() {
+		return history;
+	}
+	
+	public void setHistory(String history) {
+		this.history = history;
 	}
 
 	public ResultsWindow() {
@@ -90,11 +96,14 @@ public class ResultsWindow extends JFrame implements ActionListener {
 				
 		this.panelTrace = new PanelResults(events);
 		this.panelElements = new PanelResults(elements); 
-		this.panelQueries = new PanelResults(queries); 
+		this.panelQueries = new PanelResults(queries);
+		this.panelHistory = new PanelResults(history);
+		
 		
 		this.jtpResults.addTab("Trace", null, panelTrace, "Check the simulation trace");
 		this.jtpResults.addTab("Elements", null, panelElements, "Check the simulation elements");
 		this.jtpResults.addTab("Queries", null, panelQueries, "Check the simulation queries results");
+		this.jtpResults.addTab("Record Queries", null, panelHistory, "Check the simulation record queries results");
 		
 		this.jbSave = new JButton("Save as");
 		this.jbExit = new JButton("Close");

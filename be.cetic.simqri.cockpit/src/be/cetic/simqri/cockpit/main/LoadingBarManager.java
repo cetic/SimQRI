@@ -8,6 +8,7 @@ import be.cetic.simqri.cockpit.views.PanelLoader;
  * @author FK
  * @since 09/08/2016
  * @version 1.0
+ * 
  * This class contains the main thread that manages the progress bar of the simulation management window.
  * The aim is to manage the same progress bar for 3 successive events (simulation, results retrieval 
  * and reports generation for MC simulations)
@@ -89,7 +90,7 @@ public class LoadingBarManager implements Runnable {
 		}
 		// 4 steps for processing results in the one shot results retrieval...
 		if(this.simulation.getType().equals("One Shot"))
-			panelLoader.reset("Processing results...", 4);
+			panelLoader.reset("Processing results...", 5);
 		// ...and 5 in the MC results retrieval
 		else
 			panelLoader.reset("Processing results...", 5);

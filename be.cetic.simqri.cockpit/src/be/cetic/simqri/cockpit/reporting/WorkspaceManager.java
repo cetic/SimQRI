@@ -3,6 +3,8 @@ package be.cetic.simqri.cockpit.reporting;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -58,8 +60,8 @@ public class WorkspaceManager {
 				}
 			}
 		} catch (CoreException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Error: " + e.getMessage() + "", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		return templatesName;
 	}

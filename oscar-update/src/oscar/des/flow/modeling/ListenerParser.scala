@@ -1,6 +1,7 @@
 package oscar.des.flow.modeling
 
 import oscar.des.flow.core.{AttributeDefinitions, Attribute, AttributeCondition}
+
 import oscar.des.flow.lib._
 
 import scala.collection.immutable.SortedMap

@@ -15,7 +15,7 @@ import javax.swing.SwingUtilities;
  * @author FK
  * @since 02/08/2016
  * @version 2.0
- * This panel contains a progress bar and a label and is added in the simulation management window 
+ * This panel contains a progress bar and a label. It is added in the simulation management window 
  * 
  */
 public class PanelLoader extends JPanel {

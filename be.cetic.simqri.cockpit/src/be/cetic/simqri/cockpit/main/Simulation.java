@@ -31,20 +31,20 @@ import scala.collection.Iterator;
  * 
  * @author FK
  * @version 2.0
- * Main class dedicated to the simulation management execution
- * The simulation is handled through the management cockpit window
+ * 
+ * Main class that handles the execution of the simulation.
  */
 public class Simulation implements Runnable {
 	
 	private SimQRiSirius simulation;
 	
-	// Mapping parameters
+	// Mapping parameters for OscaR
 	private Model model;
 	private String type;
 	private int timeUnits;
 	private int maxIterations;
 	
-	private SimControl simControl; // variable used to control the simulation in OscaR
+	private SimControl simControl; // variable used to control the simulation progress in OscaR
 	private List<String> extensions; // pdf, docx, html, etc. Retrieved from NewSimulationManagementWindow.java
 	private boolean aborted;
 	
@@ -122,8 +122,7 @@ public class Simulation implements Runnable {
 			// the thread that retrieves this value can be executed before the beginning of the simulation
 			return 0;
 		else if(this.type.equals("Monte-Carlo"))
-			return this.simulation.loading(); 
-			// = number of iterations processed at that time
+			return this.simulation.loading(); // = number of iterations processed at that time
 		else 
 			return (int) simControl.curTime();
 	}
@@ -166,7 +165,7 @@ public class Simulation implements Runnable {
 	}
 	
 	/**
-	 * Main simulation thread (data mapping, API OscaR, results retrieval in tracers and reports generation for MC simulations)
+	 * Main simulation thread (data mapping, API OscaR, results retrieval through tracers and reports generation for MC simulations)
 	 */
 	@Override
 	public void run() { 
@@ -179,7 +178,7 @@ public class Simulation implements Runnable {
 			simulation.simulateOneShot(this.simControl);
 			if(this.isCanceled())
 				showResults = JOptionPane.showConfirmDialog(null, "Simulation cancelled ! \nDo you wish to consult intermediate results ?");
-			else showResults = JOptionPane.YES_OPTION; // We have to fix the value here because the LoadingBarManager thread will use it...
+			else showResults = JOptionPane.YES_OPTION; // We have to fix the value here because the LoadingBarManager thread will use it
 			if(showResults == JOptionPane.YES_OPTION) {
 
 				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
@@ -187,6 +186,7 @@ public class Simulation implements Runnable {
 				
 				// Instance of the object that will store "One Shot" simulation results
 				OneShotTracer ost = new OneShotTracer();
+				
 				// Convert simulation results to java structures
 				ost.setEvents(tools.eventsToJavaMap(sqlogger));
 				ost.setMapInfos(tools.mapInfosToJavaMap(sqlogger));
@@ -199,7 +199,10 @@ public class Simulation implements Runnable {
 				rw.setElements(ost.getStringElements());
 				retrieveResultsStatus++;
 				if(this.isAborted()) return;
-				rw.setQueries(ost.getStringProbes());
+				rw.setQueries(ost.getStringProbes(false));
+				retrieveResultsStatus++;
+				if(this.isAborted()) return;
+				rw.setHistory(ost.getStringProbes(true));
 				retrieveResultsStatus++;
 				if(this.isAborted()) return;
 				rw.setEvents(ost.getStringEvents());
@@ -226,7 +229,7 @@ public class Simulation implements Runnable {
 				this.setAborted(false); // aborted var re used for the retrieval of simulation results !
 				this.retrieveResultsStatus = 0;
 				
-				// Setting used path for the reporting services (reports folder, template path and xml workspace folder)
+				// Setting the full used path for the reporting services (reports folder, template path and xml workspace folder)
 				WorkspaceManager.setReportFolderPath(WorkspaceManager.SELECTED_PROJECT);
 		        WorkspaceManager.setTemplatePath(WorkspaceManager.SELECTED_PROJECT, WorkspaceManager.SELECTED_TEMPLATE);
 				WorkspaceManager.setXmlFolderWorkspacePath(WorkspaceManager.SELECTED_PROJECT);

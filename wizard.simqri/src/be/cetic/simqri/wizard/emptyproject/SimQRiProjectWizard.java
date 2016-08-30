@@ -181,7 +181,7 @@ public class SimQRiProjectWizard extends Wizard implements INewWizard {
 					e.printStackTrace();
 				}
 				
-				//create reports folder
+				//create generated reports folder
 				IFolder reportsFolder = project.getFolder("Generated Reports");
 				try {
 					reportsFolder.create(false,  true, null);

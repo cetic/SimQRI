@@ -22,7 +22,8 @@ import org.eclipse.birt.report.engine.api.PDFRenderOption;
  * 
  * @author FK
  * @version 1.1
- * This class manages the process of the BIRT reporting services
+ * This class manages the reports creation process with the BIRT Report Engine API
+ * More info at http://www.eclipse.org/birt/documentation/integrating/reapi.php
  *
  */
 public class ReportManager {
@@ -143,7 +144,7 @@ public class ReportManager {
 			task.run();
 		}
 		catch(EngineException e1) {
-			JOptionPane.showMessageDialog(null, "Report generating failed in "+extension+" format.\n", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Report creation failed in "+extension+" format.\n", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		
 	}

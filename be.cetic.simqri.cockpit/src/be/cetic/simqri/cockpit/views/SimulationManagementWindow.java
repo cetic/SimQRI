@@ -39,9 +39,9 @@ import be.cetic.simqri.metamodel.Model;
  * 
  * @author FK
  * @version 1.2
- * This class is the new management window of a new simulation.
+ * This class is the new management window of a simulation.
  * It is displayed after a right-click on the back of the Sirius tool and select "New Simulation".
- * This window contains a combo boxes that allow the user to choose the report template that will be used
+ * This window contains combo boxes that allow the user to choose the report template that will be used
  * and a a loading bar that is updated in a thread (LoadingBarManager.java).
  * This thread is performed in the same time that the simulation thread (NewSimulation.java)
  */
@@ -179,10 +179,10 @@ public class SimulationManagementWindow extends JFrame implements ActionListener
 		jcbExtensions = new ArrayList<JCheckBox>(6);
 		jcbDocx = new JCheckBox("docx"); jcbExtensions.add(jcbDocx);
 		jcbHtml = new JCheckBox("html"); jcbExtensions.add(jcbHtml);
-		jcbXlsx = new JCheckBox("xlsx"); jcbExtensions.add(jcbXlsx);
 		jcbPdf = new JCheckBox("pdf"); jcbExtensions.add(jcbPdf);
 		jcbPptx = new JCheckBox("pptx"); jcbExtensions.add(jcbPptx);
 		jcbOdt = new JCheckBox("odt"); jcbExtensions.add(jcbOdt);
+		jcbXlsx = new JCheckBox("xlsx"); jcbExtensions.add(jcbXlsx);
 		
 		jcbPdf.setSelected(true);
 		
@@ -190,6 +190,7 @@ public class SimulationManagementWindow extends JFrame implements ActionListener
 		
 		this.jlSelectModelingProject = new JLabel("Select your modeling project");
 		this.jcbModelingProjects = new JComboBox<String>();
+		
 		// Retrieval of all user workspaces modeling projects
 		for(String project : WorkspaceManager.getModelingProjects())
 			this.jcbModelingProjects.addItem(project);
@@ -199,6 +200,7 @@ public class SimulationManagementWindow extends JFrame implements ActionListener
 		
 		this.jlSelectReportTemplate = new JLabel("Select the report template you want to use");
 		this.jcbReportTemplates = new JComboBox<String>();
+		
 		// Retrieval of all report templates of the selected project (the first one by default)
 		for(String template : WorkspaceManager.getTemplates(this.jcbModelingProjects.getItemAt(0)))
 			this.jcbReportTemplates.addItem(template);
