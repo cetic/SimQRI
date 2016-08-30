@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metamodel:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metamodel="http://www.example.org/metamodel">
+  <query name="(System Quantity Risks) BeerGameQuantityRiskSystem" value="(totalPut(&quot;new_storage 1&quot;)*3000)+((totalPut(&quot;new_storage 2&quot;)-totalLostByOverflow(&quot;new_storage 2&quot;))*2500)+((totalPut(&quot;new_storage 9&quot;)-totalLostByOverflow(&quot;new_storage 9&quot;))*3500)+((totalPut(&quot;new_storage 3&quot;)-totalFetch(&quot;new_storage 3&quot;))*4000)" error="" type="QUANTITY" system="true"/>
+  <query name="(System Quality Risks) BeerGameQualityRiskSystem" value="((completedBatchCount(&quot;new_batch_process 1&quot;)/startedBatchCount(&quot;new_batch_process 1&quot;))*285000+(completedBatchCount(&quot;new_conveyor_belt 2&quot;)/startedBatchCount(&quot;new_conveyor_belt 2&quot;))*250000+(completedBatchCount(&quot;new_conveyor_belt 3&quot;)/startedBatchCount(&quot;new_conveyor_belt 3&quot;))*325000+(completedBatchCount(&quot;new_conveyor_belt 1&quot;)/startedBatchCount(&quot;new_conveyor_belt 1&quot;))*567000)+((relativeStockLevel(&quot;new_storage 3&quot;)*481000)+(relativeStockLevel(&quot;new_storage 9&quot;)*672000)+(relativeStockLevel(&quot;new_storage 2&quot;)*650000)+(relativeStockLevel(&quot;new_storage 6&quot;)*245000))" error="" type="QUALITY" system="true"/>
+  <query name="(System Delay Risks) BeerGameDelayRiskSystem" value="(totalWaitDuration(&quot;new_conveyor_belt 1&quot;)*8000)+(totalWaitDuration(&quot;new_conveyor_belt 2&quot;)*7000)+(totalWaitDuration(&quot;new_conveyor_belt 3&quot;)*6500)+(totalWaitDuration(&quot;new_batch_process 1&quot;)*5500)+(totalWaitDuration(&quot;new_supplier 1&quot;)*7500)" error="" type="DELAY" system="true"/>
+  <query name="Number of time units plus 1" value="plus(time,1)" error=""/>
+  <query name="new_supplier 1 : Number of started batches" value="startedBatchCount(&quot;new_supplier 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_supplier 1 : Number of completed batches" value="completedBatchCount(&quot;new_supplier 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 1 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 1 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 1 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 1&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 1 : Total input" value="totalPut(&quot;new_storage 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 1 : Capacity" value="capacity(&quot;new_storage 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 1 : Capacity utilisation" value="relativeStockLevel(&quot;new_storage 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_batch_process 1 : Number of started batches" value="startedBatchCount(&quot;new_batch_process 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_batch_process 1 : Number of completed batches" value="completedBatchCount(&quot;new_batch_process 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 2 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 2 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 2&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 2 : Total lost by overflow" value="totalLostByOverflow(&quot;new_storage 2&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 2 : Total input" value="totalPut(&quot;new_storage 2&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 2 : Capacity" value="capacity(&quot;new_storage 2&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 2 : Capacity utilisation" value="relativeStockLevel(&quot;new_storage 2&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 3 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 3 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 3 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 3&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 3 : Total input" value="totalPut(&quot;new_storage 3&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 3 : Capacity" value="capacity(&quot;new_storage 3&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 3 : Capacity utilisation" value="relativeStockLevel(&quot;new_storage 3&quot;)" error="" type="QUANTITY"/>
+  <query name="new_batch_process 2 : Number of started batches" value="startedBatchCount(&quot;new_batch_process 2&quot;)" error="" type="QUANTITY"/>
+  <query name="new_batch_process 2 : Number of completed batches" value="completedBatchCount(&quot;new_batch_process 2&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 4 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 4&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 4 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 4&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 4 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 4&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 4 : Total input" value="totalPut(&quot;new_storage 4&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 4 : Capacity" value="capacity(&quot;new_storage 4&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 4 : Capacity utilisation" value="relativeStockLevel(&quot;new_storage 4&quot;)" error="" type="QUANTITY"/>
+  <query name="new_conveyor_belt 1 : Number of started batches" value="startedBatchCount(&quot;new_conveyor_belt 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_conveyor_belt 1 : Number of completed batches" value="completedBatchCount(&quot;new_conveyor_belt 1&quot;)" error="" type="QUANTITY"/>
+  <query name="new_conveyor_belt 2 : Number of started batches" value="startedBatchCount(&quot;new_conveyor_belt 2&quot;)" error="" type="QUANTITY"/>
+  <query name="new_conveyor_belt 2 : Number of completed batches" value="completedBatchCount(&quot;new_conveyor_belt 2&quot;)" error="" type="QUANTITY"/>
+  <query name="new_conveyor_belt 3 : Number of started batches" value="startedBatchCount(&quot;new_conveyor_belt 3&quot;)" error="" type="QUANTITY"/>
+  <query name="new_conveyor_belt 3 : Number of completed batches" value="completedBatchCount(&quot;new_conveyor_belt 3&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 5 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 5&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 5 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 5&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 5 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 5&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 5 : Total input" value="totalPut(&quot;new_storage 5&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 5 : Capacity" value="capacity(&quot;new_storage 5&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 5 : Capacity utilisation" value="relativeStockLevel(&quot;new_storage 5&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 6 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 6&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 6 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 6&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 6 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 6&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 6 : Total input" value="totalPut(&quot;new_storage 6&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 6 : Capacity" value="capacity(&quot;new_storage 6&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 6 : Capacity utilisation" value="relativeStockLevel(&quot;new_storage 6&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 7 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 7&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 7 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 7&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 7 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 7&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 7 : Total input" value="totalPut(&quot;new_storage 7&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 7 : Capacity" value="capacity(&quot;new_storage 7&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 7 : Capacity utilisation" value="relativeStockLevel(&quot;new_storage 7&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 8 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 8&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 8 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 8&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 8 : Minimum relative stock level" value="minOnHistory(relativeStockLevel(&quot;new_storage 8&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 8 : Total input" value="totalPut(&quot;new_storage 8&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 8 : Capacity" value="capacity(&quot;new_storage 8&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 8 : Capacity utilisation" value="relativeStockLevel(&quot;new_storage 8&quot;)" error="" type="QUANTITY"/>
+  <query name="new_batch_process 3 : Number of started batches" value="startedBatchCount(&quot;new_batch_process 3&quot;)" error="" type="QUANTITY"/>
+  <query name="new_batch_process 3 : Number of completed batches" value="completedBatchCount(&quot;new_batch_process 3&quot;)" error="" type="QUANTITY"/>
+  <query name="new_batch_process 4 : Number of started batches" value="startedBatchCount(&quot;new_batch_process 4&quot;)" error="" type="QUANTITY"/>
+  <query name="new_batch_process 4 : Number of completed batches" value="record(completedBatchCount(&quot;new_batch_process 4&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 9 : Maximum relative stock level" value="maxOnHistory(relativeStockLevel(&quot;new_storage 9&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 9 : Average relative stock level" value="avgOnHistory(relativeStockLevel(&quot;new_storage 9&quot;))" error="" type="QUANTITY"/>
+  <query name="new_storage 9 : Total lost by overflow" value="totalLostByOverflow(&quot;new_storage 9&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 9 : Total input" value="totalPut(&quot;new_storage 9&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 9 : Capacity" value="capacity(&quot;new_storage 9&quot;)" error="" type="QUANTITY"/>
+  <query name="new_storage 9 : Capacity utilisation" value="relativeStockLevel(&quot;new_storage 9&quot;)" error="" type="QUANTITY"/>
+  <query name="new_supplier 1 : Total Idle time" value="totalWaitDuration(&quot;new_supplier 1&quot;)" error="" type="DELAY"/>
+  <query name="new_batch_process 1 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 1&quot;)" error="" type="DELAY"/>
+  <query name="new_batch_process 2 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 2&quot;)" error="" type="DELAY"/>
+  <query name="new_conveyor_belt 1 : Total Idle time" value="totalWaitDuration(&quot;new_conveyor_belt 1&quot;)" error="" type="DELAY"/>
+  <query name="new_conveyor_belt 2 : Total Idle time" value="totalWaitDuration(&quot;new_conveyor_belt 2&quot;)" error="" type="DELAY"/>
+  <query name="new_conveyor_belt 3 : Total Idle time" value="totalWaitDuration(&quot;new_conveyor_belt 3&quot;)" error="" type="DELAY"/>
+  <query name="new_batch_process 3 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 3&quot;)" error="" type="DELAY"/>
+  <query name="new_batch_process 4 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 4&quot;)" error="" type="DELAY"/>
+  <orderOnStockThreshold threshold="1" name="oost 1" orderQuantity="10" supplier="//@component.0" storage="//@component.1"/>
+  <component xsi:type="metamodel:Supplier" name="new_supplier 1" refillPolicy="//@orderOnStockThreshold.0">
+    <supplierDelay xsi:type="metamodel:Scalar" value="0"/>
+  </component>
+  <component xsi:type="metamodel:Storage" name="new_storage 1" size="10" initialContent="0" storageOutputFlow="//@flow.0" orderOnStockThreshold="//@orderOnStockThreshold.0"/>
+  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 1" storageOutputFlow="//@flow.0" percentageOfSuccess="50.0" numberOfChains="1">
+    <duration xsi:type="metamodel:Scalar"/>
+    <outputs processOutputFlow="//@flow.11" description="Default Success Port"/>
+    <outputs type="FAILURE" processOutputFlow="//@flow.7"/>
+  </component>
+  <component xsi:type="metamodel:Storage" name="new_storage 2" size="10" initialContent="0" overflow="true" processOutputFlow="//@flow.7"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 3" size="10" initialContent="0" storageOutputFlow="//@flow.1" processOutputFlow="//@flow.11"/>
+  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 2" storageOutputFlow="//@flow.1" numberOfChains="1">
+    <duration xsi:type="metamodel:Scalar"/>
+    <outputs processOutputFlow="//@flow.8" description="Default Success Port"/>
+  </component>
+  <component xsi:type="metamodel:Storage" name="new_storage 4" size="10" initialContent="0" storageOutputFlow="//@flow.2" processOutputFlow="//@flow.8"/>
+  <component xsi:type="metamodel:ConveyorBelt" name="new_conveyor_belt 1" storageOutputFlow="//@flow.2">
+    <duration xsi:type="metamodel:Scalar"/>
+    <output processOutputFlow="//@flow.14"/>
+  </component>
+  <component xsi:type="metamodel:ConveyorBelt" name="new_conveyor_belt 2" storageOutputFlow="//@flow.4">
+    <duration xsi:type="metamodel:Scalar"/>
+    <output processOutputFlow="//@flow.12" description="Default Success Port"/>
+  </component>
+  <component xsi:type="metamodel:ConveyorBelt" name="new_conveyor_belt 3" storageOutputFlow="//@flow.6">
+    <duration xsi:type="metamodel:Scalar"/>
+    <output processOutputFlow="//@flow.13" description="Default Success Port"/>
+  </component>
+  <component xsi:type="metamodel:Storage" name="new_storage 5" size="10" initialContent="0" storageOutputFlow="//@flow.4" processOutputFlow="//@flow.9"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 6" size="10" initialContent="0" storageOutputFlow="//@flow.6" processOutputFlow="//@flow.10"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 7" size="10" initialContent="0" storageOutputFlow="//@flow.3" processOutputFlow="//@flow.14"/>
+  <component xsi:type="metamodel:Storage" name="new_storage 8" size="10" initialContent="0" storageOutputFlow="//@flow.5" processOutputFlow="//@flow.12"/>
+  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 3" storageOutputFlow="//@flow.3" numberOfChains="1">
+    <duration xsi:type="metamodel:Scalar"/>
+    <outputs processOutputFlow="//@flow.9" description="Default Success Port"/>
+  </component>
+  <component xsi:type="metamodel:BatchProcess" name="new_batch_process 4" storageOutputFlow="//@flow.5" numberOfChains="1">
+    <duration xsi:type="metamodel:Scalar"/>
+    <outputs processOutputFlow="//@flow.10" description="Default Success Port"/>
+  </component>
+  <component xsi:type="metamodel:Storage" name="new_storage 9" size="10" initialContent="0" overflow="true" processOutputFlow="//@flow.13"/>
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.1" destination="//@component.2">
+    <quantity xsi:type="metamodel:Scalar"/>
+  </flow>
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.4" destination="//@component.5">
+    <quantity xsi:type="metamodel:Scalar"/>
+  </flow>
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.6" destination="//@component.7">
+    <quantity xsi:type="metamodel:Scalar"/>
+  </flow>
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.12" destination="//@component.14">
+    <quantity xsi:type="metamodel:Scalar"/>
+  </flow>
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.10" destination="//@component.8">
+    <quantity xsi:type="metamodel:Scalar"/>
+  </flow>
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.13" destination="//@component.15">
+    <quantity xsi:type="metamodel:Scalar"/>
+  </flow>
+  <flow xsi:type="metamodel:StorageOutputFlow" source="//@component.11" destination="//@component.9">
+    <quantity xsi:type="metamodel:Scalar"/>
+  </flow>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.1" destination="//@component.3">
+    <quantity xsi:type="metamodel:Scalar"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+  </flow>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.5/@outputs.0" destination="//@component.6">
+    <quantity xsi:type="metamodel:Scalar"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+  </flow>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.14/@outputs.0" destination="//@component.10">
+    <quantity xsi:type="metamodel:Scalar"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+  </flow>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.15/@outputs.0" destination="//@component.11">
+    <quantity xsi:type="metamodel:Scalar"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+  </flow>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.0" destination="//@component.4">
+    <quantity xsi:type="metamodel:Scalar"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+  </flow>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.8/@output" destination="//@component.13">
+    <quantity xsi:type="metamodel:Scalar"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+  </flow>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.9/@output" destination="//@component.16">
+    <quantity xsi:type="metamodel:Scalar"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+  </flow>
+  <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.7/@output" destination="//@component.12">
+    <quantity xsi:type="metamodel:Scalar"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+  </flow>
+</metamodel:Model>
