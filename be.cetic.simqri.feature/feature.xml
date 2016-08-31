@@ -6,18 +6,18 @@
       provider-name="CETIC">
 
    <description>
-      SimQRi Eclipse plugin [UPDATE 1.4]
+      SimQRi Eclipse plugin [UPDATE 1.4.1]
+
 What&apos;s new in this update : 
-- Custom reporting services and new report templates for Monte-Carlo simulations
+- Custom reporting services and new report templates for Monte-Carlo
+simulations
 - &quot;System&quot; and &quot;record&quot; queries management
 - SimQRi Eclipse help content (user manual) updated
 - Bug fixes
 - ...
 
 Warning : SimQRi 1.2 projects or earlier are not compatible with SimQRi 1.4. 
-
-Check the installation guide to see how to use the user manual
-in order to learn more about all the features !
+Check the installation guide to see how to use the user manual in order to learn more about all the features !
    </description>
 
    <copyright>
