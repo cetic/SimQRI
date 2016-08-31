@@ -29,5 +29,37 @@ SIMQRI SIRIUS - CONFIGURATION DE L ENVIRONNEMENT DE DEVELOPPEMENT
 		- be.cetic.simqri.cockpit (gestion des simulations)
 		- be.cetic.simqri.design (projet sirius)
 
+
+VERSIONS DES APIs UTILISEES
+----------------------------
+* Sirius : 4.0
+* Java library: 1.8
+* Scala library: 2.11.8
+* Scala parser combinator: 2.11-1.0.4
+* OscaR: latest update by Renaud
+* BIRT Report Engine API: 4.4.2
+* EEF: 1.5
+
+POINTS D'ATTENTION LORS DE L'INIT DE L'ENVIRONNEMENT DE DEVELOPPEMENT
+---------------------------------------------------------------------
+
+* Update sites à installer sur Obeo Designer : 
+	- BIRT Chart OSGi Runtime SDK Feature - http://download.eclipse.org/birt/update-site/4.4/
+	- BIRT Engine OSGi Runtime SDK Feature - http://download.eclipse.org/birt/update-site/4.4/
+	- Extended Editing Framework - EMF Edit generation using Acceleo (voir Eclipse Marketplace)
+	- Extended Editing Framework - SDK (voir Eclipse Marketplace)
+
+Note : les updates sites de BIRT nécessitent d'abord l'installation de certaines dépendances 
+	-> voir http://download.eclipse.org/birt/downloads/
+
+* La démarche de réalisation d'un nouvel update site pour SimQRi est basée sur celle indiquée dans le
+  syllabus fourni par Obeo.
+
+* De l'aide pour la manipulation des projets liés au méta-modèle peut être obtenue sur le wiki de la forge
+  intitulée "Stage-SIMQRI-IHM"
+
+* Faire attention à actualiser les .jar d'un projet dans le répertoire /lib des projets concernés
+  après la mise à jour du projet faisant l'objet du .jar.
+
 ? -> fk@cetic.be
 

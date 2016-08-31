@@ -113,8 +113,13 @@ public class MonteCarloTracer {
 		} catch (IOException e) {
 			JOptionPane.showMessageDialog(null, "Erreur: " + e.getMessage() + "");
 		}
+		// Retrieving the current date
+		String format = "dd-MM-yyyy-HH-mm-ss"; 
+		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format ); 
+		java.util.Date date = new java.util.Date(); 
+		String curDate = formater.format(date);
 		// copy the generated XML File on the workspace for the user
-		File xmlWorkspaceFile = new File(WorkspaceManager.XML_FOLDER_WORKSPACE_PATH+"/montecarlo.xml");
+		File xmlWorkspaceFile = new File(WorkspaceManager.XML_FOLDER_WORKSPACE_PATH+"/montecarlo_"+curDate+".xml");
 		try {
 			copyFileUsingStream(this.XMLFile, xmlWorkspaceFile);
 		} catch (IOException e) {

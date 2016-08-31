@@ -34,7 +34,7 @@ public class ActionBasicQueries implements IExternalJavaAction {
 			if (c instanceof BatchProcess || c instanceof ConveyorBelt || c instanceof Supplier) {
 				addQuery(c.getName()+" : Number of started batches", "startedBatchCount(\""+c.getName()+"\")", QueryType.QUANTITY, model);
 				addQuery(c.getName()+" : Number of completed batches", "completedBatchCount(\""+c.getName()+"\")", QueryType.QUANTITY, model);
-				addQuery(c.getName()+" : Total Idle time", "totalWaitDuration(\""+c.getName()+"\")", QueryType.DELAY, model);
+				addQuery(c.getName()+" : Total Idle time", "totalWaitDuration(\""+c.getName()+"\")", QueryType.UNDEFINED, model);
 				// addQuery(c.getName()+" : Percentage of idle time", "div(totalWaitDuration(\""+c.getName()+"\"), time)", QueryType.DELAY, model);
 			}
 			else if (c instanceof Storage) {
