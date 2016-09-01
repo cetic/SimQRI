@@ -61,5 +61,27 @@ Note : les updates sites de BIRT nécessitent d'abord l'installation de certaines
 * Faire attention à actualiser les .jar d'un projet dans le répertoire /lib des projets concernés
   après la mise à jour du projet faisant l'objet du .jar.
 
+CREATION D'UN NOUVEL UPDATE SITE
+--------------------------------
+
+* Voir syllabus d'Obeo (/!\ dépendances lors de la configuration de la feature)
+
+CREATION D'UN ECLIPSE "SIMQRI"
+------------------------------
+
+1) Télécharger un nouvel Eclipse "Obeo Designer"
+2) Installer les plug-ins requis pour pouvoir installer ceux de BIRT : 
+	* http://www.eclipse.org/datatools/downloads.php
+	* http://www.eclipse.org/modeling/emf/downloads/?project=emf
+3) Installer les plug-ins de BIRT : 
+	* http://wiki.eclipse.org/BIRT_Update_Site_URL
+		- BIRT Chart OSGi Runtime SDK Feature
+		- BIRT Engine OSGi Runtime SDK Feature
+4) Copier le répertoire "simqri-reports" contenant les deux templates de rapport "overall-template" et
+   "detailed-template" dans les fichiers de l'IDE (voir le guide d'installation)
+5) Installer et tester l'update site de SimQRi (wizard de création, user manual, simulations, etc.)
+6) Désinstaller les plug-ins inutiles (les dépendances de BIRT installées au point 2.)
+6) zipper l'ensemble des fichiers de l'IDE.
+
 ? -> fk@cetic.be
 
