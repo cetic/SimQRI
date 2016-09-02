@@ -84,7 +84,7 @@
   <query name="new_batch_process 4 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 4&quot;)" error="" type="DELAY"/>
   <orderOnStockThreshold threshold="1" name="oost 1" orderQuantity="10" supplier="//@component.0" storage="//@component.1"/>
   <component xsi:type="metamodel:Supplier" name="new_supplier 1" refillPolicy="//@orderOnStockThreshold.0">
-    <supplierDelay xsi:type="metamodel:Scalar" value="0"/>
+    <supplierDelay xsi:type="metamodel:Scalar" value="1.3"/>
   </component>
   <component xsi:type="metamodel:Storage" name="new_storage 1" size="10" initialContent="0" storageOutputFlow="//@flow.0" orderOnStockThreshold="//@orderOnStockThreshold.0"/>
   <component xsi:type="metamodel:BatchProcess" name="new_batch_process 1" storageOutputFlow="//@flow.0" percentageOfSuccess="50.0" numberOfChains="1">
@@ -147,34 +147,34 @@
   </flow>
   <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.1" destination="//@component.3">
     <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0.0"/>
   </flow>
   <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.5/@outputs.0" destination="//@component.6">
     <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0.0"/>
   </flow>
   <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.14/@outputs.0" destination="//@component.10">
     <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0.0"/>
   </flow>
   <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.15/@outputs.0" destination="//@component.11">
     <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0.0"/>
   </flow>
   <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.2/@outputs.0" destination="//@component.4">
     <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0.0"/>
   </flow>
   <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.8/@output" destination="//@component.13">
     <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0.0"/>
   </flow>
   <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.9/@output" destination="//@component.16">
     <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0.0"/>
   </flow>
   <flow xsi:type="metamodel:ProcessOutputFlow" source="//@component.7/@output" destination="//@component.12">
     <quantity xsi:type="metamodel:Scalar"/>
-    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0"/>
+    <processOutputFlowDelay xsi:type="metamodel:Scalar" value="0.0"/>
   </flow>
 </metamodel:Model>

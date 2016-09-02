@@ -13,7 +13,7 @@ class ProbabilityHandler {
   
   def getIntFunc(p : Probability) : () => Int = p match {
     case s: Scalar =>
-      () => s.getValue
+      () => s.getValue.toInt
     case n : Gaussian => // = "normal" in the web client
       val intRdVar = new IntRandomVar("normal", new NormalDistribution(n.getLocation, n.getScale))
       intRdVar.dynamicIntRandomFunc
@@ -34,7 +34,7 @@ class ProbabilityHandler {
   
   def getDoubleFunc(p : Probability) : () => Double = p match {
     case s: Scalar =>
-      () => s.getValue.doubleValue()
+      () => s.getValue
     case n : Gaussian =>
       val doubleRdVar = new DoubleRandomVar("normal", new NormalDistribution(n.getLocation, n.getScale))
       doubleRdVar.dynamicDoubleRandomFunc

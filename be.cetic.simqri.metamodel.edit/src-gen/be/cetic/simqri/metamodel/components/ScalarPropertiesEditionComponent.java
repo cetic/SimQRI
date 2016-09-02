@@ -109,7 +109,7 @@ public class ScalarPropertiesEditionComponent extends SiriusAwarePropertiesEditi
 	public void updateSemanticModel(final IPropertiesEditionEvent event) {
 		Scalar scalar = (Scalar)semanticObject;
 		if (MetamodelViewsRepository.Scalar.Properties.value == event.getAffectedEditor()) {
-			scalar.setValue((java.lang.Integer)EEFConverterUtil.createFromString(MetamodelPackage.Literals.POSITIVE_INT, (String)event.getNewValue()));
+			scalar.setValue((java.lang.Double)EEFConverterUtil.createFromString(MetamodelPackage.Literals.POSITIVE_DOUBLE, (String)event.getNewValue()));
 		}
 	}
 

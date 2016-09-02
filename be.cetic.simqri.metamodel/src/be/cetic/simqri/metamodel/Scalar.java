@@ -22,7 +22,7 @@ package be.cetic.simqri.metamodel;
 public interface Scalar extends Probability {
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
+	 * The default value is <code>"1.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
@@ -30,12 +30,12 @@ public interface Scalar extends Probability {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Value</em>' attribute.
-	 * @see #setValue(Integer)
+	 * @see #setValue(Double)
 	 * @see be.cetic.simqri.metamodel.MetamodelPackage#getScalar_Value()
-	 * @model default="1" dataType="be.cetic.simqri.metamodel.PositiveInt"
+	 * @model default="1.0" dataType="be.cetic.simqri.metamodel.PositiveDouble"
 	 * @generated
 	 */
-	Integer getValue();
+	Double getValue();
 
 	/**
 	 * Sets the value of the '{@link be.cetic.simqri.metamodel.Scalar#getValue <em>Value</em>}' attribute.
@@ -45,6 +45,6 @@ public interface Scalar extends Probability {
 	 * @see #getValue()
 	 * @generated
 	 */
-	void setValue(Integer value);
+	void setValue(Double value);
 
 } // Scalar

@@ -33,7 +33,7 @@ public class ScalarImpl extends ProbabilityImpl implements Scalar {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer VALUE_EDEFAULT = 1;
+	protected static final Double VALUE_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -43,7 +43,7 @@ public class ScalarImpl extends ProbabilityImpl implements Scalar {
 	 * @generated
 	 * @ordered
 	 */
-	protected Integer value = VALUE_EDEFAULT;
+	protected Double value = VALUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,7 +69,7 @@ public class ScalarImpl extends ProbabilityImpl implements Scalar {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getValue() {
+	public Double getValue() {
 		return value;
 	}
 
@@ -78,8 +78,8 @@ public class ScalarImpl extends ProbabilityImpl implements Scalar {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(Integer newValue) {
-		Integer oldValue = value;
+	public void setValue(Double newValue) {
+		Double oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MetamodelPackage.SCALAR__VALUE, oldValue, value));
@@ -108,7 +108,7 @@ public class ScalarImpl extends ProbabilityImpl implements Scalar {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case MetamodelPackage.SCALAR__VALUE:
-				setValue((Integer)newValue);
+				setValue((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -305,7 +305,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_I-ZHo-YEEeW9tIiVHlRJVw"/>
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_I-YgkeYEEeW9tIiVHlRJVw" fontName="Ubuntu" fontHeight="8"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I-YgkuYEEeW9tIiVHlRJVw" x="842" y="641" width="134" height="100"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_I-YgkuYEEeW9tIiVHlRJVw" x="842" y="641" width="166" height="100"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_Kz1ogOr1EeWtC58wJJKRKw" type="2003" element="_KzkiwOr1EeWtC58wJJKRKw">
             <children xmi:type="notation:Node" xmi:id="_Kz2PkOr1EeWtC58wJJKRKw" type="5007"/>
@@ -679,7 +679,7 @@
             <styles xmi:type="notation:ConnectorStyle" xmi:id="_MoRYYeYEEeW9tIiVHlRJVw" routing="Tree"/>
             <styles xmi:type="notation:FontStyle" xmi:id="_MoRYYuYEEeW9tIiVHlRJVw" fontName="Ubuntu" fontHeight="8"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MoRYY-YEEeW9tIiVHlRJVw" points="[0, 0, 73, 84]$[0, -17, 73, 67]$[-74, -17, -1, 67]$[-74, -35, -1, 49]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MoR_duYEEeW9tIiVHlRJVw" id="(0.5828282828282828,0.01)"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MoR_duYEEeW9tIiVHlRJVw" id="(0.4691056910569106,0.01)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MoR_d-YEEeW9tIiVHlRJVw" id="(0.5,0.5)"/>
           </edges>
           <edges xmi:type="notation:Edge" xmi:id="_2hjF8OryEeWtC58wJJKRKw" type="4001" element="_2hI2QOryEeWtC58wJJKRKw" source="_jAbmoOXXEeW4tuuFtCl4pA" target="_PN9FYOX9EeW9tIiVHlRJVw">
@@ -1461,7 +1461,7 @@
           <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_U9nSsOYEEeW9tIiVHlRJVw" name="value : PositiveInt = 1" tooltipText="">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_U9nSsOYEEeW9tIiVHlRJVw" name="value : PositiveDouble = 1.0" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="metamodel.ecore#//Scalar/value"/>
           <semanticElements xmi:type="ecore:EAttribute" href="metamodel.ecore#//Scalar/value"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_WYG6wOYEEeW9tIiVHlRJVw" labelAlignment="LEFT">

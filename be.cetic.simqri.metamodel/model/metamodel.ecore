@@ -110,8 +110,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Probability" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Distribution" abstract="true" eSuperTypes="#//Probability"/>
   <eClassifiers xsi:type="ecore:EClass" name="Scalar" eSuperTypes="#//Probability">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//PositiveInt"
-        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="#//PositiveDouble"
+        defaultValueLiteral="1.0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="Percent" instanceClassName="java.lang.Double">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">

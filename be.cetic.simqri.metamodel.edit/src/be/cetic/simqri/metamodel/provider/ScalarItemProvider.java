@@ -91,7 +91,7 @@ public class ScalarItemProvider extends ProbabilityItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Integer labelValue = ((Scalar)object).getValue();
+		Double labelValue = ((Scalar)object).getValue();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Scalar_type") :
