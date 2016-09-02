@@ -2,7 +2,7 @@
 <feature
       id="be.cetic.simqri.feature"
       label="SimQRi Feature"
-      version="1.4.0.qualifier"
+      version="1.4.1.qualifier"
       provider-name="CETIC">
 
    <description>

@@ -74,14 +74,14 @@
   <query name="new_storage 9 : Total input" value="totalPut(&quot;new_storage 9&quot;)" error="" type="QUANTITY"/>
   <query name="new_storage 9 : Capacity" value="capacity(&quot;new_storage 9&quot;)" error="" type="QUANTITY"/>
   <query name="new_storage 9 : Capacity utilisation" value="relativeStockLevel(&quot;new_storage 9&quot;)" error="" type="QUANTITY"/>
-  <query name="new_supplier 1 : Total Idle time" value="totalWaitDuration(&quot;new_supplier 1&quot;)" error="" type="DELAY"/>
-  <query name="new_batch_process 1 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 1&quot;)" error="" type="DELAY"/>
-  <query name="new_batch_process 2 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 2&quot;)" error="" type="DELAY"/>
-  <query name="new_conveyor_belt 1 : Total Idle time" value="totalWaitDuration(&quot;new_conveyor_belt 1&quot;)" error="" type="DELAY"/>
-  <query name="new_conveyor_belt 2 : Total Idle time" value="totalWaitDuration(&quot;new_conveyor_belt 2&quot;)" error="" type="DELAY"/>
-  <query name="new_conveyor_belt 3 : Total Idle time" value="totalWaitDuration(&quot;new_conveyor_belt 3&quot;)" error="" type="DELAY"/>
-  <query name="new_batch_process 3 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 3&quot;)" error="" type="DELAY"/>
-  <query name="new_batch_process 4 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 4&quot;)" error="" type="DELAY"/>
+  <query name="new_supplier 1 : Total Idle time" value="totalWaitDuration(&quot;new_supplier 1&quot;)" error=""/>
+  <query name="new_batch_process 1 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 1&quot;)" error=""/>
+  <query name="new_batch_process 2 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 2&quot;)" error=""/>
+  <query name="new_conveyor_belt 1 : Total Idle time" value="totalWaitDuration(&quot;new_conveyor_belt 1&quot;)" error=""/>
+  <query name="new_conveyor_belt 2 : Total Idle time" value="totalWaitDuration(&quot;new_conveyor_belt 2&quot;)" error=""/>
+  <query name="new_conveyor_belt 3 : Total Idle time" value="totalWaitDuration(&quot;new_conveyor_belt 3&quot;)" error=""/>
+  <query name="new_batch_process 3 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 3&quot;)" error=""/>
+  <query name="new_batch_process 4 : Total Idle time" value="totalWaitDuration(&quot;new_batch_process 4&quot;)" error=""/>
   <orderOnStockThreshold threshold="1" name="oost 1" orderQuantity="10" supplier="//@component.0" storage="//@component.1"/>
   <component xsi:type="metamodel:Supplier" name="new_supplier 1" refillPolicy="//@orderOnStockThreshold.0">
     <supplierDelay xsi:type="metamodel:Scalar" value="1.3"/>

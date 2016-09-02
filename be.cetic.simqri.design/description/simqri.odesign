@@ -104,7 +104,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Supplier" referenceName="component">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_supplier '+self.eContainer().component->filter(metamodel::Supplier)->size()"/>
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="supplierDelay">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="0"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="0.0"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -122,7 +122,7 @@
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="description" valueExpression="Default Success Port"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1.0"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -137,7 +137,7 @@
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.BatchProcess" referenceName="component">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1.0"/>
                     </subModelOperations>
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
@@ -156,7 +156,7 @@
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="numberOfChains" valueExpression="1"/>
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1.0"/>
                     </subModelOperations>
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
@@ -175,7 +175,7 @@
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:'new_batch_process '+self.eContainer().component->filter(metamodel::BatchProcess)->size()"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="percentageOfSuccess" valueExpression="99.0"/>
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1.0"/>
                     </subModelOperations>
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
@@ -195,7 +195,7 @@
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="numberOfChains" valueExpression="1"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="percentageOfSuccess" valueExpression="99.0"/>
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="duration">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1.0"/>
                     </subModelOperations>
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Output" referenceName="outputs">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="OutputType.SUCCESS"/>
@@ -451,7 +451,7 @@
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="destination" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="quantity">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1.0"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.source.storageOutputFlow->select(i|i.destination=self.destination)->size()>1 and self.source.storageOutputFlow->first()&lt;>self">
                     <subModelOperations xsi:type="tool_1:Unset" featureName="source" elementExpression="var:source"/>
@@ -473,10 +473,10 @@
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="source" valueExpression="var:source"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="destination" valueExpression="var:target"/>
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="quantity">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="1.0"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_1:CreateInstance" typeName="metamodel.Scalar" referenceName="processOutputFlowDelay">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="0"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="value" valueExpression="0.0"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.source.processOutputFlow->select(i|i.destination=self.destination)->size()>1 and self.source.processOutputFlow->first()&lt;>self">
                     <subModelOperations xsi:type="tool_1:Unset" featureName="source" elementExpression="var:source"/>
