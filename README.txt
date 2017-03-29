@@ -1,7 +1,7 @@
 SIMQRI SIRIUS - SETTING UP A DEVELOPMENT ENVIRONMENT
 ----------------------------------------------------
 
-3 Eclipse IDEs required : 
+3 Eclipse IDEs are required
 
 1) Obeo Designer Community 9.0
 	* Level 0 instance : 
@@ -29,7 +29,6 @@ SIMQRI SIRIUS - SETTING UP A DEVELOPMENT ENVIRONMENT
 		- be.cetic.simqri.cockpit (Simulation management)
 		- be.cetic.simqri.design (Sirius project)
 
-
 APIs VERSIONS USED
 -----------------
 * Sirius : 4.0
@@ -55,7 +54,7 @@ Note : BIRT Update Sites first require to install some other dependencies
 PACKAGING AN IDE INCLUDING SIMQRI
 ---------------------------------
 
-1) Download "Obeo Designer"
+1) Download "Obeo Designer" (see version above, more recent not yet tested)
 2) Install the plug-ins required to install BIRT : 
 	* http://www.eclipse.org/datatools/downloads.php
 	* http://www.eclipse.org/modeling/emf/downloads/?project=emf
@@ -67,6 +66,6 @@ PACKAGING AN IDE INCLUDING SIMQRI
    "detailed-template" report templates into the Eclipse installation directory (See installation guide)
 5) Install and test SimQRI from update site (project creation wizard, user manual, simulations, etc.)
 6) Uninstall useless plug-ins (BIRT dependencies installed at 2)
-6) Zip all IDE files
+7) Zip all IDE files
 
 
